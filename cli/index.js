@@ -246,24 +246,6 @@ export class GawCli {
     const projectInfo = ProjectDetector.detect(process.cwd());
     const loaded = await this.orchestrator.loadSkillsForTask(prompt, projectInfo);
 
-    // If project has ai-brain/, automatically sync loaded skills into ai-brain/skills/
-    const brainSkillsDir = path.join(process.cwd(), 'ai-brain', 'skills');
-    if (fs.existsSync(path.join(process.cwd(), 'ai-brain'))) {
-      fs.mkdirSync(brainSkillsDir, { recursive: true });
-      for (const skill of loaded.skills) {
-        const dest = path.join(brainSkillsDir, `${skill.id}.md`);
-        fs.writeFileSync(dest, `# Skill: ${skill.name}\n\n${skill.content}`, 'utf8');
-      }
-      // Also save current active task
-      fs.writeFileSync(
-        path.join(process.cwd(), 'ai-brain', 'ACTIVE_TASK.md'),
-        `# Active Task: ${prompt}\n\nTimestamp: ${new Date().toISOString()}\n\n${loaded.formattedInstructions}`,
-        'utf8'
-      );
-      console.log(`\n\x1b[32m✓ Synced ${loaded.skills.length} specialized skill(s) into ./ai-brain/skills/\x1b[0m`);
-      console.log(`\x1b[32m✓ Saved active task plan to ./ai-brain/ACTIVE_TASK.md\x1b[0m\n`);
-    }
-
     console.log(loaded.formattedInstructions);
   }
 

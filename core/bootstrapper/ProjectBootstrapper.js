@@ -165,27 +165,11 @@ export class ProjectBootstrapper {
     report.integrations.agentAdapters = adapterRes;
     report.steps.push({ step: 6, name: 'Configure AI Agents', status: 'Configured' });
 
-    // Step 9: Recommend Relevant Skills and sync into ai-brain/skills/
-    const initialQuery = `${projectInfo.framework} ${projectInfo.uiLibraries.join(' ')} design system animation`;
+    // Step 9: Recommend Relevant Skills
+    const initialQuery = `${projectInfo.framework} ${projectInfo.uiLibraries.join(' ')} design system`;
     const recs = await this.orchestrator.recommend(initialQuery, { framework: projectInfo.framework });
     report.skillsRecommended = recs.primarySkills.map(s => `${s.name} (${s.id})`);
-
-    // Sync primary and supporting skills directly into ai-brain/skills/
-    if (!dryRun) {
-      const skillsToSync = [...recs.primarySkills, ...recs.supportingSkills];
-      for (const recSkill of skillsToSync) {
-        const fullSkill = await this.registry.getSkill(recSkill.id);
-        if (fullSkill) {
-          const destFile = path.join(skillsDir, `${recSkill.id}.md`);
-          if (!fs.existsSync(destFile) || force) {
-            fs.writeFileSync(destFile, `# Skill: ${fullSkill.name}\n\n${fullSkill.content}`, 'utf8');
-            report.created.push(`ai-brain/skills/${recSkill.id}.md`);
-          }
-        }
-      }
-    }
-
-    report.steps.push({ step: 7, name: 'Skill Recommendations', status: 'Identified & Synced', count: recs.primarySkills.length });
+    report.steps.push({ step: 7, name: 'Skill Recommendations', status: 'Identified', count: recs.primarySkills.length });
 
     // Summary
     report.summary = {
