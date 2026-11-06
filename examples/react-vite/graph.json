@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-11-06T09:03:03.993Z",
+  "nodes": [
+    {
+      "id": "package.json",
+      "label": "package.json",
+      "type": "config",
+      "size": 290,
+      "functions": [],
+      "importCount": 0
+    },
+    {
+      "id": "src/App.tsx",
+      "label": "App.tsx",
+      "type": "code",
+      "size": 559,
+      "functions": [
+        "App"
+      ],
+      "importCount": 1
+    }
+  ],
+  "edges": [
+    {
+      "source": "src/App.tsx",
+      "target": "react",
+      "type": "imports"
+    }
+  ],
+  "hubs": [
+    {
+      "target": "react",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Graphify — Codebase Relationship Graph</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 20px; }
+    h1 { color: #38bdf8; font-size: 1.5rem; margin-bottom: 8px; }
+    .badge { display: inline-block; padding: 4px 8px; background: #1e293b; border-radius: 4px; font-size: 0.85rem; margin-right: 8px; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; margin-top: 16px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    th, td { text-align: left; padding: 8px; border-bottom: 1px solid #334155; font-size: 0.9rem; }
+    th { color: #94a3b8; }
+    code { font-family: monospace; color: #a5f3fc; }
+  </style>
+</head>
+<body>
+  <h1>Graphify Codebase Architecture Explorer</h1>
+  <div>
+    <span class="badge">Nodes: 2</span>
+    <span class="badge">Edges: 1</span>
+    <span class="badge">Updated: 2026-11-06</span>
+  </div>
+  <div class="card">
+    <h2>Architecture Nodes</h2>
+    <table>
+      <thead>
+        <tr><th>Path</th><th>Type</th><th>Key Identifiers</th><th>Imports</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>package.json</code></td><td>config</td><td>-</td><td>0</td></tr><tr><td><code>src/App.tsx</code></td><td>code</td><td>App</td><td>1</td></tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+# Model Context Protocol (MCP) Setup
+
+## Overview
+Global Agentic Web provides a native MCP server (`mcp/server.js`) compliant with the Model Context Protocol standard.
+
+## Installation in Coding Assistants
+
+### Claude Code (`claude.json`)
+```json
+{
+  "mcpServers": {
+    "gaw": {
+      "command": "node",
+      "args": ["E:/master-skills/mcp/server.js"]
+    }
+  }
+}
+```
+
+### Cursor (`~/.cursor/mcp.json`)
+```json
+{
+  "mcpServers": {
+    "global-agentic-web": {
+      "command": "node",
+      "args": ["E:/master-skills/mcp/server.js"]
+    }
+  }
+}
+```
+
+## Available Tools
+- `list_skills(category?: string)`
+- `search_skills(query: string, category?: string, framework?: string)`
+- `get_skill(id: string)`
+- `recommend_skills(taskPrompt: string, framework?: string)`
+- `load_skills(taskPrompt: string)`
+- `get_global_brain()`
+- `get_project_context(projectPath?: string)`
+- `update_project_memory(category: string, decision: string, context: string)`
+- `initialize_project(projectPath?: string, dryRun?: boolean)`
+- `analyze_project(projectPath?: string)`
+- `get_project_graph(projectPath?: string, forceRegenerate?: boolean)`
+- `get_project_status(projectPath?: string)`
+

@@ -1,0 +1,42 @@
+{
+  "name": "global-agentic-web",
+  "version": "1.0.0",
+  "description": "Centralized Agentic Skills Ecosystem, Global Brain & Universal Project Bootstrapper",
+  "type": "module",
+  "bin": {
+    "gaw": "./bin/gaw.js"
+  },
+  "main": "./cli/index.js",
+  "scripts": {
+    "test": "node scripts/run-tests.js",
+    "gaw": "node ./bin/gaw.js",
+    "mcp": "node ./mcp/server.js",
+    "doctor": "node ./bin/gaw.js doctor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/global-agentic-web.git"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "skills",
+    "mcp",
+    "model-context-protocol",
+    "ui-ux",
+    "design-systems",
+    "graphify",
+    "agentation",
+    "bootstrapper",
+    "claude-code",
+    "cursor"
+  ],
+  "author": "Global Agentic Web Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.1.0"
+  }
+}
