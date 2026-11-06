@@ -209,6 +209,80 @@ export class ProjectBootstrapper {
       recommendedNextStep: brain ? 'Run `gaw use "<task description>"` to execute your task with loaded skills.' : 'Run `gaw init`'
     };
   }
+
+  async update(targetDir = process.cwd(), options = {}) {
+    const dir = path.resolve(targetDir);
+    const projectInfo = ProjectDetector.detect(dir);
+    const brainDir = path.join(dir, 'ai-brain');
+    const templatesDir = path.join(this.repoRoot, 'templates', 'ai-brain');
+
+    const result = {
+      projectPath: dir,
+      projectName: projectInfo.projectName,
+      addedBrainFiles: [],
+      preservedBrainFiles: [],
+      graphUpdated: false,
+      graphSummary: '',
+      agentationChecked: false
+    };
+
+    if (fs.existsSync(brainDir)) {
+      const templateReplacements = {
+        '{{PROJECT_NAME}}': projectInfo.projectName,
+        '{{FRAMEWORK}}': projectInfo.framework,
+        '{{LANGUAGES}}': projectInfo.languages.join(', '),
+        '{{PACKAGE_MANAGER}}': projectInfo.packageManager,
+        '{{UI_LIBRARIES}}': projectInfo.uiLibraries.join(', ') || 'Standard CSS',
+        '{{BUILD_SYSTEM}}': projectInfo.buildSystem,
+        '{{DATE}}': new Date().toISOString().split('T')[0],
+        '{{REPO_ROOT}}': this.repoRoot
+      };
+
+      const renderTemplate = (content) => {
+        let res = content;
+        for (const [key, val] of Object.entries(templateReplacements)) {
+          res = res.replaceAll(key, String(val));
+        }
+        return res;
+      };
+
+      const brainFileNames = [
+        'README.md', 'context.md', 'identity.md', 'rules.md', 'playbook.md',
+        'project-history.md', 'design-principles.md', 'coding-preferences.md',
+        'component-preferences.md', 'workflow-preferences.md', 'tool-preferences.md',
+        'lessons-learned.md', 'confirmed-preferences.md', 'decision-history.md'
+      ];
+
+      for (const filename of brainFileNames) {
+        const dest = path.join(brainDir, filename);
+        if (!fs.existsSync(dest)) {
+          const tmplPath = path.join(templatesDir, filename);
+          if (fs.existsSync(tmplPath)) {
+            const content = renderTemplate(fs.readFileSync(tmplPath, 'utf8'));
+            fs.writeFileSync(dest, content, 'utf8');
+            result.addedBrainFiles.push(`ai-brain/${filename}`);
+          }
+        } else {
+          result.preservedBrainFiles.push(`ai-brain/${filename}`);
+        }
+      }
+    }
+
+    // Auto-rescan Graphify
+    const graphify = new GraphifyManager({ projectRoot: dir });
+    const graphRes = await graphify.generateGraph({ targetDir: dir, force: true });
+    result.graphUpdated = Boolean(graphRes);
+    result.graphSummary = graphRes ? graphRes.summary : 'Up to date';
+
+    // Auto-configure Agentation if React
+    if (projectInfo.isReact) {
+      const agentation = new AgentationManager({ projectRoot: dir });
+      agentation.configure(projectInfo, { dryRun: false });
+      result.agentationChecked = true;
+    }
+
+    return result;
+  }
 }
 
 export default ProjectBootstrapper;

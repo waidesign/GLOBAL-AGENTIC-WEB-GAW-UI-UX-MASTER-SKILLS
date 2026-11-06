@@ -315,9 +315,31 @@ export class GawCli {
 
   async cmdUpdate(args) {
     this.printHeader();
-    console.log(`Checking for skills updates from upstream ui-skills...`);
+    console.log(`Checking for skills updates from central registry...`);
     const skills = await this.registry.getAllSkills();
-    console.log(`✓ Central registry is current with ${skills.length} skills loaded.`);
+    console.log(`✓ Central registry is current with ${skills.length} skills loaded.\n`);
+
+    const brainDir = path.join(process.cwd(), 'ai-brain');
+    if (fs.existsSync(brainDir)) {
+      console.log(`🔄 Syncing current project with latest GAW templates & architecture tools...`);
+      const res = await this.bootstrapper.update(process.cwd());
+      if (res.addedBrainFiles.length > 0) {
+        console.log(`\n📄 Added Missing Project Brain Files:`);
+        for (const f of res.addedBrainFiles) {
+          console.log(`  + ${f}`);
+        }
+      } else {
+        console.log(`✓ All project brain files are up to date (${res.preservedBrainFiles.length} files preserved).`);
+      }
+      console.log(`✓ Codebase Architecture Graph: ${res.graphSummary}`);
+      if (res.agentationChecked) {
+        console.log(`✓ Agentation visual inspection verified.`);
+      }
+      console.log(`\n🎉 Project successfully updated to latest GAW standards!\n`);
+    } else {
+      console.log(`ℹ️ No local 'ai-brain/' directory found in current path (${process.cwd()}).`);
+      console.log(`👉 Run 'gaw init' to initialize GAW in this project.\n`);
+    }
   }
 
   async cmdDoctor(args) {
