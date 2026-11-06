@@ -68,9 +68,33 @@ export class AgentationManager {
   }
 
   injectComponent(projectPath = this.projectRoot, framework = 'react', dryRun = false) {
-    const target = this.findRootComponent(projectPath, framework);
+    let target = this.findRootComponent(projectPath, framework);
     if (!target) {
-      return { injected: false, reason: 'No recognized root component file found (App/layout)' };
+      // If no root component exists in a React project, scaffold a starter App.tsx
+      const srcDir = path.join(projectPath, 'src');
+      const candidatePath = path.join(srcDir, 'App.tsx');
+      if (!dryRun) {
+        fs.mkdirSync(srcDir, { recursive: true });
+        const devGuard = framework === 'react-vite' ? 'import.meta.env.DEV' : 'process.env.NODE_ENV === "development"';
+        const starterContent = `import React from 'react';
+import { Agentation } from 'agentation';
+
+export function App() {
+  return (
+    <div className="app-container">
+      <h1>Welcome to your Application</h1>
+      {${devGuard} && <Agentation />}
+    </div>
+  );
+}
+
+export default App;
+`;
+        fs.writeFileSync(candidatePath, starterContent, 'utf8');
+        return { injected: true, createdFile: 'src/App.tsx', file: 'src/App.tsx', guard: devGuard };
+      } else {
+        return { injected: true, dryRun: true, file: 'src/App.tsx (would scaffold)' };
+      }
     }
 
     const content = fs.readFileSync(target.path, 'utf8');

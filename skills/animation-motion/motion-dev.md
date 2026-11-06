@@ -147,3 +147,4 @@ export function ScrollProgressBar() {
 - [ ] Are animations disabled or simplified when `prefers-reduced-motion` is active?
 - [ ] Are all animated elements keyboard focusable before and after transitions?
 - [ ] Does layout remain stable without Cumulative Layout Shift (CLS)?
+

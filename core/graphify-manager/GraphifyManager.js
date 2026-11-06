@@ -24,15 +24,25 @@ export class GraphifyManager {
     const htmlPath = path.join(targetDir, 'graph.html');
     const reportPath = path.join(targetDir, 'GRAPH_REPORT.md');
 
-    // Check if graph already exists and reuse unless force
+    // Check if graph already exists and reuse only if valid and not empty
     if (!force && fs.existsSync(jsonPath) && fs.existsSync(reportPath)) {
-      return {
-        reused: true,
-        jsonPath,
-        htmlPath,
-        reportPath,
-        summary: 'Existing codebase graph is current.'
-      };
+      try {
+        const existingData = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+        // If the existing graph had 0 nodes, do not reuse - auto regenerate
+        if (existingData && Array.isArray(existingData.nodes) && existingData.nodes.length > 0) {
+          return {
+            reused: true,
+            jsonPath,
+            htmlPath,
+            reportPath,
+            nodeCount: existingData.nodes.length,
+            edgeCount: existingData.edges?.length || 0,
+            summary: `Existing codebase graph is current (${existingData.nodes.length} modules tracked).`
+          };
+        }
+      } catch (e) {
+        // Corrupted or empty json, re-generate
+      }
     }
 
     // If external CLI exists, attempt to run it

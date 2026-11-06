@@ -150,3 +150,4 @@ waapi.animate('.interactive-element', {
 - [ ] Are animations bounded under 300ms for user-triggered micro-interactions?
 - [ ] Are transforms hardware accelerated (`x`, `y`, `scale`)?
 - [ ] Is `prefers-reduced-motion` honored by checking `window.matchMedia('(prefers-reduced-motion: reduce)').matches`?
+

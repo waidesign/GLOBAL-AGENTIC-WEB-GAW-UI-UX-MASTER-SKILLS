@@ -78,7 +78,20 @@ export class ProjectBootstrapper {
     };
 
     const brainFileNames = [
-      'README.md', 'context.md', 'identity.md', 'playbook.md', 'project-history.md', 'rules.md'
+      'README.md',
+      'context.md',
+      'identity.md',
+      'rules.md',
+      'playbook.md',
+      'project-history.md',
+      'design-principles.md',
+      'coding-preferences.md',
+      'component-preferences.md',
+      'workflow-preferences.md',
+      'tool-preferences.md',
+      'lessons-learned.md',
+      'confirmed-preferences.md',
+      'decision-history.md'
     ];
 
     for (const filename of brainFileNames) {
@@ -152,11 +165,27 @@ export class ProjectBootstrapper {
     report.integrations.agentAdapters = adapterRes;
     report.steps.push({ step: 6, name: 'Configure AI Agents', status: 'Configured' });
 
-    // Step 9: Recommend Relevant Skills
-    const initialQuery = `${projectInfo.framework} ${projectInfo.uiLibraries.join(' ')} design system`;
+    // Step 9: Recommend Relevant Skills and sync into ai-brain/skills/
+    const initialQuery = `${projectInfo.framework} ${projectInfo.uiLibraries.join(' ')} design system animation`;
     const recs = await this.orchestrator.recommend(initialQuery, { framework: projectInfo.framework });
     report.skillsRecommended = recs.primarySkills.map(s => `${s.name} (${s.id})`);
-    report.steps.push({ step: 7, name: 'Skill Recommendations', status: 'Identified', count: recs.primarySkills.length });
+
+    // Sync primary and supporting skills directly into ai-brain/skills/
+    if (!dryRun) {
+      const skillsToSync = [...recs.primarySkills, ...recs.supportingSkills];
+      for (const recSkill of skillsToSync) {
+        const fullSkill = await this.registry.getSkill(recSkill.id);
+        if (fullSkill) {
+          const destFile = path.join(skillsDir, `${recSkill.id}.md`);
+          if (!fs.existsSync(destFile) || force) {
+            fs.writeFileSync(destFile, `# Skill: ${fullSkill.name}\n\n${fullSkill.content}`, 'utf8');
+            report.created.push(`ai-brain/skills/${recSkill.id}.md`);
+          }
+        }
+      }
+    }
+
+    report.steps.push({ step: 7, name: 'Skill Recommendations', status: 'Identified & Synced', count: recs.primarySkills.length });
 
     // Summary
     report.summary = {
@@ -175,15 +204,23 @@ export class ProjectBootstrapper {
     const projectInfo = ProjectDetector.detect(dir);
     const brain = await this.memoryEngine.getProjectBrain(dir);
 
-    const graphPath = path.join(dir, 'graph.json');
-    const hasGraph = fs.existsSync(graphPath);
+    // Auto-refresh Graphify graph if files were added or graph was empty
+    const graphify = new GraphifyManager({ projectRoot: dir });
+    const graphRes = await graphify.generateGraph({ targetDir: dir });
+
+    // Auto-configure Agentation if React and not yet injected
+    if (projectInfo.isReact) {
+      const agentation = new AgentationManager({ projectRoot: dir });
+      agentation.configure(projectInfo, { dryRun: false });
+    }
 
     return {
       projectPath: dir,
       projectName: projectInfo.projectName,
       framework: projectInfo.framework,
       hasProjectBrain: Boolean(brain),
-      hasGraph,
+      graphStatus: graphRes.summary,
+      hasGraph: true,
       status: brain ? 'Ready' : 'Not initialized (run `gaw init` first)',
       recommendedNextStep: brain ? 'Run `gaw use "<task description>"` to execute your task with loaded skills.' : 'Run `gaw init`'
     };

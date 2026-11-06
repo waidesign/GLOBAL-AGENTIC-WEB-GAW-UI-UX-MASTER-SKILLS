@@ -9,6 +9,8 @@ import { ProjectDetector } from '../core/project-detector/ProjectDetector.js';
 import { ProjectBootstrapper } from '../core/bootstrapper/ProjectBootstrapper.js';
 import { GraphifyManager } from '../core/graphify-manager/GraphifyManager.js';
 
+import { runInteractiveOnboarding } from './interactive.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '../');
@@ -136,7 +138,14 @@ export class GawCli {
     }
 
     console.log(`\n✅ Project initialization complete!`);
-    console.log(`👉 Next: Use 'gaw use "<your task>"' to load targeted skills for any task.\n`);
+
+    // Check if interactive onboarding should run
+    const isInteractive = args.includes('-i') || args.includes('--interactive') || (process.stdin.isTTY && !args.includes('--yes') && !args.includes('--non-interactive'));
+    if (isInteractive && !dryRun) {
+      await runInteractiveOnboarding(this.bootstrapper, result.projectInfo, result.skillsRecommended, this.repoRoot);
+    } else {
+      console.log(`👉 Next: Use 'gaw use "<your task>"' to load targeted skills for any task.\n`);
+    }
   }
 
   async cmdStart(args) {
@@ -236,6 +245,24 @@ export class GawCli {
 
     const projectInfo = ProjectDetector.detect(process.cwd());
     const loaded = await this.orchestrator.loadSkillsForTask(prompt, projectInfo);
+
+    // If project has ai-brain/, automatically sync loaded skills into ai-brain/skills/
+    const brainSkillsDir = path.join(process.cwd(), 'ai-brain', 'skills');
+    if (fs.existsSync(path.join(process.cwd(), 'ai-brain'))) {
+      fs.mkdirSync(brainSkillsDir, { recursive: true });
+      for (const skill of loaded.skills) {
+        const dest = path.join(brainSkillsDir, `${skill.id}.md`);
+        fs.writeFileSync(dest, `# Skill: ${skill.name}\n\n${skill.content}`, 'utf8');
+      }
+      // Also save current active task
+      fs.writeFileSync(
+        path.join(process.cwd(), 'ai-brain', 'ACTIVE_TASK.md'),
+        `# Active Task: ${prompt}\n\nTimestamp: ${new Date().toISOString()}\n\n${loaded.formattedInstructions}`,
+        'utf8'
+      );
+      console.log(`\n\x1b[32m✓ Synced ${loaded.skills.length} specialized skill(s) into ./ai-brain/skills/\x1b[0m`);
+      console.log(`\x1b[32m✓ Saved active task plan to ./ai-brain/ACTIVE_TASK.md\x1b[0m\n`);
+    }
 
     console.log(loaded.formattedInstructions);
   }

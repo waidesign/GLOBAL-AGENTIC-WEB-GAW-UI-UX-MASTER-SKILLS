@@ -64,3 +64,4 @@ A toggle switch must not merely snap:
 - Never add motion for decoration alone. Every micro-interaction must answer the question: *"What physical state change does this explain?"*
 - Never bounce or oscillate more than once. Damped springs must settle rapidly.
 - Always provide immediate visual feedback while awaiting network requests.
+
