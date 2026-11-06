@@ -5,6 +5,18 @@ Global Agentic Web provides a native MCP server (`mcp/server.js`) compliant with
 
 ## Installation in Coding Assistants
 
+### Antigravity IDE (`~/.gemini/config/mcp_config.json`)
+```json
+{
+  "mcpServers": {
+    "global-agentic-web": {
+      "command": "node",
+      "args": ["E:/master-skills/mcp/server.js"]
+    }
+  }
+}
+```
+
 ### Claude Code (`claude.json`)
 ```json
 {
