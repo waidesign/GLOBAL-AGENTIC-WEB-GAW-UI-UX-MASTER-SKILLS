@@ -1,7 +1,7 @@
 # GAW Troubleshooting & FAQ
 
 ### 1. `gaw` command not recognized
-Run `npm link` inside the `e:/master-skills` repository directory. Ensure your global npm bin directory is in your system's `PATH`.
+Run `npm link` inside the folder where you cloned GAW. Ensure your global npm bin directory is in your system's `PATH`.
 
 ### 2. Can I use GAW without installing the CLI globally?
 Yes:

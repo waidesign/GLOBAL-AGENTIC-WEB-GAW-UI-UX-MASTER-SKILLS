@@ -5,25 +5,27 @@ Guided Agent Workflow provides a native MCP server (`mcp/server.js`) compliant w
 
 ## Installation in Coding Assistants
 
+Replace `/path/to/guided-agent-workflow` with the folder where you cloned GAW.
+
 ### Antigravity IDE (`~/.gemini/config/mcp_config.json`)
 ```json
 {
   "mcpServers": {
     "guided-agent-workflow": {
       "command": "node",
-      "args": ["E:/master-skills/mcp/server.js"]
+      "args": ["/path/to/guided-agent-workflow/mcp/server.js"]
     }
   }
 }
 ```
 
-### Claude Code (`claude.json`)
+### Claude Code (`.mcp.json` in your project)
 ```json
 {
   "mcpServers": {
-    "gaw": {
+    "guided-agent-workflow": {
       "command": "node",
-      "args": ["E:/master-skills/mcp/server.js"]
+      "args": ["/path/to/guided-agent-workflow/mcp/server.js"]
     }
   }
 }
@@ -35,7 +37,7 @@ Guided Agent Workflow provides a native MCP server (`mcp/server.js`) compliant w
   "mcpServers": {
     "guided-agent-workflow": {
       "command": "node",
-      "args": ["E:/master-skills/mcp/server.js"]
+      "args": ["/path/to/guided-agent-workflow/mcp/server.js"]
     }
   }
 }

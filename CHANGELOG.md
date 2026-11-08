@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - `ui-skills-master.md`: an early working note about importing skills from ui-skills.com. Nothing used it; those skills are in the official library and credited in the README.
+- `master-skill.md`: an old-format "master skill" no tool loaded. Its content is covered, and kept current, by the GAW section in each project's agent files, the MCP tool `get_project_context`, the Global Brain's `design-principles.md`, the README and `NEW-PROJECT-MASTER-PROMPT.md`.
+- Stale paths to the old `E:\master-skills` folder in the MCP setup guide, the FAQ and the example project.
 
 ### Fixed (project detection)
 - Any JavaScript project without a known UI framework was labeled "plain-frontend", and every project was assumed to use JavaScript. Languages now come from the project's files (package.json, tsconfig, pyproject/requirements, go.mod, Cargo.toml, Maven/Gradle, .csproj), and stacks are named for what they are: `node`, `express`, `fastify`, `nestjs`, `django`, `fastapi`, `flask`, `python`, ... "plain-frontend" needs real frontend signs (index.html or a bundler).
