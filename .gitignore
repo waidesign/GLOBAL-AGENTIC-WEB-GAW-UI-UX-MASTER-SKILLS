@@ -42,3 +42,7 @@ Thumbs.db
 
 # Temporary design artifacts
 .design-system/
+
+# Graphify (local dev code graph, not part of the product)
+graphify-out/
+.claude/settings.local.json

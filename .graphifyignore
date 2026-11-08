@@ -1,0 +1,9 @@
+# Graph only the GAW engine code. Content libraries and docs are excluded.
+skills/
+presets/
+brain/
+templates/
+docs/
+examples/
+node_modules/
+graphify-out/
