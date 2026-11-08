@@ -1,5 +1,6 @@
 import path from 'node:path';
 import fs from 'node:fs';
+import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { SkillRegistry } from '../core/skill-registry/SkillRegistry.js';
 import { SkillDiscovery } from '../core/skill-discovery/SkillDiscovery.js';
@@ -236,17 +237,83 @@ export class GawCli {
     console.log();
   }
 
+  copyToClipboard(text) {
+    return new Promise((resolve, reject) => {
+      let proc;
+      if (process.platform === 'win32') {
+        proc = spawn('clip');
+      } else if (process.platform === 'darwin') {
+        proc = spawn('pbcopy');
+      } else {
+        proc = spawn('xclip', ['-selection', 'clipboard']);
+      }
+      proc.on('error', reject);
+      proc.on('close', code => {
+        if (code === 0) resolve();
+        else reject(new Error(`Clipboard process exited with code ${code}`));
+      });
+      proc.stdin.write(text);
+      proc.stdin.end();
+    });
+  }
+
   async cmdUse(args) {
-    const prompt = args.join(' ');
+    const isInject = args.includes('--inject') || args.includes('--save') || args.includes('-i');
+    const isCopy = args.includes('--copy') || args.includes('-c');
+
+    const cleanArgs = args.filter(a => !['--inject', '--save', '-i', '--copy', '-c'].includes(a));
+    const prompt = cleanArgs.join(' ').trim();
+
     if (!prompt) {
-      console.log(`Please provide a task prompt: gaw use "<task description>"`);
+      console.log(`Please provide a task prompt or skill list: gaw use "<task description>" [--inject] [--copy]`);
       return;
     }
 
     const projectInfo = ProjectDetector.detect(process.cwd());
     const loaded = await this.orchestrator.loadSkillsForTask(prompt, projectInfo);
 
+    if (isInject) {
+      this.printHeader();
+      const brainDir = path.join(process.cwd(), 'ai-brain');
+      if (!fs.existsSync(brainDir)) {
+        fs.mkdirSync(brainDir, { recursive: true });
+      }
+      const activeSkillsPath = path.join(brainDir, 'active-skills.md');
+      fs.writeFileSync(activeSkillsPath, loaded.formattedInstructions, 'utf8');
+
+      console.log(`✅ Injected ${loaded.selectedSkillCount} specialized skill(s) directly into:`);
+      console.log(`   📄 ${path.relative(process.cwd(), activeSkillsPath)}\n`);
+
+      console.log(`🎯 Active Skills Loaded:`);
+      for (const s of loaded.skills) {
+        console.log(`  ★ \x1b[1m${s.name}\x1b[0m (${s.id}) — [${s.category}]`);
+      }
+
+      if (loaded.conflictResolutions && loaded.conflictResolutions.length > 0) {
+        console.log(`\n⚠️ Active Conflict Resolutions:`);
+        for (const conf of loaded.conflictResolutions) {
+          console.log(`  ! [${conf.skills.join(' ↔ ')}]: ${conf.resolution}`);
+        }
+      }
+
+      console.log(`\n👉 Your AI coding agent (Antigravity, Cursor, Claude Code, Codex)`);
+      console.log(`   will now automatically read and apply these constraints from ai-brain/active-skills.md!\n`);
+      return;
+    }
+
+    if (isCopy) {
+      try {
+        await this.copyToClipboard(loaded.formattedInstructions);
+        this.printHeader();
+        console.log(`📋 Successfully copied ${loaded.selectedSkillCount} active skill instruction(s) to your clipboard!\n`);
+        return;
+      } catch (err) {
+        console.warn(`⚠️ Could not copy directly to clipboard (${err.message}). Printing to stdout instead:\n`);
+      }
+    }
+
     console.log(loaded.formattedInstructions);
+    console.log(`\n💡 Tip: Run with --inject (or --save) to write directly to ai-brain/active-skills.md without copy-pasting!`);
   }
 
   async cmdBrain(args) {
@@ -377,7 +444,8 @@ export class GawCli {
     console.log(`  skills [category]     List all skills or filter by category`);
     console.log(`  search <query>        Search skills library with relevance ranking`);
     console.log(`  recommend <task>      Analyze task and recommend targeted skills`);
-    console.log(`  use <task>            Progressively load full skill instructions for a task`);
+    console.log(`  use <task> [--inject] [--copy]`);
+    console.log(`                        Load skills (use --inject to write directly to ai-brain/)`);
     console.log(`  brain [update <msg>]  Inspect or update Global Brain and precedence`);
     console.log(`  project               Display detailed project architecture analysis`);
     console.log(`  graph [--force]       Generate or inspect Codebase Architecture Graph`);

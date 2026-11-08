@@ -10,6 +10,7 @@ export class GeminiCliAdapter {
       `<!-- GLOBAL AGENTIC WEB — GEMINI CLI CONFIGURATION -->`,
       `# Gemini CLI Project Directives`,
       `- Project Intelligence: ./ai-brain/`,
+      `- Active Task Skills: Prioritize ./ai-brain/active-skills.md when present.`,
       `- Rules: Follow ./ai-brain/rules.md.`,
       `- Code Graph: ./graph.json`,
       `<!-- END GLOBAL AGENTIC WEB -->\n`

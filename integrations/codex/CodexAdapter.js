@@ -10,6 +10,7 @@ export class CodexAdapter {
       `<!-- GLOBAL AGENTIC WEB — CODEX CONFIGURATION -->`,
       `# OpenAI Codex Agent Directives`,
       `- Project Intelligence: ./ai-brain/`,
+      `- Active Task Skills: Prioritize ./ai-brain/active-skills.md when present.`,
       `- Memory & Rules: ./ai-brain/rules.md`,
       `- Central Skills: \`gaw use "<task>"\``,
       `<!-- END GLOBAL AGENTIC WEB -->\n`

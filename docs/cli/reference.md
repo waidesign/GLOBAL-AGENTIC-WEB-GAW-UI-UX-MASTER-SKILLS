@@ -30,8 +30,14 @@ gaw search "framer motion"
 # Recommend skills for task
 gaw recommend "Build a checkout form with payment validation"
 
-# Progressively load full instructions for execution
+# Progressively load full instructions for execution (stdout)
 gaw use "Build a checkout form with payment validation"
+
+# Automatically inject instructions into ai-brain/active-skills.md (no copy-pasting required!)
+gaw use "Build a checkout form with payment validation" --inject
+
+# Copy full instructions directly to OS clipboard
+gaw use "Build a checkout form with payment validation" --copy
 ```
 
 ## Diagnostics & Brain Inspection

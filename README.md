@@ -129,6 +129,8 @@ gaw use "Build a responsive SaaS dashboard with a sidebar, data table, and smoot
 | `gaw search "<query>"` | Full-text relevance search across skills, tags, and frameworks. |
 | `gaw recommend "<task>"` | Analyze task prompt and output primary, supporting, and dependent skills. |
 | `gaw use "<task>"` | Progressively load and format full skill instructions for immediate agent execution. |
+| `gaw use "<task>" --inject` | Directly write active skills to `ai-brain/active-skills.md` without copy-pasting. |
+| `gaw use "<task>" --copy` | Copy formatted skill instructions directly to OS clipboard. |
 | `gaw brain` | Inspect Global Brain preferences and local Project Brain rules. |
 | `gaw brain update <cat> <msg>` | Append a confirmed user decision to the Global Brain. |
 | `gaw project` | Display deep inspection of project architecture, frameworks, and tools. |

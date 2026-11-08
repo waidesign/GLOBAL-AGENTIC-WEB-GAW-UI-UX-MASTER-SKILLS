@@ -10,6 +10,7 @@ export class ClaudeCodeAdapter {
       `<!-- GLOBAL AGENTIC WEB — CLAUDE CODE CONFIGURATION -->`,
       `# Claude Code Project Guidelines`,
       `- Project Intelligence: ./ai-brain/`,
+      `- Active Task Skills: Prioritize ./ai-brain/active-skills.md when present.`,
       `- Architecture Graph: ./graph.json, ./GRAPH_REPORT.md`,
       `- Design Rules: Follow ./ai-brain/rules.md strictly.`,
       `- Framework: ${projectInfo.framework}`,

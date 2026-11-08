@@ -10,6 +10,7 @@ export class CursorAdapter {
       `<!-- GLOBAL AGENTIC WEB — CURSOR CONFIGURATION -->`,
       `# Cursor Project Rules`,
       `- Project Intelligence: ./ai-brain/`,
+      `- Active Task Skills: Prioritize ./ai-brain/active-skills.md when present.`,
       `- Code Graph: ./graph.json`,
       `- Rules: Respect ./ai-brain/rules.md before proposing code changes.`,
       `- Framework: ${projectInfo.framework}`,
