@@ -528,9 +528,10 @@ export class GawCli {
   async cmdGraph(args) {
     this.printHeader();
     const force = args.includes('--force');
+    const full = args.includes('--full');
     const manager = new GraphifyManager({ projectRoot: process.cwd() });
     console.log(`Generating/Inspecting codebase relationship graph...`);
-    const res = await manager.generateGraph({ targetDir: process.cwd(), force });
+    const res = await manager.generateGraph({ targetDir: process.cwd(), force, full });
     if (res.skipped) {
       console.log(`\nGraphify is not installed, so there is no code map yet.`);
       console.log(`${GRAPHIFY_SETUP_HINT}\n`);
@@ -742,7 +743,7 @@ export class GawCli {
     console.log(`                        Load closely matching skills (use --inject to write to ai-brain/)`);
     console.log(`  brain [update <msg>]  Inspect or update Global Brain and precedence`);
     console.log(`  project               Display detailed project architecture analysis`);
-    console.log(`  graph [--force]       Generate or inspect Codebase Architecture Graph`);
+    console.log(`  graph [--force|--full] Build the code graph (--force: refresh changed files, --full: rebuild)`);
     console.log(`  doctor                Diagnose environment, dependencies & registry`);
     console.log(`  update                Check for updates to skill library`);
     console.log(`  version               Display version info`);

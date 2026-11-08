@@ -34,9 +34,11 @@ class FakeCliManager extends GraphifyManager {
     this.cliRuns = 0;
   }
   getCliVersion() { return this.installed ? 'graphify 0.0.0-test' : null; }
-  runGraphifyCli(targetDir) {
+  runGraphifyCli(targetDir, options = {}) {
     this.cliRuns++;
+    this.lastOptions = options;
     if (this.writesOutput) writeOfficialGraph(targetDir);
+    return options.incremental && GraphifyManager.locateGraph(targetDir) ? 'incremental' : 'full';
   }
 }
 
@@ -77,9 +79,17 @@ test('GraphifyManager - reuses an existing graph without re-running Graphify', a
   assert.equal(result.reused, true);
   assert.equal(manager.cliRuns, 0);
 
+  // Refresh: incremental update of the existing graph
   const forced = await manager.generateGraph({ targetDir: tempDir, force: true });
   assert.equal(forced.reused, false);
   assert.equal(manager.cliRuns, 1);
+  assert.equal(manager.lastOptions.incremental, true);
+  assert.equal(forced.mode, 'incremental');
+
+  // Full rebuild on request
+  const full = await manager.generateGraph({ targetDir: tempDir, full: true });
+  assert.equal(manager.lastOptions.incremental, false);
+  assert.equal(full.mode, 'full');
 
   fs.rmSync(tempDir, { recursive: true, force: true });
 });

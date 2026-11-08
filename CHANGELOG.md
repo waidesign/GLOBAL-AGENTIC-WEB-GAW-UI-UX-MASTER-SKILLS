@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **`gaw skills lint`** checks skills against GSS; **`gaw skills index`** rebuilds `skills/index.json`, so commands read skill metadata only and load skill bodies on demand.
 - **Explained skill picks**: `gaw use`, `gaw recommend` and onboarding show why each skill was chosen ("Matched "pricing", "page" (name); "SaaS" (description).").
 - **`gaw use --budget <tokens>`**: full skill instructions are loaded within a token budget (default 8,000); skills beyond it are listed in short form with a path the agent can open.
+- **Incremental code graph**: `gaw update` and `gaw graph --force` refresh an existing Graphify graph with `graphify update` (only changed files are re-parsed). `gaw graph --full` rebuilds from scratch.
 - **Skill selection benchmark** (`npm run eval`): 36 labeled tasks across fields, including tasks no skill should match.
 - **New `gaw init` onboarding for any kind of project**: (1) what are you building → `ai-brain/context.md`, (2) skills that closely match the goal, picked by number → `ai-brain/active-skills.md`, (3) rules agents must always follow → `ai-brain/rules.md`, (4) Graphify, only if missing. It replaces the old questions (pick skill IDs from all 235, external skills, goal).
 - **`SkillDiscovery.findRelevant()`**: returns only close matches for a free-text goal, and nothing for fields the library does not cover.

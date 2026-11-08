@@ -20,9 +20,15 @@ uv tool install graphifyy
 GAW finds Graphify on `PATH` or in uv's tool folder (`~/.local/bin`), so it works right after installing, without opening a new terminal.
 
 ## How GAW runs it
+First build (or `gaw graph --full`):
 ```bash
 graphify extract . --code-only     # local AST parsing, no LLM calls or API keys
 graphify cluster-only . --no-label # communities, GRAPH_REPORT.md, graph.html
+```
+
+Refresh when a graph exists (`gaw update`, `gaw graph --force`): incremental, only changed files are re-parsed, with a full build as fallback:
+```bash
+graphify update .
 ```
 
 ## Outputs (`graphify-out/`)

@@ -70,7 +70,7 @@ export class GraphifyManager {
    * Run Graphify in code-only mode (local AST parsing, no LLM calls or API keys),
    * then cluster to write GRAPH_REPORT.md and graph.html.
    */
-  runGraphifyCli(targetDir) {
+  runGraphifyCli(targetDir, options = {}) {
     const { command } = this.resolveCli();
     const run = (args) => execSync(`"${command}" ${args}`, {
       cwd: targetDir,
@@ -79,6 +79,16 @@ export class GraphifyManager {
       env: TOOL_ENV,
       timeout: CLI_TIMEOUT_MS
     });
+
+    // Incremental: re-extract only changed files and rewrite graph, report and HTML
+    if (options.incremental && GraphifyManager.locateGraph(targetDir)) {
+      try {
+        run('update .');
+        return 'incremental';
+      } catch {
+        // fall through to a full build
+      }
+    }
 
     try {
       run('extract . --code-only');
@@ -95,15 +105,19 @@ export class GraphifyManager {
     } catch (e) {
       // Report and HTML are optional; graph.json alone is usable
     }
+    return 'full';
   }
 
   /**
    * Build or reuse the project's code graph. When Graphify is not installed this
    * returns { skipped: true } instead of failing, because Graphify is optional.
+   *   force: refresh an existing graph (incremental: only changed files)
+   *   full:  rebuild from scratch
    */
   async generateGraph(options = {}) {
     const targetDir = options.targetDir || this.projectRoot;
-    const force = Boolean(options.force);
+    const full = Boolean(options.full);
+    const force = Boolean(options.force) || full;
 
     if (!this.isGraphifyCliAvailable()) {
       return {
@@ -129,7 +143,7 @@ export class GraphifyManager {
       }
     }
 
-    this.runGraphifyCli(targetDir);
+    const mode = this.runGraphifyCli(targetDir, { incremental: !full }) || 'full';
 
     const paths = GraphifyManager.graphPaths(targetDir);
     const stats = GraphifyManager.readGraphStats(paths.jsonPath);
@@ -142,9 +156,10 @@ export class GraphifyManager {
 
     return {
       reused: false,
+      mode,
       ...paths,
       ...stats,
-      summary: `Generated via Graphify (${stats.nodeCount} nodes, ${stats.edgeCount} relationships).`
+      summary: `${mode === 'incremental' ? 'Updated' : 'Generated'} via Graphify (${stats.nodeCount} nodes, ${stats.edgeCount} relationships).`
     };
   }
 }
