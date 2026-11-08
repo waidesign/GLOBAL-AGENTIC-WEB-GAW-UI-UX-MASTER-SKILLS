@@ -1,4 +1,5 @@
 import { MAX_KEYWORDS, MAX_TAGS, RANKING_VERSION } from '../skill-registry/rankability.js';
+import { PIN_BOOST } from '../skill-registry/preferences.js';
 
 export { RANKING_VERSION };
 
@@ -244,9 +245,15 @@ export class SkillDiscovery {
     const words = originalWords(query);
 
     const projectDomains = new Set((options.domains || []).map(d => String(d).toLowerCase()));
+    // The user's skill preferences (Global Brain): blocked skills are never suggested,
+    // pinned ones get a small boost. Only registries that load user data have them.
+    const prefs = this.registry.preferences || {};
+    const blocked = new Set(options.includeBlocked ? [] : (prefs.blocked || []));
+    const pinned = new Set(prefs.pinned || []);
 
     const scored = [];
     for (const entry of index.entries) {
+      if (blocked.has(entry.skill.id)) continue;
       if (!this.matchesFilter(entry.skill, options)) continue;
       const result = this.scoreEntry(entry, tokens, weights, totalWeight);
       if (result.score <= 0) continue;
@@ -261,6 +268,13 @@ export class SkillDiscovery {
 
       // Context: small boost when the skill's domains match the project's
       if (projectDomains.size && [...entry.domains].some(d => projectDomains.has(d))) result.score *= DOMAIN_BOOST;
+
+      // Pinned by the user: a small boost. Coverage is unchanged, so a pin never
+      // makes a skill that doesn't fit the task qualify.
+      if (pinned.has(entry.skill.id)) {
+        result.score *= PIN_BOOST;
+        result.pinned = true;
+      }
 
       scored.push({ skill: entry.skill, trust: entry.trust, ...result });
     }

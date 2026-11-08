@@ -10,7 +10,9 @@ import { GitHubClient } from '../core/skill-registry/github.js';
 import { resolveSkillLicense } from '../core/skill-registry/licenses.js';
 import { applyLicense, planSplit, applySplit, canModify, writeSkillFolder, readSkillFolder, toSkillName } from '../core/skill-registry/gss.js';
 import { enrichContract, rankabilityLevel, LEVEL_NAMES } from '../core/skill-registry/rankability.js';
-import { selectSkills, deselectSkills, writeCatalog, loadProjectContext } from '../core/project-context/ProjectContext.js';
+import { selectSkills, deselectSkills, writeCatalog, loadProjectContext, shareSkillWithProject } from '../core/project-context/ProjectContext.js';
+import { trustLevel, describeTrust, TRUST_LEVELS } from '../core/skill-registry/trust.js';
+import { updateSkillPreferences } from '../core/skill-registry/preferences.js';
 import { writeGlobalBrainSnapshot, SNAPSHOT_FILE } from '../core/project-context/globalBrainLink.js';
 import { listDrafts, approveDrafts, rejectDrafts } from '../core/skill-registry/drafts.js';
 import { SkillDiscovery } from '../core/skill-discovery/SkillDiscovery.js';
@@ -22,7 +24,7 @@ import { ProjectBootstrapper } from '../core/bootstrapper/ProjectBootstrapper.js
 import { GraphifyManager, GRAPHIFY_SETUP_HINT } from '../core/graphify-manager/GraphifyManager.js';
 
 import { runInteractiveOnboarding } from './interactive.js';
-import { ensureGraphify, askYesNo } from './graphify-setup.js';
+import { ensureGraphify, askYesNo, askTyped } from './graphify-setup.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -31,12 +33,23 @@ const REPO_ROOT = path.resolve(__dirname, '../');
 export class GawCli {
   constructor() {
     this.repoRoot = REPO_ROOT;
-    this.registry = new SkillRegistry({ skillsDir: path.join(this.repoRoot, 'skills') });
+    // GAW's official library plus the user's personal library (~/.gaw/skills) and pin/block preferences
+    this.registry = new SkillRegistry({ skillsDir: path.join(this.repoRoot, 'skills'), user: true });
     this.discovery = new SkillDiscovery(this.registry);
     this.presetRegistry = new PresetRegistry({ presetsDir: path.join(this.repoRoot, 'presets', 'designs') });
     this.orchestrator = new SkillOrchestrator(this.registry, this.presetRegistry);
     this.memoryEngine = new MemoryEngine();
     this.bootstrapper = new ProjectBootstrapper({ repoRoot: this.repoRoot });
+  }
+
+  /** Short trust and preference tags for listings: "[community · pinned]". */
+  skillTags(skill) {
+    const prefs = this.registry.preferences || {};
+    const tags = [trustLevel(skill)];
+    if (skill.overrides) tags.push(`replaces the ${skill.overrides} one`);
+    if ((prefs.pinned || []).includes(skill.id)) tags.push('pinned');
+    if ((prefs.blocked || []).includes(skill.id)) tags.push('blocked');
+    return `[${tags.join(' · ')}]`;
   }
 
   printHeader() {
@@ -264,6 +277,10 @@ export class GawCli {
     if (args[0] === 'deselect') return this.cmdSkillsDeselect(args.slice(1));
     if (args[0] === 'selected') return this.cmdSkillsSelected();
     if (args[0] === 'review') return this.cmdSkillsReview(args.slice(1));
+    if (['pin', 'unpin', 'block', 'unblock'].includes(args[0])) return this.cmdSkillsPreference(args[0], args.slice(1));
+    if (args[0] === 'prefs' || args[0] === 'preferences') return this.cmdSkillsPrefs();
+    if (args[0] === 'share') return this.cmdSkillsShare(args.slice(1));
+    if (args[0] === 'mine') return this.cmdSkillsMine();
 
     this.printHeader();
     const category = args[0];
@@ -273,11 +290,12 @@ export class GawCli {
       console.log(`Showing skills for category: [${category}] (${skills.length} skills)\n`);
     } else {
       skills = await this.registry.getAllSkills();
-      console.log(`Listing all registered skills (${skills.length} total):\n`);
+      const personal = skills.filter(s => s.library === 'personal').length;
+      console.log(`Listing all registered skills (${skills.length} total${personal ? `, ${personal} in your personal library` : ''}):\n`);
     }
 
     for (const s of skills) {
-      console.log(`• \x1b[1m${s.id}\x1b[0m — [${s.category}]`);
+      console.log(`• \x1b[1m${s.id}\x1b[0m — [${s.category}] ${this.skillTags(s)}`);
       console.log(`  ${s.description || 'No description'}`);
       console.log(`  Author: ${s.author} | Frameworks: ${(s.frameworks || []).join(', ')}\n`);
     }
@@ -415,14 +433,20 @@ export class GawCli {
     return { values, positional };
   }
 
-  /** Where new skills go: the GAW library, or ai-brain/skills with --project. */
+  /**
+   * Where new skills go:
+   *   default     your personal library (~/.gaw/skills): every project on this machine can use it
+   *   --project   this project's ai-brain/skills (committed with the project)
+   *   --official  GAW's own library (for GAW maintainers; share it with a pull request)
+   */
   skillTarget(args) {
     const project = args.includes('--project');
-    return {
-      project,
-      root: project ? path.join(process.cwd(), 'ai-brain', 'skills') : this.registry.skillsDir,
-      flat: project
-    };
+    const official = !project && args.includes('--official');
+    const where = project ? 'project' : official ? 'official' : 'personal';
+    const root = project
+      ? path.join(process.cwd(), 'ai-brain', 'skills')
+      : official ? this.registry.skillsDir : (this.registry.personalDir || this.registry.skillsDir);
+    return { project, where, root, flat: project };
   }
 
   /** After writing a skill: check it and refresh the library index. */
@@ -437,9 +461,10 @@ export class GawCli {
 
   /**
    * gaw skills add <github-link | folder | file.md> [--category c] [--name n]
-   *   [--project] [--allow-changes] [--yes]
+   *   [--project | --official] [--override] [--allow-changes] [--yes] [--allow-scripts]
    * Converts any skill to GSS, checks its license, copies its supporting files,
    * splits it if oversized (when the license allows), then lints and indexes it.
+   * Saves to your personal library unless --project or --official is given.
    */
   async cmdSkillsAdd(args) {
     this.printHeader();
@@ -447,10 +472,11 @@ export class GawCli {
     const target = positional[0];
     if (!target) {
       console.log(`Usage: gaw skills add <github-link | skill-folder | file.md> [--category <c>] [--name <n>]`);
-      console.log(`         [--description "<what it does>"] [--when "<when to use it>"] [--project] [--yes]`);
+      console.log(`         [--description "<what it does>"] [--when "<when to use it>"] [--project | --official] [--yes]`);
+      console.log(`Saves to your personal library (${this.registry.personalDir || 'GAW library'}) unless --project or --official is given.`);
       return;
     }
-    const { project, root, flat } = this.skillTarget(args);
+    const { project, where, root, flat } = this.skillTarget(args);
     await this.registry.ensureLoaded();
 
     let prepared;
@@ -470,11 +496,22 @@ export class GawCli {
       preview.warnings = preview.warnings.filter(w => !w.includes('was not split'));
     }
 
-    if (fs.existsSync(preview.dir) || (!project && this.registry.skills.has(preview.name))) {
-      console.log(`A skill named "${preview.name}" already exists. Choose another name with --name <skill-name>.`);
+    // Name clashes: a personal skill may replace an official one for you only, and only on purpose
+    const existing = this.registry.skills.get(preview.name);
+    const mayOverride = where === 'personal' && existing?.library === 'official' && args.includes('--override');
+    if (fs.existsSync(preview.dir) || (!project && existing && !mayOverride)) {
+      console.log(`A skill named "${preview.name}" already exists${existing ? ` (${trustLevel(existing)})` : ''}. Choose another name with --name <skill-name>.`);
+      if (where === 'personal' && existing?.library === 'official') {
+        console.log(`To use your version instead of the official one (for you only), add --override.`);
+      }
       process.exitCode = 1;
       return;
     }
+
+    // The trust level the skill will have once added
+    const willBe = trustLevel({ library: where, contract: preview.contract });
+    const canRunCommands = (preview.contract.permissions || []).includes('shell');
+    const unreviewed = willBe === 'community' || willBe === 'personal';
 
     const lic = prepared.license;
     console.log(`Skill:        ${preview.name}${preview.data.metadata['gaw-title'] ? ` (${preview.data.metadata['gaw-title']})` : ''}`);
@@ -486,7 +523,10 @@ export class GawCli {
     if (preview.support.selected.length) console.log(`Files:        ${preview.support.selected.length} supporting file(s)`);
     console.log(`Permissions:  ${preview.contract.permissions?.length ? preview.contract.permissions.join(', ') : 'instructions only'}`);
     console.log(`Ranking:      Level ${preview.level} ${preview.levelName}${preview.levelMissing.length ? ` (next level needs: ${preview.levelMissing.join(', ')})` : ''}`);
-    console.log(`Saves to:     ${path.relative(process.cwd(), preview.dir) || preview.dir}`);
+    console.log(`Trust:        ${TRUST_LEVELS[willBe].label} — ${TRUST_LEVELS[willBe].note}`);
+    const library = { personal: 'your personal library', project: 'this project', official: "GAW's official library" }[where];
+    console.log(`Saves to:     ${library}: ${where === 'personal' ? preview.dir : (path.relative(process.cwd(), preview.dir) || preview.dir)}`);
+    if (mayOverride) console.log(`Replaces:     the official "${preview.name}" skill, for you only`);
     for (const w of preview.warnings) console.log(`⚠ ${w}`);
 
     // GSS Ranking v1: skills must be at least Findable (Level 1) to be added
@@ -498,7 +538,27 @@ export class GawCli {
       return;
     }
 
-    if (!args.includes('--yes')) {
+    // Not reviewed by GAW and able to run commands: ask for a deliberate confirmation
+    if (canRunCommands && unreviewed) {
+      console.log(`\n┌─ This skill can run commands on your computer, and GAW has not reviewed it.`);
+      console.log(`│  Agents following it may run its scripts or hooks in any project that uses it.`);
+      console.log(`│  Only add it if you trust the author, and read its scripts first:`);
+      console.log(`│  ${prepared.origin}`);
+      console.log(`└─`);
+      if (args.includes('--yes')) {
+        if (!args.includes('--allow-scripts')) {
+          console.log(`Not added. To confirm without a prompt, add --allow-scripts as well as --yes.`);
+          process.exitCode = 1;
+          return;
+        }
+      } else if (!process.stdin.isTTY) {
+        console.log(`Not added. Run again with --yes --allow-scripts to add it without a prompt.`);
+        return;
+      } else if (!(await askTyped(`Type "yes" to add it anyway: `))) {
+        console.log('Not added.');
+        return;
+      }
+    } else if (!args.includes('--yes')) {
       if (!process.stdin.isTTY) {
         console.log(`\nNot added. Run again with --yes to add it without a prompt.`);
         return;
@@ -510,7 +570,9 @@ export class GawCli {
     }
 
     const result = await installSkill(prepared, preview);
-    console.log(`\n✓ Added ${preview.name} as a GSS skill${result.copied ? ` with ${result.copied} supporting file(s)` : ''}.`);
+    console.log(`\n✓ Added ${preview.name} to ${library}${result.copied ? ` with ${result.copied} supporting file(s)` : ''}.`);
+    if (where === 'personal') console.log(`  Every project on this computer can use it. To include it in a project for teammates: gaw skills share ${preview.name}`);
+    if (where === 'official') console.log(`  It is part of GAW's library: share it with a pull request.`);
     const ok = this.finishNewSkill(result.dir, project);
     if (!ok) {
       console.log(`Fix the errors above, then run: gaw skills lint ${path.relative(process.cwd(), result.dir)}`);
@@ -530,7 +592,7 @@ export class GawCli {
       console.log(`Usage: gaw skills new "<Skill title>" [--category <c>] [--description "<d>"] [--license <l>] [--project]`);
       return;
     }
-    const { project, root, flat } = this.skillTarget(args);
+    const { project, where, root, flat } = this.skillTarget(args);
     const category = values.category || 'general';
     const dir = flat ? path.join(root, name) : path.join(root, category, name);
     await this.registry.ensureLoaded();
@@ -577,10 +639,11 @@ export class GawCli {
     };
 
     writeSkillFolder(dir, { data, content, contract });
-    console.log(`✓ Created ${path.relative(process.cwd(), dir) || dir} (license ${license}${values.license ? '' : '; change it in SKILL.md if needed'}).`);
+    const shown = where === 'personal' ? dir : (path.relative(process.cwd(), dir) || dir);
+    console.log(`✓ Created ${shown} in ${where === 'personal' ? 'your personal library' : where === 'project' ? 'this project' : "GAW's official library"} (license ${license}${values.license ? '' : '; change it in SKILL.md if needed'}).`);
     this.finishNewSkill(dir, project);
     console.log(`\nNext: write the description and instructions in SKILL.md, add search keywords in gaw.json,`);
-    console.log(`then run: gaw skills lint ${path.relative(process.cwd(), dir) || dir}`);
+    console.log(`then run: gaw skills lint ${shown}`);
   }
 
   /**
@@ -705,8 +768,8 @@ export class GawCli {
       return;
     }
     if (ctx.skills.selected.length) {
-      console.log(`Selected from the GAW library:`);
-      for (const s of ctx.skills.selected) console.log(`  • ${s.id} (v${s.version})${s.reason ? ` — ${s.reason}` : ''}`);
+      console.log(`Selected from your skill libraries:`);
+      for (const s of ctx.skills.selected) console.log(`  • ${s.id} (v${s.version}) [${s.trust}]${s.reason ? ` — ${s.reason}` : ''}`);
     }
     if (ctx.skills.project.length) {
       console.log(`Project skills (ai-brain/skills/):`);
@@ -734,6 +797,101 @@ export class GawCli {
     console.log(`Global Brain:   ${ctx.globalBrain}`);
     for (const w of ctx.warnings) console.log(`⚠ ${w}`);
     console.log();
+  }
+
+  /**
+   * gaw skills pin|unpin|block|unblock <name...>: skill preferences in your Global Brain.
+   * Pinned skills get a small boost when they fit a task; blocked skills are never suggested.
+   */
+  async cmdSkillsPreference(action, ids) {
+    if (!ids.length) {
+      console.log(`Usage: gaw skills ${action} <skill-name> [more names]`);
+      return;
+    }
+    await this.registry.ensureLoaded();
+    const unknown = ids.filter(id => !this.registry.skills.has(id));
+    const known = ids.filter(id => this.registry.skills.has(id));
+    if (unknown.length) {
+      console.log(`Not found: ${unknown.join(', ')} (search with: gaw search "<keyword>")`);
+      process.exitCode = 1;
+    }
+    if (!known.length) return;
+    const { changed } = updateSkillPreferences(action, known, this.registry.preferencesFile || undefined);
+    this.registry.reloadPreferences();
+    const done = { pin: 'Pinned', unpin: 'Unpinned', block: 'Blocked', unblock: 'Unblocked' }[action];
+    const effect = {
+      pin: 'GAW considers them first when they fit a task.',
+      unpin: 'They rank like any other skill again.',
+      block: 'GAW will not suggest them. You can still use one by naming it: gaw use "<skill-name>"',
+      unblock: 'GAW may suggest them again.'
+    }[action];
+    if (changed.length) console.log(`✓ ${done}: ${changed.join(', ')}. ${effect}`);
+    const same = known.filter(id => !changed.includes(id));
+    if (same.length) console.log(`  No change for: ${same.join(', ')}`);
+  }
+
+  /** gaw skills prefs: pinned and blocked skills. */
+  async cmdSkillsPrefs() {
+    await this.registry.ensureLoaded();
+    const prefs = this.registry.preferences;
+    console.log(`Skill preferences (${this.registry.preferencesFile}):`);
+    console.log(`  Pinned:  ${prefs.pinned.length ? prefs.pinned.join(', ') : '(none)'}   gaw skills pin <name>`);
+    console.log(`  Blocked: ${prefs.blocked.length ? prefs.blocked.join(', ') : '(none)'}   gaw skills block <name>`);
+    if (prefs.invalid) console.log(`⚠ The preferences file is not valid JSON; fix or delete it.`);
+  }
+
+  /** gaw skills mine: the skills in your personal library. */
+  async cmdSkillsMine() {
+    const skills = (await this.registry.getAllSkills()).filter(s => s.library === 'personal');
+    console.log(`Your personal library: ${this.registry.personalDir}`);
+    if (!skills.length) {
+      console.log(`No skills yet. Add one with: gaw skills add <github-link | folder | file.md>  or  gaw skills new "<Title>"`);
+      return;
+    }
+    for (const s of skills) {
+      console.log(`• \x1b[1m${s.id}\x1b[0m — [${s.category}] ${this.skillTags(s)}`);
+      if (s.contract?.source?.repo) console.log(`  From: https://github.com/${s.contract.source.repo}`);
+      if ((s.contract?.permissions || []).includes('shell')) console.log(`  Can run commands (scripts or hooks)`);
+    }
+  }
+
+  /**
+   * gaw skills share <name> [--yes]: copy a skill from your personal library into this
+   * project (ai-brain/skills/) so teammates get it when they clone the project.
+   */
+  async cmdSkillsShare(args) {
+    const id = args.find(a => !a.startsWith('--'));
+    if (!id) {
+      console.log(`Usage: gaw skills share <skill-name>   (copies a personal skill into ai-brain/skills/ for this project)`);
+      return;
+    }
+    const skill = await this.registry.getSkill(id);
+    if (!skill) {
+      console.log(`Not found: ${id}`);
+      process.exitCode = 1;
+      return;
+    }
+    if (skill.library === 'official') {
+      console.log(`"${id}" is in GAW's official library, so everyone with GAW already has it. Select it instead: gaw skills select ${id}`);
+      return;
+    }
+    // Committing a skill into a project shares it: the license has to allow that
+    const status = skill.contract?.source?.licenseStatus;
+    if (skill.contract?.source && !canModify(status) && !args.includes('--yes')) {
+      console.log(`"${id}" comes from ${skill.contract.source.repo} and its license (${status || 'unknown'}) may not allow sharing copies.`);
+      console.log(`Get the author's permission, then run again with --yes. Teammates can also add it themselves: gaw skills add https://github.com/${skill.contract.source.repo}`);
+      process.exitCode = 1;
+      return;
+    }
+    try {
+      const { dir } = shareSkillWithProject(process.cwd(), skill);
+      await writeCatalog(process.cwd(), this.registry);
+      console.log(`✓ Copied ${id} into ${path.relative(process.cwd(), dir)}. Commit it so teammates get it.`);
+      if ((skill.contract?.permissions || []).includes('shell')) console.log(`⚠ It can run commands: teammates should review its scripts too.`);
+    } catch (err) {
+      console.log(err.message);
+      process.exitCode = 1;
+    }
   }
 
   /**
@@ -782,6 +940,8 @@ export class GawCli {
   async cmdSkillsIndex() {
     const index = this.registry.writeIndex();
     console.log(`✓ Wrote ${path.relative(process.cwd(), path.join(this.registry.skillsDir, 'index.json'))} (${index.skills.length} skills).`);
+    const personal = (await this.registry.getAllSkills()).filter(s => s.library === 'personal').length;
+    if (personal) console.log(`✓ Wrote your personal library's index (${personal} skills).`);
   }
 
   async cmdSearch(args) {
@@ -795,7 +955,7 @@ export class GawCli {
     const matches = await this.discovery.search(query, { limit: 10 });
     console.log(`Search results for "${query}" (${matches.length} matches):\n`);
     for (const s of matches) {
-      console.log(`• \x1b[1m${s.id}\x1b[0m — [${s.category}]`);
+      console.log(`• \x1b[1m${s.id}\x1b[0m — [${s.category}] ${this.skillTags(s)}`);
       console.log(`  ${s.description}`);
       console.log(`  Author: ${s.author} | Frameworks: ${(s.frameworks || []).join(', ')}\n`);
     }
@@ -815,11 +975,16 @@ export class GawCli {
 
     if (recs.primarySkills.length === 0) {
       console.log(`No skills in the library closely match this task.`);
+      const blockedFits = (await this.discovery.findRelevant(prompt, { includeBlocked: true }))
+        .filter(s => (this.registry.preferences.blocked || []).includes(s.id));
+      if (blockedFits.length) {
+        console.log(`You blocked skills that fit: ${blockedFits.map(s => s.id).join(', ')} (gaw skills unblock <name>)`);
+      }
       console.log(`Try different words, browse with 'gaw skills', or search with 'gaw search "<keyword>"'.`);
     } else {
       console.log(`🎯 Primary Skills:`);
       for (const p of recs.primarySkills) {
-        console.log(`  ★ \x1b[1m${p.name}\x1b[0m (${p.id}) — [${p.category}]`);
+        console.log(`  ★ \x1b[1m${p.name}\x1b[0m (${p.id}) — [${p.category}] ${this.skillTags(this.registry.skills.get(p.id) || p)}`);
         console.log(`    Why: ${p.reason}`);
       }
     }
@@ -827,7 +992,7 @@ export class GawCli {
     if (recs.supportingSkills.length > 0) {
       console.log(`\n🛠️ Supporting Skills:`);
       for (const s of recs.supportingSkills) {
-        console.log(`  • ${s.name} (${s.id}) — [${s.category}]`);
+        console.log(`  • ${s.name} (${s.id}) — [${s.category}] ${this.skillTags(this.registry.skills.get(s.id) || s)}`);
         console.log(`    Why: ${s.reason}`);
       }
     }
@@ -931,8 +1096,9 @@ export class GawCli {
       console.log(`🎯 Active Skills Loaded (budget ~${loaded.tokenBudget} tokens):`);
       for (const s of loaded.skills) {
         const mode = s.mode === 'summary' ? ` — short form (full skill ~${s.fullTokens} tokens, read on demand)` : '';
-        console.log(`  ★ \x1b[1m${s.name}\x1b[0m (${s.id}) — [${s.category}]${mode}`);
+        console.log(`  ★ \x1b[1m${s.name}\x1b[0m (${s.id}) — [${s.category}] ${this.skillTags(this.registry.skills.get(s.id) || s)}${mode}`);
         console.log(`    Why: ${s.reason}`);
+        if (s.caution) console.log(`    ⚠ Can run commands and is not reviewed by GAW: check commands from it before running them.`);
       }
 
       if (loaded.conflictResolutions && loaded.conflictResolutions.length > 0) {
@@ -1221,7 +1387,10 @@ export class GawCli {
     console.log(`[✓] Global Brain:       ${this.memoryEngine.globalBrainDir}`);
 
     const skills = await this.registry.getAllSkills();
-    console.log(`[✓] Registered Skills:  ${skills.length} skills verified`);
+    const personal = skills.filter(s => s.library === 'personal').length;
+    console.log(`[✓] Registered Skills:  ${skills.length - personal} official${personal ? ` + ${personal} in your personal library (${this.registry.personalDir})` : ''}`);
+    if (this.registry.overrides.length) console.log(`[i] Your skills replacing official ones: ${this.registry.overrides.join(', ')}`);
+    if (this.registry.preferences.invalid) console.log(`[⚠] ${this.registry.preferencesFile} is not valid JSON; pins and blocks are ignored until it is fixed.`);
 
     const categories = await this.registry.getCategories();
     console.log(`[✓] Taxonomy:           ${categories.length} categories active`);
@@ -1255,10 +1424,16 @@ export class GawCli {
     console.log(`  setup [--yes]         Install Graphify (optional code map for AI agents)`);
     console.log(`  start                 Resume an existing initialized project`);
     console.log(`  skills [category]     List all skills or filter by category`);
-    console.log(`  skills add <link|folder|file> [--category c] [--project] [--yes]`);
-    console.log(`                        Add any skill; converted to GSS, license checked, split if oversized`);
-    console.log(`  skills new "<title>" [--category c] [--project]`);
+    console.log(`  skills add <link|folder|file> [--category c] [--project | --official] [--yes]`);
+    console.log(`                        Add any skill to your personal library (~/.gaw/skills); converted to GSS,`);
+    console.log(`                        license checked, split if oversized`);
+    console.log(`  skills new "<title>" [--category c] [--project | --official]`);
     console.log(`                        Create a new GSS skill from a template`);
+    console.log(`  skills mine           List the skills in your personal library`);
+    console.log(`  skills share <name>   Copy a personal skill into this project (ai-brain/skills/) for teammates`);
+    console.log(`  skills pin|unpin <name...>     Prefer skills you trust when they fit a task`);
+    console.log(`  skills block|unblock <name...> Never suggest a skill (naming it still works)`);
+    console.log(`  skills prefs          Show pinned and blocked skills`);
     console.log(`  skills lint [folder] [--levels]  Check skills against GSS and show ranking levels`);
     console.log(`  skills enrich [--apply]  Fill ranking fields from each skill's own text`);
     console.log(`  skills select <name...> [--reason r]  Use library skills in this project (skills.lock.json)`);

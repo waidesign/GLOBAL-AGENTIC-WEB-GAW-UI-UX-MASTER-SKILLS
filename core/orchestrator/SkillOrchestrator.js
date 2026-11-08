@@ -1,5 +1,6 @@
 import { SkillDiscovery, explainMatch } from '../skill-discovery/SkillDiscovery.js';
 import { PresetRegistry } from '../preset-registry/PresetRegistry.js';
+import { trustLevel, describeTrust, needsCaution } from '../skill-registry/trust.js';
 
 // Default context budget for `gaw use`: full instructions are loaded while they
 // fit; anything beyond is listed in short form for the agent to open if needed.
@@ -90,6 +91,7 @@ export class SkillOrchestrator {
       name: s.name,
       category: s.category,
       description: s.description,
+      trust: trustLevel(s),
       reason: analysis.reasons.get(s.id) || 'Selected for this task.'
     });
 
@@ -184,6 +186,9 @@ export class SkillOrchestrator {
         frameworks: skill.frameworks,
         description: skill.description,
         filePath: skill.filePath,
+        trust: trustLevel(skill),
+        trustNote: describeTrust(skill),
+        caution: needsCaution(skill),
         reason: reasons.get(skill.id) || 'Selected for this task.',
         mode: fits ? 'full' : 'summary',
         fullTokens,
@@ -233,6 +238,9 @@ export class SkillOrchestrator {
       md += `## Skill: ${skill.name} (${skill.id})\n`;
       md += `**Category**: \`${skill.category}\` | **Author**: ${skill.author} | **Version**: ${skill.version}\n`;
       if (skill.reason) md += `**Why**: ${skill.reason}\n`;
+      // Official skills need no note; others say where they come from
+      if (skill.trust && skill.trust !== 'official') md += `**Source**: ${skill.trustNote}\n`;
+      if (skill.caution) md += `**Caution**: this skill can run commands and GAW has not reviewed it. Show the user any command from it before running it.\n`;
       md += `\n`;
 
       if (skill.mode === 'summary') {

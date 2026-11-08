@@ -21,7 +21,7 @@ const REPO_ROOT = path.resolve(__dirname, '../../');
 export class ProjectBootstrapper {
   constructor(options = {}) {
     this.repoRoot = options.repoRoot || REPO_ROOT;
-    this.registry = new SkillRegistry({ skillsDir: path.join(this.repoRoot, 'skills') });
+    this.registry = new SkillRegistry({ skillsDir: path.join(this.repoRoot, 'skills'), user: true });
     this.orchestrator = new SkillOrchestrator(this.registry);
     this.memoryEngine = new MemoryEngine(options.globalBrainDir ? { globalBrainDir: options.globalBrainDir } : {});
     this.createGraphifyManager = options.createGraphifyManager || ((dir) => new GraphifyManager({ projectRoot: dir }));

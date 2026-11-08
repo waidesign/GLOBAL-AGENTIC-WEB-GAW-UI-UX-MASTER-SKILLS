@@ -16,6 +16,7 @@ import { SkillOrchestrator } from '../orchestrator/SkillOrchestrator.js';
 import { GraphifyManager } from '../graphify-manager/GraphifyManager.js';
 import { userBrainDir } from '../memory-engine/paths.js';
 import { GLOBAL_PREFERENCE_FILES } from './globalBrainLink.js';
+import { trustLevel, describeTrust, needsCaution } from '../skill-registry/trust.js';
 
 export const CONTEXT_VERSION = 1;
 export const LOCK_FILE = 'skills.lock.json';
@@ -57,7 +58,11 @@ export async function selectSkills(projectDir, registry, ids, reason = '') {
     if (!skill) { result.unknown.push(id); continue; }
     const existing = lock.skills.find(s => s.id === id);
     if (existing) { result.already.push(id); continue; }
-    lock.skills.push({ id, version: skill.version, reason: reason || 'Selected for this project.', addedAt: today() });
+    const entry = { id, version: skill.version, reason: reason || 'Selected for this project.', addedAt: today() };
+    // Where it came from, so a teammate without the skill gets a clear message
+    if (skill.library && skill.library !== 'official') entry.library = skill.library;
+    if (skill.contract?.source?.repo) entry.from = `https://github.com/${skill.contract.source.repo}`;
+    lock.skills.push(entry);
     result.added.push(id);
   }
   if (result.added.length) writeLock(projectDir, lock);
@@ -76,7 +81,35 @@ export function deselectSkills(projectDir, ids) {
 
 /** Registry over the project's own skills (ai-brain/skills), without writing an index into the project. */
 export function projectSkillRegistry(projectDir) {
-  return new SkillRegistry({ skillsDir: path.join(brainDir(projectDir), 'skills'), autoIndex: false });
+  return new SkillRegistry({ skillsDir: path.join(brainDir(projectDir), 'skills'), library: 'project', autoIndex: false });
+}
+
+/**
+ * Copy a skill into the project (ai-brain/skills/<id>) so everyone who clones the
+ * project has it, then remove it from the lockfile (it is now a project skill).
+ * Returns { dir } or throws when the project already has a skill with that name.
+ */
+export function shareSkillWithProject(projectDir, skill) {
+  const dest = path.join(brainDir(projectDir), 'skills', skill.id);
+  if (fs.existsSync(dest)) throw new Error(`This project already has a skill named "${skill.id}" in ai-brain/skills/.`);
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.cpSync(skill.dir, dest, { recursive: true, filter: (src) => path.basename(src) !== 'index.json' });
+  deselectSkills(projectDir, [skill.id]);
+  return { dir: dest };
+}
+
+/** Human-readable reasons for selected skills this machine doesn't have. */
+function missingSkillWarnings(lock, missing) {
+  if (!missing.length) return [];
+  const byId = new Map(lock.skills.map(s => [s.id, s]));
+  const personal = missing.filter(id => byId.get(id)?.library === 'personal');
+  const other = missing.filter(id => !personal.includes(id));
+  const out = [];
+  if (personal.length) {
+    out.push(`Selected skills that live only in someone's personal library: ${personal.join(', ')}. Ask whoever selected them to run \`gaw skills share <name>\` so they are committed with the project${personal.some(id => byId.get(id)?.from) ? ', or add them from their source with `gaw skills add <link>`' : ''}.`);
+  }
+  if (other.length) out.push(`Selected skills not found in the GAW library: ${other.join(', ')}.`);
+  return out;
 }
 
 /**
@@ -129,7 +162,12 @@ export async function writeCatalog(projectDir, libraryRegistry) {
     const when = firstItems(c.whenToUse, 2);
     if (when.length) out.push('', `**When to use**: ${when.join(' ')}`);
     if (skill.selection?.reason) out.push(`**Why chosen**: ${skill.selection.reason}`);
-    if ((c.permissions || []).includes('shell')) out.push('**Can run commands**: review its scripts before running them.');
+    if (trustLevel(skill) !== 'official') out.push(`**Source**: ${describeTrust(skill)}`);
+    if ((c.permissions || []).includes('shell')) {
+      out.push(needsCaution(skill)
+        ? '**Can run commands, not reviewed by GAW**: show the user any command from this skill before running it.'
+        : '**Can run commands**: review its scripts before running them.');
+    }
     const file = origin === 'project'
       ? path.relative(projectDir, skill.filePath).replace(/\\/g, '/')
       : skill.filePath.replace(/\\/g, '/');
@@ -146,7 +184,7 @@ export async function writeCatalog(projectDir, libraryRegistry) {
     for (const s of set.own) lines.push(entry(s, 'project').replace(/^## /, '### '));
   }
   if (set.missing.length) {
-    lines.push('', `_Not found in the GAW library: ${set.missing.join(', ')}. Run \`gaw skills deselect\` to remove them._`);
+    for (const w of missingSkillWarnings(readLock(projectDir), set.missing)) lines.push('', `_${w}_`);
   }
 
   fs.mkdirSync(brainDir(projectDir), { recursive: true });
@@ -200,7 +238,7 @@ function readProjectRules(projectDir) {
  */
 export async function loadProjectContext(projectDir, options = {}) {
   const dir = path.resolve(projectDir);
-  const libraryRegistry = options.registry || new SkillRegistry();
+  const libraryRegistry = options.registry || new SkillRegistry({ user: true });
   const info = ProjectDetector.detect(dir);
   const initialized = fs.existsSync(brainDir(dir));
   const warnings = [];
@@ -208,7 +246,7 @@ export async function loadProjectContext(projectDir, options = {}) {
   const lock = readLock(dir);
   if (lock.invalid) warnings.push(`ai-brain/${LOCK_FILE} is not valid JSON; no skills are selected until it is fixed.`);
   const set = await projectSkillSet(dir, libraryRegistry);
-  if (set.missing.length) warnings.push(`Selected skills not found in the GAW library: ${set.missing.join(', ')}.`);
+  warnings.push(...missingSkillWarnings(lock, set.missing));
   if (!initialized) warnings.push('No ai-brain/ folder: run `gaw init` in this project.');
   const overrides = initialized ? GLOBAL_PREFERENCE_FILES.filter(f => fs.existsSync(path.join(brainDir(dir), f))) : [];
   if (overrides.length) {
@@ -223,6 +261,7 @@ export async function loadProjectContext(projectDir, options = {}) {
     reason: s.selection?.reason || null,
     version: s.selection?.version || s.version,
     tokens: s.tokenEstimate ?? null,
+    trust: trustLevel(s),
     permissions: s.contract?.permissions || [],
     path: s.filePath
   });

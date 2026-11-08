@@ -17,12 +17,13 @@ import { ProjectDetector } from '../core/project-detector/ProjectDetector.js';
 import { ProjectBootstrapper } from '../core/bootstrapper/ProjectBootstrapper.js';
 import { GraphifyManager } from '../core/graphify-manager/GraphifyManager.js';
 import { loadProjectContext, loadProjectSkillsForTask, selectSkills, writeCatalog } from '../core/project-context/ProjectContext.js';
+import { trustLevel, describeTrust } from '../core/skill-registry/trust.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '../');
 
-const registry = new SkillRegistry({ skillsDir: path.join(REPO_ROOT, 'skills') });
+const registry = new SkillRegistry({ skillsDir: path.join(REPO_ROOT, 'skills'), user: true });
 const discovery = new SkillDiscovery(registry);
 const orchestrator = new SkillOrchestrator(registry);
 // The user's Global Brain (~/.gaw/brain or GAW_HOME/brain), not the installed package
@@ -236,7 +237,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                   category: s.category,
                   description: s.description,
                   author: s.author,
-                  frameworks: s.frameworks
+                  frameworks: s.frameworks,
+                  trust: trustLevel(s)
                 })),
                 null,
                 2
@@ -261,7 +263,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                   id: s.id,
                   name: s.name,
                   category: s.category,
-                  description: s.description
+                  description: s.description,
+                  trust: trustLevel(s)
                 })),
                 null,
                 2
@@ -278,7 +281,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
         // `content` is loaded on demand (not an enumerable field), so include it explicitly
         return {
-          content: [{ type: 'text', text: JSON.stringify({ ...skill, content: skill.content }, null, 2) }]
+          content: [{ type: 'text', text: JSON.stringify({ ...skill, trust: trustLevel(skill), trustNote: describeTrust(skill), content: skill.content }, null, 2) }]
         };
       }
 

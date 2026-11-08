@@ -139,8 +139,11 @@ gaw use "Build a responsive SaaS dashboard with a sidebar, data table, and smoot
 | `gaw skills [category]` | List all registered skills or filter by category. |
 | `gaw skills select <name...>` | Use library skills in this project (`ai-brain/skills.lock.json`); `deselect` removes, `selected` lists. |
 | `gaw context [--json]` | Everything GAW knows about this project: stack, goal, rules, skills, graph, Global Brain. |
-| `gaw skills add <link\|folder\|file>` | Add any skill: converted to GSS, license checked at the source, supporting files copied, split if oversized, indexed. `--project` adds it to `ai-brain/skills/`. |
-| `gaw skills new "<title>"` | Create a new GSS skill from a template. |
+| `gaw skills add <link\|folder\|file>` | Add any skill to **your personal library** (`~/.gaw/skills/`): converted to GSS, license checked at the source, supporting files copied, split if oversized, indexed. `--project` adds it to `ai-brain/skills/`, `--official` to GAW's own library (for contributors). |
+| `gaw skills new "<title>"` | Create a new GSS skill from a template (personal library by default). |
+| `gaw skills mine` | List the skills in your personal library. |
+| `gaw skills share <name>` | Copy a personal skill into this project (`ai-brain/skills/`) so teammates get it when they clone. |
+| `gaw skills pin\|block <name...>` | Prefer skills you trust, or never have a skill suggested (`unpin`, `unblock`, `prefs` to show). |
 | `gaw skills lint [folder] [--levels]` | Check skills against the GAW Skill Standard and show their ranking levels. |
 | `gaw skills enrich [--apply]` | Fill ranking fields (summary, whenToUse, verification, domains…) from each skill's own text. |
 | `gaw skills licenses [--apply]` | Find each imported skill's real license at its source. |
@@ -200,6 +203,17 @@ metadata:
 ```
 
 You never write GSS by hand: `gaw skills add` converts any skill (from GitHub, a folder or a markdown file) and `gaw skills new` creates one from a template. Both check the license, flag skills that can run commands, split oversized skills into `references/`, and update the skill index automatically. See the [GSS spec](docs/gss/spec.md) and the [authoring guide](docs/skills/authoring-guide.md).
+
+### Official skills, your skills, and trust
+GAW has two skill libraries:
+- **The official library** (`skills/` in this repo): open source, reviewed by GAW maintainers. Everyone with GAW has it. Contribute with a pull request (`gaw skills add <link> --official`).
+- **Your personal library** (`~/.gaw/skills/`): skills you add or write. They stay on your computer, survive GAW updates, and every project on your machine can use them. A personal skill with the same name as an official one replaces it for you only (`--override`).
+
+Every skill shows its **trust level**: `official` (reviewed by GAW), `community` (added from someone's GitHub repo, not reviewed by GAW), `personal` (your own), or `project` (in `ai-brain/skills/`). Agents see where a skill comes from, and skills that GAW hasn't reviewed and that can run commands carry a caution. Adding such a skill needs a deliberate "yes" (or `--yes --allow-scripts`).
+
+Your **skill preferences** live in your Global Brain (`~/.gaw/brain/skill-preferences.json`): pinned skills get a small boost when they fit a task (a pin never adds a skill that doesn't fit), and blocked skills are never suggested.
+
+**Sharing with a team:** a project's `ai-brain/skills.lock.json` records where each selected skill came from. If a teammate doesn't have one of your personal skills, GAW tells them; `gaw skills share <name>` copies it into the project so it's committed with the code.
 
 ### How GAW picks skills
 Ranking is part of the standard: **GSS Ranking v1** ([spec](docs/gss/spec.md#8-ranking-gss-ranking-v1)) publishes which fields count and how, and grades every skill as Findable, Rankable or Precise. A skill must at least say what it does and when to use it to be added.

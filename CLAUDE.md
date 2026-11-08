@@ -14,9 +14,9 @@ Do **NOT** read through the 235 skill files or 63 design files on startup. Use t
 
 ### Common Commands
 ```bash
-npm test                 # Run the test suite (17 test suites in scripts/run-tests.js)
+npm test                 # Run the test suite (18 test suites in scripts/run-tests.js)
 node bin/gaw.js context  # What GAW knows about the current project (same as MCP get_project_context)
-node bin/gaw.js skills add <link|folder|file>  # Add any skill as GSS (license check, split, index)
+node bin/gaw.js skills add <link|folder|file>  # Add any skill as GSS to the personal library (~/.gaw/skills); --official for GAW's library
 node bin/gaw.js skills lint   # Check all skills against the GAW Skill Standard (docs/gss/spec.md)
 node bin/gaw.js skills review --all  # AI-drafted fields waiting for a person (--approve/--reject <name|all>)
 node bin/gaw.js skills licenses [--apply]  # Verify each skill's license at its source (GitHub API: set GITHUB_TOKEN)
@@ -118,6 +118,12 @@ global-agentic-web/
 - **Loading** (`SkillOrchestrator.loadSkillsForTask`): at most 4 skills, full bodies within a token budget (default 8000), short form + file path beyond it. Design presets only for UI tasks.
 - Tune with `npm run eval`; don't change thresholds without checking the score and the no-match cases.
 
+### 1b-2. Skill Libraries, Trust & Preferences
+- **Two libraries**: official (`skills/`, reviewed via PR) and the user's personal library (`~/.gaw/skills`, `userSkillsDir()` in `core/memory-engine/paths.js`). `new SkillRegistry({ user: true })` merges the personal library and loads pin/block preferences; without `user` (tests, `npm run eval`, import scripts) only the official library is seen. CLI, MCP server and the bootstrapper pass `user: true`. Records carry `library` (`official` | `personal` | `project`); a personal skill with an official name replaces it for that user (`overrides`).
+- **Trust levels** (`core/skill-registry/trust.js`): official, community (personal library, has `source.repo`), personal, project; `verified` is reserved for GAW's future verified-repo list and must never come from a skill's own files. `needsCaution()` = not reviewed + `permissions: shell`; agents get a Source/Caution line only for non-official skills.
+- **Preferences** (`core/skill-registry/preferences.js`, `~/.gaw/brain/skill-preferences.json`): blocked skills are skipped by search (`includeBlocked` to override; naming a skill still works), pinned get ×1.15 score without changing coverage.
+- `gaw skills add` saves to the personal library by default (`--project`, `--official`); unreviewed skills that can run commands need a typed "yes" or `--yes --allow-scripts`. `gaw skills share <name>` copies a personal skill into `ai-brain/skills/` for teammates (license must allow it).
+
 ### 1c. Project Context & Project Skills (`core/project-context/`)
 - **One source of truth**: `loadProjectContext()` is used by `gaw context`, MCP `get_project_context`, and the agent adapters (shared section in `integrations/shared/agentBlock.js`). Don't read `ai-brain/` ad hoc in new code; extend the context instead.
 - **Per-project skills**: `ai-brain/skills.lock.json` (library skills chosen for the project; `gaw skills select/deselect`, onboarding, MCP `select_project_skills`) plus project skills in `ai-brain/skills/`. `ai-brain/project-skills.md` is a generated catalog. Agents open full skills only when needed; MCP `load_project_skills` loads only project skills matching a task.
@@ -171,7 +177,7 @@ When writing UI code or reviewing designs:
 ## 🛠️ Testing & Development Guidelines
 
 - **Dependencies**: GAW runs natively on modern Node.js using ESM. The only npm dependency is `@modelcontextprotocol/sdk`. The Graphify CLI (Python) is an optional external tool; the e2e test that uses real Graphify is skipped without it.
-- **Run tests before committing**: `npm test` executes the 17 native test suites in `tests/`. The runner sets a throwaway `GAW_HOME`, so tests never touch the real `~/.gaw`.
+- **Run tests before committing**: `npm test` executes the 18 native test suites in `tests/`. The runner sets a throwaway `GAW_HOME`, so tests never touch the real `~/.gaw`.
 - **Measure skill selection changes**: `npm run eval` scores skill picks on the tuning set (`eval/cases/skill-selection.json`) and the held-out set (`skill-selection-holdout.json`), and compares with `eval/baseline.json`. Never adjust the engine to fix held-out cases: they are the honest check. Only update the baseline (`npm run eval -- --save-baseline`) when a change is an intended improvement.
 - **Licenses**: never relabel a skill's license. Imported skills keep their source's license, verified by `gaw skills licenses`. Only split/modify skills whose `source.licenseStatus` is `open` or `copyleft`.
 - **Git workflow**: Main branch is `main`. Remote is `origin` (`https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git`).

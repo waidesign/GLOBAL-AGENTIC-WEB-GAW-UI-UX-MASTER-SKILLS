@@ -118,12 +118,26 @@ Nobody has to write GSS by hand. Every way of adding a skill produces it:
 
 | Command | What it does |
 |---|---|
-| `gaw skills add <github-link \| folder \| file.md>` | Converts any skill (Agent Skills `SKILL.md`, old GAW `.md`, plain markdown) to GSS. Checks the license at the source, copies supporting files (up to 300 files / 10 MB), flags `permissions` (hooks or scripts → `shell`), splits it if oversized and the license allows, then lints and indexes it. Shows a preview and asks first (`--yes` to skip). `--project` adds it to `ai-brain/skills/`. |
+| `gaw skills add <github-link \| folder \| file.md>` | Converts any skill (Agent Skills `SKILL.md`, old GAW `.md`, plain markdown) to GSS. Checks the license at the source, copies supporting files (up to 300 files / 10 MB), flags `permissions` (hooks or scripts → `shell`), splits it if oversized and the license allows, then lints and indexes it. Shows a preview and asks first (`--yes` to skip). Saves to the personal library; `--project` adds it to `ai-brain/skills/`, `--official` to GAW's library. |
 | `gaw skills new "<Title>"` | Creates a ready-to-fill GSS skill from a template. The linter blocks it until the description is written. |
 | `scripts/ingest-skills-sh.mjs` | Bulk import from GitHub repos through the same pipeline. |
 | `gaw init` | Creates the starter project skills as GSS folders. |
 
 Fields from the original that Agent Skills doesn't allow at the top level are kept, as their original text, in `gaw.json` → `extraFrontmatter`.
+
+### 5a. Libraries and trust levels
+
+`gaw skills add` and `gaw skills new` save to the user's **personal library** (`~/.gaw/skills/`, or `$GAW_HOME/skills`) unless `--project` or `--official` is given. Tools see each skill's **trust level**:
+
+| Level | Where the skill lives | Who checked it |
+|---|---|---|
+| `official` | GAW's library (`skills/` in the GAW repo) | GAW maintainers, through pull-request review |
+| `verified` | Its author's repo, at a pinned version | GAW (reserved: comes with GAW's verified list) |
+| `community` | The personal library, added from a GitHub repo (`source.repo` set) | Nobody at GAW |
+| `personal` | The personal library, written or added locally | Its owner |
+| `project` | A project's `ai-brain/skills/` | The project's team |
+
+A skill never sets its own trust level: nothing in `SKILL.md` or `gaw.json` can make a skill `official` or `verified`. Skills that GAW has not reviewed and that have `permissions: ["shell"]` carry a caution for agents, and adding one needs a deliberate confirmation.
 
 ## 6. Licenses
 

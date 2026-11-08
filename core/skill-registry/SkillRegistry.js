@@ -3,6 +3,8 @@ import { readJsonFile } from '../utils/readJson.js';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseFrontmatter } from './frontmatter.js';
+import { userSkillsDir, skillPreferencesFile } from '../memory-engine/paths.js';
+import { readSkillPreferences } from './preferences.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -69,15 +71,40 @@ function toSkillRecord({ data, contract, relPath, categoryFromPath, isGss }) {
   };
 }
 
+export const OFFICIAL_SKILLS_DIR = path.join(REPO_ROOT, 'skills');
+
 export class SkillRegistry {
+  /**
+   * options:
+   *   skillsDir   the library folder (default: GAW's official library)
+   *   library     what that folder is: 'official' (default), 'personal' or 'project'
+   *   user        also load the user's personal library (~/.gaw/skills) and skill
+   *               preferences (pin/block). Off by default, so tests, the benchmark
+   *               and import scripts see only the official library. The CLI, the MCP
+   *               server and gaw init turn it on.
+   *   userSkillsDir / preferencesFile   override the user's locations (tests)
+   */
   constructor(options = {}) {
-    this.skillsDir = options.skillsDir || path.join(REPO_ROOT, 'skills');
+    this.skillsDir = options.skillsDir || OFFICIAL_SKILLS_DIR;
+    this.library = options.library || 'official';
     this.skills = new Map();
     this.categories = new Set();
     this.initialized = false;
     this.duplicates = [];
+    this.overrides = [];
     // Rewrite skills/index.json when skills changed, so nobody has to remember `gaw skills index`
     this.autoIndex = options.autoIndex !== false;
+    this.user = Boolean(options.user);
+    this.personal = this.user
+      ? new SkillRegistry({ skillsDir: options.userSkillsDir || userSkillsDir(), library: 'personal', autoIndex: this.autoIndex })
+      : null;
+    this.preferencesFile = this.user ? (options.preferencesFile || skillPreferencesFile()) : null;
+    this.preferences = { pinned: [], blocked: [] };
+  }
+
+  /** Where `gaw skills add` saves skills by default: the personal library when loaded, else this library. */
+  get personalDir() {
+    return this.personal ? this.personal.skillsDir : null;
   }
 
   /** Skill files on disk: GSS folders (SKILL.md) and legacy single .md files. */
@@ -152,9 +179,11 @@ export class SkillRegistry {
     };
   }
 
+  /** Write this library's index (and the personal library's, when loaded and present). Returns this library's index. */
   writeIndex() {
     const index = this.buildIndex();
     fs.writeFileSync(path.join(this.skillsDir, INDEX_FILE), `${JSON.stringify(index, null, 2)}\n`, 'utf8');
+    if (this.personal && fs.existsSync(this.personal.skillsDir)) this.personal.writeIndex();
     return index;
   }
 
@@ -197,10 +226,13 @@ export class SkillRegistry {
     this.skills.clear();
     this.categories.clear();
     this.duplicates = [];
+    this.overrides = [];
 
+    if (this.user) this.preferences = readSkillPreferences(this.preferencesFile);
     if (!fs.existsSync(this.skillsDir)) {
+      await this.mergePersonal();
       this.initialized = true;
-      return [];
+      return Array.from(this.skills.values());
     }
 
     const files = this.listSkillFiles();
@@ -225,13 +257,38 @@ export class SkillRegistry {
         this.duplicates.push(record.id);
         continue; // first one wins; `gaw skills lint` reports duplicates
       }
+      record.library = this.library;
       this.skills.set(record.id, this.attachContent(record, content));
       this.categories.add(record.category);
     }
 
+    await this.mergePersonal();
     this.initialized = true;
     this.loadedFromIndex = Boolean(index);
     return Array.from(this.skills.values());
+  }
+
+  /**
+   * Add the user's personal library. A personal skill with the same name as an
+   * official one replaces it for this user only, and is marked `overrides`.
+   */
+  async mergePersonal() {
+    if (!this.personal) return;
+    for (const skill of await this.personal.loadSkills()) {
+      if (this.skills.has(skill.id)) {
+        skill.overrides = this.skills.get(skill.id).library;
+        this.overrides.push(skill.id);
+      }
+      this.skills.set(skill.id, skill);
+      this.categories.add(skill.category);
+    }
+    this.duplicates.push(...this.personal.duplicates);
+  }
+
+  /** Reload preferences after `gaw skills pin/block` (skills stay loaded). */
+  reloadPreferences() {
+    if (this.user) this.preferences = readSkillPreferences(this.preferencesFile);
+    return this.preferences;
   }
 
   async ensureLoaded() {

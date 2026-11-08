@@ -36,6 +36,19 @@ export async function askYesNo(question) {
 }
 
 /**
+ * A deliberate confirmation: only typing the word itself (e.g. "yes") counts.
+ * Enter alone means no. Used before installing skills that can run commands.
+ */
+export async function askTyped(question, word = 'yes') {
+  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+  try {
+    return (await rl.question(question)).trim().toLowerCase() === word;
+  } finally {
+    rl.close();
+  }
+}
+
+/**
  * Make Graphify available, asking for consent before installing anything.
  *
  * - confirmGraphify: explain Graphify and ask before installing it

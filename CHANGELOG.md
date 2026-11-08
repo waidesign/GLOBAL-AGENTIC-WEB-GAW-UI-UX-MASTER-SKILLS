@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (skill libraries and trust)
+- **Personal skill library** (`~/.gaw/skills/`, or `$GAW_HOME/skills`): `gaw skills add` and `gaw skills new` now save there by default, so your skills survive GAW updates, never end up in GAW's repository, and every project on your computer can use them. `--official` adds to GAW's own library (for contributors, shared by pull request); `--project` still adds to `ai-brain/skills/`. A personal skill with an official skill's name replaces it for you only, and only with `--override`. `gaw skills mine` lists your skills.
+- **Trust levels on every skill**: official, community (from someone's GitHub repo, not reviewed by GAW), personal, project. Shown in `gaw skills`, `search`, `recommend`, `use`, `skills selected`, `gaw context`, the project skill catalog and the MCP tools. Agents get a "Source" line for non-official skills, and a caution for unreviewed skills that can run commands. A skill cannot mark itself verified.
+- **Deliberate confirmation for unreviewed skills that run commands**: adding one needs a typed "yes", or `--yes --allow-scripts` without a prompt.
+- **Skill preferences in the Global Brain** (`~/.gaw/brain/skill-preferences.json`): `gaw skills pin` gives a skill a small boost when it fits a task (it never adds one that doesn't), `gaw skills block` stops GAW from suggesting it; `unpin`, `unblock`, `prefs`. `gaw recommend` mentions blocked skills that would have fit.
+- **Sharing personal skills with a team**: the project lockfile records where each skill came from. A teammate without one of your personal skills gets a clear message, and `gaw skills share <name>` copies it into `ai-brain/skills/` (refused without `--yes` when the skill's license may not allow copies).
+
 ### Added (skill review)
 - **AI-drafted ranking fields, waiting for review**: 219 skills below Rankable got drafted `whenToUse`, `whenNotToUse` and `keywords` (374 fields), written only into empty fields of `gaw.json` and based only on each skill's own SKILL.md. They are listed in `drafts` and don't count for ranking until a person approves them.
   - Approved (on the maintainer's instruction, after a benchmark check): all drafted `whenToUse` (118) and `whenNotToUse` (38). Benchmark unchanged (tuning 94%, held-out 93%); Incomplete skills 116 → 11.
