@@ -12,10 +12,11 @@
 - **1.2 Zero Generic AI Aesthetics**: Forbid random purple gradients, background glows, cliché stock hero illustrations, and purposeless glassmorphism.
 - **1.3 Icon Discipline**: No emojis in product UI. Icons are permitted only when they carry clear semantic meaning and have a visible text label or accessible programmatic name.
 - **1.4 Surface Hierarchy**: Never nest cards inside cards. Avoid unnecessary border outlines: establish visual boundaries using whitespace and subtle background tone shifts first; borders are a last resort.
-- **1.5 Text & Contrast Hygiene**: No text shadows. No color overlays or gradient fills placed over text or imagery.
+- **1.5 Text & Contrast Hygiene**: No text shadows. No color overlays or gradient fills placed over text or imagery. Headings must use solid, high-contrast typography tokens (`color.text.primary`). Strictly forbid unnecessary gradient text fills (`text-transparent bg-clip-text bg-gradient-...`) on header colors; apply gradient text to headings only if strictly necessary according to the user's explicit input.
 - **1.6 Purposeful Motion**: No gratuitous animations. Every motion must explain a change of state, position, or hierarchy.
 - **1.7 Editorial Punctuation**: Body copy must not contain hyphens (`-`), double hyphens (`--`), asterisks (`*`), or underscores (`_`) used as punctuation, decoration, or faux list markers. Use proper commas, periods, or colons.
 - **1.8 No Placeholder Copy**: Shipped work and pull requests must contain realistic, domain-specific copy. Never ship with `lorem ipsum` or generic placeholder labels.
+- **1.9 Header & Eyebrow Discipline**: Do not prepend eyebrow badges, eyebrow text, kicker labels, announcement banners, or top pills everywhere above headers (`<h1>`, `<h2>`) as boilerplate decoration. Headings must carry visual hierarchy through scale, weight, and spacing alone. Use an eyebrow element or top pill only if strictly necessary or when the user explicitly requests one.
 
 ---
 
@@ -110,5 +111,5 @@ Before approving any UI surface or component for merge, verify:
 - [ ] **4. Comprehensive States**: Are Default, Hover, Focus, Disabled, Loading/Skeleton, Error, and Empty states implemented?
 - [ ] **5. Token Fidelity**: Does the implementation use semantic design tokens with zero raw values?
 - [ ] **6. Safe Motion**: Are animations strictly compositor-only (`transform`/`opacity`), capped at 300ms, and disabled under `prefers-reduced-motion`?
-- [ ] **7. Zero Slop**: Has every non-functional decorative element, emoji, nested card, and hyphenated punctuation been eliminated?
+- [ ] **7. Zero Slop**: Has every non-functional decorative element, emoji, nested card, unnecessary eyebrow badge/pill, unrequested gradient header text, and hyphenated punctuation been eliminated?
 - [ ] **8. System Integration**: For new components: is it named by purpose, documented with Do/Don't examples, accessibility-tested, and version-tracked?
