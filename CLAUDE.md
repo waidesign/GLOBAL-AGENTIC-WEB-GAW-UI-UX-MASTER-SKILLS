@@ -14,7 +14,8 @@ Do **NOT** read through the 235 skill files or 63 design files on startup. Use t
 
 ### Common Commands
 ```bash
-npm test                 # Run the test suite (9 test suites in scripts/run-tests.js)
+npm test                 # Run the test suite (10 test suites in scripts/run-tests.js)
+npm run eval             # Skill selection benchmark vs eval/baseline.json (run after any skill/search change)
 node bin/gaw.js doctor   # Verify runtime, 235 registered skills, and 63 design presets
 node bin/gaw.js recommend "<task prompt>"   # Test skill & design recommendations
 node bin/gaw.js use "<task>" --inject       # Test injection into ai-brain/
@@ -139,7 +140,8 @@ When writing UI code or reviewing designs:
 ## 🛠️ Testing & Development Guidelines
 
 - **Dependencies**: GAW runs natively on modern Node.js using ESM. The only npm dependency is `@modelcontextprotocol/sdk`. The Graphify CLI (Python) is an optional external tool; the e2e test that uses real Graphify is skipped without it.
-- **Run tests before committing**: `npm test` executes the 9 native test suites in `tests/`.
+- **Run tests before committing**: `npm test` executes the 10 native test suites in `tests/`.
+- **Measure skill selection changes**: `npm run eval` scores skill picks on `eval/cases/skill-selection.json` and compares with `eval/baseline.json`. Only update the baseline (`npm run eval -- --save-baseline`) when a change is an intended improvement.
 - **Git workflow**: Main branch is `main`. Remote is `origin` (`https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git`).
 - **Global Path Wiring**: On this machine, `C:\Users\ITUSER\.gemini\antigravity\bin\gaw.cmd` and `gaw.ps1` execute `node "E:\global-agentic-web\bin\gaw.js" %*`.
 

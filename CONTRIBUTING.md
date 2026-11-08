@@ -31,6 +31,12 @@ Before submitting a PR, make sure all tests pass:
 npm test
 ```
 
+If your change touches skills, skill search or recommendations, also run the skill selection benchmark and include the before/after scores in your PR:
+```bash
+npm run eval
+```
+To add a benchmark case, edit `eval/cases/skill-selection.json`. Cases with an empty `relevant` list check that GAW suggests nothing when no skill fits.
+
 ## 4. Code Guidelines
 
 - **No Magic Values**: Never introduce hardcoded styling or magic numbers. Adhere strictly to [`brain/coding-preferences.md`](brain/coding-preferences.md).

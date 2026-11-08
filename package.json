@@ -9,6 +9,7 @@
   "main": "./cli/index.js",
   "scripts": {
     "test": "node scripts/run-tests.js",
+    "eval": "node scripts/run-eval.js",
     "gaw": "node ./bin/gaw.js",
     "mcp": "node ./mcp/server.js",
     "doctor": "node ./bin/gaw.js doctor"
