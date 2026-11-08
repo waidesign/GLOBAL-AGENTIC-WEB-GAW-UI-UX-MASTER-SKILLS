@@ -4,6 +4,10 @@
   "source": {
     "repo": "anthropics/skills",
     "path": "skills/mcp-builder/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "skill license file",
+    "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/mcp-builder/LICENSE.txt",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

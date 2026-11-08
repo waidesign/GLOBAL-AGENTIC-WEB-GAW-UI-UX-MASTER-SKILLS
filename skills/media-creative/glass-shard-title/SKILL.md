@@ -1,7 +1,7 @@
 ---
 name: "glass-shard-title"
 description: "Glass shards fly in through fog and tile themselves into the headline. HyperFrames block, 1920×1080, 12.16s, 19 variables."
-license: "MIT"
+license: "Apache-2.0"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "heygen-com"

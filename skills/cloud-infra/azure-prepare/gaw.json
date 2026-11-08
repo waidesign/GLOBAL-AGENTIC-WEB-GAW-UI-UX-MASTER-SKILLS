@@ -4,6 +4,10 @@
   "source": {
     "repo": "microsoft/azure-skills",
     "path": ".github/plugins/azure-skills/skills/azure-prepare/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "declared in original SKILL.md",
+    "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-prepare/SKILL.md",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

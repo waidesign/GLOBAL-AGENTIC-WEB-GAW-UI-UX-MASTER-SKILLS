@@ -1,7 +1,7 @@
 ---
 name: "google-agents-cli-adk-code"
 description: "This skill should be used when the user wants to \"write agent code\", \"build an agent with ADK\", \"add a tool\", \"create a callback\", \"define an agent\", \"use state management\" — in a project that needs ADK (Agent Development Kit) API patterns and code examples. It provides a quick reference for agent types, tool definitions, orchestration patterns, callbacks, state management, the graph Workflow API, and reference recipes to study. Do NOT use for scaffolding (use google-agents-cli-scaffold) or deployment (use google-agents-cli-deploy)."
-license: "MIT"
+license: "Apache-2.0"
 metadata:
   gaw-category: "workflow"
   gaw-author: "Google"

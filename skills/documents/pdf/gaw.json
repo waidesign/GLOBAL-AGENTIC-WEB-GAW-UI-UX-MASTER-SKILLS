@@ -8,6 +8,10 @@
   "source": {
     "repo": "anthropics/skills",
     "path": "skills/pdf/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "skill license file",
+    "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/pdf/LICENSE.txt",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

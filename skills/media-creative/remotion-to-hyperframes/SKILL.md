@@ -1,7 +1,7 @@
 ---
 name: "remotion-to-hyperframes"
 description: "Bring existing video code or footage into HyperFrames and verify it frame by frame against the original - Remotion first, also Motion Canvas, Lottie, Three.js, p5.js, canvas or plain HTML/CSS animation, or renders from Manim, After Effects or Blender. Use to port, convert, migrate or reuse work made with another tool."
-license: "MIT"
+license: "Apache-2.0"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "heygen-com"

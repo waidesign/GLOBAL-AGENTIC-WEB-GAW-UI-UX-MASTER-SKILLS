@@ -1,7 +1,7 @@
 ---
 name: "remotion-license"
 description: "Find Remotion license information, FAQs, terms, and where to buy a license."
-license: "MIT"
+license: "UNKNOWN"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "remotion-dev"

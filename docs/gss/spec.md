@@ -104,11 +104,33 @@ Structured data that helps GAW choose skills well and helps agents use them. Eve
 | `related` | string[] | Skills worth suggesting alongside. |
 | `frameworks` | string[] | Frameworks the skill targets (omit for "any"). |
 | `verification` | string[] | Checks that confirm the skill's output is correct. |
-| `permissions` | string[] | What the skill may do beyond writing text: `shell`, `network`, `filesystem`, `secrets`. Empty means instructions only. |
+| `permissions` | string[] | What the skill may do beyond writing text: `shell`, `network`, `filesystem`, `secrets`. Empty means instructions only. `gaw skills add` sets `shell` automatically for skills with hooks, pre-approved shell tools, or scripts. |
 | `lastVerified` | string | Date (`YYYY-MM-DD`) the skill was last checked. |
-| `source` | object | Where an imported skill came from. `licenseVerified: false` means the license has not been checked against the original. |
+| `source` | object | Where an imported skill came from, and its license check: `licenseVerified`, `licenseStatus` (`open`, `copyleft`, `restricted`, `unknown`), `licenseEvidence`, `licenseUrl`, `licenseCheckedAt`. |
+| `extraFrontmatter` | object | Frontmatter fields from the original skill that Agent Skills doesn't allow at the top level, kept so nothing is lost. |
 
-## 5. Validation
+## 5. Adding skills: GSS is created automatically
+
+Nobody has to write GSS by hand. Every way of adding a skill produces it:
+
+| Command | What it does |
+|---|---|
+| `gaw skills add <github-link \| folder \| file.md>` | Converts any skill (Agent Skills `SKILL.md`, old GAW `.md`, plain markdown) to GSS. Checks the license at the source, copies supporting files (up to 300 files / 10 MB), flags `permissions` (hooks or scripts → `shell`), splits it if oversized and the license allows, then lints and indexes it. Shows a preview and asks first (`--yes` to skip). `--project` adds it to `ai-brain/skills/`. |
+| `gaw skills new "<Title>"` | Creates a ready-to-fill GSS skill from a template. The linter blocks it until the description is written. |
+| `scripts/ingest-skills-sh.mjs` | Bulk import from GitHub repos through the same pipeline. |
+| `gaw init` | Creates the starter project skills as GSS folders. |
+
+Fields from the original that Agent Skills doesn't allow at the top level are kept, as their original text, in `gaw.json` → `extraFrontmatter`.
+
+## 6. Licenses
+
+GAW never relabels someone else's work. For skills from GitHub, `gaw skills licenses` (and `gaw skills add`) looks for evidence in this order: a LICENSE file in the skill's own folder, the `license` field of the original `SKILL.md`, then the repository license. It reads the license text, records the SPDX id in `license`, and records the evidence in `gaw.json` → `source` (`licenseStatus`: `open`, `copyleft`, `restricted` or `unknown`). Skills without a found license show a lint warning: get the author's permission before redistributing them.
+
+## 7. Oversized skills
+
+A body over ~5,000 tokens is split losslessly: the opening sections stay in `SKILL.md` (~3,500 tokens), and the rest moves into `references/*.md`, grouped into files of roughly 1,200–3,000 tokens. A "Detailed references" list in `SKILL.md` tells agents what each file covers so they open it only when needed. GAW only splits skills whose license allows changes (open or copyleft). `gaw skills split <name|--all> [--apply]` does this for existing skills; `gaw skills add` does it automatically.
+
+## 8. Validation
 
 ```bash
 gaw skills lint            # whole library
@@ -119,12 +141,6 @@ gaw skills lint <folder>   # one skill
 
 **Warnings** (should fix): body over ~5,000 tokens or 500 lines, placeholder descriptions, `source.licenseVerified: false`.
 
-## 6. Index
+## 9. Index
 
-`skills/index.json` holds every skill's metadata, `gaw.json` contract and a token estimate, so GAW can search without reading every skill body. Rebuild it after adding or editing skills:
-
-```bash
-gaw skills index
-```
-
-The test suite fails if the index is out of date.
+`skills/index.json` holds every skill's metadata, `gaw.json` contract and a token estimate, so GAW can rank skills without reading every skill body. It updates itself: whenever GAW notices skills were added or changed, it rebuilds the index. `gaw skills index` rebuilds it on demand.

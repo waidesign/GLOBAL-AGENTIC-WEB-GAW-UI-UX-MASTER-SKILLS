@@ -1,7 +1,7 @@
 ---
 name: "remotion-upgrade"
 description: "Upgrade Remotion, and related packages"
-license: "MIT"
+license: "UNKNOWN"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "remotion-dev"

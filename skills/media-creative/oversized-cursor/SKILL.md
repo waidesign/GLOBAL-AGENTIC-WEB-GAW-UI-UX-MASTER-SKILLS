@@ -1,7 +1,7 @@
 ---
 name: "oversized-cursor"
 description: "House-style oversized macOS cursor technique for HyperFrames launch videos. Load whenever a scene involves cursors or a pointer-led action, when kicking off a UI scene, when igniting a morph/transition/typing run with a click, or when a scene reads as static, dead, or stale and needs a cheap high-yield source of motion to carry the viewer's eye and segment them out of the stale state. Covers cursor size/look (incl. brand-motif cursors), the off-screen entry law, tip-targeting and the click tap, click-ignites-the-next-beat, and exit / cross-scene handoff."
-license: "MIT"
+license: "Apache-2.0"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "heygen-com"

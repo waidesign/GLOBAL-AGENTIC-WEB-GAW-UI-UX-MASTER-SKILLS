@@ -4,6 +4,10 @@
   "source": {
     "repo": "anthropics/skills",
     "path": "skills/slack-gif-creator/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "skill license file",
+    "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/slack-gif-creator/LICENSE.txt",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

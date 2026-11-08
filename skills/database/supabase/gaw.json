@@ -4,6 +4,10 @@
   "source": {
     "repo": "supabase/agent-skills",
     "path": "skills/supabase/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "repository license",
+    "licenseUrl": "https://github.com/supabase/agent-skills/blob/main/LICENSE",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

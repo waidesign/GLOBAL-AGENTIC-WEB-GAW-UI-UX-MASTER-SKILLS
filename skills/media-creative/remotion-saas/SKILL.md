@@ -1,7 +1,7 @@
 ---
 name: "remotion-saas"
 description: "Build an app with Remotion"
-license: "MIT"
+license: "UNKNOWN"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "remotion-dev"

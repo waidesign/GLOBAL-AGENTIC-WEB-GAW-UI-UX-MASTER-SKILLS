@@ -4,6 +4,10 @@
   "source": {
     "repo": "leonxlnx/taste-skill",
     "path": "skills/taste-skill/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "repository license",
+    "licenseUrl": "https://github.com/Leonxlnx/taste-skill/blob/main/LICENSE",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

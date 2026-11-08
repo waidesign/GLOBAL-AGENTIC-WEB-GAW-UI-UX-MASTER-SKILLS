@@ -1,7 +1,7 @@
 ---
 name: "remotion-markup"
 description: "Content, animation and effects best practices"
-license: "MIT"
+license: "UNKNOWN"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "remotion-dev"

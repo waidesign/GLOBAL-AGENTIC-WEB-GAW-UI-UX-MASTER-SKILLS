@@ -1,7 +1,7 @@
 ---
 name: "agents-cli-claude"
 description: "Use when working in this project — adding tools, editing the agent, running, evaluating, serving or deploying it — or when guidance mentions ADK, LlmAgent, google.adk, adk web, or an ADK runner. This project is a Claude Agent SDK agent scaffolded by agents-cli, so ADK-specific instructions do not apply."
-license: "MIT"
+license: "Apache-2.0"
 metadata:
   gaw-category: "workflow"
   gaw-author: "google"

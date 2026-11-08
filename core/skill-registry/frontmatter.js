@@ -162,10 +162,26 @@ export function parseFrontmatter(raw) {
   const body = afterFence === -1 ? '' : text.slice(afterFence + 1);
   const lines = header.split('\n');
 
+  // Exact source text of each top-level field, for lossless round-trips of
+  // structures deeper than this reader understands
+  const rawFields = {};
+  let current = null;
+  for (const line of lines) {
+    const top = line.match(/^([^\s#:][^:]*):(\s|$)/);
+    if (top) {
+      current = top[1].trim();
+      rawFields[current] = [line];
+    } else if (current) {
+      rawFields[current].push(line);
+    }
+  }
+  for (const key of Object.keys(rawFields)) rawFields[key] = rawFields[key].join('\n').replace(/\s+$/, '');
+
   return {
     data: parseMapping(lines, 0, lines.length, 0),
     content: body.replace(/^\n+/, '').replace(/\s+$/, ''),
-    hasFrontmatter: true
+    hasFrontmatter: true,
+    raw: rawFields
   };
 }
 

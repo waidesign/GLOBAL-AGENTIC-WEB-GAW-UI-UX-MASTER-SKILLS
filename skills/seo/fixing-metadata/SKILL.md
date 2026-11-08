@@ -1,6 +1,6 @@
 ---
 name: "fixing-metadata"
-description: "1. Identify pages with missing or incorrect metadata (titles, descriptions, canonical, OG tags) 2. Audit against the priority rules below — fix critical issues (duplicates, indexing) first 3. Ensure title, description, canonical, and og:url all agree with each other 4."
+description: "Audit and fix HTML metadata including page titles, meta descriptions, canonical URLs, Open Graph tags, Twitter cards, favicons, JSON-LD structured data, and robots directives. Use when adding SEO metadata, fixing social share previews, reviewing Open Graph tags, setting up canonical URLs, or shipping new pages that need correct meta tags."
 license: "MIT"
 metadata:
   gaw-category: "seo"

@@ -1,7 +1,7 @@
 ---
 name: "orbit-card"
 description: "A single feature card orbits a dot sphere on approved Blender camera motion. HyperFrames block, 1920×1080, 10s, 4 variables."
-license: "MIT"
+license: "Apache-2.0"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "heygen-com"

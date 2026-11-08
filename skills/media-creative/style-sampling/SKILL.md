@@ -1,7 +1,7 @@
 ---
 name: "style-sampling"
 description: "Make a new episode in a proven video style - Collage Explainer, Finance Explainer, Animated Science Explainer, 3D Brand Explainer, 3D True Crime - on the person's topic. Use for \"an episode of\", \"in the style of\", \"sample this style\", 「用这个风格做一集」. One video to copy is reverse-any-video."
-license: "MIT"
+license: "Apache-2.0"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "heygen-com"

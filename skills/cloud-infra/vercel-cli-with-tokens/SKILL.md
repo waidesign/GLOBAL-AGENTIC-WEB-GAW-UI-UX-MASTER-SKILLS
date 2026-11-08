@@ -1,7 +1,7 @@
 ---
 name: "vercel-cli-with-tokens"
 description: "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. \"deploy to vercel\", \"set up vercel\", \"add environment variables to vercel\"."
-license: "MIT"
+license: "UNKNOWN"
 metadata:
   gaw-category: "cloud-infra"
   gaw-author: "vercel"

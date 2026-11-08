@@ -8,6 +8,8 @@ const NAME_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const PLACEHOLDERS = new Set(['>', '>-', '>+', '|', '|-', '|+']);
 const MAX_BODY_TOKENS = 5000;
 const MAX_BODY_LINES = 500;
+// Placeholder written by `gaw skills new`; a skill can't be published until it's replaced
+export const NEW_SKILL_TODO = 'TODO:';
 
 const CONTRACT_FIELDS = {
   gss: 'number',
@@ -24,7 +26,8 @@ const CONTRACT_FIELDS = {
   verification: 'string[]',
   permissions: 'string[]',
   lastVerified: 'string',
-  source: 'object'
+  source: 'object',
+  extraFrontmatter: 'object'
 };
 const PERMISSIONS = new Set(['shell', 'network', 'filesystem', 'secrets']);
 
@@ -68,6 +71,7 @@ export function lintSkillFolder(dir, knownSkills = null) {
   const description = typeof data.description === 'string' ? data.description.trim() : '';
   if (!description) errors.push('Missing "description"');
   else if (PLACEHOLDERS.has(description)) errors.push(`"description" is a placeholder ("${description}")`);
+  else if (description.startsWith(NEW_SKILL_TODO)) errors.push('"description" is still the template text: say what the skill does and when to use it');
   else if (description.length > 1024) errors.push('"description" is longer than 1024 characters');
   else if (description.length < 20) warnings.push('"description" is very short: say what the skill does and when to use it');
 
@@ -84,7 +88,8 @@ export function lintSkillFolder(dir, knownSkills = null) {
       }
       const category = data.metadata['gaw-category'];
       const parentFolder = path.basename(path.dirname(dir));
-      if (category && category !== parentFolder) {
+      // Library layout is skills/<category>/<name>; project skills sit directly in ai-brain/skills/
+      if (category && parentFolder !== 'skills' && category !== parentFolder) {
         warnings.push(`metadata gaw-category (${category}) differs from the parent folder (${parentFolder})`);
       }
     }
@@ -117,8 +122,11 @@ export function lintSkillFolder(dir, knownSkills = null) {
       for (const p of contract.permissions || []) {
         if (!PERMISSIONS.has(p)) warnings.push(`gaw.json: unknown permission "${p}"`);
       }
-      if (contract.source && contract.source.licenseVerified === false) {
-        warnings.push('License not yet verified against the original source (gaw.json source.licenseVerified)');
+      const src = contract.source;
+      if (src && (src.licenseStatus === 'unknown' || src.licenseStatus === 'restricted')) {
+        warnings.push(`License ${src.licenseStatus === 'unknown' ? 'not found' : 'is restricted'} at the source (${src.licenseUrl || src.repo}): get the author's permission before redistributing`);
+      } else if (src && src.licenseVerified === false) {
+        warnings.push('License not yet verified against the original source: run gaw skills licenses');
       }
     }
   }

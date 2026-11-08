@@ -4,6 +4,10 @@
   "source": {
     "repo": "microsoft/azure-skills",
     "path": ".github/plugins/azure-skills/skills/appinsights-instrumentation/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "skill license file",
+    "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/appinsights-instrumentation/LICENSE.txt",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

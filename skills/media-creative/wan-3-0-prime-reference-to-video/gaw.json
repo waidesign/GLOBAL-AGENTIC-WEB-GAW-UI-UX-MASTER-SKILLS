@@ -4,6 +4,10 @@
   "source": {
     "repo": "gencraft-labs/skills",
     "path": "wan-3-0-prime-reference-to-video/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "declared in original SKILL.md",
+    "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/wan-3-0-prime-reference-to-video/SKILL.md",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

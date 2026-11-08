@@ -8,6 +8,10 @@
   "source": {
     "repo": "mattpocock/skills",
     "path": "skills/engineering/tdd/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "repository license",
+    "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

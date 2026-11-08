@@ -1,7 +1,7 @@
 ---
 name: "remotion-interactivity"
 description: "Structure Remotion markup for interactivity"
-license: "MIT"
+license: "UNKNOWN"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "remotion-dev"

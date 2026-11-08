@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import { ProjectBootstrapper } from '../../core/bootstrapper/ProjectBootstrapper.js';
 import { GraphifyManager, GRAPHIFY_OUT_DIR } from '../../core/graphify-manager/GraphifyManager.js';
+import { lintLibrary } from '../../core/skill-registry/SkillLinter.js';
 
 function scaffoldReactProject() {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'gaw-e2e-project-'));
@@ -49,7 +50,10 @@ test('E2E - gaw init and start on React project without Graphify (optional)', as
   assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', 'README.md')), true);
   assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', 'context.md')), true);
   assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', 'rules.md')), true);
-  assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', 'skills', 'code-generation.md')), true);
+  // Starter project skills are GAW Skill Standard folders
+  assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', 'skills', 'code-generation', 'SKILL.md')), true);
+  assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', 'skills', 'code-generation', 'gaw.json')), true);
+  assert.equal(lintLibrary(path.join(tempDir, 'ai-brain', 'skills')).errorCount, 0);
 
   // No graph without Graphify
   assert.equal(fs.existsSync(path.join(tempDir, GRAPHIFY_OUT_DIR)), false);

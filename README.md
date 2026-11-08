@@ -137,6 +137,12 @@ gaw use "Build a responsive SaaS dashboard with a sidebar, data table, and smoot
 | `gaw setup` | Install Graphify later (asks before installing uv). |
 | `gaw start` | Resume an already initialized project with verified contexts. |
 | `gaw skills [category]` | List all registered skills or filter by category. |
+| `gaw skills add <link\|folder\|file>` | Add any skill: converted to GSS, license checked at the source, supporting files copied, split if oversized, indexed. `--project` adds it to `ai-brain/skills/`. |
+| `gaw skills new "<title>"` | Create a new GSS skill from a template. |
+| `gaw skills lint [folder]` | Check skills against the GAW Skill Standard. |
+| `gaw skills licenses [--apply]` | Find each imported skill's real license at its source. |
+| `gaw skills split <name\|--all> [--apply]` | Move the long parts of oversized skills into `references/` (lossless). |
+| `gaw skills repair <name\|--all> [--apply]` | Restore supporting files imported skills are missing (text files; `--include-binary` for all). |
 | `gaw designs [search <q>]` | List or search real-world design presets from GradientDeck with live links. |
 | `gaw design <id> [--apply]` | Inspect palette & typography, open live inspiration site, or apply to `ai-brain/design.md`. |
 | `gaw search "<query>"` | Full-text relevance search across skills, tags, and frameworks. |
@@ -147,7 +153,7 @@ gaw use "Build a responsive SaaS dashboard with a sidebar, data table, and smoot
 | `gaw brain` | Inspect Global Brain preferences and local Project Brain rules. |
 | `gaw brain update <cat> <msg>` | Append a confirmed user decision to the Global Brain. |
 | `gaw project` | Display deep inspection of project architecture, frameworks, and tools. |
-| `gaw graph [--force]` | Generate or inspect codebase relationship graph (`graph.json`, `graph.html`). |
+| `gaw graph [--force\|--full]` | Build the Graphify code graph in `graphify-out/` (`--force`: refresh changed files, `--full`: rebuild). |
 | `gaw doctor` | Diagnostic health check of runtime, registry, and environment. |
 | `gaw update` | Check for updates to skills from upstream sources. |
 | `gaw version` | Display GAW version information. |
@@ -190,7 +196,7 @@ metadata:
 ---
 ```
 
-See the [GSS spec](docs/gss/spec.md) and the [authoring guide](docs/skills/authoring-guide.md). Check skills with `gaw skills lint`.
+You never write GSS by hand: `gaw skills add` converts any skill (from GitHub, a folder or a markdown file) and `gaw skills new` creates one from a template. Both check the license, flag skills that can run commands, split oversized skills into `references/`, and update the skill index automatically. See the [GSS spec](docs/gss/spec.md) and the [authoring guide](docs/skills/authoring-guide.md).
 
 ### How GAW picks skills
 `gaw use`, `gaw recommend` and onboarding load only skills that **closely match** the task. Rare, specific words count more than common ones, and every pick comes with a reason (*Matched "pricing", "page" (name); "SaaS" (description)*). When nothing fits, GAW loads nothing instead of unrelated skills. Full skill instructions are loaded within a token budget (default 8,000, `--budget` to change). Skills that don't fit are listed in short form with a path the agent can open if needed. Selection quality is measured with `npm run eval`.

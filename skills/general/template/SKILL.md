@@ -1,7 +1,7 @@
 ---
 name: "template"
 description: "Replace with description of the skill and when Claude should use it."
-license: "MIT"
+license: "UNKNOWN"
 metadata:
   gaw-title: "template-skill"
   gaw-category: "general"

@@ -4,6 +4,10 @@
   "source": {
     "repo": "gencraft-labs/skills",
     "path": "controlnet-pose/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "declared in original SKILL.md",
+    "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/controlnet-pose/SKILL.md",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

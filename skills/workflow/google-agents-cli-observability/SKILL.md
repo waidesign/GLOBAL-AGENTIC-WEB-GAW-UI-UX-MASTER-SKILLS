@@ -1,7 +1,7 @@
 ---
 name: "google-agents-cli-observability"
 description: "This skill should be used when the user wants to \"set up tracing\", \"monitor my agent\", \"configure logging\", \"add observability\", \"debug production traffic\", or needs guidance on monitoring deployed agents, including ADK (Agent Development Kit) agents. Covers Cloud Trace, prompt-response logging, BigQuery Agent Analytics, third-party integrations (AgentOps, Phoenix, MLflow, etc.), and troubleshooting. Part of the agents-cli skills suite. Do NOT use for deployment setup (use google-agents-cli-deploy) or API code patterns (use google-agents-cli-adk-code)."
-license: "MIT"
+license: "Apache-2.0"
 metadata:
   gaw-category: "workflow"
   gaw-author: "Google"

@@ -125,25 +125,31 @@ export class ProjectBootstrapper {
       }
     }
 
-    const skillNames = [
-      'code-generation.md', 'code-review.md', 'debugging.md', 'seo.md'
-    ];
+    // Starter project skills, in GAW Skill Standard folders: ai-brain/skills/<name>/SKILL.md + gaw.json
+    const templateSkillsDir = path.join(templatesDir, 'skills');
+    const starterSkills = fs.existsSync(templateSkillsDir)
+      ? fs.readdirSync(templateSkillsDir, { withFileTypes: true }).filter(e => e.isDirectory()).map(e => e.name)
+      : [];
 
-    for (const sname of skillNames) {
-      const sp = path.join(skillsDir, sname);
-      if (!fs.existsSync(sp) || force) {
-        let scontent = '';
-        const templateSkillPath = path.join(templatesDir, 'skills', sname);
-        if (fs.existsSync(templateSkillPath)) {
-          scontent = renderTemplate(fs.readFileSync(templateSkillPath, 'utf8'));
-        } else {
-          scontent = `# ${sname}\nFollow best practices for ${projectInfo.framework}.\n`;
-        }
-        if (!dryRun) fs.writeFileSync(sp, scontent, 'utf8');
-        report.created.push(`ai-brain/skills/${sname}`);
-      } else {
-        report.skipped.push(`ai-brain/skills/${sname} (exists)`);
+    for (const sname of starterSkills) {
+      const target = path.join(skillsDir, sname);
+      const legacyFile = path.join(skillsDir, `${sname}.md`); // created by older GAW versions
+      if (fs.existsSync(legacyFile) && !force) {
+        report.skipped.push(`ai-brain/skills/${sname}.md (exists)`);
+        continue;
       }
+      if (fs.existsSync(path.join(target, 'SKILL.md')) && !force) {
+        report.skipped.push(`ai-brain/skills/${sname}/ (exists)`);
+        continue;
+      }
+      if (!dryRun) {
+        fs.mkdirSync(target, { recursive: true });
+        for (const file of fs.readdirSync(path.join(templateSkillsDir, sname))) {
+          const content = fs.readFileSync(path.join(templateSkillsDir, sname, file), 'utf8');
+          fs.writeFileSync(path.join(target, file), file.endsWith('.md') ? renderTemplate(content) : content, 'utf8');
+        }
+      }
+      report.created.push(`ai-brain/skills/${sname}/`);
     }
 
     report.steps.push({ step: 3, name: 'Create Project Brain', status: 'Completed', path: 'ai-brain/' });

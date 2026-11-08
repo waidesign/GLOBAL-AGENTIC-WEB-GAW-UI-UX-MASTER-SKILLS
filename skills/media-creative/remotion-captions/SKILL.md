@@ -1,7 +1,7 @@
 ---
 name: "remotion-captions"
 description: "Transcribing, displaying and animating captions"
-license: "MIT"
+license: "UNKNOWN"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "remotion-dev"

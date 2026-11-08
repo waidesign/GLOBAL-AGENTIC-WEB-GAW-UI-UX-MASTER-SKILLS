@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "3d/threejs/SKILL.md:3575:174|accessibility/fixing-accessibility/SKILL.md:4829:84|accessibility/web-design-guidelines/SKILL.md:1267:188|animation-motion/animation-systems/SKILL.md:5350:164|animation-motion/animejs/SKILL.md:3782:213|animation-motion/improve-animations/SKILL.md:8547:193|animation-motion/motion-dev/SKILL.md:4426:206|animation-motion/react-view-transitions/SKILL.md:14591:189|architecture/codebase-design/SKILL.md:6556:187|architecture/doc-coauthoring/SKILL.md:15925:175|architecture/domain-modeling/SKILL.md:3456:187|architecture/implement-spec/SKILL.md:2912:186|architecture/implement/SKILL.md:699:181|architecture/improve-codebase-architecture/SKILL.md:6107:201|architecture/setup-ts-deep-modules/SKILL.md:7625:193|architecture/to-spec/SKILL.md:3120:179|architecture/to-tickets/SKILL.md:5891:182|architecture/wayfinder/SKILL.md:12487:181|cloud-infra/airunway-aks-setup/SKILL.md:4555:212|cloud-infra/aks-cost-optimization/SKILL.md:1943:213|cloud-infra/aks-gpu-inference/SKILL.md:3085:209|cloud-infra/aks-known-issues/SKILL.md:1974:208|cloud-infra/aks-network-capture/SKILL.md:2999:211|cloud-infra/aks-troubleshooting/SKILL.md:12806:211|cloud-infra/appinsights-instrumentation/SKILL.md:3838:221|cloud-infra/azure-advisor-actionability/SKILL.md:2020:222|cloud-infra/azure-advisor/SKILL.md:2805:208|cloud-infra/azure-ai/SKILL.md:3725:202|cloud-infra/azure-aigateway/SKILL.md:5004:209|cloud-infra/azure-app-onboard-prereq/SKILL.md:10352:218|cloud-infra/azure-app-onboard/SKILL.md:6854:211|cloud-infra/azure-cloud-migrate/SKILL.md:4399:213|cloud-infra/azure-compliance/SKILL.md:4017:210|cloud-infra/azure-compute/SKILL.md:2663:207|cloud-infra/azure-deploy/SKILL.md:6740:206|cloud-infra/azure-diagnostics/SKILL.md:7524:211|cloud-infra/azure-enterprise-infra-planner/SKILL.md:6383:224|cloud-infra/azure-kubernetes-app-deploy/SKILL.md:2056:238|cloud-infra/azure-kubernetes-automatic-readiness/SKILL.md:17650:247|cloud-infra/azure-kubernetes/SKILL.md:13109:210|cloud-infra/azure-kusto-graph/SKILL.md:19273:223|cloud-infra/azure-kusto-irql-graph/SKILL.md:19156:228|cloud-infra/azure-kusto-irql/SKILL.md:10533:222|cloud-infra/azure-kusto/SKILL.md:8600:205|cloud-infra/azure-local-multi-rack/SKILL.md:3858:222|cloud-infra/azure-local/SKILL.md:3452:211|cloud-infra/azure-messaging/SKILL.md:3327:209|cloud-infra/azure-prepare/SKILL.md:12905:207|cloud-infra/azure-quotas/SKILL.md:12148:206|cloud-infra/azure-reliability/SKILL.md:24990:211|cloud-infra/azure-resource-lookup/SKILL.md:5645:215|cloud-infra/azure-resource-visualizer/SKILL.md:8572:219|cloud-infra/azure-search-nav/SKILL.md:2441:208|cloud-infra/azure-storage/SKILL.md:5068:207|cloud-infra/azure-upgrade/SKILL.md:8878:207|cloud-infra/azure-validate/SKILL.md:3579:208|cloud-infra/capacity/SKILL.md:7055:240|cloud-infra/cost-analysis/SKILL.md:2030:205|cloud-infra/cost-estimation/SKILL.md:2015:207|cloud-infra/cost-governance/SKILL.md:1977:207|cloud-infra/cost-optimization/SKILL.md:2022:209|cloud-infra/customize/SKILL.md:9033:241|cloud-infra/deploy-model/SKILL.md:7345:231|cloud-infra/deploy-to-vercel/SKILL.md:9788:183|cloud-infra/discover-azure-skills/SKILL.md:2361:215|cloud-infra/entra-agent-id/SKILL.md:16080:208|cloud-infra/entra-app-registration/SKILL.md:8267:216|cloud-infra/finetuning/SKILL.md:5541:222|cloud-infra/foundry-iq/SKILL.md:3808:209|cloud-infra/google-agents-cli-deploy/SKILL.md:32523:184|cloud-infra/microsoft-foundry/SKILL.md:31135:211|cloud-infra/preset/SKILL.md:5004:238|cloud-infra/python-appservice-deploy/SKILL.md:3347:218|cloud-infra/vercel-cli-with-tokens/SKILL.md:10541:189|cloud-infra/vercel-optimize/SKILL.md:17390:182|cloud-infra/wizard/SKILL.md:4232:178|code-quality/code-review/SKILL.md:6833:183|code-quality/git-guardrails-claude-code/SKILL.md:2423:191|code-quality/mcp-builder/SKILL.md:11200:171|code-quality/scaffold-exercises/SKILL.md:3699:183|code-quality/writing-guidelines/SKILL.md:1268:185|color/better-colors/SKILL.md:7800:96|color/oklch-skill/SKILL.md:4918:96|components/company-logos/SKILL.md:1175:98|components/container-lines/SKILL.md:3718:98|database/supabase-postgres-best-practices/SKILL.md:2768:196|database/supabase/SKILL.md:14361:172|debugging/diagnosing-bugs/SKILL.md:8774:47|design-systems/build-design-system/SKILL.md:9460:231|design-systems/create-design-md/SKILL.md:16319:93|design-systems/design-system-boss/SKILL.md:4154:231|design-systems/migrate-to-a-design-system/SKILL.md:8506:259|documents/docx/SKILL.md:6963:239|documents/pdf/SKILL.md:8126:214|documents/pptx/SKILL.md:20860:254|documents/xlsx/SKILL.md:8654:243|frontend-frameworks/react-best-practices/SKILL.md:7344:96|frontend/composition-patterns/SKILL.md:2700:187|frontend/design-mobile-apps/SKILL.md:8554:182|frontend/frontend-design/SKILL.md:9612:211|frontend/react-native-skills/SKILL.md:4268:186|frontend/react-router-framework-mode/SKILL.md:4682:102|frontend/tailwindcss/SKILL.md:2921:161|frontend/web-artifacts-builder/SKILL.md:3155:181|general/algorithmic-art/SKILL.md:19836:175|general/ask-matt/SKILL.md:12668:180|general/canvas-design/SKILL.md:12006:173|general/claude-api/SKILL.md:104882:170|general/codex-pet/SKILL.md:21433:165|general/discernment-nudge/SKILL.md:10626:177|general/internal-comms/SKILL.md:1577:174|general/pr/SKILL.md:4082:257|general/runcomfy-cli/SKILL.md:14219:168|general/software-factory/SKILL.md:6073:188|general/teach/SKILL.md:9754:178|general/template/SKILL.md:269:161|general/to-questionnaire/SKILL.md:2978:189|general/wait-what/SKILL.md:468:182|general/writing-beats/SKILL.md:4929:185|general/writing-fragments/SKILL.md:3630:189|general/writing-shape/SKILL.md:5994:185|interaction/animation-on-scroll/SKILL.md:3657:114|media-creative/ace-step/SKILL.md:16366:164|media-creative/ai-avatar-video/SKILL.md:16376:171|media-creative/ai-image-generation/SKILL.md:29588:175|media-creative/ai-music/SKILL.md:14348:164|media-creative/ai-video-generation/SKILL.md:24821:175|media-creative/canopy-part-title/SKILL.md:4131:191|media-creative/captions-overlay/SKILL.md:5886:189|media-creative/changelog-video/SKILL.md:13534:188|media-creative/code-slice-hero/SKILL.md:4920:189|media-creative/controlnet-pose/SKILL.md:10952:171|media-creative/cuboid-carousel/SKILL.md:7309:189|media-creative/cut-the-curve/SKILL.md:18942:186|media-creative/elevenlabs-music-generation/SKILL.md:11243:183|media-creative/face-swap/SKILL.md:17939:165|media-creative/figma/SKILL.md:6428:170|media-creative/flux-2-klein/SKILL.md:11605:168|media-creative/flux-kontext/SKILL.md:8081:168|media-creative/frost-sequence-camera-orbit/SKILL.md:39101:201|media-creative/glass-shard-title/SKILL.md:5494:191|media-creative/gpt-image-2/SKILL.md:10585:167|media-creative/gpt-image-edit/SKILL.md:9502:170|media-creative/happyhorse-1-0/SKILL.md:9545:170|media-creative/hyperframes-cli/SKILL.md:7727:180|media-creative/hyperframes-registry/SKILL.md:4612:185|media-creative/hyperframes/SKILL.md:7460:176|media-creative/image-edit/SKILL.md:13231:166|media-creative/image-inpainting/SKILL.md:11475:172|media-creative/image-outpainting/SKILL.md:11430:173|media-creative/image-to-video/SKILL.md:11787:170|media-creative/kling-3-0/SKILL.md:15829:165|media-creative/lipsync/SKILL.md:12709:163|media-creative/media-use/SKILL.md:5363:174|media-creative/motion-doctrine/SKILL.md:12019:188|media-creative/nano-banana-2/SKILL.md:9562:169|media-creative/nano-banana-edit/SKILL.md:9024:172|media-creative/orbit-card/SKILL.md:3667:184|media-creative/oversized-cursor/SKILL.md:6710:189|media-creative/relight/SKILL.md:10166:163|media-creative/remotion-best-practices/SKILL.md:4450:98|media-creative/remotion-captions/SKILL.md:1234:179|media-creative/remotion-create/SKILL.md:2808:177|media-creative/remotion-docs/SKILL.md:1437:175|media-creative/remotion-interactivity/SKILL.md:13800:184|media-creative/remotion-license/SKILL.md:581:178|media-creative/remotion-maps/SKILL.md:1127:175|media-creative/remotion-markup/SKILL.md:13442:177|media-creative/remotion-multimedia/SKILL.md:802:181|media-creative/remotion-render/SKILL.md:1174:177|media-creative/remotion-saas/SKILL.md:1150:175|media-creative/remotion-studio/SKILL.md:1708:177|media-creative/remotion-to-hyperframes/SKILL.md:5300:188|media-creative/remotion-upgrade/SKILL.md:2044:178|media-creative/reverse-any-video/SKILL.md:5387:182|media-creative/seam-craft/SKILL.md:4950:183|media-creative/seedance-2-5-image-to-video/SKILL.md:12117:183|media-creative/seedance-2-5-reference-to-video/SKILL.md:17630:187|media-creative/seedance-v2/SKILL.md:9044:167|media-creative/slack-gif-creator/SKILL.md:7916:177|media-creative/slideshow/SKILL.md:5189:174|media-creative/style-sampling/SKILL.md:4751:179|media-creative/video-edit/SKILL.md:11233:166|media-creative/video-extend/SKILL.md:9570:168|media-creative/video-inpainting/SKILL.md:10164:172|media-creative/video-outpainting/SKILL.md:8985:173|media-creative/wan-2-7/SKILL.md:8411:163|media-creative/wan-3-0-prime-reference-to-video/SKILL.md:15745:188|media-creative/wireframe-portal-title/SKILL.md:4351:196|micro-interactions/masked-reveal/SKILL.md:4074:106|micro-interactions/micro-interactions-system/SKILL.md:3224:206|performance/fixing-motion-performance/SKILL.md:5673:162|react/improve-react/SKILL.md:12516:185|seo/fixing-metadata/SKILL.md:4432:174|shadcn-ui/improve-shadcn/SKILL.md:15427:191|systems/baseline-ui/SKILL.md:3523:172|systems/ui-skills-root/SKILL.md:1492:85|testing/migrate-to-shoehorn/SKILL.md:2900:184|testing/setup-pre-commit/SKILL.md:2363:181|testing/tdd/SKILL.md:3736:245|testing/vue-testing-best-practices/SKILL.md:2177:104|testing/webapp-testing/SKILL.md:3980:246|typography/better-typography/SKILL.md:12351:107|typography/swiss-design/SKILL.md:13050:47|ui-ux/academy-guide/SKILL.md:7801:173|ui-ux/brand-guidelines/SKILL.md:2299:176|ui-ux/design-lab/SKILL.md:33054:179|ui-ux/improve-ui/SKILL.md:8053:224|ui-ux/landing-page/SKILL.md:5377:154|ui-ux/pricing-page/SKILL.md:5960:151|ui-ux/prototype/SKILL.md:3034:181|ui-ux/rams/SKILL.md:5164:107|ui-ux/taste-skill/SKILL.md:29937:174|ui-ux/theme-factory/SKILL.md:3187:173|workflow/agents-cli-claude/SKILL.md:5447:212|workflow/agents-cli-langchain/SKILL.md:4061:218|workflow/chief-of-staff/SKILL.md:4804:186|workflow/claude-handoff/SKILL.md:1442:186|workflow/google-agents-cli-adk-code/SKILL.md:4344:186|workflow/google-agents-cli-eval/SKILL.md:26351:182|workflow/google-agents-cli-observability/SKILL.md:12026:191|workflow/google-agents-cli-publish/SKILL.md:11765:185|workflow/google-agents-cli-scaffold/SKILL.md:13244:186|workflow/google-agents-cli-workflow/SKILL.md:22414:186|workflow/grill-me/SKILL.md:232:181|workflow/grill-with-docs/SKILL.md:322:187|workflow/grilling/SKILL.md:2183:181|workflow/handoff/SKILL.md:958:180|workflow/loop-me/SKILL.md:2532:179|workflow/research/SKILL.md:938:180|workflow/retro/SKILL.md:4442:177|workflow/setup-matt-pocock-skills/SKILL.md:7599:196|workflow/skill-creator/SKILL.md:33274:173|workflow/triage/SKILL.md:6633:178|workflow/writing-for-agents/SKILL.md:10992:191",
+  "fingerprint": "3d/threejs/SKILL.md:3575:174|accessibility/fixing-accessibility/SKILL.md:4829:404|accessibility/web-design-guidelines/SKILL.md:1271:366|animation-motion/animation-systems/SKILL.md:5350:164|animation-motion/animejs/SKILL.md:3782:213|animation-motion/improve-animations/SKILL.md:8547:193|animation-motion/motion-dev/SKILL.md:4426:206|animation-motion/react-view-transitions/SKILL.md:14591:425|architecture/codebase-design/SKILL.md:6556:374|architecture/doc-coauthoring/SKILL.md:15929:346|architecture/domain-modeling/SKILL.md:3456:374|architecture/implement-spec/SKILL.md:2912:373|architecture/implement/SKILL.md:699:368|architecture/improve-codebase-architecture/SKILL.md:6107:388|architecture/setup-ts-deep-modules/SKILL.md:7625:380|architecture/to-spec/SKILL.md:3120:366|architecture/to-tickets/SKILL.md:5891:369|architecture/wayfinder/SKILL.md:12487:368|cloud-infra/airunway-aks-setup/SKILL.md:4555:471|cloud-infra/aks-cost-optimization/SKILL.md:1943:473|cloud-infra/aks-gpu-inference/SKILL.md:3085:465|cloud-infra/aks-known-issues/SKILL.md:1974:463|cloud-infra/aks-network-capture/SKILL.md:2999:469|cloud-infra/aks-troubleshooting/SKILL.md:12806:469|cloud-infra/appinsights-instrumentation/SKILL.md:3838:481|cloud-infra/azure-advisor-actionability/SKILL.md:2020:491|cloud-infra/azure-advisor/SKILL.md:2805:463|cloud-infra/azure-ai/SKILL.md:3725:451|cloud-infra/azure-aigateway/SKILL.md:5004:465|cloud-infra/azure-app-onboard-prereq/SKILL.md:10352:483|cloud-infra/azure-app-onboard/SKILL.md:6854:469|cloud-infra/azure-cloud-migrate/SKILL.md:4399:473|cloud-infra/azure-compliance/SKILL.md:4017:467|cloud-infra/azure-compute/SKILL.md:2663:461|cloud-infra/azure-deploy/SKILL.md:6740:459|cloud-infra/azure-diagnostics/SKILL.md:7524:469|cloud-infra/azure-enterprise-infra-planner/SKILL.md:6383:495|cloud-infra/azure-kubernetes-app-deploy/SKILL.md:2056:523|cloud-infra/azure-kubernetes-automatic-readiness/SKILL.md:17650:541|cloud-infra/azure-kubernetes/SKILL.md:13109:467|cloud-infra/azure-kusto-graph/SKILL.md:19273:493|cloud-infra/azure-kusto-irql-graph/SKILL.md:19156:503|cloud-infra/azure-kusto-irql/SKILL.md:10533:491|cloud-infra/azure-kusto/SKILL.md:8600:457|cloud-infra/azure-local-multi-rack/SKILL.md:3858:491|cloud-infra/azure-local/SKILL.md:3452:469|cloud-infra/azure-messaging/SKILL.md:3327:465|cloud-infra/azure-prepare/SKILL.md:12905:461|cloud-infra/azure-quotas/SKILL.md:12148:459|cloud-infra/azure-reliability/SKILL.md:10537:469|cloud-infra/azure-resource-lookup/SKILL.md:5645:477|cloud-infra/azure-resource-visualizer/SKILL.md:8572:485|cloud-infra/azure-search-nav/SKILL.md:2441:463|cloud-infra/azure-storage/SKILL.md:5068:461|cloud-infra/azure-upgrade/SKILL.md:8878:461|cloud-infra/azure-validate/SKILL.md:3579:463|cloud-infra/capacity/SKILL.md:7055:527|cloud-infra/cost-analysis/SKILL.md:2030:457|cloud-infra/cost-estimation/SKILL.md:2015:461|cloud-infra/cost-governance/SKILL.md:1977:461|cloud-infra/cost-optimization/SKILL.md:2022:465|cloud-infra/customize/SKILL.md:9033:529|cloud-infra/deploy-model/SKILL.md:7345:509|cloud-infra/deploy-to-vercel/SKILL.md:9792:361|cloud-infra/discover-azure-skills/SKILL.md:2361:477|cloud-infra/entra-agent-id/SKILL.md:16080:463|cloud-infra/entra-app-registration/SKILL.md:8267:479|cloud-infra/finetuning/SKILL.md:5541:491|cloud-infra/foundry-iq/SKILL.md:3808:465|cloud-infra/google-agents-cli-deploy/SKILL.md:15075:371|cloud-infra/microsoft-foundry/SKILL.md:15599:469|cloud-infra/preset/SKILL.md:5004:523|cloud-infra/python-appservice-deploy/SKILL.md:3347:483|cloud-infra/vercel-cli-with-tokens/SKILL.md:10545:367|cloud-infra/vercel-optimize/SKILL.md:17394:360|cloud-infra/wizard/SKILL.md:4232:365|code-quality/code-review/SKILL.md:6833:370|code-quality/git-guardrails-claude-code/SKILL.md:2423:378|code-quality/mcp-builder/SKILL.md:11207:381|code-quality/scaffold-exercises/SKILL.md:3699:370|code-quality/writing-guidelines/SKILL.md:1272:363|color/better-colors/SKILL.md:7800:96|color/oklch-skill/SKILL.md:4918:96|components/company-logos/SKILL.md:1175:98|components/container-lines/SKILL.md:3718:98|database/supabase-postgres-best-practices/SKILL.md:2768:439|database/supabase/SKILL.md:14361:363|debugging/diagnosing-bugs/SKILL.md:8774:47|design-systems/build-design-system/SKILL.md:9460:231|design-systems/create-design-md/SKILL.md:16319:409|design-systems/design-system-boss/SKILL.md:4154:231|design-systems/migrate-to-a-design-system/SKILL.md:8506:259|documents/docx/SKILL.md:6970:442|documents/pdf/SKILL.md:8133:416|documents/pptx/SKILL.md:20867:457|documents/xlsx/SKILL.md:8661:446|frontend-frameworks/react-best-practices/SKILL.md:7344:96|frontend/composition-patterns/SKILL.md:2700:421|frontend/design-mobile-apps/SKILL.md:8554:373|frontend/frontend-design/SKILL.md:9612:211|frontend/react-native-skills/SKILL.md:4268:419|frontend/react-router-framework-mode/SKILL.md:4682:102|frontend/tailwindcss/SKILL.md:2921:161|frontend/web-artifacts-builder/SKILL.md:3162:401|general/algorithmic-art/SKILL.md:19843:389|general/ask-matt/SKILL.md:12668:367|general/canvas-design/SKILL.md:12013:385|general/claude-api/SKILL.md:15799:379|general/codex-pet/SKILL.md:15295:377|general/discernment-nudge/SKILL.md:10633:393|general/internal-comms/SKILL.md:1584:387|general/pr/SKILL.md:4082:444|general/runcomfy-cli/SKILL.md:14219:383|general/software-factory/SKILL.md:6073:375|general/teach/SKILL.md:9754:365|general/template/SKILL.md:273:332|general/to-questionnaire/SKILL.md:2978:376|general/wait-what/SKILL.md:468:369|general/writing-beats/SKILL.md:4929:372|general/writing-fragments/SKILL.md:3630:376|general/writing-shape/SKILL.md:5994:372|interaction/animation-on-scroll/SKILL.md:3657:114|media-creative/ace-step/SKILL.md:16366:375|media-creative/ai-avatar-video/SKILL.md:16376:389|media-creative/ai-image-generation/SKILL.md:14505:397|media-creative/ai-music/SKILL.md:14348:375|media-creative/ai-video-generation/SKILL.md:15580:397|media-creative/canopy-part-title/SKILL.md:4138:383|media-creative/captions-overlay/SKILL.md:5893:381|media-creative/changelog-video/SKILL.md:13541:380|media-creative/code-slice-hero/SKILL.md:4927:381|media-creative/controlnet-pose/SKILL.md:10952:389|media-creative/cuboid-carousel/SKILL.md:7316:381|media-creative/cut-the-curve/SKILL.md:18949:378|media-creative/elevenlabs-music-generation/SKILL.md:11243:413|media-creative/face-swap/SKILL.md:17939:377|media-creative/figma/SKILL.md:6435:362|media-creative/flux-2-klein/SKILL.md:11605:383|media-creative/flux-kontext/SKILL.md:8081:383|media-creative/frost-sequence-camera-orbit/SKILL.md:2589:393|media-creative/glass-shard-title/SKILL.md:5501:383|media-creative/gpt-image-2/SKILL.md:10585:381|media-creative/gpt-image-edit/SKILL.md:9502:387|media-creative/happyhorse-1-0/SKILL.md:9545:387|media-creative/hyperframes-cli/SKILL.md:7734:372|media-creative/hyperframes-registry/SKILL.md:4619:377|media-creative/hyperframes/SKILL.md:7467:368|media-creative/image-edit/SKILL.md:13231:379|media-creative/image-inpainting/SKILL.md:11475:391|media-creative/image-outpainting/SKILL.md:11430:393|media-creative/image-to-video/SKILL.md:11787:387|media-creative/kling-3-0/SKILL.md:15829:377|media-creative/lipsync/SKILL.md:12709:373|media-creative/media-use/SKILL.md:5370:366|media-creative/motion-doctrine/SKILL.md:12026:380|media-creative/nano-banana-2/SKILL.md:9562:385|media-creative/nano-banana-edit/SKILL.md:9024:391|media-creative/orbit-card/SKILL.md:3674:376|media-creative/oversized-cursor/SKILL.md:6717:381|media-creative/relight/SKILL.md:10166:373|media-creative/remotion-best-practices/SKILL.md:4450:98|media-creative/remotion-captions/SKILL.md:1238:352|media-creative/remotion-create/SKILL.md:2812:350|media-creative/remotion-docs/SKILL.md:1441:348|media-creative/remotion-interactivity/SKILL.md:13804:357|media-creative/remotion-license/SKILL.md:585:351|media-creative/remotion-maps/SKILL.md:1131:348|media-creative/remotion-markup/SKILL.md:13446:350|media-creative/remotion-multimedia/SKILL.md:806:354|media-creative/remotion-render/SKILL.md:1178:350|media-creative/remotion-saas/SKILL.md:1154:348|media-creative/remotion-studio/SKILL.md:1712:350|media-creative/remotion-to-hyperframes/SKILL.md:5307:380|media-creative/remotion-upgrade/SKILL.md:2048:351|media-creative/reverse-any-video/SKILL.md:5394:374|media-creative/seam-craft/SKILL.md:4957:375|media-creative/seedance-2-5-image-to-video/SKILL.md:12117:413|media-creative/seedance-2-5-reference-to-video/SKILL.md:17630:421|media-creative/seedance-v2/SKILL.md:9044:381|media-creative/slack-gif-creator/SKILL.md:7923:393|media-creative/slideshow/SKILL.md:5196:366|media-creative/style-sampling/SKILL.md:4758:371|media-creative/video-edit/SKILL.md:11233:379|media-creative/video-extend/SKILL.md:9570:383|media-creative/video-inpainting/SKILL.md:10164:391|media-creative/video-outpainting/SKILL.md:8985:393|media-creative/wan-2-7/SKILL.md:8411:373|media-creative/wan-3-0-prime-reference-to-video/SKILL.md:15745:423|media-creative/wireframe-portal-title/SKILL.md:4358:388|micro-interactions/masked-reveal/SKILL.md:4074:106|micro-interactions/micro-interactions-system/SKILL.md:3224:206|performance/fixing-motion-performance/SKILL.md:5673:487|react/improve-react/SKILL.md:12516:185|seo/fixing-metadata/SKILL.md:4501:524|shadcn-ui/improve-shadcn/SKILL.md:15427:191|systems/baseline-ui/SKILL.md:3523:483|systems/ui-skills-root/SKILL.md:1492:433|testing/migrate-to-shoehorn/SKILL.md:2900:371|testing/setup-pre-commit/SKILL.md:2363:368|testing/tdd/SKILL.md:3736:432|testing/vue-testing-best-practices/SKILL.md:2177:104|testing/webapp-testing/SKILL.md:3987:459|typography/better-typography/SKILL.md:12351:107|typography/swiss-design/SKILL.md:13050:47|ui-ux/academy-guide/SKILL.md:7808:385|ui-ux/brand-guidelines/SKILL.md:2306:391|ui-ux/design-lab/SKILL.md:14741:179|ui-ux/improve-ui/SKILL.md:8053:534|ui-ux/landing-page/SKILL.md:5377:154|ui-ux/pricing-page/SKILL.md:5960:151|ui-ux/prototype/SKILL.md:3034:368|ui-ux/rams/SKILL.md:5164:107|ui-ux/taste-skill/SKILL.md:11975:364|ui-ux/theme-factory/SKILL.md:3194:385|workflow/agents-cli-claude/SKILL.md:5454:399|workflow/agents-cli-langchain/SKILL.md:4068:405|workflow/chief-of-staff/SKILL.md:4804:373|workflow/claude-handoff/SKILL.md:1442:373|workflow/google-agents-cli-adk-code/SKILL.md:4351:373|workflow/google-agents-cli-eval/SKILL.md:11001:369|workflow/google-agents-cli-observability/SKILL.md:12033:378|workflow/google-agents-cli-publish/SKILL.md:11772:372|workflow/google-agents-cli-scaffold/SKILL.md:13251:373|workflow/google-agents-cli-workflow/SKILL.md:14787:373|workflow/grill-me/SKILL.md:232:368|workflow/grill-with-docs/SKILL.md:322:374|workflow/grilling/SKILL.md:2183:368|workflow/handoff/SKILL.md:958:367|workflow/loop-me/SKILL.md:2532:366|workflow/research/SKILL.md:938:367|workflow/retro/SKILL.md:4442:364|workflow/setup-matt-pocock-skills/SKILL.md:7599:383|workflow/skill-creator/SKILL.md:9999:385|workflow/triage/SKILL.md:6633:365|workflow/writing-for-agents/SKILL.md:10992:378",
   "skills": [
     {
       "id": "threejs",
@@ -65,7 +65,16 @@
         "related": [
           "improve-ui"
         ],
-        "lastVerified": "2026-11-06"
+        "lastVerified": "2026-11-06",
+        "source": {
+          "repo": "ibelick/ui-skills",
+          "path": "skills/fixing-accessibility/SKILL.md",
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/ibelick/ui-skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
+        }
       },
       "format": "gss",
       "path": "accessibility/fixing-accessibility/SKILL.md",
@@ -77,7 +86,7 @@
       "category": "accessibility",
       "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\".",
       "author": "vercel",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -94,7 +103,11 @@
         "source": {
           "repo": "vercel-labs/agent-skills",
           "path": "skills/web-design-guidelines/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/vercel-labs/agent-skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -311,7 +324,11 @@
         "source": {
           "repo": "vercel-labs/agent-skills",
           "path": "skills/react-view-transitions/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/vercel-labs/agent-skills/blob/main/skills/react-view-transitions/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -341,7 +358,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/codebase-design/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -354,7 +375,7 @@
       "category": "architecture",
       "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -371,7 +392,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/doc-coauthoring/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/anthropics/skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -401,7 +426,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/domain-modeling/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -431,7 +460,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/implement-spec/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -461,7 +494,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/implement/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -491,7 +528,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/improve-codebase-architecture/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -521,7 +562,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/in-progress/setup-ts-deep-modules/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -551,7 +596,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/to-spec/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -581,7 +630,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/to-tickets/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -611,7 +664,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/wayfinder/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -641,7 +698,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/airunway-aks-setup/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/airunway-aks-setup/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -671,7 +732,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/aks-skills/skills/aks-cost-optimization/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/aks-skills/skills/aks-cost-optimization/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -701,7 +766,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/aks-skills/skills/aks-gpu-inference/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/aks-skills/skills/aks-gpu-inference/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -731,7 +800,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/aks-skills/skills/aks-known-issues/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/aks-skills/skills/aks-known-issues/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -761,7 +834,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/aks-skills/skills/aks-network-capture/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/aks-skills/skills/aks-network-capture/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -791,7 +868,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/aks-skills/skills/aks-troubleshooting/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/aks-skills/skills/aks-troubleshooting/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -821,7 +902,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/appinsights-instrumentation/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/appinsights-instrumentation/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -851,7 +936,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-advisor/skills/azure-advisor-actionability/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-advisor/skills/azure-advisor-actionability/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -881,7 +970,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-advisor/skills/azure-advisor/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-advisor/skills/azure-advisor/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -911,7 +1004,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-ai/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-ai/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -941,7 +1038,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-aigateway/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-aigateway/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -971,7 +1072,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-app-onboard-prereq/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-app-onboard-prereq/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1001,7 +1106,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-app-onboard/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-app-onboard/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1031,7 +1140,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-cloud-migrate/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-cloud-migrate/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1061,7 +1174,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-compliance/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-compliance/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1091,7 +1208,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-compute/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-compute/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1121,7 +1242,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-deploy/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-deploy/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1151,7 +1276,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-diagnostics/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-diagnostics/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1181,7 +1310,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-enterprise-infra-planner/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-enterprise-infra-planner/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1211,7 +1344,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-kubernetes/azure-kubernetes-app-deploy/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-kubernetes/azure-kubernetes-app-deploy/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1241,7 +1378,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1271,7 +1412,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-kubernetes/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-kubernetes/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1301,7 +1446,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-kusto-graph-skills/skills/azure-kusto-graph/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-kusto-graph-skills/skills/azure-kusto-graph/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1331,7 +1480,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-kusto-graph-skills/skills/azure-kusto-irql-graph/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-kusto-graph-skills/skills/azure-kusto-irql-graph/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1361,7 +1514,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-kusto-graph-skills/skills/azure-kusto-irql/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-kusto-graph-skills/skills/azure-kusto-irql/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1391,7 +1548,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-kusto/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-kusto/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1421,7 +1582,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-local-skills/skills/azure-local-multi-rack/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-local-skills/skills/azure-local-multi-rack/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1451,7 +1616,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-local-skills/skills/azure-local/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-local-skills/skills/azure-local/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1481,7 +1650,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-messaging/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-messaging/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1511,7 +1684,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-prepare/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-prepare/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1541,7 +1718,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-quotas/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-quotas/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1571,12 +1752,16 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-reliability/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-reliability/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
       "path": "cloud-infra/azure-reliability/SKILL.md",
-      "tokenEstimate": 5721
+      "tokenEstimate": 2289
     },
     {
       "id": "azure-resource-lookup",
@@ -1601,7 +1786,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-resource-lookup/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-resource-lookup/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1631,7 +1820,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-resource-visualizer/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-resource-visualizer/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1661,7 +1854,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/aks-skills/skills/azure-search-nav/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/aks-skills/skills/azure-search-nav/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1691,7 +1888,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-storage/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-storage/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1721,7 +1922,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-upgrade/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-upgrade/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1751,7 +1956,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/azure-validate/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-validate/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1781,7 +1990,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/capacity/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/capacity/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1811,7 +2024,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-cost/skills/cost-analysis/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-cost/skills/cost-analysis/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1841,7 +2058,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-cost/skills/cost-estimation/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-cost/skills/cost-estimation/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1871,7 +2092,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-cost/skills/cost-governance/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-cost/skills/cost-governance/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1901,7 +2126,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-cost/skills/cost-optimization/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-cost/skills/cost-optimization/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1931,7 +2160,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/customize/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/customize/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1961,7 +2194,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -1974,7 +2211,7 @@
       "category": "cloud-infra",
       "description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\".",
       "author": "vercel",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -1991,7 +2228,11 @@
         "source": {
           "repo": "vercel-labs/agent-skills",
           "path": "skills/deploy-to-vercel/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/vercel-labs/agent-skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2021,7 +2262,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/discover-azure-skills/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/discover-azure-skills/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2051,7 +2296,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/entra-agent-id/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/entra-agent-id/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2081,7 +2330,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/entra-app-registration/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/entra-app-registration/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2111,7 +2364,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/microsoft-foundry/finetuning/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/finetuning/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2141,7 +2398,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/foundry-iq-skills/skills/foundry-iq/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/foundry-iq-skills/skills/foundry-iq/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2154,7 +2415,7 @@
       "category": "cloud-infra",
       "description": "This skill should be used when the user wants to \"deploy an agent\", \"deploy my ADK agent\", \"set up CI/CD\", \"configure secrets\", \"troubleshoot a deployment\", or needs guidance on Agent Runtime, Cloud Run, or GKE deployment targets, or binding an agent to an Agent Gateway. Covers deployment workflows, service accounts, rollback, and production infrastructure. Applies to any framework agents-cli deploys (ADK, LangChain, ...). Part of the agents-cli skills suite. Do NOT use for agent API code patterns (ADK: use google-agents-cli-adk-code), evaluation (use google-agents-cli-eval), or project scaffolding (use google-agents-cli-scaffold).",
       "author": "Google",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -2171,12 +2432,16 @@
         "source": {
           "repo": "google/agents-cli",
           "path": "skills/google-agents-cli-deploy/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
       "path": "cloud-infra/google-agents-cli-deploy/SKILL.md",
-      "tokenEstimate": 7898
+      "tokenEstimate": 3555
     },
     {
       "id": "microsoft-foundry",
@@ -2201,12 +2466,16 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/microsoft-foundry/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
       "path": "cloud-infra/microsoft-foundry/SKILL.md",
-      "tokenEstimate": 7468
+      "tokenEstimate": 3591
     },
     {
       "id": "preset",
@@ -2231,7 +2500,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/preset/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/preset/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2261,7 +2534,11 @@
         "source": {
           "repo": "microsoft/azure-skills",
           "path": ".github/plugins/azure-skills/skills/python-appservice-deploy/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/python-appservice-deploy/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2274,7 +2551,7 @@
       "category": "cloud-infra",
       "description": "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. \"deploy to vercel\", \"set up vercel\", \"add environment variables to vercel\".",
       "author": "vercel",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -2291,7 +2568,11 @@
         "source": {
           "repo": "vercel-labs/agent-skills",
           "path": "skills/vercel-cli-with-tokens/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/vercel-labs/agent-skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2304,7 +2585,7 @@
       "category": "cloud-infra",
       "description": "Use for Vercel cost and performance optimization on deployed projects, especially Next.js, SvelteKit, Nuxt, and limited Astro apps. Collect Vercel metrics, usage, project config, and code scan results first; investigate only metric-backed candidates; produce ranked recommendations grounded in verified files and version-aware Vercel/framework docs. Trigger for Vercel bill reduction, slow or expensive routes, caching opportunities, Function Invocations, Build Minutes, Fast Data Transfer, Core Web Vitals, Bot Management, Fluid compute, or cost breakdown requests.",
       "author": "vercel-labs",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -2321,7 +2602,11 @@
         "source": {
           "repo": "vercel-labs/agent-skills",
           "path": "skills/vercel-optimize/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/vercel-labs/agent-skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2351,7 +2636,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/wizard/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2381,7 +2670,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/code-review/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2411,7 +2704,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/misc/git-guardrails-claude-code/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2424,7 +2721,7 @@
       "category": "code-quality",
       "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -2441,7 +2738,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/mcp-builder/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/mcp-builder/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2471,7 +2772,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/misc/scaffold-exercises/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2484,7 +2789,7 @@
       "category": "code-quality",
       "description": "Review docs/prose for Writing Guidelines compliance. Use when asked to \"review my docs\", \"check writing style\", \"audit prose\", \"review docs voice and tone\", or \"check this page against the writing handbook\".",
       "author": "vercel",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -2501,7 +2806,11 @@
         "source": {
           "repo": "vercel-labs/agent-skills",
           "path": "skills/writing-guidelines/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/vercel-labs/agent-skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2651,7 +2960,11 @@
         "source": {
           "repo": "supabase/agent-skills",
           "path": "skills/supabase-postgres-best-practices/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/supabase/agent-skills/blob/main/skills/supabase-postgres-best-practices/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2681,7 +2994,11 @@
         "source": {
           "repo": "supabase/agent-skills",
           "path": "skills/supabase/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/supabase/agent-skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2788,7 +3105,16 @@
         "related": [
           "build-design-system"
         ],
-        "lastVerified": "2026-11-06"
+        "lastVerified": "2026-11-06",
+        "source": {
+          "repo": "ibelick/ui-skills",
+          "path": "skills/create-design-md/SKILL.md",
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/ibelick/ui-skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
+        }
       },
       "format": "gss",
       "path": "design-systems/create-design-md/SKILL.md",
@@ -2905,7 +3231,7 @@
       "category": "documents",
       "description": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files) or Word templates (.dotx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', '.dotx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx or .dotx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [
@@ -2931,7 +3257,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/docx/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/docx/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2944,7 +3274,7 @@
       "category": "documents",
       "description": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce one, use this skill.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [
@@ -2968,7 +3298,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/pdf/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/pdf/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -2981,7 +3315,7 @@
       "category": "documents",
       "description": "Use this skill any time a .pptx or .potx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx or .potx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates (.potx), layouts, speaker notes, or comments. Trigger whenever the user mentions \\\"deck,\\\" \\\"slides,\\\" \\\"presentation,\\\" or references a .pptx or .potx filename, regardless of what they plan to do with the content afterward. If a .pptx or .potx file needs to be opened, created, or touched, use this skill.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [
@@ -3009,7 +3343,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/pptx/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/pptx/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3022,7 +3360,7 @@
       "category": "documents",
       "description": "Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .xltx, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especially when the user references a spreadsheet file by name or path — even casually (like \\\"the xlsx in my downloads\\\") — and wants something done to it or produced from it. Also trigger for cleaning or restructuring messy tabular data files (malformed rows, misplaced headers, junk data) into proper spreadsheets. The deliverable must be a spreadsheet file. Do NOT trigger when the primary deliverable is a Word document, HTML report, standalone Python script, database pipeline, or Google Sheets API integration, even if tabular data is involved.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [
@@ -3050,7 +3388,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/xlsx/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/xlsx/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3110,7 +3452,11 @@
         "source": {
           "repo": "vercel-labs/agent-skills",
           "path": "skills/composition-patterns/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/vercel-labs/agent-skills/blob/main/skills/composition-patterns/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3140,7 +3486,11 @@
         "source": {
           "repo": "designed-by-ai/skills",
           "path": "skills/design-mobile-apps/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/designed-by-ai/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3220,7 +3570,11 @@
         "source": {
           "repo": "vercel-labs/agent-skills",
           "path": "skills/react-native-skills/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/vercel-labs/agent-skills/blob/main/skills/react-native-skills/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3302,7 +3656,7 @@
       "category": "frontend",
       "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -3319,7 +3673,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/web-artifacts-builder/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/web-artifacts-builder/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3332,7 +3690,7 @@
       "category": "general",
       "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -3349,7 +3707,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/algorithmic-art/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/algorithmic-art/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3379,7 +3741,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/ask-matt/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3392,7 +3758,7 @@
       "category": "general",
       "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -3409,7 +3775,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/canvas-design/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/canvas-design/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3422,7 +3792,7 @@
       "category": "general",
       "description": "Reference for the Claude API / Anthropic SDK — model ids, pricing, params, streaming, tool use, MCP, agents, caching, token counting, model migration. TRIGGER — read BEFORE opening the target file; don't skip because it \"looks like a one-liner\" — whenever: the prompt names Claude/Anthropic in any form (Claude, Anthropic, Fable, Opus, Sonnet, Haiku, `anthropic`, `@anthropic-ai`, `claude-*`, `us.anthropic.*`, `[1m]`); the user asks about an LLM (pricing/model choice/limits/caching) — never answer from memory; OR the task is LLM-shaped with provider unstated (agent/MCP/tool-definition/multi-agent/RAG/LLM-judge/computer-use; generate/summarize/extract/classify/rewrite/converse over NL; debugging refusals/cutoffs/streaming/tool-calls/tokens).",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -3439,12 +3809,16 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/claude-api/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/claude-api/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
       "path": "general/claude-api/SKILL.md",
-      "tokenEstimate": 25991
+      "tokenEstimate": 3722
     },
     {
       "id": "codex-pet",
@@ -3469,12 +3843,16 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "codex-pet/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/codex-pet/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
       "path": "general/codex-pet/SKILL.md",
-      "tokenEstimate": 5043
+      "tokenEstimate": 3517
     },
     {
       "id": "discernment-nudge",
@@ -3482,7 +3860,7 @@
       "category": "general",
       "description": "After you give a substantive answer or draft that the user may act on — advice or recommendations, drafted artifacts such as goals, plans, pitches, proposals, or emails, estimates or projections, analysis or interpretation of data, factual claims they may rely on, or a multi-step argument — invoke this skill BEFORE finalizing your reply and then, if it applies, append 2-3 short follow-up questions, each tied to something specific in what you just produced, that help the user check key facts, probe the reasoning or assumptions, and notice missing context. Do this at most once per conversation. Skip it when the user asked a trivial how-to or simple lookup, wants a purely educational explanation, asked you only to format, convert, or assemble a file from content they provided, is writing code they will run, is doing creative writing or casual chat, or already asked you to double-check, cite, or review — the skill file explains these boundaries and the exact output format.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -3499,7 +3877,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/discernment-nudge/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/discernment-nudge/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3512,7 +3894,7 @@
       "category": "general",
       "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -3529,7 +3911,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/internal-comms/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/internal-comms/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3568,7 +3954,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/pr/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3598,7 +3988,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "runcomfy-cli/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/runcomfy-cli/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3628,7 +4022,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/in-progress/software-factory/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3658,7 +4056,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/productivity/teach/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3671,7 +4073,7 @@
       "category": "general",
       "description": "Replace with description of the skill and when Claude should use it.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -3688,7 +4090,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "template/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/anthropics/skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3718,7 +4124,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/productivity/to-questionnaire/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3748,7 +4158,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/productivity/wait-what/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3778,7 +4192,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/in-progress/writing-beats/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3808,7 +4226,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/in-progress/writing-fragments/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3838,7 +4260,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/in-progress/writing-shape/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3900,7 +4326,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "ace-step/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/ace-step/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3930,7 +4360,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "ai-avatar-video/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/ai-avatar-video/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -3960,12 +4394,16 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "ai-image-generation/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/ai-image-generation/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
       "path": "media-creative/ai-image-generation/SKILL.md",
-      "tokenEstimate": 7088
+      "tokenEstimate": 3341
     },
     {
       "id": "ai-music",
@@ -3990,7 +4428,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "ai-music/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/ai-music/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4020,12 +4462,16 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "ai-video-generation/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/ai-video-generation/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
       "path": "media-creative/ai-video-generation/SKILL.md",
-      "tokenEstimate": 5874
+      "tokenEstimate": 3579
     },
     {
       "id": "canopy-part-title",
@@ -4033,7 +4479,7 @@
       "category": "media-creative",
       "description": "Leaves sweep through the frame and part to reveal the headline. HyperFrames block, 1920×1080, 12s, 11 variables.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4050,7 +4496,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "registry/blocks/canopy-part-title/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4063,7 +4513,7 @@
       "category": "media-creative",
       "description": "Overlay doctrine for captions in HyperFrames videos — the caption MODEL (drop / rail / embed) and the rule that captions are an OVERLAY composited on top of the film, never a reserved bottom band you shift content up to avoid. Load when adding captions/subtitles to a talking-head or launch video, when deciding whether a phrase should be dropped, ride the verbatim rail, or be promoted to a scarce embedded climax, when laying out a composition that will carry captions (do NOT reserve a keep-out band), or when centering a composition on the true frame center under captions. Applies ON TOP of the `/hyperframes` skill's references/captions.md.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4080,7 +4530,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": ".agents/skills/captions-overlay/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4093,7 +4547,7 @@
       "category": "media-creative",
       "description": "Turn a weekly changelog .md into a finished branded changelog video (square 1080, ~45-60s, Annie VO, animated brand background, mock-UI visualizations, lowkey captions). Use when the user provides a changelog/digest markdown and wants the weekly video, or says \"changelog video\". Self-contained — fonts, background, lexicon, and scripts ship in this skill.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4110,7 +4564,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": ".agents/skills/changelog-video/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4123,7 +4581,7 @@
       "category": "media-creative",
       "description": "A tiled headline surface flips cell by cell under a sweeping depth field to reveal the rear headline. HyperFrames block, 1920×1080, 8s, 18 variables.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4140,7 +4598,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "registry/blocks/code-slice-hero/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4170,7 +4632,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "controlnet-pose/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/controlnet-pose/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4183,7 +4649,7 @@
       "category": "media-creative",
       "description": "A chain of bevelled cuboids rides a travelling wave as a content carousel. HyperFrames block, 1920×1080, 6.666666666666667s, 40 variables.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4200,7 +4666,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "registry/blocks/cuboid-carousel/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4213,7 +4683,7 @@
       "category": "media-creative",
       "description": "The technique catalog: five velocity-matched SEAMS (zoom-through, INVERSE zoom-through, cut-the-curve, waterfall cut, rack-focus blur-cut) plus the two in-scene techniques — waterfall ENTRY (staggered arrival cascades for title cards / segment openers) and the nudge curve (slow-fast-slow three-phase group slides). Covers partial-travel (~12% of frame) velocity matching via mirrored power4 eases, the Z scale-sign rule, size-scaled blur (10px text / 18-20px full-frame), word-by-word staggered cuts, cascade pacing by element weight, and the 10/65/25 slide ratio. Read before authoring any transition, text-beat handoff, kinetic text entry, or group reposition. [depth, zoom, inverse-zoom, scale-sign, mirrored-zoom, rack-focus, pacing, velocity, cut-the-curve, waterfall, stagger, cascade, kinetic-text, title-card, segment-opener, nudge, slide, easing, group-motion, z-depth, motion-graphics, cinematic, transition, blur, directional-continuity]",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4230,7 +4700,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": ".agents/skills/cut-the-curve/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4260,7 +4734,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "elevenlabs-music-generation/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/elevenlabs-music-generation/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4290,7 +4768,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "face-swap/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/face-swap/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4303,7 +4785,7 @@
       "category": "media-creative",
       "description": "Bring Figma into a HyperFrames video - rendered assets, brand tokens, components, storyboard frames as reconstructed motion (frames read as states, not slides), shaders and connector-assisted motion. Use when the person pastes a figma.com link or asks to use a Figma design, frame, logo or brand.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4320,7 +4802,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "skills/figma/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4350,7 +4836,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "flux-2-klein/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/flux-2-klein/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4380,7 +4870,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "flux-kontext/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/flux-kontext/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4393,7 +4887,7 @@
       "category": "media-creative",
       "description": "An orbiting camera follows an ice logo as it breaks apart, reforms into two text moments, and fades. HyperFrames block, 1920×1080, 22.5s, 216 variables.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4410,12 +4904,16 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "registry/blocks/frost-sequence-camera-orbit/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
       "path": "media-creative/frost-sequence-camera-orbit/SKILL.md",
-      "tokenEstimate": 9575
+      "tokenEstimate": 565
     },
     {
       "id": "glass-shard-title",
@@ -4423,7 +4921,7 @@
       "category": "media-creative",
       "description": "Glass shards fly in through fog and tile themselves into the headline. HyperFrames block, 1920×1080, 12.16s, 19 variables.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4440,7 +4938,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "registry/blocks/glass-shard-title/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4470,7 +4972,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "gpt-image-2/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/gpt-image-2/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4500,7 +5006,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "gpt-image-edit/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/gpt-image-edit/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4530,7 +5040,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "happyhorse-1-0/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/happyhorse-1-0/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4543,7 +5057,7 @@
       "category": "media-creative",
       "description": "The HyperFrames CLI by job - scaffold, check, look at frames, edit the timeline, preview, render locally or in the cloud, publish, project history - plus reading its JSON and recovering from build or render failures.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4560,7 +5074,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "skills/hyperframes-cli/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4573,7 +5091,7 @@
       "category": "media-creative",
       "description": "About 450 ready-made HyperFrames blocks and components installed as editable source - transitions, overlays, titles, kinetic type, captions, charts, map overlays, 3D, camera moves. Use it before hand-building any named visual (CRT scanlines, glitch, film grain, a chart); also for hyperframes add and catalog.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4590,7 +5108,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "skills/hyperframes-registry/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4603,7 +5125,7 @@
       "category": "media-creative",
       "description": "Read first to make, edit, animate or render any video with HyperFrames (HTML rendered to video), including launch films, explainers, music videos, charts, maps, vertical clips, title cards, captions and overlays. Holds the render contract, the work loop and what each kind of video needs.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4620,7 +5142,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "skills/hyperframes/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4650,7 +5176,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "image-edit/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/image-edit/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4680,7 +5210,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "image-inpainting/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/image-inpainting/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4710,7 +5244,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "image-outpainting/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/image-outpainting/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4740,7 +5278,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "image-to-video/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/image-to-video/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4770,7 +5312,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "kling-3-0/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/kling-3-0/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4800,7 +5346,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "lipsync/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/lipsync/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4813,7 +5363,7 @@
       "category": "media-creative",
       "description": "Get or make any media for a HyperFrames video - music, sound effects, images, icons, logos, voiceover, avatar and generated video, transcripts, cutouts, colour grades and looks - with HeyGen or free local tools, and mix placed audio. Also for footage that looks dark, flat or dull, or should be stylized or hidden.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4830,7 +5380,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "skills/media-use/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4843,7 +5397,7 @@
       "category": "media-creative",
       "description": "GATEWAY — load FIRST before composing any HyperFrames animation or video. The high-level motion law that makes a multi-scene video feel like ONE continuous camera move instead of a stack of independently-animated slides. Covers the vector law (how you exit determines how you enter, incl. the Z scale-sign rule), the film's current, carrier elements, causal motion, the Seam Gate (build-gate enforcement), the ban on idle wobble (motion must PERFORM, not breathe), stillness-before-climax, and the sustained-motion routes. Routes to the low-level technique skills (cut-the-curve — the full catalog incl. waterfall entry + nudge curve, oversized-cursor, seam-craft). These rules SUPERSEDE generic / upstream motion guidance. [continuity, direction, vector, momentum, seam, transition, ease, performance, idle-motion, narrative-motion, film-grammar]",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4860,7 +5414,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": ".agents/skills/motion-doctrine/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4890,7 +5448,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "nano-banana-2/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/nano-banana-2/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4920,7 +5482,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "nano-banana-edit/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/nano-banana-edit/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4933,7 +5499,7 @@
       "category": "media-creative",
       "description": "A single feature card orbits a dot sphere on approved Blender camera motion. HyperFrames block, 1920×1080, 10s, 4 variables.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4950,7 +5516,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "registry/blocks/orbit-card/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -4963,7 +5533,7 @@
       "category": "media-creative",
       "description": "House-style oversized macOS cursor technique for HyperFrames launch videos. Load whenever a scene involves cursors or a pointer-led action, when kicking off a UI scene, when igniting a morph/transition/typing run with a click, or when a scene reads as static, dead, or stale and needs a cheap high-yield source of motion to carry the viewer's eye and segment them out of the stale state. Covers cursor size/look (incl. brand-motif cursors), the off-screen entry law, tip-targeting and the click tap, click-ignites-the-next-beat, and exit / cross-scene handoff.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -4980,7 +5550,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": ".agents/skills/oversized-cursor/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5010,7 +5584,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "relight/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/relight/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5053,7 +5631,7 @@
       "category": "media-creative",
       "description": "Transcribing, displaying and animating captions",
       "author": "remotion-dev",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5070,7 +5648,11 @@
         "source": {
           "repo": "remotion-dev/skills",
           "path": "skills/remotion-captions/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/remotion-dev/skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5083,7 +5665,7 @@
       "category": "media-creative",
       "description": "Create a new Remotion video",
       "author": "remotion-dev",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5100,7 +5682,11 @@
         "source": {
           "repo": "remotion-dev/skills",
           "path": "skills/remotion-create/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/remotion-dev/skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5113,7 +5699,7 @@
       "category": "media-creative",
       "description": "Search Remotion documentation",
       "author": "remotion-dev",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5130,7 +5716,11 @@
         "source": {
           "repo": "remotion-dev/skills",
           "path": "skills/remotion-docs/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/remotion-dev/skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5143,7 +5733,7 @@
       "category": "media-creative",
       "description": "Structure Remotion markup for interactivity",
       "author": "remotion-dev",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5160,7 +5750,11 @@
         "source": {
           "repo": "remotion-dev/skills",
           "path": "skills/remotion-interactivity/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/remotion-dev/skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5173,7 +5767,7 @@
       "category": "media-creative",
       "description": "Find Remotion license information, FAQs, terms, and where to buy a license.",
       "author": "remotion-dev",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5190,7 +5784,11 @@
         "source": {
           "repo": "remotion-dev/skills",
           "path": "skills/remotion-license/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/remotion-dev/skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5203,7 +5801,7 @@
       "category": "media-creative",
       "description": "Remotion Map animation knowledge",
       "author": "remotion-dev",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5220,7 +5818,11 @@
         "source": {
           "repo": "remotion-dev/skills",
           "path": "skills/remotion-maps/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/remotion-dev/skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5233,7 +5835,7 @@
       "category": "media-creative",
       "description": "Content, animation and effects best practices",
       "author": "remotion-dev",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5250,7 +5852,11 @@
         "source": {
           "repo": "remotion-dev/skills",
           "path": "skills/remotion-markup/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/remotion-dev/skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5263,7 +5869,7 @@
       "category": "media-creative",
       "description": "Interacting with Mediabunny",
       "author": "remotion-dev",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5280,7 +5886,11 @@
         "source": {
           "repo": "remotion-dev/skills",
           "path": "skills/remotion-multimedia/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/remotion-dev/skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5293,7 +5903,7 @@
       "category": "media-creative",
       "description": "Export a Remotion video",
       "author": "remotion-dev",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5310,7 +5920,11 @@
         "source": {
           "repo": "remotion-dev/skills",
           "path": "skills/remotion-render/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/remotion-dev/skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5323,7 +5937,7 @@
       "category": "media-creative",
       "description": "Build an app with Remotion",
       "author": "remotion-dev",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5340,7 +5954,11 @@
         "source": {
           "repo": "remotion-dev/skills",
           "path": "skills/remotion-saas/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/remotion-dev/skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5353,7 +5971,7 @@
       "category": "media-creative",
       "description": "Preview a Remotion video",
       "author": "remotion-dev",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5370,7 +5988,11 @@
         "source": {
           "repo": "remotion-dev/skills",
           "path": "skills/remotion-studio/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/remotion-dev/skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5383,7 +6005,7 @@
       "category": "media-creative",
       "description": "Bring existing video code or footage into HyperFrames and verify it frame by frame against the original - Remotion first, also Motion Canvas, Lottie, Three.js, p5.js, canvas or plain HTML/CSS animation, or renders from Manim, After Effects or Blender. Use to port, convert, migrate or reuse work made with another tool.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5400,7 +6022,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "skills/remotion-to-hyperframes/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5413,7 +6039,7 @@
       "category": "media-creative",
       "description": "Upgrade Remotion, and related packages",
       "author": "remotion-dev",
-      "license": "MIT",
+      "license": "UNKNOWN",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5430,7 +6056,11 @@
         "source": {
           "repo": "remotion-dev/skills",
           "path": "skills/remotion-upgrade/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": false,
+          "licenseStatus": "unknown",
+          "licenseEvidence": "no license found",
+          "licenseUrl": "https://github.com/remotion-dev/skills",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5443,7 +6073,7 @@
       "category": "media-creative",
       "description": "Rebuild any video file as an editable HyperFrames project - motion graphics, talking heads, live action or AI-generated footage. Measure and watch it, rebuild every layer, then check the render against the original frame by frame. Use to reverse, recreate, replicate or copy a video.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5460,7 +6090,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "skills/reverse-any-video/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5473,7 +6107,7 @@
       "category": "media-creative",
       "description": "Render-correctness doctrine for scene-to-scene seams in HyperFrames launch videos — the prerequisites that make transitions composite correctly on the master timeline. Load when assembling the master timeline / index.html, when a white flash appears at a cut or crossfade seam (especially on dark films), when reasoning about why a transition opacity dip shows through, or when verifying the render-side mechanics of how overlapping scene wrappers blend. Covers the opaque stage-ground (#root background) white-flash guard and how the injector overlaps wrappers, holds final frames, ping-pongs tracks, and stamps lint-clean template code onto the master timeline. Does NOT contain the per-transition catalog — see the transition registry for individual transition entries.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5490,7 +6124,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": ".agents/skills/seam-craft/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5520,7 +6158,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "seedance-2-5-image-to-video/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/seedance-2-5-image-to-video/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5550,7 +6192,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "seedance-2-5-reference-to-video/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/seedance-2-5-reference-to-video/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5580,7 +6226,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "seedance-v2/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/seedance-v2/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5593,7 +6243,7 @@
       "category": "media-creative",
       "description": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for Slack.\"",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5610,7 +6260,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/slack-gif-creator/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/slack-gif-creator/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5623,7 +6277,7 @@
       "category": "media-creative",
       "description": "Build a HyperFrames slideshow to present live - slides, fragment reveals, branching hotspots and presenter mode with speaker notes, served by `hyperframes present` - or turn an existing page into one. Use when the person wants a deck or presentation rather than a rendered video.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5640,7 +6294,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "skills/slideshow/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5653,7 +6311,7 @@
       "category": "media-creative",
       "description": "Make a new episode in a proven video style - Collage Explainer, Finance Explainer, Animated Science Explainer, 3D Brand Explainer, 3D True Crime - on the person's topic. Use for \"an episode of\", \"in the style of\", \"sample this style\", 「用这个风格做一集」. One video to copy is reverse-any-video.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5670,7 +6328,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "skills/style-sampling/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5700,7 +6362,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "video-edit/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/video-edit/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5730,7 +6396,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "video-extend/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/video-extend/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5760,7 +6430,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "video-inpainting/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/video-inpainting/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5790,7 +6464,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "video-outpainting/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/video-outpainting/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5820,7 +6498,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "wan-2-7/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/wan-2-7/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5850,7 +6532,11 @@
         "source": {
           "repo": "gencraft-labs/skills",
           "path": "wan-3-0-prime-reference-to-video/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/wan-3-0-prime-reference-to-video/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5863,7 +6549,7 @@
       "category": "media-creative",
       "description": "A wireframe portal bursts open, the title comes through, then its letters swap into a second phrase. HyperFrames block, 1920×1080, 8s, 9 variables.",
       "author": "heygen-com",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -5880,7 +6566,11 @@
         "source": {
           "repo": "heygen-com/hyperframes",
           "path": "registry/blocks/wireframe-portal-title/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -5999,7 +6689,16 @@
           "nextjs",
           "framer-motion"
         ],
-        "lastVerified": "2026-11-06"
+        "lastVerified": "2026-11-06",
+        "source": {
+          "repo": "ibelick/ui-skills",
+          "path": "skills/fixing-motion-performance/SKILL.md",
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/ibelick/ui-skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
+        }
       },
       "format": "gss",
       "path": "performance/fixing-motion-performance/SKILL.md",
@@ -6055,7 +6754,7 @@
       "id": "fixing-metadata",
       "name": "fixing-metadata",
       "category": "seo",
-      "description": "1. Identify pages with missing or incorrect metadata (titles, descriptions, canonical, OG tags) 2. Audit against the priority rules below — fix critical issues (duplicates, indexing) first 3. Ensure title, description, canonical, and og:url all agree with each other 4.",
+      "description": "Audit and fix HTML metadata including page titles, meta descriptions, canonical URLs, Open Graph tags, Twitter cards, favicons, JSON-LD structured data, and robots directives. Use when adding SEO metadata, fixing social share previews, reviewing Open Graph tags, setting up canonical URLs, or shipping new pages that need correct meta tags.",
       "author": "ui-skills",
       "license": "MIT",
       "version": "1.0.0",
@@ -6086,7 +6785,16 @@
           "html",
           "react"
         ],
-        "lastVerified": "2026-11-06"
+        "lastVerified": "2026-11-06",
+        "source": {
+          "repo": "ibelick/ui-skills",
+          "path": "skills/fixing-metadata/SKILL.md",
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/ibelick/ui-skills/blob/main/skills/fixing-metadata/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
+        }
       },
       "format": "gss",
       "path": "seo/fixing-metadata/SKILL.md",
@@ -6171,7 +6879,16 @@
           "nextjs",
           "tailwind"
         ],
-        "lastVerified": "2026-11-06"
+        "lastVerified": "2026-11-06",
+        "source": {
+          "repo": "ibelick/ui-skills",
+          "path": "skills/baseline-ui/SKILL.md",
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/ibelick/ui-skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
+        }
       },
       "format": "gss",
       "path": "systems/baseline-ui/SKILL.md",
@@ -6201,7 +6918,16 @@
         "related": [
           "baseline-ui"
         ],
-        "lastVerified": "2026-11-06"
+        "lastVerified": "2026-11-06",
+        "source": {
+          "repo": "ibelick/ui-skills",
+          "path": "skills/ui-skills-root/SKILL.md",
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "declared in original SKILL.md",
+          "licenseUrl": "https://github.com/ibelick/ui-skills/blob/main/skills/ui-skills-root/SKILL.md",
+          "licenseCheckedAt": "2026-11-08"
+        }
       },
       "format": "gss",
       "path": "systems/ui-skills-root/SKILL.md",
@@ -6230,7 +6956,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/misc/migrate-to-shoehorn/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -6260,7 +6990,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/misc/setup-pre-commit/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -6297,7 +7031,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/tdd/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -6342,7 +7080,7 @@
       "category": "testing",
       "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [
@@ -6368,7 +7106,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/webapp-testing/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/webapp-testing/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -6438,7 +7180,7 @@
       "category": "ui-ux",
       "description": "Stop and check this skill before finishing any reply to a question about how to use Claude or a Claude product — it recommends matching courses, tutorials, and use cases from Claude Academy (academy.claude.com), Anthropic's learning hub. Trigger on: \"how do I\", \"how can I\", \"getting started with\", \"what can Claude do\", \"teach me\", \"learn to use\"; questions about artifacts, projects, skills, plugins, connectors, MCP; requests about rolling Claude out to a team, class, or organization; and any ask for training materials, onboarding content, or learning resources. Use it when the user is learning how to use a feature or product — not when they are mid-task and just want the task done. This skill composes with other skills: after consulting product documentation to answer how a Claude feature works, also check here for a matching course or tutorial — a docs-grounded answer and an Academy recommendation belong together. Only recommend on a strong match; never invent Academy content.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -6455,7 +7197,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/academy-guide/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/academy-guide/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -6468,7 +7214,7 @@
       "category": "ui-ux",
       "description": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -6485,7 +7231,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/brand-guidelines/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/brand-guidelines/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -6536,7 +7286,7 @@
       },
       "format": "gss",
       "path": "ui-ux/design-lab/SKILL.md",
-      "tokenEstimate": 8109
+      "tokenEstimate": 3538
     },
     {
       "id": "improve-ui",
@@ -6582,7 +7332,16 @@
           "svelte",
           "tailwind"
         ],
-        "lastVerified": "2026-11-06"
+        "lastVerified": "2026-11-06",
+        "source": {
+          "repo": "ibelick/ui-skills",
+          "path": "skills/improve-ui/SKILL.md",
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/ibelick/ui-skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
+        }
       },
       "format": "gss",
       "path": "ui-ux/improve-ui/SKILL.md",
@@ -6685,7 +7444,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/prototype/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -6747,12 +7510,16 @@
         "source": {
           "repo": "leonxlnx/taste-skill",
           "path": "skills/taste-skill/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/Leonxlnx/taste-skill/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
       "path": "ui-ux/taste-skill/SKILL.md",
-      "tokenEstimate": 7212
+      "tokenEstimate": 2722
     },
     {
       "id": "theme-factory",
@@ -6760,7 +7527,7 @@
       "category": "ui-ux",
       "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -6777,7 +7544,11 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/theme-factory/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/theme-factory/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -6790,7 +7561,7 @@
       "category": "workflow",
       "description": "Use when working in this project — adding tools, editing the agent, running, evaluating, serving or deploying it — or when guidance mentions ADK, LlmAgent, google.adk, adk web, or an ADK runner. This project is a Claude Agent SDK agent scaffolded by agents-cli, so ADK-specific instructions do not apply.",
       "author": "google",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -6807,7 +7578,11 @@
         "source": {
           "repo": "google/agents-cli",
           "path": "extensions/claude/template/.agents/skills/agents-cli-claude/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -6820,7 +7595,7 @@
       "category": "workflow",
       "description": "Use when working in this project — adding tools, editing the agent, running, evaluating, serving or deploying it — or when guidance mentions ADK, LlmAgent, google.adk, adk web, or an ADK runner. This project is LangChain/LangGraph scaffolded by agents-cli, so ADK-specific instructions do not apply.",
       "author": "google",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -6837,7 +7612,11 @@
         "source": {
           "repo": "google/agents-cli",
           "path": "extensions/langchain/template/.agents/skills/agents-cli-langchain/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -6867,7 +7646,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/in-progress/chief-of-staff/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -6897,7 +7680,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/in-progress/claude-handoff/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -6910,7 +7697,7 @@
       "category": "workflow",
       "description": "This skill should be used when the user wants to \"write agent code\", \"build an agent with ADK\", \"add a tool\", \"create a callback\", \"define an agent\", \"use state management\" — in a project that needs ADK (Agent Development Kit) API patterns and code examples. It provides a quick reference for agent types, tool definitions, orchestration patterns, callbacks, state management, the graph Workflow API, and reference recipes to study. Do NOT use for scaffolding (use google-agents-cli-scaffold) or deployment (use google-agents-cli-deploy).",
       "author": "Google",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -6927,7 +7714,11 @@
         "source": {
           "repo": "google/agents-cli",
           "path": "skills/google-agents-cli-adk-code/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -6940,7 +7731,7 @@
       "category": "workflow",
       "description": "This skill should be used when the user wants to \"run an evaluation\", \"evaluate my agent\", \"evaluate my ADK agent\", \"write an eval dataset\", \"analyze eval failures\", \"compare eval results\", \"optimize agent\", or needs guidance on the Gemini platform eval methodology and the Quality Flywheel. Covers eval metrics, dataset schema, LLM-as-judge scoring, and common failure causes. Applies to any agents-cli project, whatever framework the agent is written in. Do NOT use for agent API code patterns (ADK: use google-agents-cli-adk-code), deployment (use google-agents-cli-deploy), or project scaffolding (use google-agents-cli-scaffold).",
       "author": "Google",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -6957,12 +7748,16 @@
         "source": {
           "repo": "google/agents-cli",
           "path": "skills/google-agents-cli-eval/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
       "path": "workflow/google-agents-cli-eval/SKILL.md",
-      "tokenEstimate": 6359
+      "tokenEstimate": 2537
     },
     {
       "id": "google-agents-cli-observability",
@@ -6970,7 +7765,7 @@
       "category": "workflow",
       "description": "This skill should be used when the user wants to \"set up tracing\", \"monitor my agent\", \"configure logging\", \"add observability\", \"debug production traffic\", or needs guidance on monitoring deployed agents, including ADK (Agent Development Kit) agents. Covers Cloud Trace, prompt-response logging, BigQuery Agent Analytics, third-party integrations (AgentOps, Phoenix, MLflow, etc.), and troubleshooting. Part of the agents-cli skills suite. Do NOT use for deployment setup (use google-agents-cli-deploy) or API code patterns (use google-agents-cli-adk-code).",
       "author": "Google",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -6987,7 +7782,11 @@
         "source": {
           "repo": "google/agents-cli",
           "path": "skills/google-agents-cli-observability/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -7000,7 +7799,7 @@
       "category": "workflow",
       "description": "This skill should be used when the user wants to \"publish an agent\", \"publish my ADK agent\", \"register an agent with Gemini\", \"publish to Gemini\" (formerly Gemini Enterprise), or needs guidance on the agents-cli publish gemini command. Also use when the user wants to \"manage agents in Agent Registry\", \"list/update/delete registered agents\", or \"register an MCP server\". Covers ADK vs A2A registration modes, programmatic and interactive usage, flag reference, auto-detection from deployment metadata, Agent Registry fleet management, and troubleshooting. Part of the agents-cli skills suite. Do NOT use for deployment (use google-agents-cli-deploy).",
       "author": "Google",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -7017,7 +7816,11 @@
         "source": {
           "repo": "google/agents-cli",
           "path": "skills/google-agents-cli-publish/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -7030,7 +7833,7 @@
       "category": "workflow",
       "description": "This skill should be used when the user wants to \"create an agent project\", \"start a new ADK project\", \"build me a new agent\", \"add CI/CD to my project\", \"add deployment\", \"enhance my project\", or \"upgrade my project\". Part of the agents-cli skills suite. Covers `agents-cli scaffold create`, `scaffold enhance`, and `scaffold upgrade` commands, template options, deployment targets, and the prototype-first workflow. Do NOT use for writing agent code (ADK projects: use google-agents-cli-adk-code) or deployment operations (use google-agents-cli-deploy).",
       "author": "Google",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -7047,7 +7850,11 @@
         "source": {
           "repo": "google/agents-cli",
           "path": "skills/google-agents-cli-scaffold/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -7060,7 +7867,7 @@
       "category": "workflow",
       "description": "This skill should be used when the user wants to \"develop an agent\", \"build an agent using ADK\", \"run the agent locally\", \"debug agent code\", \"test an agent\", \"deploy an agent\", \"publish an agent\", \"monitor an agent\", or needs the ADK (Agent Development Kit) development lifecycle and coding guidelines. Entrypoint for building ADK agents. Always active — provides the full workflow (scaffold, build, evaluate, deploy, publish, observe), code preservation rules, model selection guidance, and troubleshooting steps for ADK or any agent development.",
       "author": "Google",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -7077,12 +7884,16 @@
         "source": {
           "repo": "google/agents-cli",
           "path": "skills/google-agents-cli-workflow/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
       "path": "workflow/google-agents-cli-workflow/SKILL.md",
-      "tokenEstimate": 5377
+      "tokenEstimate": 3480
     },
     {
       "id": "grill-me",
@@ -7107,7 +7918,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/productivity/grill-me/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -7137,7 +7952,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/grill-with-docs/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -7167,7 +7986,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/productivity/grilling/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -7197,7 +8020,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/productivity/handoff/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -7227,7 +8054,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/in-progress/loop-me/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -7257,7 +8088,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/research/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -7287,7 +8122,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/retro/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -7317,7 +8156,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/setup-matt-pocock-skills/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -7330,7 +8173,7 @@
       "category": "workflow",
       "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
       "author": "anthropics",
-      "license": "MIT",
+      "license": "Apache-2.0",
       "version": "1.0.0",
       "tags": [],
       "keywords": [],
@@ -7347,12 +8190,16 @@
         "source": {
           "repo": "anthropics/skills",
           "path": "skills/skill-creator/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "skill license file",
+          "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/skill-creator/LICENSE.txt",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
       "path": "workflow/skill-creator/SKILL.md",
-      "tokenEstimate": 8156
+      "tokenEstimate": 2360
     },
     {
       "id": "triage",
@@ -7377,7 +8224,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/engineering/triage/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",
@@ -7407,7 +8258,11 @@
         "source": {
           "repo": "mattpocock/skills",
           "path": "skills/productivity/writing-for-agents/SKILL.md",
-          "licenseVerified": false
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-08"
         }
       },
       "format": "gss",

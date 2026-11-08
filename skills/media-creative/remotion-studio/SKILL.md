@@ -1,7 +1,7 @@
 ---
 name: "remotion-studio"
 description: "Preview a Remotion video"
-license: "MIT"
+license: "UNKNOWN"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "remotion-dev"

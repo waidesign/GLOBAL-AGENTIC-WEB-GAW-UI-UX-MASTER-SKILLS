@@ -3,5 +3,14 @@
   "related": [
     "baseline-ui"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "source": {
+    "repo": "ibelick/ui-skills",
+    "path": "skills/ui-skills-root/SKILL.md",
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "declared in original SKILL.md",
+    "licenseUrl": "https://github.com/ibelick/ui-skills/blob/main/skills/ui-skills-root/SKILL.md",
+    "licenseCheckedAt": "2026-11-08"
+  }
 }

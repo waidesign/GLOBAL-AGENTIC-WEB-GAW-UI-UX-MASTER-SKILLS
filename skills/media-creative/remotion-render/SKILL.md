@@ -1,7 +1,7 @@
 ---
 name: "remotion-render"
 description: "Export a Remotion video"
-license: "MIT"
+license: "UNKNOWN"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "remotion-dev"

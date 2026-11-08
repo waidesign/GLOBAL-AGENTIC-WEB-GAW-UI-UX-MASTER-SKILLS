@@ -8,5 +8,14 @@
     "nextjs",
     "framer-motion"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "source": {
+    "repo": "ibelick/ui-skills",
+    "path": "skills/fixing-motion-performance/SKILL.md",
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "repository license",
+    "licenseUrl": "https://github.com/ibelick/ui-skills/blob/main/LICENSE",
+    "licenseCheckedAt": "2026-11-08"
+  }
 }

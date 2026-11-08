@@ -4,6 +4,10 @@
   "source": {
     "repo": "vercel-labs/agent-skills",
     "path": "skills/composition-patterns/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "declared in original SKILL.md",
+    "licenseUrl": "https://github.com/vercel-labs/agent-skills/blob/main/skills/composition-patterns/SKILL.md",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

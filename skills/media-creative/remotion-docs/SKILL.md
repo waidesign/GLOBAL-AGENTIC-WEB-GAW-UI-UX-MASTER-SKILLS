@@ -1,7 +1,7 @@
 ---
 name: "remotion-docs"
 description: "Search Remotion documentation"
-license: "MIT"
+license: "UNKNOWN"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "remotion-dev"

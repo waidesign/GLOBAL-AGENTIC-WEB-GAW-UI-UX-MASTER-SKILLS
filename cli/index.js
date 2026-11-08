@@ -1,9 +1,14 @@
 import path from 'node:path';
 import fs from 'node:fs';
+import os from 'node:os';
 import { spawn, exec } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { SkillRegistry } from '../core/skill-registry/SkillRegistry.js';
-import { lintLibrary } from '../core/skill-registry/SkillLinter.js';
+import { lintLibrary, lintSkillFolder, NEW_SKILL_TODO } from '../core/skill-registry/SkillLinter.js';
+import { prepareSkill, previewSkill, installSkill, findMissingSupportFiles, restoreSupportFiles } from '../core/skill-registry/skillImport.js';
+import { GitHubClient } from '../core/skill-registry/github.js';
+import { resolveSkillLicense } from '../core/skill-registry/licenses.js';
+import { applyLicense, planSplit, applySplit, canModify, writeSkillFolder, toSkillName } from '../core/skill-registry/gss.js';
 import { SkillDiscovery } from '../core/skill-discovery/SkillDiscovery.js';
 import { SkillOrchestrator } from '../core/orchestrator/SkillOrchestrator.js';
 import { PresetRegistry } from '../core/preset-registry/PresetRegistry.js';
@@ -242,6 +247,11 @@ export class GawCli {
   async cmdSkills(args) {
     if (args[0] === 'lint') return this.cmdSkillsLint(args.slice(1));
     if (args[0] === 'index') return this.cmdSkillsIndex();
+    if (args[0] === 'licenses') return this.cmdSkillsLicenses(args.slice(1));
+    if (args[0] === 'split') return this.cmdSkillsSplit(args.slice(1));
+    if (args[0] === 'add') return this.cmdSkillsAdd(args.slice(1));
+    if (args[0] === 'new') return this.cmdSkillsNew(args.slice(1));
+    if (args[0] === 'repair') return this.cmdSkillsRepair(args.slice(1));
 
     this.printHeader();
     const category = args[0];
@@ -277,6 +287,311 @@ export class GawCli {
 
     console.log(`\n${results.length} skill(s) checked: ${errorCount} error(s), ${warningCount} warning(s).`);
     if (errorCount > 0) process.exitCode = 1;
+  }
+
+  /**
+   * gaw skills licenses [--apply]: find each imported skill's real license at its
+   * source (skill LICENSE file, original SKILL.md, or repository license).
+   */
+  async cmdSkillsLicenses(args) {
+    const apply = args.includes('--apply');
+    const github = new GitHubClient();
+    const skills = await this.registry.getAllSkills();
+    const withSource = skills.filter(s => s.contract?.source?.repo);
+    const noSource = skills.filter(s => !s.contract?.source?.repo);
+
+    console.log(`Checking licenses of ${withSource.length} skills against their source repositories...\n`);
+    const results = [];
+    for (const skill of withSource) {
+      try {
+        const result = await resolveSkillLicense(github, skill.contract.source);
+        results.push({ skill, result });
+        if (apply) applyLicense(skill.dir, result);
+      } catch (err) {
+        console.log(`\n${err.message}`);
+        process.exitCode = 1;
+        break;
+      }
+    }
+
+    const groups = { open: [], copyleft: [], restricted: [], unknown: [] };
+    for (const r of results) groups[r.result.category].push(r);
+    const label = { open: 'Open (may share and modify)', copyleft: 'Copyleft (share alike)', restricted: 'Restricted (may not redistribute without permission)', unknown: 'No license found' };
+    for (const [category, items] of Object.entries(groups)) {
+      if (!items.length) continue;
+      const bySpdx = {};
+      for (const { result } of items) bySpdx[result.spdx || 'none'] = (bySpdx[result.spdx || 'none'] || 0) + 1;
+      console.log(`${label[category]}: ${items.length}  (${Object.entries(bySpdx).map(([k, v]) => `${k} ${v}`).join(', ')})`);
+      if (category !== 'open') {
+        for (const { skill, result } of items) console.log(`    ${skill.id}  [${result.evidence}] ${result.url}`);
+      }
+    }
+    const relabeled = results.filter(r => r.result.spdx && r.skill.license !== r.result.spdx);
+    console.log(`\nLicense differs from what the library says: ${relabeled.length} skill(s).`);
+    if (noSource.length) {
+      console.log(`No source on record (license cannot be checked automatically): ${noSource.length} skill(s).`);
+    }
+    if (apply) {
+      this.registry.writeIndex();
+      console.log(`\n✓ Recorded licenses in SKILL.md and gaw.json, and rebuilt skills/index.json.`);
+    } else {
+      console.log(`\nRun 'gaw skills licenses --apply' to record these licenses.`);
+    }
+  }
+
+  /**
+   * gaw skills split [<skill-name> | --all] [--apply]: move the long parts of
+   * oversized skills into references/ (lossless). Preview unless --apply.
+   */
+  async cmdSkillsSplit(args) {
+    const apply = args.includes('--apply');
+    const all = args.includes('--all');
+    const name = args.find(a => !a.startsWith('--'));
+    const skills = (await this.registry.getAllSkills()).filter(s => (all ? true : s.id === name));
+    if (!all && skills.length === 0) {
+      console.log(`Usage: gaw skills split <skill-name> [--apply]   or   gaw skills split --all [--apply]`);
+      return;
+    }
+
+    let changed = 0;
+    for (const skill of skills) {
+      if (skill.format !== 'gss') continue;
+      const plan = planSplit(skill.content, { skillName: skill.id });
+      if (!plan) {
+        if (!all) console.log(`${skill.id} is within the size guideline; nothing to split.`);
+        continue;
+      }
+      const status = skill.contract?.source?.licenseStatus;
+      if (skill.contract?.source && !canModify(status)) {
+        console.log(`⏭  ${skill.id}: not split. Its license (${status || 'unverified'}) doesn't clearly allow changes.`);
+        continue;
+      }
+      console.log(`${apply ? '✓' : '•'} ${skill.id}: ~${plan.before} → ~${plan.after} tokens in SKILL.md, ${plan.references.length} reference file(s)`);
+      for (const r of plan.references) console.log(`    ${r.file} (~${r.tokens} tokens)`);
+      if (apply) {
+        applySplit(skill.dir, plan);
+        changed++;
+      }
+    }
+
+    if (apply && changed) {
+      this.registry.writeIndex();
+      console.log(`\nSplit ${changed} skill(s) and rebuilt skills/index.json.`);
+    } else if (!apply) {
+      console.log(`\nPreview only. Add --apply to write the files.`);
+    }
+  }
+
+  /** Read "--flag value" options; returns { values, positional }. */
+  parseOptions(args, valueFlags) {
+    const values = {};
+    const positional = [];
+    for (let i = 0; i < args.length; i++) {
+      if (valueFlags.includes(args[i])) values[args[i].slice(2)] = args[++i];
+      else if (!args[i].startsWith('--')) positional.push(args[i]);
+    }
+    return { values, positional };
+  }
+
+  /** Where new skills go: the GAW library, or ai-brain/skills with --project. */
+  skillTarget(args) {
+    const project = args.includes('--project');
+    return {
+      project,
+      root: project ? path.join(process.cwd(), 'ai-brain', 'skills') : this.registry.skillsDir,
+      flat: project
+    };
+  }
+
+  /** After writing a skill: check it and refresh the library index. */
+  finishNewSkill(dir, project) {
+    const known = new Set([...this.registry.skills.keys(), path.basename(dir)]);
+    const { errors, warnings } = lintSkillFolder(dir, known);
+    if (!project) this.registry.writeIndex();
+    for (const e of errors) console.log(`  error:   ${e}`);
+    for (const w of warnings) console.log(`  warning: ${w}`);
+    return errors.length === 0;
+  }
+
+  /**
+   * gaw skills add <github-link | folder | file.md> [--category c] [--name n]
+   *   [--project] [--allow-changes] [--yes]
+   * Converts any skill to GSS, checks its license, copies its supporting files,
+   * splits it if oversized (when the license allows), then lints and indexes it.
+   */
+  async cmdSkillsAdd(args) {
+    this.printHeader();
+    const { values, positional } = this.parseOptions(args, ['--category', '--name']);
+    const target = positional[0];
+    if (!target) {
+      console.log(`Usage: gaw skills add <github-link | skill-folder | file.md> [--category <c>] [--name <n>] [--project] [--yes]`);
+      return;
+    }
+    const { project, root, flat } = this.skillTarget(args);
+    await this.registry.ensureLoaded();
+
+    let prepared;
+    try {
+      prepared = await prepareSkill(target, { github: new GitHubClient() });
+    } catch (err) {
+      console.log(err.message);
+      process.exitCode = 1;
+      return;
+    }
+
+    const preview = previewSkill(prepared, { root, category: values.category, name: values.name, flat });
+    if (args.includes('--allow-changes') && preview.oversizedNotSplit) {
+      // The user confirms they own the skill or may change it
+      preview.split = planSplit(prepared.content, { skillName: preview.name });
+      preview.warnings = preview.warnings.filter(w => !w.includes('was not split'));
+    }
+
+    if (fs.existsSync(preview.dir) || (!project && this.registry.skills.has(preview.name))) {
+      console.log(`A skill named "${preview.name}" already exists. Choose another name with --name <skill-name>.`);
+      process.exitCode = 1;
+      return;
+    }
+
+    const lic = prepared.license;
+    console.log(`Skill:        ${preview.name}${preview.data.metadata['gaw-title'] ? ` (${preview.data.metadata['gaw-title']})` : ''}`);
+    console.log(`Category:     ${preview.category} (${preview.categorySource}${preview.categorySource === 'chosen' ? '' : '; change with --category'})`);
+    console.log(`From:         ${prepared.origin}`);
+    console.log(`License:      ${lic.spdx || 'none found'} (${lic.category}, ${lic.evidence})`);
+    console.log(`Description:  ${preview.data.description.length > 160 ? `${preview.data.description.slice(0, 157)}...` : preview.data.description}`);
+    console.log(`Size:         ~${Math.round(prepared.content.length / 4)} tokens${preview.split ? ` → split into SKILL.md (~${preview.split.after}) + ${preview.split.references.length} reference file(s)` : ''}`);
+    if (preview.support.selected.length) console.log(`Files:        ${preview.support.selected.length} supporting file(s)`);
+    console.log(`Permissions:  ${preview.contract.permissions?.length ? preview.contract.permissions.join(', ') : 'instructions only'}`);
+    console.log(`Saves to:     ${path.relative(process.cwd(), preview.dir) || preview.dir}`);
+    for (const w of preview.warnings) console.log(`⚠ ${w}`);
+
+    if (!args.includes('--yes')) {
+      if (!process.stdin.isTTY) {
+        console.log(`\nNot added. Run again with --yes to add it without a prompt.`);
+        return;
+      }
+      if (!(await askYesNo('\nAdd this skill? (Y/n) '))) {
+        console.log('Not added.');
+        return;
+      }
+    }
+
+    const result = await installSkill(prepared, preview);
+    console.log(`\n✓ Added ${preview.name} as a GSS skill${result.copied ? ` with ${result.copied} supporting file(s)` : ''}.`);
+    const ok = this.finishNewSkill(result.dir, project);
+    if (!ok) {
+      console.log(`Fix the errors above, then run: gaw skills lint ${path.relative(process.cwd(), result.dir)}`);
+      process.exitCode = 1;
+    }
+  }
+
+  /**
+   * gaw skills new "<Title>" [--category c] [--description d] [--license l]
+   *   [--author a] [--project]: create a ready-to-fill GSS skill.
+   */
+  async cmdSkillsNew(args) {
+    const { values, positional } = this.parseOptions(args, ['--category', '--description', '--license', '--author']);
+    const title = positional.join(' ').trim();
+    const name = toSkillName(title);
+    if (!name) {
+      console.log(`Usage: gaw skills new "<Skill title>" [--category <c>] [--description "<d>"] [--license <l>] [--project]`);
+      return;
+    }
+    const { project, root, flat } = this.skillTarget(args);
+    const category = values.category || 'general';
+    const dir = flat ? path.join(root, name) : path.join(root, category, name);
+    await this.registry.ensureLoaded();
+    if (fs.existsSync(dir) || (!project && this.registry.skills.has(name))) {
+      console.log(`A skill named "${name}" already exists.`);
+      process.exitCode = 1;
+      return;
+    }
+
+    const license = values.license || 'MIT';
+    const data = {
+      name,
+      description: values.description || `${NEW_SKILL_TODO} say what ${title} does and when to use it.`,
+      license,
+      metadata: {
+        'gaw-title': title !== name ? title : undefined,
+        'gaw-category': category,
+        'gaw-author': values.author || os.userInfo().username,
+        'gaw-version': '0.1.0'
+      }
+    };
+    for (const k of Object.keys(data.metadata)) if (data.metadata[k] === undefined) delete data.metadata[k];
+
+    const content = [
+      `# ${title}`,
+      '',
+      '## When to use',
+      '- (Situations where an agent should follow this skill)',
+      '',
+      '## Instructions',
+      '1. (Step-by-step guidance for the agent)',
+      '',
+      '## Checks',
+      '- (How to confirm the result is correct)'
+    ].join('\n');
+
+    const contract = {
+      gss: 1,
+      keywords: [],
+      whenToUse: [],
+      whenNotToUse: [],
+      verification: [],
+      lastVerified: new Date().toISOString().split('T')[0]
+    };
+
+    writeSkillFolder(dir, { data, content, contract });
+    console.log(`✓ Created ${path.relative(process.cwd(), dir) || dir} (license ${license}${values.license ? '' : '; change it in SKILL.md if needed'}).`);
+    this.finishNewSkill(dir, project);
+    console.log(`\nNext: write the description and instructions in SKILL.md, add search keywords in gaw.json,`);
+    console.log(`then run: gaw skills lint ${path.relative(process.cwd(), dir) || dir}`);
+  }
+
+  /**
+   * gaw skills repair [<skill-name> | --all] [--repo owner/name] [--apply]: download
+   * supporting files (scripts, references, assets) that imported skills are missing.
+   */
+  async cmdSkillsRepair(args) {
+    const apply = args.includes('--apply');
+    const { values, positional } = this.parseOptions(args, ['--repo']);
+    const name = positional[0];
+    const skills = (await this.registry.getAllSkills()).filter(s =>
+      s.contract?.source?.repo
+      && (args.includes('--all') || values.repo ? true : s.id === name)
+      && (!values.repo || s.contract.source.repo === values.repo));
+    if (skills.length === 0) {
+      console.log(`Usage: gaw skills repair <skill-name> | --all | --repo <owner/name>  [--apply]`);
+      return;
+    }
+
+    const github = new GitHubClient();
+    let files = 0;
+    let bytes = 0;
+    let written = 0;
+    for (const skill of skills) {
+      let missing;
+      try {
+        missing = await findMissingSupportFiles(github, skill, { includeBinary: args.includes('--include-binary') });
+      } catch (err) {
+        console.log(err.message);
+        process.exitCode = 1;
+        break;
+      }
+      if (!missing || missing.files.length === 0) continue;
+      files += missing.files.length;
+      bytes += missing.totalBytes;
+      const extra = [
+        missing.skipped ? `${missing.skipped} over the limits` : '',
+        missing.binaryLeftAtSource ? `${missing.binaryLeftAtSource} binary left at source` : ''
+      ].filter(Boolean).join(', ');
+      console.log(`${apply ? '✓' : '•'} ${skill.id}: ${missing.files.length} missing file(s), ${(missing.totalBytes / 1024).toFixed(0)} KB${extra ? ` (${extra})` : ''}`);
+      if (apply) written += await restoreSupportFiles(github, skill, missing);
+    }
+
+    console.log(`\n${apply ? `Restored ${written}` : `Would restore ${files}`} file(s), ${(bytes / 1024 / 1024).toFixed(1)} MB.`);
+    if (!apply && files) console.log(`Add --apply to download them.`);
   }
 
   /** gaw skills index: rebuild skills/index.json after adding or editing skills. */
@@ -731,8 +1046,14 @@ export class GawCli {
     console.log(`  setup [--yes]         Install Graphify (optional code map for AI agents)`);
     console.log(`  start                 Resume an existing initialized project`);
     console.log(`  skills [category]     List all skills or filter by category`);
+    console.log(`  skills add <link|folder|file> [--category c] [--project] [--yes]`);
+    console.log(`                        Add any skill; converted to GSS, license checked, split if oversized`);
+    console.log(`  skills new "<title>" [--category c] [--project]`);
+    console.log(`                        Create a new GSS skill from a template`);
     console.log(`  skills lint [folder]  Check skills against the GAW Skill Standard (GSS)`);
-    console.log(`  skills index          Rebuild skills/index.json after editing skills`);
+    console.log(`  skills licenses [--apply]  Check each skill's license at its source`);
+    console.log(`  skills split <name|--all> [--apply]  Move long parts of oversized skills into references/`);
+    console.log(`  skills index          Rebuild skills/index.json (also happens automatically)`);
     console.log(`  designs [search <q>] [--theme <dark|light>]`);
     console.log(`                        List or search real-world design presets from GradientDeck`);
     console.log(`  design <id> [--apply] [--open] [--deck]`);

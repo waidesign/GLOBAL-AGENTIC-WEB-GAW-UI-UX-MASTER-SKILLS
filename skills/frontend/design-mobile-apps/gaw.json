@@ -4,6 +4,10 @@
   "source": {
     "repo": "designed-by-ai/skills",
     "path": "skills/design-mobile-apps/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "repository license",
+    "licenseUrl": "https://github.com/designed-by-ai/skills/blob/main/LICENSE",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

@@ -10,8 +10,9 @@ const REPO_ROOT = path.resolve(__dirname, '../../');
 
 // Keeps the eval honest: every labeled skill must exist, so renames or
 // migrations can't silently turn correct picks into misses.
-test('eval cases - every expected skill exists and case IDs are unique', async () => {
-  const { cases } = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'eval', 'cases', 'skill-selection.json'), 'utf8'));
+test('eval cases - every expected skill exists and case IDs are unique across sets', async () => {
+  const cases = ['skill-selection.json', 'skill-selection-holdout.json']
+    .flatMap(f => JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'eval', 'cases', f), 'utf8')).cases);
   const registry = new SkillRegistry({ skillsDir: path.join(REPO_ROOT, 'skills') });
 
   const ids = new Set();

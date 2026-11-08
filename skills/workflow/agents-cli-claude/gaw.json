@@ -4,6 +4,10 @@
   "source": {
     "repo": "google/agents-cli",
     "path": "extensions/claude/template/.agents/skills/agents-cli-claude/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "repository license",
+    "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

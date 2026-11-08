@@ -1,7 +1,7 @@
 ---
 name: "algorithmic-art"
 description: "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations."
-license: "MIT"
+license: "Apache-2.0"
 metadata:
   gaw-category: "general"
   gaw-author: "anthropics"

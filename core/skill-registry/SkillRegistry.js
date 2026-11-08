@@ -75,6 +75,8 @@ export class SkillRegistry {
     this.categories = new Set();
     this.initialized = false;
     this.duplicates = [];
+    // Rewrite skills/index.json when skills changed, so nobody has to remember `gaw skills index`
+    this.autoIndex = options.autoIndex !== false;
   }
 
   /** Skill files on disk: GSS folders (SKILL.md) and legacy single .md files. */
@@ -205,6 +207,17 @@ export class SkillRegistry {
     const entries = index
       ? index.skills.map(record => ({ record: { ...record }, content: undefined }))
       : this.scanSkills(files);
+
+    // Skills were added or edited since the index was written: refresh it (best effort;
+    // a read-only install simply keeps scanning)
+    if (!index && this.autoIndex && files.length > 0) {
+      try {
+        const fresh = { version: INDEX_VERSION, fingerprint: this.fingerprint(files), skills: entries.map(e => e.record) };
+        fs.writeFileSync(path.join(this.skillsDir, INDEX_FILE), `${JSON.stringify(fresh, null, 2)}\n`, 'utf8');
+      } catch {
+        // not writable
+      }
+    }
 
     for (const { record, content } of entries) {
       if (this.skills.has(record.id)) {

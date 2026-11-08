@@ -1,7 +1,7 @@
 ---
 name: "remotion-create"
 description: "Create a new Remotion video"
-license: "MIT"
+license: "UNKNOWN"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "remotion-dev"

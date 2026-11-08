@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Automatic GSS for every new skill**: `gaw skills add <github-link | folder | file.md>` converts any skill to GSS, checks its license at the source, copies supporting files, flags skills that can run commands (`permissions: ["shell"]`), splits oversized skills, lints and indexes them, with a preview before saving. `gaw skills new "<title>"` creates a skill from a template. `gaw init` creates its starter project skills as GSS folders. The bulk importer uses the same pipeline.
+- **License intelligence** (`gaw skills licenses`): finds each skill's real license from its own LICENSE file, its original `SKILL.md`, or the repository license, and records the evidence. Result for the library: 186 open (138 MIT, 48 Apache-2.0), 19 with no license at the source, 30 with no source on record.
+- **Oversized skills split losslessly** (`gaw skills split`): long sections move into grouped `references/` files with an index in `SKILL.md`. All 13 oversized skills split (largest: ~26,000 → ~3,700 tokens). Only done when the license allows changes.
+- **`gaw skills repair`**: restores supporting files that imported skills are missing (text files by default).
+- **Held-out benchmark set** (`eval/cases/skill-selection-holdout.json`): 22 cases never used for tuning, reported separately by `npm run eval`.
+- The skill index updates itself when skills are added or changed.
 - **GAW Skill Standard (GSS) v1** (`docs/gss/spec.md`): skills are folders with a standard Agent Skills `SKILL.md` plus an optional `gaw.json` contract (keywords, dependsOn, frameworks, verification, permissions, source). GSS skills work in any tool that supports Agent Skills. All 235 skills migrated.
 - **`gaw skills lint`** checks skills against GSS; **`gaw skills index`** rebuilds `skills/index.json`, so commands read skill metadata only and load skill bodies on demand.
 - **Explained skill picks**: `gaw use`, `gaw recommend` and onboarding show why each skill was chosen ("Matched "pricing", "page" (name); "SaaS" (description).").
@@ -35,7 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - **`gaw use` loaded unrelated skills.** It always loaded ~6 skills (~11,000 tokens), and 61% of them didn't fit the task (e.g. an Azure skill for a pricing page). It now loads only close matches: benchmark score 45% → 94%, precision 39% → 83%, ~2,600 tokens per task, and nothing for tasks no skill covers.
 - **47 skills had no description** (`description: ">"`): the importer could not read multi-line YAML. 46 were recovered from their source repositories and 1 was derived from the skill text.
-- **The importer stamped every imported skill as MIT**, regardless of its real license. It now keeps the source license (or `UNKNOWN`), and `gaw.json` records the source with `licenseVerified: false` until checked.
+- **The importer stamped every imported skill as MIT**, regardless of its real license. 48 skills were really Apache-2.0 and 19 have no license at their source. Licenses are now verified at the source and recorded with evidence.
 - **The importer dropped skills' supporting files** (references, scripts, assets) and filed skills by substring ("aria" in "variables"). It now writes GSS folders with supporting files (within limits) and uses whole-word categories. 71 misfiled skills were recategorized, and a duplicate `create-design-md` was removed.
 - **Design presets were injected into non-UI tasks** (e.g. `gaw use "Analyze our Azure costs" --inject` wrote a design preset). Presets are now offered only for UI work.
 - **`gaw use --inject` overwrote `active-skills.md` with nothing** when no skill matched. It now leaves the file unchanged.

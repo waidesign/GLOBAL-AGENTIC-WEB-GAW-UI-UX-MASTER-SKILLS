@@ -4,6 +4,10 @@
   "source": {
     "repo": "supabase/agent-skills",
     "path": "skills/supabase-postgres-best-practices/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "declared in original SKILL.md",
+    "licenseUrl": "https://github.com/supabase/agent-skills/blob/main/skills/supabase-postgres-best-practices/SKILL.md",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

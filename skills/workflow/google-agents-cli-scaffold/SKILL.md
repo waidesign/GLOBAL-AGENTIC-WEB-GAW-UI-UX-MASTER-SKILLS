@@ -1,7 +1,7 @@
 ---
 name: "google-agents-cli-scaffold"
 description: "This skill should be used when the user wants to \"create an agent project\", \"start a new ADK project\", \"build me a new agent\", \"add CI/CD to my project\", \"add deployment\", \"enhance my project\", or \"upgrade my project\". Part of the agents-cli skills suite. Covers `agents-cli scaffold create`, `scaffold enhance`, and `scaffold upgrade` commands, template options, deployment targets, and the prototype-first workflow. Do NOT use for writing agent code (ADK projects: use google-agents-cli-adk-code) or deployment operations (use google-agents-cli-deploy)."
-license: "MIT"
+license: "Apache-2.0"
 metadata:
   gaw-category: "workflow"
   gaw-author: "Google"

@@ -1,7 +1,7 @@
 ---
 name: "remotion-multimedia"
 description: "Interacting with Mediabunny"
-license: "MIT"
+license: "UNKNOWN"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "remotion-dev"

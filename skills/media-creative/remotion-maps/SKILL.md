@@ -1,7 +1,7 @@
 ---
 name: "remotion-maps"
 description: "Remotion Map animation knowledge"
-license: "MIT"
+license: "UNKNOWN"
 metadata:
   gaw-category: "media-creative"
   gaw-author: "remotion-dev"

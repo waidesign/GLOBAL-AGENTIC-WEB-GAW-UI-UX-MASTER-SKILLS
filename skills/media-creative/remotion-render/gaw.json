@@ -4,6 +4,10 @@
   "source": {
     "repo": "remotion-dev/skills",
     "path": "skills/remotion-render/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": false,
+    "licenseStatus": "unknown",
+    "licenseEvidence": "no license found",
+    "licenseUrl": "https://github.com/remotion-dev/skills",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

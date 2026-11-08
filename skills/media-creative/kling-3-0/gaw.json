@@ -4,6 +4,10 @@
   "source": {
     "repo": "gencraft-labs/skills",
     "path": "kling-3-0/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "declared in original SKILL.md",
+    "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/kling-3-0/SKILL.md",
+    "licenseCheckedAt": "2026-11-08"
   }
 }

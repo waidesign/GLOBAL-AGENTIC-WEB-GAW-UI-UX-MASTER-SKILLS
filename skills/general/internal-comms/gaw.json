@@ -4,6 +4,10 @@
   "source": {
     "repo": "anthropics/skills",
     "path": "skills/internal-comms/SKILL.md",
-    "licenseVerified": false
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "skill license file",
+    "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/internal-comms/LICENSE.txt",
+    "licenseCheckedAt": "2026-11-08"
   }
 }
