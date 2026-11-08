@@ -14,7 +14,7 @@ Do **NOT** read through the 235 skill files or 63 design files on startup. Use t
 
 ### Common Commands
 ```bash
-npm test                 # Run the test suite (8 test suites in scripts/run-tests.js)
+npm test                 # Run the test suite (9 test suites in scripts/run-tests.js)
 node bin/gaw.js doctor   # Verify runtime, 235 registered skills, and 63 design presets
 node bin/gaw.js recommend "<task prompt>"   # Test skill & design recommendations
 node bin/gaw.js use "<task>" --inject       # Test injection into ai-brain/
@@ -30,7 +30,7 @@ global-agentic-web/
 │   └── gaw.js                   # CLI binary entry point (wraps GawCli)
 ├── cli/
 │   ├── index.js                 # Central CLI controller (routes all gaw commands)
-│   ├── interactive.js           # Interactive onboarding loop for gaw init
+│   ├── interactive.js           # gaw init onboarding: goal, matching skills, rules, Graphify
 │   └── graphify-setup.js        # Explains Graphify and asks before installing it
 ├── core/
 │   ├── orchestrator/
@@ -120,7 +120,9 @@ When `gaw init` runs in any target project, it executes 7 steps:
 4. **Configure Graphify** (optional): If Graphify is missing, `gaw init` explains it and asks to install it (`cli/graphify-setup.js`). Non-interactive runs and MCP never install. When available, runs Graphify in code-only mode, writing `graphify-out/graph.json`, `graph.html`, and `GRAPH_REPORT.md`. Otherwise the step is skipped.
 5. **Configure Agentation**: Injects dev-only visual feedback overlay if React.
 6. **Configure AI Agent Adapters**: Updates `CLAUDE.md`, `.cursorrules`, `AGENTS.md`, `GEMINI.md`.
-7. **Recommend Starter Skills**: Identifies the top skills for the detected stack.
+7. **Recommend Starter Skills**: Identifies the top skills for the detected stack (non-interactive runs only).
+
+In a terminal, init then runs onboarding (`cli/interactive.js`), designed for any kind of project, not only UI: goal → `ai-brain/context.md`, skills that closely match the goal (`SkillDiscovery.findRelevant`) → `ai-brain/active-skills.md`, rules → `ai-brain/rules.md`, then Graphify if missing.
 
 ---
 
@@ -137,6 +139,6 @@ When writing UI code or reviewing designs:
 ## 🛠️ Testing & Development Guidelines
 
 - **Dependencies**: GAW runs natively on modern Node.js using ESM. The only npm dependency is `@modelcontextprotocol/sdk`. The Graphify CLI (Python) is an optional external tool; the e2e test that uses real Graphify is skipped without it.
-- **Run tests before committing**: `npm test` executes the 8 native test suites in `tests/`.
+- **Run tests before committing**: `npm test` executes the 9 native test suites in `tests/`.
 - **Git workflow**: Main branch is `main`. Remote is `origin` (`https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git`).
 - **Global Path Wiring**: On this machine, `C:\Users\ITUSER\.gemini\antigravity\bin\gaw.cmd` and `gaw.ps1` execute `node "E:\global-agentic-web\bin\gaw.js" %*`.

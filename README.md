@@ -103,6 +103,14 @@ cd /path/to/my-project
 gaw init
 ```
 
+In a terminal, `gaw init` then runs a short onboarding that works for any kind of project. Press Enter to skip any question:
+1. **What are you building?** Saved as the project goal in `ai-brain/context.md`.
+2. **Suggested skills:** only skills that closely match your goal are shown, from any field (cloud, testing, architecture, UI, ...). Pick all, some (by number), or none. They are written to `ai-brain/active-skills.md`.
+3. **Rules your AI agents must always follow**, e.g. "All API endpoints require auth". Saved to `ai-brain/rules.md`.
+4. **Graphify code map:** asked only when Graphify is not installed.
+
+Use `--yes` to skip onboarding.
+
 ### 4. For Existing Projects
 ```bash
 cd /path/to/my-project

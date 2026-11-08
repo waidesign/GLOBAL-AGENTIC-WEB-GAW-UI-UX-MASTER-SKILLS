@@ -208,8 +208,25 @@ export class SkillOrchestrator {
     return contextPayload;
   }
 
-  formatInstructions(skills, conflicts = []) {
+  /**
+   * Load exactly the given skills (e.g. the ones a user picked during onboarding)
+   * and format them for ai-brain/active-skills.md. Unknown IDs are ignored.
+   */
+  async loadSkillsByIds(skillIds, objective = '') {
+    const skills = [];
+    for (const id of skillIds) {
+      const skill = await this.registry.getSkill(id);
+      if (skill && !skills.some(s => s.id === skill.id)) skills.push(skill);
+    }
+    return {
+      skills,
+      formattedInstructions: this.formatInstructions(skills, [], { objective })
+    };
+  }
+
+  formatInstructions(skills, conflicts = [], options = {}) {
     let md = `# GLOBAL AGENTIC WEB — ACTIVE SKILL CONTEXT\n\n`;
+    if (options.objective) md += `**Objective**: ${options.objective}\n\n`;
     md += `Loaded ${skills.length} specialized skill(s) for the current task.\n\n`;
 
     if (conflicts.length > 0) {

@@ -112,14 +112,20 @@ export class GawCli {
     console.log(`🚀 Initializing project at: ${process.cwd()}`);
     if (dryRun) console.log(`🔍 Mode: DRY RUN (no files will be written)`);
 
-    const graphifyReady = await this.prepareGraphifyForInit(args, { dryRun, isInteractive });
+    const runOnboarding = isInteractive && !dryRun;
+    const graphify = await this.prepareGraphifyForInit(args, { dryRun, runOnboarding });
 
     const result = await this.bootstrapper.init(process.cwd(), {
       dryRun,
       force,
       noAgentation,
-      noGraphify: !graphifyReady
+      noGraphify: !graphify.ready
     });
+
+    // Onboarding asks about Graphify itself, so don't also list it as skipped
+    if (graphify.askInOnboarding) {
+      result.skipped = result.skipped.filter(s => !s.startsWith('Graphify'));
+    }
 
     console.log(`\n📋 Project Inspection:`);
     console.log(`  - Project Name:   ${result.projectInfo.projectName}`);
@@ -154,7 +160,8 @@ export class GawCli {
       }
     }
 
-    if (result.skillsRecommended.length > 0) {
+    // Onboarding suggests skills from the user's goal instead of the stack
+    if (!runOnboarding && result.skillsRecommended.length > 0) {
       console.log(`\n🎯 Recommended Initial Skills:`);
       for (const skill of result.skillsRecommended) {
         console.log(`  ★ ${skill}`);
@@ -163,42 +170,40 @@ export class GawCli {
 
     console.log(`\n✅ Project initialization complete!`);
 
-    // Check if interactive onboarding should run
-    if (isInteractive && !dryRun) {
-      await runInteractiveOnboarding(this.bootstrapper, result.projectInfo, result.skillsRecommended, this.repoRoot);
+    if (runOnboarding) {
+      await runInteractiveOnboarding(this.bootstrapper, process.cwd(), {
+        offerGraphify: graphify.askInOnboarding
+      });
     } else {
       console.log(`👉 Next: Use 'gaw use "<your task>"' to load targeted skills for any task.\n`);
     }
   }
 
   /**
-   * Decide whether init builds the Graphify code map. Graphify is optional:
-   * explain and ask in a terminal, never install without consent.
-   * Returns true when Graphify is available for this init.
+   * Decide how init handles the optional Graphify code map. Never installs
+   * without consent: interactive runs ask during onboarding (step 4).
+   * Returns { ready, askInOnboarding }.
    */
-  async prepareGraphifyForInit(args, { dryRun, isInteractive }) {
-    if (args.includes('--no-graphify')) return false;
+  async prepareGraphifyForInit(args, { dryRun, runOnboarding }) {
+    if (args.includes('--no-graphify')) return { ready: false, askInOnboarding: false };
 
     const manager = new GraphifyManager();
-    if (manager.isGraphifyCliAvailable()) return true;
+    if (manager.isGraphifyCliAvailable()) return { ready: true, askInOnboarding: false };
 
     if (dryRun) {
       console.log(`ℹ Graphify is not installed. A normal run would ask whether to install it (optional).`);
-      return false;
+      return { ready: false, askInOnboarding: false };
     }
 
     if (args.includes('--install-graphify')) {
       const res = await ensureGraphify({ manager, confirmGraphify: false, confirmUv: false });
-      return res.available;
+      return { ready: res.available, askInOnboarding: false };
     }
 
-    if (isInteractive) {
-      const res = await ensureGraphify({ manager, ask: askYesNo });
-      return res.available;
-    }
+    if (runOnboarding) return { ready: false, askInOnboarding: true };
 
     console.log(`ℹ Graphify is not installed (optional): skipping the code map. Add it later with: gaw setup`);
-    return false;
+    return { ready: false, askInOnboarding: false };
   }
 
   async cmdSetup(args) {

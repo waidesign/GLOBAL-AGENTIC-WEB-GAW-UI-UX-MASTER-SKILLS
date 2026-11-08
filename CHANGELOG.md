@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **New `gaw init` onboarding for any kind of project**: (1) what are you building → `ai-brain/context.md`, (2) skills that closely match the goal, picked by number → `ai-brain/active-skills.md`, (3) rules agents must always follow → `ai-brain/rules.md`, (4) Graphify, only if missing. It replaces the old questions (pick skill IDs from all 235, external skills, goal).
+- **`SkillDiscovery.findRelevant()`**: returns only close matches for a free-text goal, and nothing for fields the library does not cover.
 - **Guided Graphify install**: when Graphify is missing, `gaw init` explains what it does and asks whether to install it. It installs with uv, and asks separately before running Astral's uv install script. Non-interactive runs and the MCP server never install anything.
 - **`gaw setup`**: install Graphify at any time (`--yes` also installs uv without asking).
 - **`gaw init --install-graphify`**: opt in to installing without questions.
@@ -20,9 +22,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - A failed Graphify run is reported as a warning and no longer stops `gaw init`.
 
 ### Removed
+- The "add external skills" onboarding question, which downloaded any URL into `ai-brain/skills/` without checks.
+- Copying full skill files into `ai-brain/skills/` during onboarding (chosen skills go to `active-skills.md`, like `gaw use --inject`).
 - The built-in regex-based graph generator. Its "God Nodes" counted raw import strings (such as `node:fs`), so it often pointed agents to the wrong hubs.
 
 ### Fixed
+- **Onboarding: accepting the recommended skills saved nothing.** Display names like `"Landing Page (landing-page)"` were looked up as skill IDs.
+- **Onboarding: the build goal was never read by agents.** It was saved to `ai-brain/ACTIVE_TASK.md`, which no agent instruction file references. It now goes to `context.md` and `active-skills.md`.
+- **Onboarding: piped or typed-ahead answers were lost**, and end of input ended onboarding silently.
+- **Skill search matched filler words inside skill IDs** (e.g. "on" inside "animation", "a" almost everywhere), which surfaced unrelated skills for `gaw use`, `gaw search` and `gaw recommend`. Search now ignores filler words and matches whole words or word starts.
 - GAW called `graphify .`, which fails when run non-interactively, and looked for output in the project root instead of `graphify-out/`, so the Graphify graph was never used.
 - `gaw start` always reported a graph as present.
 

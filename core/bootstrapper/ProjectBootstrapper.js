@@ -183,7 +183,7 @@ export class ProjectBootstrapper {
     report.steps.push({ step: 6, name: 'Configure AI Agents', status: 'Configured' });
 
     // Step 9: Recommend Relevant Skills
-    const initialQuery = `${projectInfo.framework} ${projectInfo.uiLibraries.join(' ')} design system`;
+    const initialQuery = `${projectInfo.framework} ${projectInfo.languages.join(' ')} ${projectInfo.uiLibraries.join(' ')}`;
     const recs = await this.orchestrator.recommend(initialQuery, { framework: projectInfo.framework });
     report.skillsRecommended = recs.primarySkills.map(s => `${s.name} (${s.id})`);
     report.steps.push({ step: 7, name: 'Skill Recommendations', status: 'Identified', count: recs.primarySkills.length });

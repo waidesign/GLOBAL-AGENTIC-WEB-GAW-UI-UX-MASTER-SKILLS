@@ -11,7 +11,13 @@ Options:
 - `--install-graphify`: Install the optional Graphify CLI (and uv if needed) without asking.
 - `--no-graphify`: Skip the Graphify question and the code map.
 
-When Graphify is not installed, `gaw init` explains it and asks whether to install it. Non-interactive runs (`--yes`) skip the code map instead.
+In a terminal, `gaw init` runs a short onboarding (Enter skips any question):
+1. What are you building? → `ai-brain/context.md`
+2. Suggested skills that closely match the goal (all, some by number, or none) → `ai-brain/active-skills.md`
+3. Rules your AI agents must always follow → `ai-brain/rules.md`
+4. Graphify code map (only when Graphify is not installed)
+
+`--yes` (or `--non-interactive`) skips onboarding; Graphify is then skipped unless you pass `--install-graphify`.
 
 ## Optional Graphify Code Map
 ```bash
