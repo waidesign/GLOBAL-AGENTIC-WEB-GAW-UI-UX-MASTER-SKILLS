@@ -21,6 +21,11 @@
   "derived": [
     "domains",
     "summary",
+    "verification",
     "whenToUse"
+  ],
+  "verification": [
+    "Fix lint in the files you wrote or edited with uv run ruff check --fix app && uv run ruff format app.",
+    "If agents-cli lint flags the user's original files (scripts, notebooks, parked files), add them to [tool.ruff] extend-exclude, [tool.ty.src] exclude (e.g. \"bookshop/\") and, for spelling, [tool.codespell] skip instead of restyling them."
   ]
 }

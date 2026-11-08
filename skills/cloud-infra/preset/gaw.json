@@ -23,6 +23,10 @@
   "derived": [
     "domains",
     "summary",
+    "verification",
     "whenToUse"
+  ],
+  "verification": [
+    "Check if user is logged into Azure CLI: If not logged in: Verify subscription is correct: ---"
   ]
 }

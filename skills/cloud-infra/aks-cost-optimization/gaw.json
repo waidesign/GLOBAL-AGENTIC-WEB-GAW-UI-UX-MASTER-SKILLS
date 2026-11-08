@@ -24,6 +24,11 @@
   "derived": [
     "domains",
     "summary",
+    "verification",
     "whenToUse"
+  ],
+  "verification": [
+    "For default pools with CAS disabled: For custom pools, add --node-provisioning-default-pools None to disable default-pool creation, then apply the approved NodePool and AKSNodeClass manifests.",
+    "Verify pending-pod time, provisioned configurations, node count, workload SLOs, and cost against the agreed criteria."
   ]
 }

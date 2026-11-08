@@ -20,6 +20,17 @@
   "derived": [
     "domains",
     "summary",
+    "verification",
     "whenToUse"
+  ],
+  "verification": [
+    "Mounted the right way for its shape, on its own ground, with GSAP and a paused root.",
+    "F1: the markup contains the named subject.",
+    "F2: motion fingerprint and markup skeleton are not both shared with a survivor.",
+    "F3: it renders something with the recipe applied, or it is protected by N3 to N6.",
+    "F4: the frames show the event the description promises.",
+    "F5: frame N is computed from N.",
+    "X1 through X8 logged with the specific fix.",
+    "Verdict cites the evidence the criterion names, not an impression."
   ]
 }

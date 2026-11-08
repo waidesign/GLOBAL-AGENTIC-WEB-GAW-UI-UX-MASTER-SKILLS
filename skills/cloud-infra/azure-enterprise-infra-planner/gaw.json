@@ -27,6 +27,10 @@
   "derived": [
     "domains",
     "summary",
+    "verification",
     "whenToUse"
+  ],
+  "verification": [
+    "Run az bicep build --file infra/main.bicep to validate syntax before deploying."
   ]
 }

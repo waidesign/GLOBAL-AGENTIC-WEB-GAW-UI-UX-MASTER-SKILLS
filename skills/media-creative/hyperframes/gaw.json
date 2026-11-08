@@ -8,7 +8,8 @@
     "licenseStatus": "open",
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-    "licenseCheckedAt": "2026-11-08"
+    "licenseCheckedAt": "2026-11-08",
+    "filesLeftAtSource": 6
   },
   "summary": "Read first to make, edit, animate or render any video with HyperFrames (HTML rendered to video), including launch films, explainers, music videos, charts, maps, vertical clips, title cards, captions and overlays. Holds the render contract, the work loop and what each kind of video needs.",
   "domains": [
@@ -16,6 +17,15 @@
   ],
   "derived": [
     "domains",
-    "summary"
+    "permissions",
+    "summary",
+    "verification"
+  ],
+  "verification": [
+    "Snapshot a time, an earlier time, then the first again in one run: npx hyperframes snapshot --at 4,0,4 --no-end.",
+    "The two stills at 4 s must be byte-identical."
+  ],
+  "permissions": [
+    "shell"
   ]
 }

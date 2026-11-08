@@ -29,8 +29,12 @@
   ],
   "derived": [
     "domains",
+    "permissions",
     "summary",
     "verification",
     "whenToUse"
+  ],
+  "permissions": [
+    "shell"
   ]
 }

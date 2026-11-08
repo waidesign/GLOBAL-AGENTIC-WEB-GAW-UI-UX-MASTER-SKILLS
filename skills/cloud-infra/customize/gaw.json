@@ -27,6 +27,10 @@
   "derived": [
     "domains",
     "summary",
+    "verification",
     "whenToUse"
+  ],
+  "verification": [
+    "If not logged in: az login Set subscription if needed: ---"
   ]
 }

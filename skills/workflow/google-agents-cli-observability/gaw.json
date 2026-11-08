@@ -23,6 +23,11 @@
   "derived": [
     "domains",
     "summary",
+    "verification",
     "whenToUse"
+  ],
+  "verification": [
+    "After deploying, verify prompt-response logging is working: If data is not appearing: check LOGS_BUCKET_NAME is set, verify SA has storage.objectCreator on the bucket, check application logs for telemetry setup warnings.",
+    "Log export to BigQuery may take a few minutes to propagate."
   ]
 }

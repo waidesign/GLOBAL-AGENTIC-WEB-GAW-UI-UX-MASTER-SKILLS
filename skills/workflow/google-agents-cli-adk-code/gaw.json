@@ -23,6 +23,14 @@
   "derived": [
     "domains",
     "summary",
+    "verification",
     "whenToUse"
+  ],
+  "verification": [
+    "START must exist and have no incoming edges",
+    "All non-START nodes must be reachable",
+    "No duplicate node names or edges",
+    "At most one DEFAULT route per node",
+    "No unconditional cycles (cycles need at least one routed edge)"
   ]
 }

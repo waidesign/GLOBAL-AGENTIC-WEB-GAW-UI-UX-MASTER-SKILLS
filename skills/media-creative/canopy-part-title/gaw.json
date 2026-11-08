@@ -8,7 +8,8 @@
     "licenseStatus": "open",
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-    "licenseCheckedAt": "2026-11-08"
+    "licenseCheckedAt": "2026-11-08",
+    "filesLeftAtSource": 2
   },
   "summary": "Leaves sweep through the frame and part to reveal the headline. HyperFrames block, 1920×1080, 12s, 11 variables.",
   "domains": [

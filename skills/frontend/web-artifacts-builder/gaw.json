@@ -8,7 +8,8 @@
     "licenseStatus": "open",
     "licenseEvidence": "skill license file",
     "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/web-artifacts-builder/LICENSE.txt",
-    "licenseCheckedAt": "2026-11-08"
+    "licenseCheckedAt": "2026-11-08",
+    "filesLeftAtSource": 1
   },
   "summary": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
   "whenToUse": [
@@ -21,7 +22,11 @@
   ],
   "derived": [
     "domains",
+    "permissions",
     "summary",
     "whenToUse"
+  ],
+  "permissions": [
+    "shell"
   ]
 }

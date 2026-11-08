@@ -23,6 +23,12 @@
   "derived": [
     "domains",
     "summary",
+    "verification",
     "whenToUse"
+  ],
+  "verification": [
+    "Separate quantified Advisor recommendations, observed-metric candidates, and",
+    "Check each proposed SKU, region, shutdown, or deletion against Azure Policy,",
+    "If commitments exist, load Commitment Analysis. Identify"
   ]
 }

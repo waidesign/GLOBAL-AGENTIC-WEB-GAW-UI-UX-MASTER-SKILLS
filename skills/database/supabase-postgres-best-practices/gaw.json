@@ -19,6 +19,17 @@
   ],
   "derived": [
     "domains",
-    "summary"
+    "summary",
+    "verification"
+  ],
+  "verification": [
+    "Title is clear and action-oriented",
+    "Impact level matches the performance gain",
+    "impactDescription includes quantification",
+    "Explanation is concise (1-2 sentences)",
+    "Has at least 1 Incorrect SQL example",
+    "Has at least 1 Correct SQL example",
+    "SQL uses semantic naming",
+    "Comments explain _why_, not _what_"
   ]
 }

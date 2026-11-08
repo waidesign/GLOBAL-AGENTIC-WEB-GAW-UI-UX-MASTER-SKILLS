@@ -18,6 +18,16 @@
   ],
   "derived": [
     "domains",
-    "summary"
+    "summary",
+    "verification"
+  ],
+  "verification": [
+    "Use managed identity for all Azure-hosted apps",
+    "Never hardcode credentials, connection strings, or keys",
+    "Apply least-privilege RBAC roles at the narrowest scope",
+    "Use ManagedIdentityCredential (not DefaultAzureCredential) in production",
+    "Store any required secrets in Azure Key Vault",
+    "Rotate secrets and certificates on a schedule",
+    "Enable Microsoft Defender for Cloud on production resources"
   ]
 }

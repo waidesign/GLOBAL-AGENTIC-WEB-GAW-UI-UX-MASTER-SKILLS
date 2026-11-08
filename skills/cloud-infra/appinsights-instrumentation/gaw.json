@@ -8,7 +8,8 @@
     "licenseStatus": "open",
     "licenseEvidence": "skill license file",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/appinsights-instrumentation/LICENSE.txt",
-    "licenseCheckedAt": "2026-11-08"
+    "licenseCheckedAt": "2026-11-08",
+    "filesLeftAtSource": 1
   },
   "summary": "Guidance for instrumenting webapps with Azure Application Insights. Provides telemetry patterns, SDK setup, and configuration references.",
   "whenToUse": [
@@ -23,7 +24,11 @@
   ],
   "derived": [
     "domains",
+    "permissions",
     "summary",
     "whenToUse"
+  ],
+  "permissions": [
+    "shell"
   ]
 }

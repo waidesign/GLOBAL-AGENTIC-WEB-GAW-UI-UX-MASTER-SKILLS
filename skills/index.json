@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "3d/threejs/SKILL.md:3575:912|accessibility/fixing-accessibility/SKILL.md:4829:861|accessibility/web-design-guidelines/SKILL.md:1271:854|animation-motion/animation-systems/SKILL.md:5350:694|animation-motion/animejs/SKILL.md:3782:767|animation-motion/improve-animations/SKILL.md:8547:423|animation-motion/motion-dev/SKILL.md:4426:736|animation-motion/react-view-transitions/SKILL.md:14591:1325|architecture/codebase-design/SKILL.md:6556:1015|architecture/doc-coauthoring/SKILL.md:15929:1170|architecture/domain-modeling/SKILL.md:3456:794|architecture/implement-spec/SKILL.md:2912:531|architecture/implement/SKILL.md:699:529|architecture/improve-codebase-architecture/SKILL.md:6107:614|architecture/setup-ts-deep-modules/SKILL.md:7625:1064|architecture/to-spec/SKILL.md:3120:616|architecture/to-tickets/SKILL.md:5891:799|architecture/wayfinder/SKILL.md:12487:676|cloud-infra/airunway-aks-setup/SKILL.md:4555:1175|cloud-infra/aks-cost-optimization/SKILL.md:1943:1355|cloud-infra/aks-gpu-inference/SKILL.md:3085:1181|cloud-infra/aks-known-issues/SKILL.md:1974:1195|cloud-infra/aks-network-capture/SKILL.md:2999:1084|cloud-infra/aks-troubleshooting/SKILL.md:12806:1183|cloud-infra/appinsights-instrumentation/SKILL.md:3838:993|cloud-infra/azure-advisor-actionability/SKILL.md:2020:687|cloud-infra/azure-advisor/SKILL.md:2805:850|cloud-infra/azure-ai/SKILL.md:3725:853|cloud-infra/azure-aigateway/SKILL.md:5004:901|cloud-infra/azure-app-onboard-prereq/SKILL.md:10352:1152|cloud-infra/azure-app-onboard/SKILL.md:6854:1718|cloud-infra/azure-cloud-migrate/SKILL.md:4399:801|cloud-infra/azure-compliance/SKILL.md:4017:790|cloud-infra/azure-compute/SKILL.md:2663:1257|cloud-infra/azure-deploy/SKILL.md:6740:1424|cloud-infra/azure-diagnostics/SKILL.md:7524:1210|cloud-infra/azure-enterprise-infra-planner/SKILL.md:6383:1403|cloud-infra/azure-kubernetes-app-deploy/SKILL.md:2056:1294|cloud-infra/azure-kubernetes-automatic-readiness/SKILL.md:17650:1256|cloud-infra/azure-kubernetes/SKILL.md:13109:1313|cloud-infra/azure-kusto-graph/SKILL.md:19273:840|cloud-infra/azure-kusto-irql-graph/SKILL.md:19156:1111|cloud-infra/azure-kusto-irql/SKILL.md:10533:841|cloud-infra/azure-kusto/SKILL.md:8600:1270|cloud-infra/azure-local-multi-rack/SKILL.md:3858:1395|cloud-infra/azure-local/SKILL.md:3452:1218|cloud-infra/azure-messaging/SKILL.md:3327:1255|cloud-infra/azure-prepare/SKILL.md:12905:1754|cloud-infra/azure-quotas/SKILL.md:12148:1594|cloud-infra/azure-reliability/SKILL.md:10537:2245|cloud-infra/azure-resource-lookup/SKILL.md:5645:1941|cloud-infra/azure-resource-visualizer/SKILL.md:8572:891|cloud-infra/azure-search-nav/SKILL.md:2441:1162|cloud-infra/azure-storage/SKILL.md:5068:1227|cloud-infra/azure-upgrade/SKILL.md:8878:873|cloud-infra/azure-validate/SKILL.md:3579:1322|cloud-infra/capacity/SKILL.md:7055:1587|cloud-infra/cost-analysis/SKILL.md:2030:1121|cloud-infra/cost-estimation/SKILL.md:2015:1130|cloud-infra/cost-governance/SKILL.md:1977:1112|cloud-infra/cost-optimization/SKILL.md:2022:1102|cloud-infra/customize/SKILL.md:9033:1542|cloud-infra/deploy-model/SKILL.md:7345:1630|cloud-infra/deploy-to-vercel/SKILL.md:9792:881|cloud-infra/discover-azure-skills/SKILL.md:2361:908|cloud-infra/entra-agent-id/SKILL.md:16080:1601|cloud-infra/entra-app-registration/SKILL.md:8267:1292|cloud-infra/finetuning/SKILL.md:5541:1457|cloud-infra/foundry-iq/SKILL.md:3808:902|cloud-infra/google-agents-cli-deploy/SKILL.md:15075:1292|cloud-infra/microsoft-foundry/SKILL.md:15599:1540|cloud-infra/preset/SKILL.md:5004:1245|cloud-infra/python-appservice-deploy/SKILL.md:3347:949|cloud-infra/vercel-cli-with-tokens/SKILL.md:10545:796|cloud-infra/vercel-optimize/SKILL.md:17394:1354|cloud-infra/wizard/SKILL.md:4232:1325|code-quality/code-review/SKILL.md:6833:933|code-quality/git-guardrails-claude-code/SKILL.md:2423:1030|code-quality/mcp-builder/SKILL.md:11207:942|code-quality/scaffold-exercises/SKILL.md:3699:835|code-quality/writing-guidelines/SKILL.md:1272:906|color/better-colors/SKILL.md:7800:325|color/oklch-skill/SKILL.md:4918:348|components/company-logos/SKILL.md:1175:552|components/container-lines/SKILL.md:3718:1311|database/supabase-postgres-best-practices/SKILL.md:2768:882|database/supabase/SKILL.md:14361:880|debugging/diagnosing-bugs/SKILL.md:8774:456|design-systems/build-design-system/SKILL.md:9460:467|design-systems/create-design-md/SKILL.md:16319:1408|design-systems/design-system-boss/SKILL.md:4154:453|design-systems/migrate-to-a-design-system/SKILL.md:8506:499|documents/docx/SKILL.md:6970:1638|documents/pdf/SKILL.md:8133:945|documents/pptx/SKILL.md:20867:1094|documents/xlsx/SKILL.md:8661:1719|frontend-frameworks/react-best-practices/SKILL.md:7344:608|frontend/composition-patterns/SKILL.md:2700:598|frontend/design-mobile-apps/SKILL.md:8554:596|frontend/frontend-design/SKILL.md:9612:455|frontend/react-native-skills/SKILL.md:4268:595|frontend/react-router-framework-mode/SKILL.md:4682:761|frontend/tailwindcss/SKILL.md:2921:839|frontend/web-artifacts-builder/SKILL.md:3162:992|general/algorithmic-art/SKILL.md:19843:823|general/ask-matt/SKILL.md:12668:501|general/canvas-design/SKILL.md:12013:780|general/claude-api/SKILL.md:15799:1213|general/codex-pet/SKILL.md:15295:736|general/discernment-nudge/SKILL.md:10633:1091|general/internal-comms/SKILL.md:1584:1207|general/pr/SKILL.md:4082:644|general/runcomfy-cli/SKILL.md:14219:808|general/software-factory/SKILL.md:6073:525|general/teach/SKILL.md:9754:528|general/template/SKILL.md:273:495|general/to-questionnaire/SKILL.md:2978:515|general/wait-what/SKILL.md:468:470|general/writing-beats/SKILL.md:4929:583|general/writing-fragments/SKILL.md:3630:531|general/writing-shape/SKILL.md:5994:549|interaction/animation-on-scroll/SKILL.md:3657:871|media-creative/ace-step/SKILL.md:16366:780|media-creative/ai-avatar-video/SKILL.md:16376:795|media-creative/ai-image-generation/SKILL.md:14505:820|media-creative/ai-music/SKILL.md:14348:784|media-creative/ai-video-generation/SKILL.md:15580:803|media-creative/canopy-part-title/SKILL.md:4138:594|media-creative/captions-overlay/SKILL.md:5893:774|media-creative/changelog-video/SKILL.md:13541:932|media-creative/code-slice-hero/SKILL.md:4927:629|media-creative/controlnet-pose/SKILL.md:10952:783|media-creative/cuboid-carousel/SKILL.md:7316:618|media-creative/cut-the-curve/SKILL.md:18949:769|media-creative/elevenlabs-music-generation/SKILL.md:11243:1238|media-creative/face-swap/SKILL.md:17939:776|media-creative/figma/SKILL.md:6435:914|media-creative/flux-2-klein/SKILL.md:11605:946|media-creative/flux-kontext/SKILL.md:8081:911|media-creative/frost-sequence-camera-orbit/SKILL.md:2589:644|media-creative/glass-shard-title/SKILL.md:5501:604|media-creative/gpt-image-2/SKILL.md:10585:952|media-creative/gpt-image-edit/SKILL.md:9502:939|media-creative/happyhorse-1-0/SKILL.md:9545:931|media-creative/hyperframes-cli/SKILL.md:7734:686|media-creative/hyperframes-registry/SKILL.md:4619:948|media-creative/hyperframes/SKILL.md:7467:754|media-creative/image-edit/SKILL.md:13231:787|media-creative/image-inpainting/SKILL.md:11475:995|media-creative/image-outpainting/SKILL.md:11430:835|media-creative/image-to-video/SKILL.md:11787:778|media-creative/kling-3-0/SKILL.md:15829:693|media-creative/lipsync/SKILL.md:12709:764|media-creative/media-use/SKILL.md:5370:761|media-creative/motion-doctrine/SKILL.md:12026:995|media-creative/nano-banana-2/SKILL.md:9562:937|media-creative/nano-banana-edit/SKILL.md:9024:938|media-creative/orbit-card/SKILL.md:3674:599|media-creative/oversized-cursor/SKILL.md:6717:1269|media-creative/relight/SKILL.md:10166:975|media-creative/remotion-best-practices/SKILL.md:4450:226|media-creative/remotion-captions/SKILL.md:1238:497|media-creative/remotion-create/SKILL.md:2812:475|media-creative/remotion-docs/SKILL.md:1441:490|media-creative/remotion-interactivity/SKILL.md:13804:498|media-creative/remotion-license/SKILL.md:585:524|media-creative/remotion-maps/SKILL.md:1131:478|media-creative/remotion-markup/SKILL.md:13446:766|media-creative/remotion-multimedia/SKILL.md:806:479|media-creative/remotion-render/SKILL.md:1178:471|media-creative/remotion-saas/SKILL.md:1154:472|media-creative/remotion-studio/SKILL.md:1712:472|media-creative/remotion-to-hyperframes/SKILL.md:5307:958|media-creative/remotion-upgrade/SKILL.md:2048:487|media-creative/reverse-any-video/SKILL.md:5394:1008|media-creative/seam-craft/SKILL.md:4957:774|media-creative/seedance-2-5-image-to-video/SKILL.md:12117:818|media-creative/seedance-2-5-reference-to-video/SKILL.md:17630:1290|media-creative/seedance-v2/SKILL.md:9044:896|media-creative/slack-gif-creator/SKILL.md:7923:855|media-creative/slideshow/SKILL.md:5196:867|media-creative/style-sampling/SKILL.md:4758:920|media-creative/video-edit/SKILL.md:11233:774|media-creative/video-extend/SKILL.md:9570:964|media-creative/video-inpainting/SKILL.md:10164:811|media-creative/video-outpainting/SKILL.md:8985:802|media-creative/wan-2-7/SKILL.md:8411:928|media-creative/wan-3-0-prime-reference-to-video/SKILL.md:15745:831|media-creative/wireframe-portal-title/SKILL.md:4358:634|micro-interactions/masked-reveal/SKILL.md:4074:1182|micro-interactions/micro-interactions-system/SKILL.md:3224:470|performance/fixing-motion-performance/SKILL.md:5673:946|react/improve-react/SKILL.md:12516:421|seo/fixing-metadata/SKILL.md:4501:1137|shadcn-ui/improve-shadcn/SKILL.md:15427:429|systems/baseline-ui/SKILL.md:3523:847|systems/ui-skills-root/SKILL.md:1492:791|testing/migrate-to-shoehorn/SKILL.md:2900:790|testing/setup-pre-commit/SKILL.md:2363:1135|testing/tdd/SKILL.md:3736:856|testing/vue-testing-best-practices/SKILL.md:2177:406|testing/webapp-testing/SKILL.md:3987:764|typography/better-typography/SKILL.md:12351:328|typography/swiss-design/SKILL.md:13050:729|ui-ux/academy-guide/SKILL.md:7808:991|ui-ux/brand-guidelines/SKILL.md:2306:908|ui-ux/design-lab/SKILL.md:14741:390|ui-ux/improve-ui/SKILL.md:8053:781|ui-ux/landing-page/SKILL.md:5377:966|ui-ux/pricing-page/SKILL.md:5960:1109|ui-ux/prototype/SKILL.md:3034:825|ui-ux/rams/SKILL.md:5164:259|ui-ux/taste-skill/SKILL.md:11975:1870|ui-ux/theme-factory/SKILL.md:3194:627|workflow/agents-cli-claude/SKILL.md:5454:1054|workflow/agents-cli-langchain/SKILL.md:4068:1063|workflow/chief-of-staff/SKILL.md:4804:558|workflow/claude-handoff/SKILL.md:1442:581|workflow/google-agents-cli-adk-code/SKILL.md:4351:1221|workflow/google-agents-cli-eval/SKILL.md:11001:1300|workflow/google-agents-cli-observability/SKILL.md:12033:1231|workflow/google-agents-cli-publish/SKILL.md:11772:1289|workflow/google-agents-cli-scaffold/SKILL.md:13251:1191|workflow/google-agents-cli-workflow/SKILL.md:14787:1096|workflow/grill-me/SKILL.md:232:530|workflow/grill-with-docs/SKILL.md:322:606|workflow/grilling/SKILL.md:2183:768|workflow/handoff/SKILL.md:958:564|workflow/loop-me/SKILL.md:2532:772|workflow/research/SKILL.md:938:916|workflow/retro/SKILL.md:4442:519|workflow/setup-matt-pocock-skills/SKILL.md:7599:689|workflow/skill-creator/SKILL.md:9999:1069|workflow/triage/SKILL.md:6633:627|workflow/writing-for-agents/SKILL.md:10992:726",
+  "fingerprint": "3d/threejs/SKILL.md:3575:912|accessibility/fixing-accessibility/SKILL.md:4829:861|accessibility/web-design-guidelines/SKILL.md:1271:854|animation-motion/animation-systems/SKILL.md:5350:694|animation-motion/animejs/SKILL.md:3782:767|animation-motion/improve-animations/SKILL.md:8547:423|animation-motion/motion-dev/SKILL.md:4426:736|animation-motion/react-view-transitions/SKILL.md:14591:1772|architecture/codebase-design/SKILL.md:6556:1015|architecture/doc-coauthoring/SKILL.md:15929:1170|architecture/domain-modeling/SKILL.md:3456:794|architecture/implement-spec/SKILL.md:2912:531|architecture/implement/SKILL.md:699:529|architecture/improve-codebase-architecture/SKILL.md:6107:614|architecture/setup-ts-deep-modules/SKILL.md:7625:1064|architecture/to-spec/SKILL.md:3120:616|architecture/to-tickets/SKILL.md:5891:799|architecture/wayfinder/SKILL.md:12487:676|cloud-infra/airunway-aks-setup/SKILL.md:4555:1175|cloud-infra/aks-cost-optimization/SKILL.md:1943:1724|cloud-infra/aks-gpu-inference/SKILL.md:3085:1181|cloud-infra/aks-known-issues/SKILL.md:1974:1195|cloud-infra/aks-network-capture/SKILL.md:2999:1139|cloud-infra/aks-troubleshooting/SKILL.md:12806:1238|cloud-infra/appinsights-instrumentation/SKILL.md:3838:1076|cloud-infra/azure-advisor-actionability/SKILL.md:2020:687|cloud-infra/azure-advisor/SKILL.md:2805:850|cloud-infra/azure-ai/SKILL.md:3725:1385|cloud-infra/azure-aigateway/SKILL.md:5004:1378|cloud-infra/azure-app-onboard-prereq/SKILL.md:10352:1152|cloud-infra/azure-app-onboard/SKILL.md:6854:1718|cloud-infra/azure-cloud-migrate/SKILL.md:4399:801|cloud-infra/azure-compliance/SKILL.md:4017:1267|cloud-infra/azure-compute/SKILL.md:2663:1517|cloud-infra/azure-deploy/SKILL.md:6740:1901|cloud-infra/azure-diagnostics/SKILL.md:7524:1265|cloud-infra/azure-enterprise-infra-planner/SKILL.md:6383:1534|cloud-infra/azure-kubernetes-app-deploy/SKILL.md:2056:1323|cloud-infra/azure-kubernetes-automatic-readiness/SKILL.md:17650:2089|cloud-infra/azure-kubernetes/SKILL.md:13109:1342|cloud-infra/azure-kusto-graph/SKILL.md:19273:840|cloud-infra/azure-kusto-irql-graph/SKILL.md:19156:1252|cloud-infra/azure-kusto-irql/SKILL.md:10533:841|cloud-infra/azure-kusto/SKILL.md:8600:1270|cloud-infra/azure-local-multi-rack/SKILL.md:3858:1395|cloud-infra/azure-local/SKILL.md:3452:1218|cloud-infra/azure-messaging/SKILL.md:3327:1255|cloud-infra/azure-prepare/SKILL.md:12905:1754|cloud-infra/azure-quotas/SKILL.md:12148:1649|cloud-infra/azure-reliability/SKILL.md:10537:2245|cloud-infra/azure-resource-lookup/SKILL.md:5645:1941|cloud-infra/azure-resource-visualizer/SKILL.md:8572:891|cloud-infra/azure-search-nav/SKILL.md:2441:1162|cloud-infra/azure-storage/SKILL.md:5068:1704|cloud-infra/azure-upgrade/SKILL.md:8878:873|cloud-infra/azure-validate/SKILL.md:3579:1322|cloud-infra/capacity/SKILL.md:7055:1642|cloud-infra/cost-analysis/SKILL.md:2030:1368|cloud-infra/cost-estimation/SKILL.md:2015:1130|cloud-infra/cost-governance/SKILL.md:1977:1112|cloud-infra/cost-optimization/SKILL.md:2022:1378|cloud-infra/customize/SKILL.md:9033:1652|cloud-infra/deploy-model/SKILL.md:7345:1685|cloud-infra/deploy-to-vercel/SKILL.md:9792:881|cloud-infra/discover-azure-skills/SKILL.md:2361:908|cloud-infra/entra-agent-id/SKILL.md:16080:1601|cloud-infra/entra-app-registration/SKILL.md:8267:1489|cloud-infra/finetuning/SKILL.md:5541:1629|cloud-infra/foundry-iq/SKILL.md:3808:902|cloud-infra/google-agents-cli-deploy/SKILL.md:15075:1292|cloud-infra/microsoft-foundry/SKILL.md:15599:1623|cloud-infra/preset/SKILL.md:5004:1390|cloud-infra/python-appservice-deploy/SKILL.md:3347:1187|cloud-infra/vercel-cli-with-tokens/SKILL.md:10545:796|cloud-infra/vercel-optimize/SKILL.md:17394:1409|cloud-infra/wizard/SKILL.md:4232:1325|code-quality/code-review/SKILL.md:6833:933|code-quality/git-guardrails-claude-code/SKILL.md:2423:1085|code-quality/mcp-builder/SKILL.md:11207:997|code-quality/scaffold-exercises/SKILL.md:3699:835|code-quality/writing-guidelines/SKILL.md:1272:906|color/better-colors/SKILL.md:7800:325|color/oklch-skill/SKILL.md:4918:348|components/company-logos/SKILL.md:1175:552|components/container-lines/SKILL.md:3718:1311|database/supabase-postgres-best-practices/SKILL.md:2768:1272|database/supabase/SKILL.md:14361:880|debugging/diagnosing-bugs/SKILL.md:8774:456|design-systems/build-design-system/SKILL.md:9460:467|design-systems/create-design-md/SKILL.md:16319:1408|design-systems/design-system-boss/SKILL.md:4154:453|design-systems/migrate-to-a-design-system/SKILL.md:8506:499|documents/docx/SKILL.md:6970:1693|documents/pdf/SKILL.md:8133:1000|documents/pptx/SKILL.md:20867:1149|documents/xlsx/SKILL.md:8661:1774|frontend-frameworks/react-best-practices/SKILL.md:7344:608|frontend/composition-patterns/SKILL.md:2700:598|frontend/design-mobile-apps/SKILL.md:8554:596|frontend/frontend-design/SKILL.md:9612:455|frontend/react-native-skills/SKILL.md:4268:595|frontend/react-router-framework-mode/SKILL.md:4682:761|frontend/tailwindcss/SKILL.md:2921:839|frontend/web-artifacts-builder/SKILL.md:3162:1075|general/algorithmic-art/SKILL.md:19843:823|general/ask-matt/SKILL.md:12668:501|general/canvas-design/SKILL.md:12013:809|general/claude-api/SKILL.md:15799:1213|general/codex-pet/SKILL.md:15295:736|general/discernment-nudge/SKILL.md:10633:1091|general/internal-comms/SKILL.md:1584:1207|general/pr/SKILL.md:4082:644|general/runcomfy-cli/SKILL.md:14219:808|general/software-factory/SKILL.md:6073:525|general/teach/SKILL.md:9754:528|general/template/SKILL.md:273:495|general/to-questionnaire/SKILL.md:2978:515|general/wait-what/SKILL.md:468:470|general/writing-beats/SKILL.md:4929:583|general/writing-fragments/SKILL.md:3630:531|general/writing-shape/SKILL.md:5994:549|interaction/animation-on-scroll/SKILL.md:3657:871|media-creative/ace-step/SKILL.md:16366:780|media-creative/ai-avatar-video/SKILL.md:16376:795|media-creative/ai-image-generation/SKILL.md:14505:820|media-creative/ai-music/SKILL.md:14348:784|media-creative/ai-video-generation/SKILL.md:15580:803|media-creative/canopy-part-title/SKILL.md:4138:622|media-creative/captions-overlay/SKILL.md:5893:774|media-creative/changelog-video/SKILL.md:13541:1359|media-creative/code-slice-hero/SKILL.md:4927:657|media-creative/controlnet-pose/SKILL.md:10952:783|media-creative/cuboid-carousel/SKILL.md:7316:618|media-creative/cut-the-curve/SKILL.md:18949:769|media-creative/elevenlabs-music-generation/SKILL.md:11243:1238|media-creative/face-swap/SKILL.md:17939:776|media-creative/figma/SKILL.md:6435:969|media-creative/flux-2-klein/SKILL.md:11605:946|media-creative/flux-kontext/SKILL.md:8081:911|media-creative/frost-sequence-camera-orbit/SKILL.md:2589:672|media-creative/glass-shard-title/SKILL.md:5501:632|media-creative/gpt-image-2/SKILL.md:10585:952|media-creative/gpt-image-edit/SKILL.md:9502:939|media-creative/happyhorse-1-0/SKILL.md:9545:931|media-creative/hyperframes-cli/SKILL.md:7734:2655|media-creative/hyperframes-registry/SKILL.md:4619:1537|media-creative/hyperframes/SKILL.md:7467:1054|media-creative/image-edit/SKILL.md:13231:787|media-creative/image-inpainting/SKILL.md:11475:995|media-creative/image-outpainting/SKILL.md:11430:835|media-creative/image-to-video/SKILL.md:11787:778|media-creative/kling-3-0/SKILL.md:15829:693|media-creative/lipsync/SKILL.md:12709:764|media-creative/media-use/SKILL.md:5370:1020|media-creative/motion-doctrine/SKILL.md:12026:1050|media-creative/nano-banana-2/SKILL.md:9562:937|media-creative/nano-banana-edit/SKILL.md:9024:938|media-creative/orbit-card/SKILL.md:3674:627|media-creative/oversized-cursor/SKILL.md:6717:1269|media-creative/relight/SKILL.md:10166:975|media-creative/remotion-best-practices/SKILL.md:4450:226|media-creative/remotion-captions/SKILL.md:1238:497|media-creative/remotion-create/SKILL.md:2812:475|media-creative/remotion-docs/SKILL.md:1441:490|media-creative/remotion-interactivity/SKILL.md:13804:498|media-creative/remotion-license/SKILL.md:585:524|media-creative/remotion-maps/SKILL.md:1131:506|media-creative/remotion-markup/SKILL.md:13446:794|media-creative/remotion-multimedia/SKILL.md:806:479|media-creative/remotion-render/SKILL.md:1178:471|media-creative/remotion-saas/SKILL.md:1154:472|media-creative/remotion-studio/SKILL.md:1712:472|media-creative/remotion-to-hyperframes/SKILL.md:5307:1290|media-creative/remotion-upgrade/SKILL.md:2048:487|media-creative/reverse-any-video/SKILL.md:5394:1008|media-creative/seam-craft/SKILL.md:4957:774|media-creative/seedance-2-5-image-to-video/SKILL.md:12117:818|media-creative/seedance-2-5-reference-to-video/SKILL.md:17630:1290|media-creative/seedance-v2/SKILL.md:9044:896|media-creative/slack-gif-creator/SKILL.md:7923:855|media-creative/slideshow/SKILL.md:5196:867|media-creative/style-sampling/SKILL.md:4758:1536|media-creative/video-edit/SKILL.md:11233:774|media-creative/video-extend/SKILL.md:9570:964|media-creative/video-inpainting/SKILL.md:10164:811|media-creative/video-outpainting/SKILL.md:8985:802|media-creative/wan-2-7/SKILL.md:8411:928|media-creative/wan-3-0-prime-reference-to-video/SKILL.md:15745:831|media-creative/wireframe-portal-title/SKILL.md:4358:662|micro-interactions/masked-reveal/SKILL.md:4074:1182|micro-interactions/micro-interactions-system/SKILL.md:3224:470|performance/fixing-motion-performance/SKILL.md:5673:946|react/improve-react/SKILL.md:12516:421|seo/fixing-metadata/SKILL.md:4501:1137|shadcn-ui/improve-shadcn/SKILL.md:15427:429|systems/baseline-ui/SKILL.md:3523:847|systems/ui-skills-root/SKILL.md:1492:791|testing/migrate-to-shoehorn/SKILL.md:2900:790|testing/setup-pre-commit/SKILL.md:2363:1135|testing/tdd/SKILL.md:3736:856|testing/vue-testing-best-practices/SKILL.md:2177:406|testing/webapp-testing/SKILL.md:3987:819|typography/better-typography/SKILL.md:12351:328|typography/swiss-design/SKILL.md:13050:729|ui-ux/academy-guide/SKILL.md:7808:991|ui-ux/brand-guidelines/SKILL.md:2306:908|ui-ux/design-lab/SKILL.md:14741:390|ui-ux/improve-ui/SKILL.md:8053:781|ui-ux/landing-page/SKILL.md:5377:966|ui-ux/pricing-page/SKILL.md:5960:1109|ui-ux/prototype/SKILL.md:3034:825|ui-ux/rams/SKILL.md:5164:259|ui-ux/taste-skill/SKILL.md:11975:1900|ui-ux/theme-factory/SKILL.md:3194:655|workflow/agents-cli-claude/SKILL.md:5454:1452|workflow/agents-cli-langchain/SKILL.md:4068:1063|workflow/chief-of-staff/SKILL.md:4804:558|workflow/claude-handoff/SKILL.md:1442:581|workflow/google-agents-cli-adk-code/SKILL.md:4351:1513|workflow/google-agents-cli-eval/SKILL.md:11001:1300|workflow/google-agents-cli-observability/SKILL.md:12033:1570|workflow/google-agents-cli-publish/SKILL.md:11772:1289|workflow/google-agents-cli-scaffold/SKILL.md:13251:1191|workflow/google-agents-cli-workflow/SKILL.md:14787:1096|workflow/grill-me/SKILL.md:232:530|workflow/grill-with-docs/SKILL.md:322:606|workflow/grilling/SKILL.md:2183:768|workflow/handoff/SKILL.md:958:564|workflow/loop-me/SKILL.md:2532:772|workflow/research/SKILL.md:938:916|workflow/retro/SKILL.md:4442:519|workflow/setup-matt-pocock-skills/SKILL.md:7599:689|workflow/skill-creator/SKILL.md:9999:1124|workflow/triage/SKILL.md:6633:627|workflow/writing-for-agents/SKILL.md:10992:726",
   "skills": [
     {
       "id": "threejs",
@@ -436,7 +436,15 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Does the VT mount/unmount on this navigation, or does it stay mounted (same-route)?",
+          "For named VTs: does a shared pair form? If not, does enter/exit provide a fallback?",
+          "Does default=\"none\" block an animation you actually want?",
+          "Do persistent elements stay static (not sliding with page content)?",
+          "Do Suspense reveals animate independently from directional navigations?"
         ]
       },
       "format": "gss",
@@ -992,7 +1000,12 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "For default pools with CAS disabled: For custom pools, add --node-provisioning-default-pools None to disable default-pool creation, then apply the approved NodePool and AKSNodeClass manifests.",
+          "Verify pending-pod time, provisioned configurations, node count, workload SLOs, and cost against the agreed criteria."
         ]
       },
       "format": "gss",
@@ -1139,8 +1152,12 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -1187,8 +1204,12 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -1222,7 +1243,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "skill license file",
           "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/appinsights-instrumentation/LICENSE.txt",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 1
         },
         "summary": "Guidance for instrumenting webapps with Azure Application Insights. Provides telemetry patterns, SDK setup, and configuration references.",
         "whenToUse": [
@@ -1237,8 +1259,12 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -1372,7 +1398,21 @@
         ],
         "derived": [
           "domains",
-          "summary"
+          "permissions",
+          "summary",
+          "verification"
+        ],
+        "verification": [
+          "Use managed identity for all Azure-hosted apps",
+          "Never hardcode credentials, connection strings, or keys",
+          "Apply least-privilege RBAC roles at the narrowest scope",
+          "Use ManagedIdentityCredential (not DefaultAzureCredential) in production",
+          "Store any required secrets in Azure Key Vault",
+          "Rotate secrets and certificates on a schedule",
+          "Enable Microsoft Defender for Cloud on production resources"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -1417,7 +1457,17 @@
         ],
         "derived": [
           "domains",
-          "summary"
+          "summary",
+          "verification"
+        ],
+        "verification": [
+          "Use managed identity for all Azure-hosted apps",
+          "Never hardcode credentials, connection strings, or keys",
+          "Apply least-privilege RBAC roles at the narrowest scope",
+          "Use ManagedIdentityCredential (not DefaultAzureCredential) in production",
+          "Store any required secrets in Azure Key Vault",
+          "Rotate secrets and certificates on a schedule",
+          "Enable Microsoft Defender for Cloud on production resources"
         ]
       },
       "format": "gss",
@@ -1610,7 +1660,17 @@
         ],
         "derived": [
           "domains",
-          "summary"
+          "summary",
+          "verification"
+        ],
+        "verification": [
+          "Use managed identity for all Azure-hosted apps",
+          "Never hardcode credentials, connection strings, or keys",
+          "Apply least-privilege RBAC roles at the narrowest scope",
+          "Use ManagedIdentityCredential (not DefaultAzureCredential) in production",
+          "Store any required secrets in Azure Key Vault",
+          "Rotate secrets and certificates on a schedule",
+          "Enable Microsoft Defender for Cloud on production resources"
         ]
       },
       "format": "gss",
@@ -1644,7 +1704,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "declared in original SKILL.md",
           "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-compute/SKILL.md",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 4
         },
         "summary": "Azure VM/VMSS router. WHEN: create / provision / deploy / spin-up VM, recommend VM size, compare VM pricing, VMSS, scale set, autoscale, burstable, lightweight server, website, backend, GPU, machine learning, HPC simulation, dev/test, workload, family, load balancer, Flexible orchestration,…",
         "whenToUse": [
@@ -1662,7 +1723,13 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Invoke the azure-quotas skill for complete quota CLI workflows across all Azure providers",
+          "VM Family Guide — Family-to-workload mapping",
+          "Azure VM quotas documentation"
         ]
       },
       "format": "gss",
@@ -1714,7 +1781,17 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Use managed identity for all Azure-hosted apps",
+          "Never hardcode credentials, connection strings, or keys",
+          "Apply least-privilege RBAC roles at the narrowest scope",
+          "Use ManagedIdentityCredential (not DefaultAzureCredential) in production",
+          "Store any required secrets in Azure Key Vault",
+          "Rotate secrets and certificates on a schedule",
+          "Enable Microsoft Defender for Cloud on production resources"
         ]
       },
       "format": "gss",
@@ -1766,8 +1843,12 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -1820,7 +1901,11 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Run az bicep build --file infra/main.bicep to validate syntax before deploying."
         ]
       },
       "format": "gss",
@@ -1854,7 +1939,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "declared in original SKILL.md",
           "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-kubernetes/azure-kubernetes-app-deploy/SKILL.md",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 12
         },
         "summary": "Use when deploying an existing web application or API to an already-running Azure Kubernetes Service cluster. Detects the framework, generates a Dockerfile and Kubernetes manifests, validates against AKS Deployment Safeguards, and deploys with verification.",
         "whenToUse": [
@@ -1902,7 +1988,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "declared in original SKILL.md",
           "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 1
         },
         "summary": "Assess Kubernetes workloads and cluster configuration for AKS Automatic compatibility. Identifies incompatibilities, generates fixes, and guides migration from AKS Standard to AKS Automatic.",
         "whenToUse": [
@@ -1920,7 +2007,18 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Collect cluster/node-pool metadata through a host-discovered Azure MCP AKS capability (or az), then evaluate sanitized Kubernetes manifests locally against the bundled constraint spec",
+          "Resolve all incompatible findings — these are hard blockers",
+          "Apply all requiresChanges fixes — these will be denied at admission",
+          "Review autoFixed items — understand what AKS Automatic will mutate at runtime",
+          "Decide whether the target will opt into PSS Restricted or run Windows node pools; only then apply the conditionalSafeguards rules",
+          "Address cluster-level Day-0 config issues (see below)",
+          "workload health and service objectives remain stable on the target;",
+          "required data is synchronized and integrity checks pass;"
         ]
       },
       "format": "gss",
@@ -1954,7 +2052,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "declared in original SKILL.md",
           "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-kubernetes/SKILL.md",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 13
         },
         "summary": "Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clusters. Covers Day-0 checklist, SKU selection (Automatic vs Standard), networking options (private API server, Azure CNI Overlay, egress configuration), security, and operations (autoscaling, upgrade strategy, cost…",
         "whenToUse": [
@@ -2066,7 +2165,11 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "If any required function is missing, deploy it using the .create-or-alter commands below."
         ]
       },
       "format": "gss",
@@ -2426,9 +2529,13 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "verification",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -2691,7 +2798,17 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Use managed identity for all Azure-hosted apps",
+          "Never hardcode credentials, connection strings, or keys",
+          "Apply least-privilege RBAC roles at the narrowest scope",
+          "Use ManagedIdentityCredential (not DefaultAzureCredential) in production",
+          "Store any required secrets in Azure Key Vault",
+          "Rotate secrets and certificates on a schedule",
+          "Enable Microsoft Defender for Cloud on production resources"
         ]
       },
       "format": "gss",
@@ -2846,8 +2963,12 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -2897,7 +3018,12 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Use generate_query, validate_query, then execute_query against AKS managed clusters.",
+          "Project the cluster name, resource group, SKU tier, and properties.metricsProfile.costAnalysis.enabled."
         ]
       },
       "format": "gss",
@@ -3044,7 +3170,13 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Separate quantified Advisor recommendations, observed-metric candidates, and",
+          "Check each proposed SKU, region, shutdown, or deletion against Azure Policy,",
+          "If commitments exist, load Commitment Analysis. Identify"
         ]
       },
       "format": "gss",
@@ -3097,7 +3229,11 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "If not logged in: az login Set subscription if needed: ---"
         ]
       },
       "format": "gss",
@@ -3149,9 +3285,13 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "verification",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -3331,7 +3471,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "declared in original SKILL.md",
           "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/entra-app-registration/SKILL.md",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 1
         },
         "summary": "Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration. USE FOR: create app registration, register Azure AD app, configure OAuth, set up authentication, add API permissions, generate service principal, MSAL example, console app auth, Entra ID setup, Azure AD…",
         "whenToUse": [
@@ -3346,7 +3487,11 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Portal: Look for green checkmarks in \"Status\" column CLI: Look for consentType: \"AllPrincipals\" (admin consented)"
         ]
       },
       "format": "gss",
@@ -3399,8 +3544,16 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Best for: classification, format compliance, tool calling format."
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -3529,7 +3682,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "declared in original SKILL.md",
           "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/SKILL.md",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 3
         },
         "summary": "Build, deploy, evaluate, optimize, fine-tune, and manage Microsoft Foundry agents, models, and resources end to end. USE FOR: foundry, azd ai agent, azd provision/deploy, hosted agent scaffold/develop/run/deploy/troubleshoot, prompt agent, managed harness agent, Copilot harness, voice agent,…",
         "whenToUse": [
@@ -3547,9 +3701,13 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "verification",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -3598,7 +3756,11 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Check if user is logged into Azure CLI: If not logged in: Verify subscription is correct: ---"
         ]
       },
       "format": "gss",
@@ -3644,8 +3806,16 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Expected: state: Running, linuxFx: PYTHON|3.14 (Azure stores it in pipe form internally — normal), host: <app>.azurewebsites.net."
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -3745,9 +3915,13 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "verification",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -3899,9 +4073,13 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "verification",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -3947,8 +4125,12 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -4261,7 +4443,18 @@
         ],
         "derived": [
           "domains",
-          "summary"
+          "summary",
+          "verification"
+        ],
+        "verification": [
+          "Title is clear and action-oriented",
+          "Impact level matches the performance gain",
+          "impactDescription includes quantification",
+          "Explanation is concise (1-2 sentences)",
+          "Has at least 1 Incorrect SQL example",
+          "Has at least 1 Correct SQL example",
+          "SQL uses semantic naming",
+          "Comments explain _why_, not _what_"
         ]
       },
       "format": "gss",
@@ -4649,9 +4842,13 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "verification",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -4704,8 +4901,12 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -4761,8 +4962,12 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -4826,9 +5031,13 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "verification",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -5195,7 +5404,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "skill license file",
           "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/web-artifacts-builder/LICENSE.txt",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 1
         },
         "summary": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
         "whenToUse": [
@@ -5208,8 +5418,12 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -5323,7 +5537,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "skill license file",
           "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/canvas-design/LICENSE.txt",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 54
         },
         "summary": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece.",
         "whenToUse": [
@@ -6247,7 +6462,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "repository license",
           "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 2
         },
         "summary": "Leaves sweep through the frame and part to reveal the headline. HyperFrames block, 1920×1080, 12s, 11 variables.",
         "domains": [
@@ -6331,7 +6547,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "repository license",
           "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 7
         },
         "summary": "Turn a weekly changelog .md into a finished branded changelog video (square 1080, ~45-60s, Annie VO, animated brand background, mock-UI visualizations, lowkey captions). Use when the user provides a changelog/digest markdown and wants the weekly video, or says \"changelog video\".",
         "whenToUse": [
@@ -6343,8 +6560,19 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Mock containers with intentional stacking: data-layout-allow-overlap on",
+          "Dim text: rgba(245,246,244,.66) minimum (contrast gate).",
+          "Audio: every <audio> carries an id. BGM: the house track ships at",
+          "Preview server caches the bundle — RESTART after edits, then verify on the"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -6378,7 +6606,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "repository license",
           "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 1
         },
         "summary": "A tiled headline surface flips cell by cell under a sweeping depth field to reveal the rear headline. HyperFrames block, 1920×1080, 8s, 18 variables.",
         "domains": [
@@ -6652,8 +6881,12 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -6782,7 +7015,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "repository license",
           "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 4
         },
         "summary": "An orbiting camera follows an ice logo as it breaks apart, reforms into two text moments, and fades. HyperFrames block, 1920×1080, 22.5s, 216 variables.",
         "domains": [
@@ -6824,7 +7058,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "repository license",
           "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 5
         },
         "summary": "Glass shards fly in through fog and tile themselves into the headline. HyperFrames block, 1920×1080, 12.16s, 19 variables.",
         "domains": [
@@ -7015,7 +7250,25 @@
         ],
         "derived": [
           "domains",
-          "summary"
+          "summary",
+          "verification",
+          "whenToUse"
+        ],
+        "whenToUse": [
+          "hyperframes render (local): fastest iteration loop, use while authoring. Previews, snapshots and draft checks stay local.",
+          "hyperframes cloud render: zero-infra. HeyGen runs the render under the selected credential's allowance or billing. This is the default answer to \"render in the cloud\" when you don't want to manage Chrome/FFmpeg/AWS.",
+          "hyperframes lambda render: bring-your-own-AWS distributed rendering with chunked parallelism. Only worth it when you've already invested in AWS (see lambda.md).",
+          "hyperframes cloudrun render: bring-your-own-GCP distributed rendering through Cloud Run and Workflows. Use only when GCP ownership is explicit (see cloudrun.md)."
+        ],
+        "verification": [
+          "Run lint after the first HTML pass for early feedback. It is an iteration aid, not a separate final gate.",
+          "Run check --snapshots at the first full pass: the overview frames and per-finding crops show you what the auditor saw.",
+          "Look at the PNGs before tuning automated warnings: your eye catches what the auditor misses, and the auditor catches what your eye misses.",
+          "Runtime: JavaScript console errors, unhandled exceptions, failed network requests (media-file ERR_ABORTED filtered out), HTTP 4xx/5xx.",
+          "Motion: *.motion.json sidecar assertions against the same seeked timeline (see below).",
+          "Craft: warnings only, even under --strict (a film may break one on purpose), measured on an 8 fps sweep of the whole film and skipped under --range. Each message names the fix and the reference to read.",
+          "text_below_floor: text under 2.6% of the frame's short side (28 px on 1080) held 0.5 s or more, one finding per file listing every element.",
+          "first_frame_empty: frame 0 paints nothing but the background (no text, image, video, canvas or svg), or an opaque element covers every other clip and the message names it; it is the thumbnail on social players."
         ]
       },
       "format": "gss",
@@ -7061,7 +7314,18 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Mounted the right way for its shape, on its own ground, with GSAP and a paused root.",
+          "F1: the markup contains the named subject.",
+          "F2: motion fingerprint and markup skeleton are not both shared with a survivor.",
+          "F3: it renders something with the recipe applied, or it is protected by N3 to N6.",
+          "F4: the frames show the event the description promises.",
+          "F5: frame N is computed from N.",
+          "X1 through X8 logged with the specific fix.",
+          "Verdict cites the evidence the criterion names, not an impression."
         ]
       },
       "format": "gss",
@@ -7095,7 +7359,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "repository license",
           "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 6
         },
         "summary": "Read first to make, edit, animate or render any video with HyperFrames (HTML rendered to video), including launch films, explainers, music videos, charts, maps, vertical clips, title cards, captions and overlays. Holds the render contract, the work loop and what each kind of video needs.",
         "domains": [
@@ -7103,7 +7368,16 @@
         ],
         "derived": [
           "domains",
-          "summary"
+          "permissions",
+          "summary",
+          "verification"
+        ],
+        "verification": [
+          "Snapshot a time, an earlier time, then the first again in one run: npx hyperframes snapshot --at 4,0,4 --no-end.",
+          "The two stills at 4 s must be byte-identical."
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -7398,7 +7672,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "repository license",
           "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 20
         },
         "summary": "Get or make any media for a HyperFrames video - music, sound effects, images, icons, logos, voiceover, avatar and generated video, transcripts, cutouts, colour grades and looks - with HeyGen or free local tools, and mix placed audio. Also for footage that looks dark, flat or dull, or should be…",
         "domains": [
@@ -7406,7 +7681,16 @@
         ],
         "derived": [
           "domains",
-          "summary"
+          "permissions",
+          "summary",
+          "verification"
+        ],
+        "verification": [
+          "Every event carries surface: \"media-use\".",
+          "Event properties are coarse — never intent text, file names, or paths."
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -7453,8 +7737,12 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "verification"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -7582,7 +7870,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "repository license",
           "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 2
         },
         "summary": "A single feature card orbits a dot sphere on approved Blender camera motion. HyperFrames block, 1920×1080, 10s, 4 variables.",
         "domains": [
@@ -7973,7 +8262,8 @@
           "licenseStatus": "unknown",
           "licenseEvidence": "no license found",
           "licenseUrl": "https://github.com/remotion-dev/skills",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 1
         },
         "summary": "Remotion Map animation knowledge",
         "domains": [
@@ -8015,7 +8305,8 @@
           "licenseStatus": "unknown",
           "licenseEvidence": "no license found",
           "licenseUrl": "https://github.com/remotion-dev/skills",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 1
         },
         "summary": "Content, animation and effects best practices",
         "verification": [
@@ -8230,7 +8521,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "repository license",
           "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 6
         },
         "summary": "Bring existing video code or footage into HyperFrames and verify it frame by frame against the original - Remotion first, also Motion Canvas, Lottie, Three.js, p5.js, canvas or plain HTML/CSS animation, or renders from Manim, After Effects or Blender. Use to port, convert, migrate or reuse work…",
         "verification": [
@@ -8241,8 +8533,17 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
-          "verification"
+          "verification",
+          "whenToUse"
+        ],
+        "whenToUse": [
+          "For transitions Remotion presets that have visually-rich GLSL equivalents (iris, ripple, zoom, glitch), use HF's shader-transitions package.",
+          "They produce richer output than manual GSAP transforms."
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -8656,7 +8957,13 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "One heavy job at a time (renders, long ffmpeg, transcription): renders with --workers 1, ffmpeg with -threads 2 -nostdin. For a change, render only that window.",
+          "Run REMIX.md's checks. Report each of our numbers beside the series' own: cuts a minute, pause density, longest hold, loudness, sound effects on picture changes, the script fingerprint. Name every check that failed.",
+          "Stop 2: ask once on the draft: a contact sheet and npx hyperframes preview --background --no-open (add --port <free port> when 3002 is taken), with what is still a stand-in."
         ]
       },
       "format": "gss",
@@ -8956,7 +9263,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "repository license",
           "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 3
         },
         "summary": "A wireframe portal bursts open, the title comes through, then its letters swap into a second phrase. HyperFrames block, 1920×1080, 8s, 9 variables.",
         "domains": [
@@ -9672,7 +9980,11 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",
@@ -10216,7 +10528,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "repository license",
           "licenseUrl": "https://github.com/Leonxlnx/taste-skill/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 151
         },
         "summary": "tasteskill 2.5.1, the anti-slop frontend skill. Builds professional company websites at the level of figma.com and x.ai: plain copy in a voice of its own, one system, one section per screen, equal edges, real photographs and real product UI (licensed stand-in photographs when the client has…",
         "whenToUse": [
@@ -10275,7 +10588,8 @@
           "licenseStatus": "open",
           "licenseEvidence": "skill license file",
           "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/theme-factory/LICENSE.txt",
-          "licenseCheckedAt": "2026-11-08"
+          "licenseCheckedAt": "2026-11-08",
+          "filesLeftAtSource": 1
         },
         "summary": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc.",
         "domains": [
@@ -10332,7 +10646,12 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "Fix lint in the files you wrote or edited with uv run ruff check --fix app && uv run ruff format app.",
+          "If agents-cli lint flags the user's original files (scripts, notebooks, parked files), add them to [tool.ruff] extend-exclude, [tool.ty.src] exclude (e.g. \"bookshop/\") and, for spelling, [tool.codespell] skip instead of restyling them."
         ]
       },
       "format": "gss",
@@ -10514,7 +10833,15 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "START must exist and have no incoming edges",
+          "All non-START nodes must be reachable",
+          "No duplicate node names or edges",
+          "At most one DEFAULT route per node",
+          "No unconditional cycles (cycles need at least one routed edge)"
         ]
       },
       "format": "gss",
@@ -10613,7 +10940,12 @@
         "derived": [
           "domains",
           "summary",
+          "verification",
           "whenToUse"
+        ],
+        "verification": [
+          "After deploying, verify prompt-response logging is working: If data is not appearing: check LOGS_BUCKET_NAME is set, verify SA has storage.objectCreator on the bucket, check application logs for telemetry setup warnings.",
+          "Log export to BigQuery may take a few minutes to propagate."
         ]
       },
       "format": "gss",
@@ -11165,8 +11497,12 @@
         ],
         "derived": [
           "domains",
+          "permissions",
           "summary",
           "whenToUse"
+        ],
+        "permissions": [
+          "shell"
         ]
       },
       "format": "gss",

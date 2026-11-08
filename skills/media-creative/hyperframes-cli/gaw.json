@@ -16,6 +16,24 @@
   ],
   "derived": [
     "domains",
-    "summary"
+    "summary",
+    "verification",
+    "whenToUse"
+  ],
+  "whenToUse": [
+    "hyperframes render (local): fastest iteration loop, use while authoring. Previews, snapshots and draft checks stay local.",
+    "hyperframes cloud render: zero-infra. HeyGen runs the render under the selected credential's allowance or billing. This is the default answer to \"render in the cloud\" when you don't want to manage Chrome/FFmpeg/AWS.",
+    "hyperframes lambda render: bring-your-own-AWS distributed rendering with chunked parallelism. Only worth it when you've already invested in AWS (see lambda.md).",
+    "hyperframes cloudrun render: bring-your-own-GCP distributed rendering through Cloud Run and Workflows. Use only when GCP ownership is explicit (see cloudrun.md)."
+  ],
+  "verification": [
+    "Run lint after the first HTML pass for early feedback. It is an iteration aid, not a separate final gate.",
+    "Run check --snapshots at the first full pass: the overview frames and per-finding crops show you what the auditor saw.",
+    "Look at the PNGs before tuning automated warnings: your eye catches what the auditor misses, and the auditor catches what your eye misses.",
+    "Runtime: JavaScript console errors, unhandled exceptions, failed network requests (media-file ERR_ABORTED filtered out), HTTP 4xx/5xx.",
+    "Motion: *.motion.json sidecar assertions against the same seeked timeline (see below).",
+    "Craft: warnings only, even under --strict (a film may break one on purpose), measured on an 8 fps sweep of the whole film and skipped under --range. Each message names the fix and the reference to read.",
+    "text_below_floor: text under 2.6% of the frame's short side (28 px on 1080) held 0.5 s or more, one finding per file listing every element.",
+    "first_frame_empty: frame 0 paints nothing but the background (no text, image, video, canvas or svg), or an opaque element covers every other clip and the message names it; it is the thumbnail on social players."
   ]
 }

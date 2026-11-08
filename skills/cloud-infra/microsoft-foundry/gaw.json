@@ -8,7 +8,8 @@
     "licenseStatus": "open",
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/SKILL.md",
-    "licenseCheckedAt": "2026-11-08"
+    "licenseCheckedAt": "2026-11-08",
+    "filesLeftAtSource": 3
   },
   "summary": "Build, deploy, evaluate, optimize, fine-tune, and manage Microsoft Foundry agents, models, and resources end to end. USE FOR: foundry, azd ai agent, azd provision/deploy, hosted agent scaffold/develop/run/deploy/troubleshoot, prompt agent, managed harness agent, Copilot harness, voice agent,…",
   "whenToUse": [
@@ -26,8 +27,12 @@
   ],
   "derived": [
     "domains",
+    "permissions",
     "summary",
     "verification",
     "whenToUse"
+  ],
+  "permissions": [
+    "shell"
   ]
 }

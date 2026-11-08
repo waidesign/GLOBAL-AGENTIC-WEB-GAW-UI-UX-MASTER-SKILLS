@@ -22,6 +22,10 @@
   "derived": [
     "domains",
     "summary",
+    "verification",
     "whenToUse"
+  ],
+  "verification": [
+    "If any required function is missing, deploy it using the .create-or-alter commands below."
   ]
 }

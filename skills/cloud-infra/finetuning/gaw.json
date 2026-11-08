@@ -27,7 +27,15 @@
   ],
   "derived": [
     "domains",
+    "permissions",
     "summary",
+    "verification",
     "whenToUse"
+  ],
+  "verification": [
+    "Best for: classification, format compliance, tool calling format."
+  ],
+  "permissions": [
+    "shell"
   ]
 }

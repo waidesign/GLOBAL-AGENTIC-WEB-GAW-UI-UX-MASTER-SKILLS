@@ -8,7 +8,8 @@
     "licenseStatus": "open",
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-    "licenseCheckedAt": "2026-11-08"
+    "licenseCheckedAt": "2026-11-08",
+    "filesLeftAtSource": 20
   },
   "summary": "Get or make any media for a HyperFrames video - music, sound effects, images, icons, logos, voiceover, avatar and generated video, transcripts, cutouts, colour grades and looks - with HeyGen or free local tools, and mix placed audio. Also for footage that looks dark, flat or dull, or should be…",
   "domains": [
@@ -16,6 +17,15 @@
   ],
   "derived": [
     "domains",
-    "summary"
+    "permissions",
+    "summary",
+    "verification"
+  ],
+  "verification": [
+    "Every event carries surface: \"media-use\".",
+    "Event properties are coarse — never intent text, file names, or paths."
+  ],
+  "permissions": [
+    "shell"
   ]
 }

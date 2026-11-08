@@ -24,6 +24,11 @@
   "derived": [
     "domains",
     "summary",
+    "verification",
     "whenToUse"
+  ],
+  "verification": [
+    "Use generate_query, validate_query, then execute_query against AKS managed clusters.",
+    "Project the cluster name, resource group, SKU tier, and properties.metricsProfile.costAnalysis.enabled."
   ]
 }

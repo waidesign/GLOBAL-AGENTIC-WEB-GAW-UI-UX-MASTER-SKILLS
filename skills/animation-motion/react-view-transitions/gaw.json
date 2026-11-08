@@ -22,6 +22,14 @@
   "derived": [
     "domains",
     "summary",
+    "verification",
     "whenToUse"
+  ],
+  "verification": [
+    "Does the VT mount/unmount on this navigation, or does it stay mounted (same-route)?",
+    "For named VTs: does a shared pair form? If not, does enter/exit provide a fallback?",
+    "Does default=\"none\" block an animation you actually want?",
+    "Do persistent elements stay static (not sliding with page content)?",
+    "Do Suspense reveals animate independently from directional navigations?"
   ]
 }

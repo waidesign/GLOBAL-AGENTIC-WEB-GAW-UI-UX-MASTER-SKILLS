@@ -8,7 +8,8 @@
     "licenseStatus": "open",
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-    "licenseCheckedAt": "2026-11-08"
+    "licenseCheckedAt": "2026-11-08",
+    "filesLeftAtSource": 7
   },
   "summary": "Turn a weekly changelog .md into a finished branded changelog video (square 1080, ~45-60s, Annie VO, animated brand background, mock-UI visualizations, lowkey captions). Use when the user provides a changelog/digest markdown and wants the weekly video, or says \"changelog video\".",
   "whenToUse": [
@@ -20,7 +21,18 @@
   ],
   "derived": [
     "domains",
+    "permissions",
     "summary",
+    "verification",
     "whenToUse"
+  ],
+  "verification": [
+    "Mock containers with intentional stacking: data-layout-allow-overlap on",
+    "Dim text: rgba(245,246,244,.66) minimum (contrast gate).",
+    "Audio: every <audio> carries an id. BGM: the house track ships at",
+    "Preview server caches the bundle — RESTART after edits, then verify on the"
+  ],
+  "permissions": [
+    "shell"
   ]
 }

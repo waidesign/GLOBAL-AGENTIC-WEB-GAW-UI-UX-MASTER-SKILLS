@@ -8,7 +8,8 @@
     "licenseStatus": "open",
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-    "licenseCheckedAt": "2026-11-08"
+    "licenseCheckedAt": "2026-11-08",
+    "filesLeftAtSource": 6
   },
   "summary": "Bring existing video code or footage into HyperFrames and verify it frame by frame against the original - Remotion first, also Motion Canvas, Lottie, Three.js, p5.js, canvas or plain HTML/CSS animation, or renders from Manim, After Effects or Blender. Use to port, convert, migrate or reuse work…",
   "verification": [
@@ -19,7 +20,16 @@
   ],
   "derived": [
     "domains",
+    "permissions",
     "summary",
-    "verification"
+    "verification",
+    "whenToUse"
+  ],
+  "whenToUse": [
+    "For transitions Remotion presets that have visually-rich GLSL equivalents (iris, ripple, zoom, glitch), use HF's shader-transitions package.",
+    "They produce richer output than manual GSAP transforms."
+  ],
+  "permissions": [
+    "shell"
   ]
 }

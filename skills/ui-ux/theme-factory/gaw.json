@@ -8,7 +8,8 @@
     "licenseStatus": "open",
     "licenseEvidence": "skill license file",
     "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/theme-factory/LICENSE.txt",
-    "licenseCheckedAt": "2026-11-08"
+    "licenseCheckedAt": "2026-11-08",
+    "filesLeftAtSource": 1
   },
   "summary": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc.",
   "domains": [
