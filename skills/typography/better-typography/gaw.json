@@ -13,5 +13,22 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when setting or reviewing a type scale, line height, font loading, text wrapping, truncation or punctuation in a project's styles."
+  ],
+  "whenNotToUse": [
+    "Wording (better-writing), heading semantics (better-accessibility) or RTL layout (better-layout)"
+  ],
+  "keywords": [
+    "line height",
+    "font loading",
+    "text wrapping",
+    "fonts"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

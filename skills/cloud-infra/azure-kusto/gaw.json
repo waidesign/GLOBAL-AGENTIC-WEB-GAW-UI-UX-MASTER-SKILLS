@@ -27,5 +27,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "big data analytics",
+    "siem",
+    "security analytics",
+    "query logs",
+    "sensor data"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

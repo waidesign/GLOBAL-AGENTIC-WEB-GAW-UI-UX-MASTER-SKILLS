@@ -17,5 +17,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when animating a still image into a video on RunComfy, including portrait animation, product reveals or lip-sync to a custom voiceover."
+  ],
+  "keywords": [
+    "animate photo",
+    "photo to video",
+    "product reveal",
+    "lip sync",
+    "portrait animation"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

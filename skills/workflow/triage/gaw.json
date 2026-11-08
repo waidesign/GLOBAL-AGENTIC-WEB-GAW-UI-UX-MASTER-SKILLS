@@ -19,5 +19,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when sorting new issues or external PRs on the tracker: labeling them, checking reports, asking for missing info, and writing briefs an agent can act on."
+  ],
+  "keywords": [
+    "issue triage",
+    "bug reports",
+    "issue labels",
+    "backlog grooming",
+    "pull request review"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

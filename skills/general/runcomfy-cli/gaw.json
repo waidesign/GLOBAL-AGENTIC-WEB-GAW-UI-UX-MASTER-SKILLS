@@ -19,5 +19,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when installing, signing in to or running the runcomfy CLI to call a RunComfy model endpoint, poll its status and download the output."
+  ],
+  "keywords": [
+    "generative ai api",
+    "model inference cli",
+    "comfyui cloud",
+    "hosted models"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

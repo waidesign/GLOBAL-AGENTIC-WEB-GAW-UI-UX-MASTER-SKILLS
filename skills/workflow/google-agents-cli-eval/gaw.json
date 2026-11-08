@@ -13,6 +13,10 @@
   "summary": "This skill should be used when the user wants to \"run an evaluation\", \"evaluate my agent\", \"evaluate my ADK agent\", \"write an eval dataset\", \"analyze eval failures\", \"compare eval results\", \"optimize agent\", or needs guidance on the Gemini platform eval methodology and the Quality Flywheel.…",
   "whenToUse": [
     "This skill should be used when the user wants to \"run an evaluation\", \"evaluate my agent\", \"evaluate my ADK agent\", \"write an eval dataset\", \"analyze eval failures\", \"compare eval results\", \"optimize agent\", or needs guidance on the Gemini ",
+    "Use user simulation when fixed prompts are impractical — the agent may ask for information in different orders or respond in unexpected ways.",
+    "Instead of hand-recording every user/agent turn, let agents-cli eval dataset synthesize ask the Eval Service in Gemini platform to generate user scenarios for your agent and then play each scenario against an LLM-backed user simulator."
+  ],
+  "whenNotToUse": [
     "Do NOT use for agent API code patterns (ADK: use google-agents-cli-adk-code), deployment (use google-agents-cli-deploy), or project scaffolding (use google-agents-cli-scaffold)."
   ],
   "domains": [
@@ -24,6 +28,16 @@
   "derived": [
     "domains",
     "summary",
+    "whenNotToUse",
     "whenToUse"
+  ],
+  "keywords": [
+    "agent testing",
+    "llm as judge",
+    "quality metrics",
+    "regression testing"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

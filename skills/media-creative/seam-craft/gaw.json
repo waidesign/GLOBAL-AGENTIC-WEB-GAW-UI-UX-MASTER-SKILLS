@@ -17,5 +17,17 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when assembling a HyperFrames master timeline, or when a white flash or opacity dip shows at a cut or crossfade between scenes."
+  ],
+  "keywords": [
+    "transition glitch",
+    "scene cuts",
+    "render bug"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

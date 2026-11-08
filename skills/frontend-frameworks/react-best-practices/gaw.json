@@ -19,5 +19,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "request waterfalls",
+    "bundle size",
+    "re-renders",
+    "server components",
+    "web performance"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

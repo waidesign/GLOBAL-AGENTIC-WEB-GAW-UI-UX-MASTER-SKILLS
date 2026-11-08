@@ -18,5 +18,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a HyperFrames video needs a 3D wireframe title that bursts through a portal and then morphs into a second phrase."
+  ],
+  "keywords": [
+    "title card",
+    "text reveal",
+    "3d text",
+    "intro animation",
+    "motion graphics"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

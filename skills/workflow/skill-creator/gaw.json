@@ -18,13 +18,23 @@
     "software",
     "ai"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
     "summary",
     "whenToUse"
   ],
-  "permissions": [
-    "shell"
+  "keywords": [
+    "agent skill",
+    "skill authoring",
+    "prompt engineering",
+    "trigger accuracy",
+    "skill evals"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

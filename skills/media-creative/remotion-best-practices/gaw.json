@@ -12,5 +12,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use first for any Remotion task, to route to the right guide for creating, editing, captioning, mapping or rendering a video."
+  ],
+  "keywords": [
+    "react video",
+    "programmatic video",
+    "video in code",
+    "composition",
+    "motion graphics"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

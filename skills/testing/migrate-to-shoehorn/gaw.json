@@ -22,5 +22,18 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "whenNotToUse": [
+    "Production code (shoehorn is for tests only)"
+  ],
+  "keywords": [
+    "test fixtures",
+    "typescript tests",
+    "frompartial",
+    "mock data"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse"
   ]
 }

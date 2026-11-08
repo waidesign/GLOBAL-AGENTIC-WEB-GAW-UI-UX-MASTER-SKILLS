@@ -18,5 +18,23 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when an idea is too big for one agent session and the way forward should be planned as decision tickets on the issue tracker before building."
+  ],
+  "whenNotToUse": [
+    "Doing the work itself: it produces decisions, not deliverables, unless the effort's notes say otherwise"
+  ],
+  "keywords": [
+    "roadmap",
+    "planning",
+    "epic",
+    "multi-session plan",
+    "open questions"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

@@ -19,5 +19,22 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when turning KQL query results into a graph to find relationships, shortest paths or connected components with Kusto graph operators."
+  ],
+  "whenNotToUse": [
+    "General natural-language-to-KQL conversion"
+  ],
+  "keywords": [
+    "graph analytics",
+    "relationship analysis",
+    "network graph",
+    "path finding"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

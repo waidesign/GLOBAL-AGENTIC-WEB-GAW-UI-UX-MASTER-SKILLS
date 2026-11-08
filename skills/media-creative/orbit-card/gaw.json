@@ -18,5 +18,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a HyperFrames video needs a single feature card shown in 3D, orbiting a dot sphere before it exits."
+  ],
+  "keywords": [
+    "feature highlight",
+    "product feature video",
+    "3d card",
+    "three.js",
+    "motion graphics"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

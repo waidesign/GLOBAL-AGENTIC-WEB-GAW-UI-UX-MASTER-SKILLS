@@ -19,5 +19,23 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when removing or replacing something that appears across many frames of a video, such as an object, wires or a watermark."
+  ],
+  "whenNotToUse": [
+    "Precise pixel-level mask-driven region edits (use a ComfyUI workflow)"
+  ],
+  "keywords": [
+    "object removal",
+    "watermark removal",
+    "video cleanup",
+    "sky replacement",
+    "frame editing"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

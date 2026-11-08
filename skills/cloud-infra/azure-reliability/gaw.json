@@ -38,5 +38,13 @@
     "summary",
     "verification",
     "whenToUse"
+  ],
+  "keywords": [
+    "resilience",
+    "single point of failure",
+    "availability zones"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

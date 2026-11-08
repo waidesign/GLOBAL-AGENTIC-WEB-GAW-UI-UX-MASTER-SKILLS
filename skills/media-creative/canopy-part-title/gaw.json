@@ -18,5 +18,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a HyperFrames video needs a nature-themed title reveal where leaves sweep in and part to uncover the headline."
+  ],
+  "keywords": [
+    "title card",
+    "text reveal",
+    "intro animation",
+    "motion graphics",
+    "nature title"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

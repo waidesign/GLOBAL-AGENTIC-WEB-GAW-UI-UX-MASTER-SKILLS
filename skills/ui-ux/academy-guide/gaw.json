@@ -24,5 +24,17 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "whenNotToUse": [
+    "When the user is mid-task and just wants the task done"
+  ],
+  "keywords": [
+    "claude tutorials",
+    "claude courses",
+    "getting started guide"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse"
   ]
 }

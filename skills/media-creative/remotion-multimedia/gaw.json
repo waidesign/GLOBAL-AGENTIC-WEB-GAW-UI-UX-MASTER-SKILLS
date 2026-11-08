@@ -17,5 +17,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a Remotion project needs the duration or dimensions of an audio or video file, read in the browser with Mediabunny."
+  ],
+  "keywords": [
+    "video metadata",
+    "audio duration",
+    "video dimensions",
+    "media file info"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

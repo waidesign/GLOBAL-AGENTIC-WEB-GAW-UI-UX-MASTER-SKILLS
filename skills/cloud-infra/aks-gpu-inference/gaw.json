@@ -12,9 +12,11 @@
   },
   "summary": "Diagnose Day-2 AKS GPU and KAITO incidents using profile-aware, read-only evidence. WHEN: 'Insufficient nvidia.com/gpu', GPU pod Pending, model-load OOM, DCGM/VRAM, KAITO Workspace not ready, or GPU autoscaling.",
   "whenToUse": [
-    "DO NOT USE FOR: setup (airunway-aks-setup), non-GPU incidents (aks-troubleshooting), standalone VM quota (azure-quotas), or generic cost (cost-analysis or cost-optimization from the optional azure-cost plugin).",
     "Use for scheduling, VRAM/OOM, KAITO readiness, and workload scaling.",
     "Route exclusions as described above."
+  ],
+  "whenNotToUse": [
+    "DO NOT USE FOR: setup (airunway-aks-setup), non-GPU incidents (aks-troubleshooting), standalone VM quota (azure-quotas), or generic cost (cost-analysis or cost-optimization from the optional azure-cost plugin)."
   ],
   "domains": [
     "cloud",
@@ -24,6 +26,16 @@
   "derived": [
     "domains",
     "summary",
+    "whenNotToUse",
     "whenToUse"
+  ],
+  "keywords": [
+    "model serving incident",
+    "gpu observability",
+    "inference outage",
+    "device allocation failure"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

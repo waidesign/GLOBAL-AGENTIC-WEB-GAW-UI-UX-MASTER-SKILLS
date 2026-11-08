@@ -23,5 +23,19 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when writing the React components of a Remotion video: frame-driven animation, timing, text, effects and layout."
+  ],
+  "keywords": [
+    "frame animation",
+    "interpolate",
+    "spring easing",
+    "react video",
+    "video layout"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

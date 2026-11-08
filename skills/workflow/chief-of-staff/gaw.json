@@ -18,5 +18,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when pursuing a long-running goal in one session by delegating work to subagents, suggesting schedules and keeping a wiki of what was learned."
+  ],
+  "keywords": [
+    "orchestration",
+    "delegation",
+    "long-running project",
+    "agent coordination",
+    "project memory"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

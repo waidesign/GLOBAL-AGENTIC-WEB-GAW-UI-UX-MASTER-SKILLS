@@ -23,5 +23,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "postgres backend",
+    "row level security",
+    "baas",
+    "firebase alternative",
+    "serverless functions"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

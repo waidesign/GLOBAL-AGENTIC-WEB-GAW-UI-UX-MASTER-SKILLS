@@ -18,5 +18,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when turning one reference image into a custom Codex Pet: an animated spritesheet.webp and pet.json installed in the Codex pets folder."
+  ],
+  "keywords": [
+    "sprite sheet",
+    "pixel art",
+    "desktop companion",
+    "animated mascot"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

@@ -19,5 +19,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when refactoring React components with many boolean props, designing reusable component APIs, or structuring compound components and context providers."
+  ],
+  "keywords": [
+    "compound components",
+    "boolean props",
+    "component api design",
+    "context provider",
+    "react 19"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

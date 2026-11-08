@@ -20,5 +20,21 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when extending an image beyond its original canvas, uncropping it, or changing its aspect ratio while keeping the original content."
+  ],
+  "whenNotToUse": [
+    "Pixel-precise extensions that must match texture seams (use a ComfyUI outpainting workflow)"
+  ],
+  "keywords": [
+    "aspect ratio change",
+    "widen photo",
+    "canvas expansion"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

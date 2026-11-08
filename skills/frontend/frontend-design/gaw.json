@@ -21,5 +21,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when designing and building a web page or interface that needs a distinctive visual identity grounded in its subject, rather than a templated look."
+  ],
+  "keywords": [
+    "landing page design",
+    "visual identity",
+    "web design",
+    "layout",
+    "art direction"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

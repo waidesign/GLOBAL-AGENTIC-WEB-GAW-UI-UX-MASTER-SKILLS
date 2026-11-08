@@ -21,5 +21,17 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "whenNotToUse": [
+    "A rendered video file"
+  ],
+  "keywords": [
+    "slide deck",
+    "keynote",
+    "live presentation"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse"
   ]
 }

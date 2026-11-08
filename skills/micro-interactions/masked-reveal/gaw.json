@@ -28,5 +28,15 @@
     "summary",
     "verification",
     "whenToUse"
+  ],
+  "keywords": [
+    "text animation",
+    "scroll animation",
+    "headline animation",
+    "split text",
+    "word stagger"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

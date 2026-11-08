@@ -14,15 +14,6 @@
   "whenToUse": [
     "Use it before hand-building any named visual (CRT scanlines, glitch, film grain, a chart); also for hyperframes add and catalog."
   ],
-  "domains": [
-    "media"
-  ],
-  "derived": [
-    "domains",
-    "summary",
-    "verification",
-    "whenToUse"
-  ],
   "verification": [
     "Mounted the right way for its shape, on its own ground, with GSAP and a paused root.",
     "F1: the markup contains the named subject.",
@@ -32,5 +23,24 @@
     "F5: frame N is computed from N.",
     "X1 through X8 logged with the specific fix.",
     "Verdict cites the evidence the criterion names, not an impression."
+  ],
+  "domains": [
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenToUse"
+  ],
+  "keywords": [
+    "prebuilt effects",
+    "transition library",
+    "video templates",
+    "component catalog",
+    "kinetic typography"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

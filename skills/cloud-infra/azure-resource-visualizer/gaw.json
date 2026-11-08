@@ -18,5 +18,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when the user wants to understand or document how the resources in an Azure resource group connect, as a Mermaid architecture diagram."
+  ],
+  "keywords": [
+    "infrastructure diagram",
+    "cloud architecture map",
+    "dependency diagram",
+    "architecture documentation"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

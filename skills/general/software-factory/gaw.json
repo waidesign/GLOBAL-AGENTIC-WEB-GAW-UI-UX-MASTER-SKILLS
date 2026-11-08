@@ -13,5 +13,19 @@
   "summary": "Shared language for designing a software factory: the tasks it runs and the services it plugs into.",
   "derived": [
     "summary"
+  ],
+  "whenToUse": [
+    "Use when designing or discussing a system of agents that turns tickets, PRs and schedules into merged, deployed code, to keep its terms consistent."
+  ],
+  "keywords": [
+    "agent pipeline",
+    "autonomous coding",
+    "orchestrator",
+    "ticket tracker",
+    "glossary"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

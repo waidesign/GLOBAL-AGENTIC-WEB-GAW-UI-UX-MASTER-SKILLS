@@ -24,6 +24,9 @@
     "writing",
     "data"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
@@ -31,7 +34,13 @@
     "verification",
     "whenToUse"
   ],
-  "permissions": [
-    "shell"
+  "keywords": [
+    "next.js performance",
+    "function duration",
+    "observability audit",
+    "cost report"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

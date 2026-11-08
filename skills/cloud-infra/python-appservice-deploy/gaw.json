@@ -11,24 +11,37 @@
     "licenseCheckedAt": "2026-11-08"
   },
   "summary": "Deploy Python (Flask/Django/FastAPI) code to Azure App Service Linux. WHEN: \\\"Flask App Service\\\", \\\"Django App Service\\\", \\\"FastAPI App Service\\\", \\\"deploy Python to App Service\\\".",
-  "whenToUse": [
+  "whenNotToUse": [
     "DO NOT USE FOR: Container Apps, Functions, non-Python, Terraform/Bicep/IaC, full infra — use azure-prepare."
+  ],
+  "verification": [
+    "Expected: state: Running, linuxFx: PYTHON|3.14 (Azure stores it in pipe form internally — normal), host: <app>.azurewebsites.net."
   ],
   "domains": [
     "cloud",
     "software"
+  ],
+  "permissions": [
+    "shell"
   ],
   "derived": [
     "domains",
     "permissions",
     "summary",
     "verification",
+    "whenNotToUse"
+  ],
+  "whenToUse": [
+    "Use when deploying Python web app code (Flask, Django or FastAPI) to Azure App Service on Linux without writing infrastructure code."
+  ],
+  "keywords": [
+    "python web hosting",
+    "az webapp",
+    "uvicorn",
+    "zip deploy"
+  ],
+  "drafts": [
+    "keywords",
     "whenToUse"
-  ],
-  "verification": [
-    "Expected: state: Running, linuxFx: PYTHON|3.14 (Azure stores it in pipe form internally — normal), host: <app>.azurewebsites.net."
-  ],
-  "permissions": [
-    "shell"
   ]
 }

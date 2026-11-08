@@ -19,5 +19,21 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when reviewing how a project installs, themes and extends shadcn/ui and Radix components, to write improvement plans for another agent to execute."
+  ],
+  "whenNotToUse": [
+    "Editing source code directly"
+  ],
+  "keywords": [
+    "component library audit",
+    "radix primitives",
+    "improvement plan"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

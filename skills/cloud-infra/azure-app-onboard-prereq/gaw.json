@@ -23,5 +23,19 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when checking whether an existing repository is ready to deploy to Azure before infrastructure work: build health, dependencies and stack compatibility."
+  ],
+  "keywords": [
+    "readiness check",
+    "deployment readiness",
+    "repo assessment",
+    "pre-deployment check",
+    "migration readiness"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

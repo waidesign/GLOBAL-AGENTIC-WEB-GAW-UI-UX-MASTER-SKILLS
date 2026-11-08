@@ -18,5 +18,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when generating songs, instrumentals, jingles or game loops on RunComfy, with help choosing between ElevenLabs Music and ACE Step."
+  ],
+  "keywords": [
+    "song generation",
+    "text to music",
+    "jingle",
+    "soundtrack"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

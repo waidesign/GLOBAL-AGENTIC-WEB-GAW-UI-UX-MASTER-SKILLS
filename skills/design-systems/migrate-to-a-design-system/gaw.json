@@ -23,5 +23,23 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when replacing hardcoded styles and legacy components with an existing design system's tokens and primitives, without changing how screens look."
+  ],
+  "whenNotToUse": [
+    "Creating a new design system when none is settled yet (build-design-system)"
+  ],
+  "keywords": [
+    "hardcoded values",
+    "token adoption",
+    "legacy ui cleanup",
+    "style refactor",
+    "pixel diff"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

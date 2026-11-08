@@ -28,5 +28,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "gpu node pool",
+    "dynamo",
+    "kuberay",
+    "model serving on kubernetes",
+    "inference provider"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

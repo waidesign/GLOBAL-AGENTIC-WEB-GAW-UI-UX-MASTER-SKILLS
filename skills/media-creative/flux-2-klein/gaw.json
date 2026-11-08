@@ -23,5 +23,21 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when generating images where fast iteration matters more than maximum resolution, or when the user asks for Flux 2 Klein by name."
+  ],
+  "whenNotToUse": [
+    "Maximum-resolution 2K-4K hero images (Seedream 5) or embedded text and logos (GPT Image 2)"
+  ],
+  "keywords": [
+    "text to image",
+    "fast image generation",
+    "art direction"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

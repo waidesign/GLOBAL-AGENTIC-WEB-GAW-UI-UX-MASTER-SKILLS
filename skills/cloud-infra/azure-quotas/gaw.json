@@ -27,6 +27,9 @@
     "cloud",
     "software"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
@@ -34,7 +37,14 @@
     "verification",
     "whenToUse"
   ],
-  "permissions": [
-    "shell"
+  "keywords": [
+    "subscription limits",
+    "capacity planning",
+    "core limits",
+    "az quota",
+    "deployment blocked"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

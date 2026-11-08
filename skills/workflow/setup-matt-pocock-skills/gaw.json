@@ -19,5 +19,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use once in a repo before the engineering skills are first used, to configure its issue tracker, triage labels and domain doc layout."
+  ],
+  "keywords": [
+    "repo setup",
+    "issue tracker config",
+    "triage labels",
+    "adr folder",
+    "glossary setup"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

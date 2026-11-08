@@ -17,5 +17,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when editing existing video on RunComfy: restyling, swapping a background or packaging, color grading, or transferring motion to another character."
+  ],
+  "keywords": [
+    "video restyle",
+    "background replacement",
+    "motion transfer",
+    "color grade",
+    "footage editing"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

@@ -18,5 +18,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when the conversation should be compacted into a document a fresh agent can pick up, for example before clearing context."
+  ],
+  "keywords": [
+    "session summary",
+    "context handoff",
+    "continue later",
+    "fresh context",
+    "compact conversation"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

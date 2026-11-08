@@ -11,7 +11,7 @@
     "licenseCheckedAt": "2026-11-08"
   },
   "summary": "Use Azure Advisor. WHEN: \\\"show recommendations\\\", \\\"top Advisor actions\\\", \\\"prioritize recommendations\\\", \\\"service retirements\\\", \\\"update status\\\".",
-  "whenToUse": [
+  "whenNotToUse": [
     "DO NOT USE FOR: fixes (use azure-advisor-actionability)."
   ],
   "domains": [
@@ -21,6 +21,20 @@
   "derived": [
     "domains",
     "summary",
+    "whenNotToUse"
+  ],
+  "whenToUse": [
+    "Use when listing, counting or prioritizing Azure Advisor recommendations, checking service retirements, or updating a recommendation's status."
+  ],
+  "keywords": [
+    "azure recommendations",
+    "best practice recommendations",
+    "retirement notices",
+    "dismiss recommendation",
+    "postpone recommendation"
+  ],
+  "drafts": [
+    "keywords",
     "whenToUse"
   ]
 }

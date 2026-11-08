@@ -19,5 +19,23 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when the user explicitly wants IRQL: composing security hunting pipelines from Get_, Extract_ and Enrich_ functions in Kusto."
+  ],
+  "whenNotToUse": [
+    "Generic security queries that don't ask for IRQL",
+    "General natural-language-to-KQL conversion"
+  ],
+  "keywords": [
+    "soc analyst",
+    "hunting query",
+    "incident triage",
+    "detection query"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

@@ -17,5 +17,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a spec has been split into tickets and subagents should implement the whole task graph on one integration branch."
+  ],
+  "keywords": [
+    "task graph",
+    "subagents",
+    "integration branch",
+    "parallel implementation",
+    "worktrees"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

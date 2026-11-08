@@ -19,13 +19,27 @@
   "domains": [
     "media"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
     "summary",
     "verification"
   ],
-  "permissions": [
-    "shell"
+  "whenToUse": [
+    "Use first before composing any HyperFrames animation or multi-scene video, so scenes flow as one continuous camera move."
+  ],
+  "keywords": [
+    "animation principles",
+    "scene transitions",
+    "motion design",
+    "video continuity",
+    "camera movement"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

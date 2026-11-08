@@ -22,5 +22,23 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when generating or editing images that need readable embedded text, logos or precise layout, or when the user asks for GPT Image 2 by name."
+  ],
+  "whenNotToUse": [
+    "Heavily stylized painterly images (Flux 2) or hyperrealistic portraits (Nano Banana Pro)"
+  ],
+  "keywords": [
+    "text to image",
+    "image editing",
+    "ad creative",
+    "ui mockup",
+    "signage"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

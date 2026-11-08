@@ -12,5 +12,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when converting colors to OKLCH, generating perceptually even palettes or dark mode colors, fixing contrast, or handling P3 gamut fallbacks in Tailwind v4."
+  ],
+  "keywords": [
+    "perceptual color",
+    "apca",
+    "color ramp",
+    "wide gamut",
+    "tailwind theme colors"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

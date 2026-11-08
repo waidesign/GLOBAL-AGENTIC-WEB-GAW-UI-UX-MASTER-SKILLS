@@ -19,5 +19,17 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when generating images from text or editing existing images on RunComfy, with help choosing the right model for the job."
+  ],
+  "keywords": [
+    "image editing",
+    "product photos",
+    "illustration"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

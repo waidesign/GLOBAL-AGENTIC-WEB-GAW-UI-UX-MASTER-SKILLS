@@ -22,5 +22,18 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "whenNotToUse": [
+    "Purely educational answers the user reads only to understand a topic"
+  ],
+  "keywords": [
+    "critical thinking",
+    "fact checking",
+    "ai fluency",
+    "verify claims"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse"
   ]
 }

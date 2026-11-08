@@ -15,9 +15,18 @@
   "whenToUse": [
     "Use when the user provides a changelog/digest markdown and wants the weekly video, or says \"changelog video\"."
   ],
+  "verification": [
+    "Mock containers with intentional stacking: data-layout-allow-overlap on",
+    "Dim text: rgba(245,246,244,.66) minimum (contrast gate).",
+    "Audio: every <audio> carries an id. BGM: the house track ships at",
+    "Preview server caches the bundle — RESTART after edits, then verify on the"
+  ],
   "domains": [
     "media",
     "business"
+  ],
+  "permissions": [
+    "shell"
   ],
   "derived": [
     "domains",
@@ -26,13 +35,14 @@
     "verification",
     "whenToUse"
   ],
-  "verification": [
-    "Mock containers with intentional stacking: data-layout-allow-overlap on",
-    "Dim text: rgba(245,246,244,.66) minimum (contrast gate).",
-    "Audio: every <audio> carries an id. BGM: the house track ships at",
-    "Preview server caches the bundle — RESTART after edits, then verify on the"
+  "keywords": [
+    "release notes video",
+    "product update video",
+    "weekly digest",
+    "voiceover",
+    "branded video"
   ],
-  "permissions": [
-    "shell"
+  "drafts": [
+    "keywords"
   ]
 }

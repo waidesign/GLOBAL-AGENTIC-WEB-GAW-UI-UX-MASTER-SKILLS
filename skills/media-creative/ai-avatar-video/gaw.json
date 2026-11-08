@@ -18,5 +18,17 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when turning a portrait plus audio or a script into a talking-head, lip-sync or virtual presenter video on RunComfy."
+  ],
+  "keywords": [
+    "dubbing",
+    "spokesperson video",
+    "ugc video"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

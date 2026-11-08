@@ -22,5 +22,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "throwaway code",
+    "spike",
+    "ui variations",
+    "state machine demo",
+    "proof of concept"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

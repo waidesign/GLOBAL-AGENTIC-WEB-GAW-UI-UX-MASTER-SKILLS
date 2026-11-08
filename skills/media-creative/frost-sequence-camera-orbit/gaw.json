@@ -18,5 +18,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a HyperFrames video needs an ice-themed logo and text sequence with an orbiting camera, shatter and reform transitions."
+  ],
+  "keywords": [
+    "logo reveal",
+    "ice effect",
+    "3d title sequence",
+    "particles",
+    "motion graphics"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

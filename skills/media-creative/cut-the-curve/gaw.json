@@ -17,5 +17,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when choosing or building transitions between scenes or text beats in a HyperFrames video, or animating title card arrivals and group slides."
+  ],
+  "keywords": [
+    "scene transitions",
+    "match cut",
+    "zoom transition",
+    "gsap easing",
+    "video editing"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

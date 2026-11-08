@@ -22,5 +22,19 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "whenNotToUse": [
+    "Agent projects built on Google ADK"
+  ],
+  "keywords": [
+    "langgraph agent",
+    "agent scaffold",
+    "python agent",
+    "cloud run agent",
+    "stategraph"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse"
   ]
 }

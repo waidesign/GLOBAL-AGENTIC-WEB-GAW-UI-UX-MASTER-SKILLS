@@ -18,5 +18,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a HyperFrames video needs a 3D title where glass shards fly in through fog and assemble into the headline."
+  ],
+  "keywords": [
+    "title card",
+    "text reveal",
+    "3d glass",
+    "shatter effect",
+    "motion graphics"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

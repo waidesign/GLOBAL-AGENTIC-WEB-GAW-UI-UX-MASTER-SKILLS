@@ -19,5 +19,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when exploring several design variations for a UI in the user's own app, collecting feedback, refining and then producing an implementation plan."
+  ],
+  "keywords": [
+    "design variations",
+    "ui exploration",
+    "mockups",
+    "a/b design options",
+    "design iteration"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

@@ -22,13 +22,13 @@
     "documents",
     "media"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
     "summary",
     "whenToUse"
-  ],
-  "permissions": [
-    "shell"
   ]
 }

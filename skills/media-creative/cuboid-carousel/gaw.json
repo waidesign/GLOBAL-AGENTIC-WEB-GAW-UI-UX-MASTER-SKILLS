@@ -17,5 +17,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a HyperFrames video needs a 3D carousel of cards riding on rotating cuboids, with a hero card hold."
+  ],
+  "keywords": [
+    "3d carousel",
+    "card showcase",
+    "feature showcase",
+    "three.js",
+    "motion graphics"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

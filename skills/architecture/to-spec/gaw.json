@@ -17,5 +17,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a feature has been discussed and should be written up as a spec with user stories and published to the issue tracker, without further interviewing."
+  ],
+  "keywords": [
+    "prd",
+    "requirements",
+    "user stories",
+    "product spec"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

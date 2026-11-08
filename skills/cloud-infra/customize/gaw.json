@@ -13,11 +13,17 @@
   "summary": "Interactive guided deployment flow for Azure OpenAI models with full customization control. Step-by-step selection of model version, SKU (GlobalStandard/Standard/ProvisionedManaged), capacity, RAI policy (content filter), and advanced options (dynamic quota, priority processing, spillover).",
   "whenToUse": [
     "USE FOR: custom deployment, customize model deployment, choose version, select SKU, set capacity, configure content filter, RAI policy, deployment options, detailed deployment, advanced deployment, PTU deployment, provisioned throughput.",
-    "DO NOT USE FOR: quick deployment to optimal region (use preset).",
     "✅ Choose specific model version (not just latest)",
     "✅ Select deployment SKU (GlobalStandard vs Standard vs PTU)",
     "✅ Set exact capacity within available range",
-    "✅ Configure content filtering (RAI policy selection)"
+    "✅ Configure content filtering (RAI policy selection)",
+    "✅ Enable advanced features (dynamic quota, priority processing, spillover)"
+  ],
+  "whenNotToUse": [
+    "DO NOT USE FOR: quick deployment to optimal region (use preset)."
+  ],
+  "verification": [
+    "If not logged in: az login Set subscription if needed: ---"
   ],
   "domains": [
     "cloud",
@@ -28,9 +34,15 @@
     "domains",
     "summary",
     "verification",
+    "whenNotToUse",
     "whenToUse"
   ],
-  "verification": [
-    "If not logged in: az login Set subscription if needed: ---"
+  "keywords": [
+    "azure openai deployment",
+    "model version pinning",
+    "deployment wizard"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

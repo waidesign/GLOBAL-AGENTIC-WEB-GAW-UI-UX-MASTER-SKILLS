@@ -13,7 +13,9 @@
   },
   "summary": "Use when deploying an existing web application or API to an already-running Azure Kubernetes Service cluster. Detects the framework, generates a Dockerfile and Kubernetes manifests, validates against AKS Deployment Safeguards, and deploys with verification.",
   "whenToUse": [
-    "Use when deploying an existing web application or API to an already-running Azure Kubernetes Service cluster.",
+    "Use when deploying an existing web application or API to an already-running Azure Kubernetes Service cluster."
+  ],
+  "whenNotToUse": [
     "DO NOT USE FOR: creating or provisioning an AKS cluster (use azure-kubernetes), assessing migration to AKS Automatic (use azure-kubernetes-automatic-readiness), or deploying to non-AKS targets like Web Apps, Container Apps, or Functions."
   ],
   "domains": [
@@ -23,6 +25,17 @@
   "derived": [
     "domains",
     "summary",
+    "whenNotToUse",
     "whenToUse"
+  ],
+  "keywords": [
+    "github actions",
+    "workload identity",
+    "container deployment",
+    "k8s yaml",
+    "rollback"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

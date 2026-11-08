@@ -11,17 +11,6 @@
     "licenseCheckedAt": "2026-11-08"
   },
   "summary": "Build and troubleshoot Azure AI Search, Speech, OpenAI, and Document Intelligence apps. WHEN: AI Search, query search, vector search, hybrid search, semantic search, speech-to-text, text-to-speech, transcribe, Speech SDK logs, session ID, result ID, OCR, convert text to speech.",
-  "domains": [
-    "cloud",
-    "software",
-    "ai"
-  ],
-  "derived": [
-    "domains",
-    "permissions",
-    "summary",
-    "verification"
-  ],
   "verification": [
     "Use managed identity for all Azure-hosted apps",
     "Never hardcode credentials, connection strings, or keys",
@@ -31,7 +20,32 @@
     "Rotate secrets and certificates on a schedule",
     "Enable Microsoft Defender for Cloud on production resources"
   ],
+  "domains": [
+    "cloud",
+    "software",
+    "ai"
+  ],
   "permissions": [
     "shell"
+  ],
+  "derived": [
+    "domains",
+    "permissions",
+    "summary",
+    "verification"
+  ],
+  "whenToUse": [
+    "Use when building or troubleshooting apps that use Azure AI Search, Speech (speech-to-text, text-to-speech), Azure OpenAI or Document Intelligence."
+  ],
+  "keywords": [
+    "cognitive services",
+    "embeddings",
+    "form extraction",
+    "speaker diarization",
+    "voice synthesis"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

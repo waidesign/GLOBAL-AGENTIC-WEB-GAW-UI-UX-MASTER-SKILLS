@@ -13,5 +13,19 @@
   "summary": "Stop. That last message did not land: re-pitch it.",
   "derived": [
     "summary"
+  ],
+  "whenToUse": [
+    "Use when the user did not understand the last message and wants it re-explained with more context in simplified technical English."
+  ],
+  "keywords": [
+    "explain again",
+    "clarify",
+    "plain language",
+    "confused",
+    "simplify explanation"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

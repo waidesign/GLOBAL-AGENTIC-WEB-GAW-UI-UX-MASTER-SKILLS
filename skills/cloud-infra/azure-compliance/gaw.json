@@ -11,6 +11,15 @@
     "licenseCheckedAt": "2026-11-08"
   },
   "summary": "Run Azure compliance and security audits with azqr plus Key Vault expiration checks. Covers best-practice assessment, resource review, policy/compliance validation, and security posture checks.",
+  "verification": [
+    "Use managed identity for all Azure-hosted apps",
+    "Never hardcode credentials, connection strings, or keys",
+    "Apply least-privilege RBAC roles at the narrowest scope",
+    "Use ManagedIdentityCredential (not DefaultAzureCredential) in production",
+    "Store any required secrets in Azure Key Vault",
+    "Rotate secrets and certificates on a schedule",
+    "Enable Microsoft Defender for Cloud on production resources"
+  ],
   "domains": [
     "cloud",
     "software",
@@ -21,13 +30,18 @@
     "summary",
     "verification"
   ],
-  "verification": [
-    "Use managed identity for all Azure-hosted apps",
-    "Never hardcode credentials, connection strings, or keys",
-    "Apply least-privilege RBAC roles at the narrowest scope",
-    "Use ManagedIdentityCredential (not DefaultAzureCredential) in production",
-    "Store any required secrets in Azure Key Vault",
-    "Rotate secrets and certificates on a schedule",
-    "Enable Microsoft Defender for Cloud on production resources"
+  "whenToUse": [
+    "Use when auditing Azure resources for compliance and security best practices with azqr, or checking Key Vault keys, secrets and certificates for expiry."
+  ],
+  "keywords": [
+    "governance audit",
+    "azure quick review",
+    "secret rotation",
+    "resource graph",
+    "audit report"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

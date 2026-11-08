@@ -12,9 +12,11 @@
   },
   "summary": "Lookup documented AKS fixes only when the prompt includes an exact catalog signature and all of its qualifiers: VMCannotFitEphemeralOSDisk; NodePoolMcVersionIncompatible; 'NodeImageVersion is not accepted'; AKS SkuNotAvailable with size, location, and zone; ZonalAllocationFailed with…",
   "whenToUse": [
-    "Never use for quota errors, code-only or bare wrappers, generic symptoms, incomplete signatures, or failures outside AKS; use aks-troubleshooting or azure-diagnostics.",
     "Named catalog signatures only.",
     "Generic AKS → aks-troubleshooting; non-AKS → no AKS skill."
+  ],
+  "whenNotToUse": [
+    "Never use for quota errors, code-only or bare wrappers, generic symptoms, incomplete signatures, or failures outside AKS; use aks-troubleshooting or azure-diagnostics."
   ],
   "domains": [
     "cloud",
@@ -24,6 +26,17 @@
   "derived": [
     "domains",
     "summary",
+    "whenNotToUse",
     "whenToUse"
+  ],
+  "keywords": [
+    "aks error codes",
+    "deployment failure",
+    "provisioning error",
+    "known fixes",
+    "error catalog"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

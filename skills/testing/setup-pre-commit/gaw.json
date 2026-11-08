@@ -29,5 +29,14 @@
     "summary",
     "verification",
     "whenToUse"
+  ],
+  "keywords": [
+    "git hooks",
+    "commit checks",
+    "code formatting",
+    "typecheck on commit"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

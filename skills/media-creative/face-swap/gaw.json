@@ -18,5 +18,22 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when swapping a face or character into an image or video on RunComfy, after confirming rights to both the face and the source media."
+  ],
+  "whenNotToUse": [
+    "Swapping a face without rights to it, or into defamatory or sexually explicit material"
+  ],
+  "keywords": [
+    "character replacement",
+    "synthetic media",
+    "actor replacement",
+    "identity transfer"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

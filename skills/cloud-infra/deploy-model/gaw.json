@@ -12,7 +12,9 @@
   },
   "summary": "Unified Azure OpenAI model deployment skill with intelligent intent-based routing. Handles quick preset deployments, fully customized deployments (version/SKU/capacity/RAI policy), and capacity discovery across regions and projects.",
   "whenToUse": [
-    "USE FOR: deploy model, deploy gpt, create deployment, model deployment, deploy openai model, set up model, provision model, find capacity, check model availability, where can I deploy, best region for model, capacity analysis.",
+    "USE FOR: deploy model, deploy gpt, create deployment, model deployment, deploy openai model, set up model, provision model, find capacity, check model availability, where can I deploy, best region for model, capacity analysis."
+  ],
+  "whenNotToUse": [
     "DO NOT USE FOR: listing existing deployments (use foundry_models_deployments_list MCP tool), deleting deployments, agent creation (use agent/create), project creation (use project/create)."
   ],
   "verification": [
@@ -24,14 +26,24 @@
     "software",
     "ai"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
     "summary",
     "verification",
+    "whenNotToUse",
     "whenToUse"
   ],
-  "permissions": [
-    "shell"
+  "keywords": [
+    "llm hosting",
+    "model rollout",
+    "foundry model deployment",
+    "out-of-band deployment"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

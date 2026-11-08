@@ -31,14 +31,14 @@
     "research",
     "data"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
     "summary",
     "verification",
     "whenToUse"
-  ],
-  "permissions": [
-    "shell"
   ]
 }

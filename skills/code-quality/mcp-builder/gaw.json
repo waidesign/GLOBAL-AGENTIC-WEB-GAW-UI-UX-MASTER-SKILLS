@@ -18,13 +18,22 @@
     "software",
     "ai"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
     "summary",
     "whenToUse"
   ],
-  "permissions": [
-    "shell"
+  "keywords": [
+    "tool server",
+    "agent tools",
+    "api integration for llms",
+    "tool design"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

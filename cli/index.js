@@ -12,6 +12,7 @@ import { applyLicense, planSplit, applySplit, canModify, writeSkillFolder, readS
 import { enrichContract, rankabilityLevel, LEVEL_NAMES } from '../core/skill-registry/rankability.js';
 import { selectSkills, deselectSkills, writeCatalog, loadProjectContext } from '../core/project-context/ProjectContext.js';
 import { writeGlobalBrainSnapshot, SNAPSHOT_FILE } from '../core/project-context/globalBrainLink.js';
+import { listDrafts, approveDrafts, rejectDrafts } from '../core/skill-registry/drafts.js';
 import { SkillDiscovery } from '../core/skill-discovery/SkillDiscovery.js';
 import { SkillOrchestrator } from '../core/orchestrator/SkillOrchestrator.js';
 import { PresetRegistry } from '../core/preset-registry/PresetRegistry.js';
@@ -262,6 +263,7 @@ export class GawCli {
     if (args[0] === 'select') return this.cmdSkillsSelect(args.slice(1));
     if (args[0] === 'deselect') return this.cmdSkillsDeselect(args.slice(1));
     if (args[0] === 'selected') return this.cmdSkillsSelected();
+    if (args[0] === 'review') return this.cmdSkillsReview(args.slice(1));
 
     this.printHeader();
     const category = args[0];
@@ -633,6 +635,7 @@ export class GawCli {
    */
   async cmdSkillsEnrich(args) {
     const apply = args.includes('--apply');
+    const refresh = args.includes('--refresh'); // recompute previously derived fields
     const skills = (await this.registry.getAllSkills()).filter(s => s.format === 'gss');
     const fieldCounts = {};
     const before = [0, 0, 0, 0];
@@ -641,7 +644,7 @@ export class GawCli {
 
     for (const skill of skills) {
       before[rankabilityLevel(skill).level]++;
-      const { contract, filled } = enrichContract(skill);
+      const { contract, filled } = enrichContract(skill, { refresh });
       after[rankabilityLevel({ ...skill, contract }).level]++;
       if (!filled.length) continue;
       changed++;
@@ -731,6 +734,48 @@ export class GawCli {
     console.log(`Global Brain:   ${ctx.globalBrain}`);
     for (const w of ctx.warnings) console.log(`⚠ ${w}`);
     console.log();
+  }
+
+  /**
+   * gaw skills review [<name> | --all] [--approve <name|all>] [--reject <name|all>] [--field <f>]
+   * Show AI-drafted fields waiting for review; approve them (they start counting for
+   * ranking) or reject them (deleted). Drafts never count until approved.
+   */
+  async cmdSkillsReview(args) {
+    const { values, positional } = this.parseOptions(args, ['--approve', '--reject', '--field']);
+    const skills = await this.registry.getAllSkills();
+    const withDrafts = skills.filter(s => s.format === 'gss' && (s.contract?.drafts || []).length);
+    const fields = values.field ? [values.field] : null;
+
+    const act = (target, fn, verb) => {
+      const list = target === 'all' ? withDrafts : withDrafts.filter(s => s.id === target);
+      if (!list.length) {
+        console.log(target === 'all' ? 'No drafts waiting for review.' : `No drafts for "${target}".`);
+        return;
+      }
+      let count = 0;
+      for (const s of list) count += fn(s.dir, fields).length;
+      this.registry.writeIndex();
+      console.log(`✓ ${verb} ${count} drafted field(s) in ${list.length} skill(s).`);
+    };
+    if (values.approve) return act(values.approve, approveDrafts, 'Approved');
+    if (values.reject) return act(values.reject, rejectDrafts, 'Rejected');
+
+    const shown = args.includes('--all') || !positional[0] ? withDrafts : withDrafts.filter(s => s.id === positional[0]);
+    if (!shown.length) {
+      console.log(withDrafts.length ? `No drafts for "${positional[0]}".` : 'No drafts waiting for review.');
+      return;
+    }
+    for (const s of shown) {
+      console.log(`\n${s.id}  (${s.category})`);
+      console.log(`  ${String(s.description).slice(0, 160)}${s.description.length > 160 ? '…' : ''}`);
+      for (const [field, value] of Object.entries(listDrafts(s.contract))) {
+        console.log(`  ${field}:`);
+        for (const v of value) console.log(`    - ${v}`);
+      }
+    }
+    console.log(`\n${shown.length} skill(s) with drafts. Approve: gaw skills review --approve <name|all> [--field keywords]`);
+    console.log(`Reject:  gaw skills review --reject <name|all> [--field whenNotToUse]`);
   }
 
   /** gaw skills index: rebuild skills/index.json after adding or editing skills. */
@@ -1219,6 +1264,7 @@ export class GawCli {
     console.log(`  skills select <name...> [--reason r]  Use library skills in this project (skills.lock.json)`);
     console.log(`  skills deselect <name...>  Stop using skills in this project`);
     console.log(`  skills selected       List the skills this project uses`);
+    console.log(`  skills review [name|--all] [--approve|--reject <name|all>]  Review AI-drafted ranking fields`);
     console.log(`  context [--json]      Everything GAW knows about this project (goal, rules, skills, graph)`);
     console.log(`  skills licenses [--apply]  Check each skill's license at its source`);
     console.log(`  skills split <name|--all> [--apply]  Move long parts of oversized skills into references/`);

@@ -22,5 +22,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "ui audit",
+    "design critique",
+    "usability check",
+    "interface review",
+    "best practices check"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

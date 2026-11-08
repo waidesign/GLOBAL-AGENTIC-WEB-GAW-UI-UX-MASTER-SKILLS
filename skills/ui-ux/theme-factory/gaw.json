@@ -20,5 +20,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when applying a consistent color and font theme to slides, documents, reports or HTML pages, from 10 preset themes or a new one."
+  ],
+  "keywords": [
+    "color palette",
+    "font pairing",
+    "slide styling",
+    "presentation theme",
+    "document styling"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

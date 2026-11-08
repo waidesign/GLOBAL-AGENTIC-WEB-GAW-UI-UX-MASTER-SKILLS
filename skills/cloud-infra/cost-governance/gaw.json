@@ -12,8 +12,10 @@
   },
   "summary": "Govern Azure costs with budgets, alerts, tags, and policy restrictions. WHEN: \\\"Azure budget health\\\", \\\"configured budget overrun\\\", \\\"list Azure budgets\\\", \\\"create Azure budget\\\", \\\"budget alerts\\\", \\\"budget coverage\\\", \\\"missing CostCenter tags\\\", \\\"allowed VM SKUs\\\", \\\"allowed Azure…",
   "whenToUse": [
-    "DO NOT USE FOR: planning-target forecasts, bill investigations, pricing, rightsizing, or commitments.",
     "Use for budgets, alerts, tags, and policy."
+  ],
+  "whenNotToUse": [
+    "DO NOT USE FOR: planning-target forecasts, bill investigations, pricing, rightsizing, or commitments."
   ],
   "domains": [
     "cloud",
@@ -23,6 +25,16 @@
   "derived": [
     "domains",
     "summary",
+    "whenNotToUse",
     "whenToUse"
+  ],
+  "keywords": [
+    "finops",
+    "spending limits",
+    "cost policy",
+    "tagging policy"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

@@ -17,5 +17,17 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when generating an image or video that must follow a reference pose, skeleton or motion, such as transferring a dance onto a new character."
+  ],
+  "keywords": [
+    "motion transfer",
+    "dance video",
+    "pose reference"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

@@ -23,5 +23,17 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "whenNotToUse": [
+    "Edits that are not about lighting (use a general image edit)"
+  ],
+  "keywords": [
+    "lighting change",
+    "product photography",
+    "photo mood"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse"
   ]
 }

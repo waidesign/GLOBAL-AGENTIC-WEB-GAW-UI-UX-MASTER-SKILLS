@@ -13,11 +13,14 @@
   "summary": "Prepare azd-based Azure projects for deployment: generates azure.yaml, infrastructure (Bicep/Terraform), and Dockerfiles for the Azure Developer CLI (azd) workflow. USE ONLY when the user explicitly wants to use azd as the deployment tool, or the project already has an azure.yaml file.",
   "whenToUse": [
     "USE ONLY when the user explicitly wants to use azd as the deployment tool, or the project already has an azure.yaml file.",
-    "DO NOT USE FOR: non-azd deployments, Python App Service code-only deploys (use python-appservice-deploy), or cross-cloud migration (use azure-cloud-migrate).",
     "Create a new application",
     "Add services or components to an existing app",
     "Make updates or changes to existing application",
-    "Modernize or migrate an application"
+    "Modernize or migrate an application",
+    "Set up Azure infrastructure"
+  ],
+  "whenNotToUse": [
+    "DO NOT USE FOR: non-azd deployments, Python App Service code-only deploys (use python-appservice-deploy), or cross-cloud migration (use azure-cloud-migrate)."
   ],
   "verification": [
     "BEFORE starting Phase 1, check if the user's prompt OR workspace codebase matches a specialized technology that has a dedicated skill with tested templates.",
@@ -31,6 +34,16 @@
     "domains",
     "summary",
     "verification",
+    "whenNotToUse",
     "whenToUse"
+  ],
+  "keywords": [
+    "scaffold azure project",
+    "infrastructure templates",
+    "deployment plan",
+    "containerize app"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

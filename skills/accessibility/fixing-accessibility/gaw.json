@@ -25,5 +25,16 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "a11y",
+    "screen reader support",
+    "focus trap",
+    "tab order",
+    "icon button label",
+    "accessible name"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

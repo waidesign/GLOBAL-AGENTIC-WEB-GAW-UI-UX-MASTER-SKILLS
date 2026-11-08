@@ -22,5 +22,19 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when a plan or spec needs to be broken into small, independently verifiable tickets with blocking dependencies."
+  ],
+  "keywords": [
+    "vertical slices",
+    "task breakdown",
+    "issues",
+    "backlog",
+    "work breakdown"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

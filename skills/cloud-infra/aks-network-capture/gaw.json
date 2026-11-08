@@ -19,13 +19,22 @@
     "cloud",
     "software"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
     "summary",
     "whenToUse"
   ],
-  "permissions": [
-    "shell"
+  "keywords": [
+    "packet sniffing",
+    "network trace",
+    "traffic capture",
+    "packet loss evidence"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

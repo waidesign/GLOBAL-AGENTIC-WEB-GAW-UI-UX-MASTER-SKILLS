@@ -17,5 +17,14 @@
   "derived": [
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "creative coding",
+    "procedural art",
+    "noise field",
+    "p5 sketch"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

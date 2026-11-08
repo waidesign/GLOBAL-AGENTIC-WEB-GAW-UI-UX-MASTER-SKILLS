@@ -22,5 +22,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when designing feedback animations for buttons, toggles, form validation, dialogs or notifications within tight timing budgets."
+  ],
+  "keywords": [
+    "button press animation",
+    "hover effects",
+    "ui feedback",
+    "spring animation",
+    "form validation feedback"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

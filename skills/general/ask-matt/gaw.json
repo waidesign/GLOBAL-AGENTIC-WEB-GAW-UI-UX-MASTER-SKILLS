@@ -13,5 +13,18 @@
   "summary": "Ask which skill or flow fits your situation. A router over the skills in this repo.",
   "derived": [
     "summary"
+  ],
+  "whenToUse": [
+    "Use when unsure which skill or workflow in this skill collection fits the current situation, from idea through spec, tickets and implementation."
+  ],
+  "keywords": [
+    "skill router",
+    "workflow guide",
+    "idea to ship",
+    "skill map"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

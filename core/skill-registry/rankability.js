@@ -111,10 +111,21 @@ function sectionItems(text, headingRe, max) {
   return [];
 }
 
-/** Sentences of a description that say when to use the skill. */
+// "DO NOT USE FOR: …", "Never use for …", "… not for general …": limits, not uses
+const NOT_USE_TRIGGER = /\b(do not|don'?t|never|not to)\s+use\b|\bnot (for|as)\b|\buse \w+ instead\b/i;
+
+/** Sentences of a description that say when to use the skill (never the "do not use" ones). */
 function whenSentences(description) {
   return splitSentences(description)
-    .filter(s => USE_TRIGGER.test(s))
+    .filter(s => USE_TRIGGER.test(s) && !NOT_USE_TRIGGER.test(s))
+    .map(s => s.slice(0, 240))
+    .slice(0, 3);
+}
+
+/** Sentences of a description that say when NOT to use the skill. */
+function whenNotSentences(description) {
+  return splitSentences(description)
+    .filter(s => NOT_USE_TRIGGER.test(s))
     .map(s => s.slice(0, 240))
     .slice(0, 3);
 }
@@ -126,9 +137,14 @@ function whenSentences(description) {
  * Keywords are not derived: synonyms must come from authors (or reviewed drafts).
  * Returns { contract, filled: [fieldNames] }.
  */
-export function enrichContract(skill) {
+export function enrichContract(skill, options = {}) {
   const contract = { ...(skill.contract || {}) };
   const filled = [];
+  // refresh: recompute fields GAW derived earlier (author-written fields are never in `derived`)
+  if (options.refresh) {
+    for (const field of contract.derived || []) delete contract[field];
+    delete contract.derived;
+  }
   const set = (field, value) => {
     const empty = contract[field] === undefined || contract[field] === '' || (Array.isArray(contract[field]) && contract[field].length === 0);
     if (!empty || value === undefined || value === '' || (Array.isArray(value) && value.length === 0)) return;
@@ -149,8 +165,12 @@ export function enrichContract(skill) {
   ];
   set('whenToUse', [...new Set(whenToUse)].slice(0, 6));
 
-  // whenNotToUse: only explicit "when not to use" style sections
-  set('whenNotToUse', sectionItems(text, /^(when not to use|when to avoid|do not use|don'?t use|not for)\b/i, 6));
+  // whenNotToUse: explicit "do not use" sentences in the description, or a "when not to use" section
+  const whenNot = [
+    ...whenNotSentences(skill.description),
+    ...sectionItems(text, /^(when not to use|when to avoid|do not use|don'?t use|not for)\b/i, 6)
+  ];
+  set('whenNotToUse', [...new Set(whenNot)].slice(0, 6));
 
   // verification: checklist / verification sections
   set('verification', sectionItems(text, /\b(checklist|checks?|verif\w*|validat\w*|quality gates?|acceptance criteria|definition of done)\b/i, 8));

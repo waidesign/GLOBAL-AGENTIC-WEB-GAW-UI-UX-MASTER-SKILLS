@@ -12,11 +12,18 @@
     "filesLeftAtSource": 6
   },
   "summary": "Bring existing video code or footage into HyperFrames and verify it frame by frame against the original - Remotion first, also Motion Canvas, Lottie, Three.js, p5.js, canvas or plain HTML/CSS animation, or renders from Manim, After Effects or Blender. Use to port, convert, migrate or reuse work…",
+  "whenToUse": [
+    "For transitions Remotion presets that have visually-rich GLSL equivalents (iris, ripple, zoom, glitch), use HF's shader-transitions package.",
+    "They produce richer output than manual GSAP transforms."
+  ],
   "verification": [
     "Write what didn't translate cleanly (dropped volume ramps, approximated presentations, substituted fonts) to TRANSLATION_NOTES.md."
   ],
   "domains": [
     "media"
+  ],
+  "permissions": [
+    "shell"
   ],
   "derived": [
     "domains",
@@ -25,11 +32,14 @@
     "verification",
     "whenToUse"
   ],
-  "whenToUse": [
-    "For transitions Remotion presets that have visually-rich GLSL equivalents (iris, ripple, zoom, glitch), use HF's shader-transitions package.",
-    "They produce richer output than manual GSAP transforms."
+  "keywords": [
+    "video code migration",
+    "lottie import",
+    "after effects import",
+    "framework switch",
+    "port animation"
   ],
-  "permissions": [
-    "shell"
+  "drafts": [
+    "keywords"
   ]
 }

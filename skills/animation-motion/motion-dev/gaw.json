@@ -26,5 +26,19 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when adding animations to React apps with the motion library (formerly Framer Motion): springs, exit animations, shared layout transitions and gestures."
+  ],
+  "keywords": [
+    "animatepresence",
+    "layoutid",
+    "exit animation",
+    "whilehover",
+    "reduced motion"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

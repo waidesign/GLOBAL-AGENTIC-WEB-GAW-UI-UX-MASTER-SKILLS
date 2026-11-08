@@ -22,5 +22,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "design interview",
+    "decision tree",
+    "challenge assumptions",
+    "requirements interview",
+    "stress test plan"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

@@ -22,5 +22,19 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when generating video lip-synced to an audio track you supply, or with multi-reference motion control, or when the user asks for Wan 2.7."
+  ],
+  "keywords": [
+    "text to video",
+    "lip sync",
+    "alibaba video",
+    "ai video",
+    "motion control"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

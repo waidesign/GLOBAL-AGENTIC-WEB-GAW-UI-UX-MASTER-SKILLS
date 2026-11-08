@@ -24,5 +24,13 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "documentation lookup",
+    "fact finding",
+    "background research"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

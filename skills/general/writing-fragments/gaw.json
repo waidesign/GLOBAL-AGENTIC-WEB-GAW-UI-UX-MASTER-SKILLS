@@ -17,5 +17,23 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when starting a piece of writing and the user wants to be interviewed to collect raw ideas and lines, before any outline exists."
+  ],
+  "whenNotToUse": [
+    "Imposing an outline or article structure (writing-shape or writing-beats)"
+  ],
+  "keywords": [
+    "brainstorm",
+    "idea capture",
+    "notes",
+    "essay writing",
+    "blog post"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

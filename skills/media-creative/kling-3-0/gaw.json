@@ -17,5 +17,17 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when generating text-to-video or image-to-video with Kling 3.0, choosing between its Standard, Pro and 4K tiers."
+  ],
+  "keywords": [
+    "ai video",
+    "4k video",
+    "cinematic video"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

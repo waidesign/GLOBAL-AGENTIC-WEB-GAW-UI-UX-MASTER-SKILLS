@@ -15,6 +15,9 @@
     "Apply IRQL graph functions to KQL or IRQL query results for Kusto Explorer visualization.",
     "Use azure-kusto-graph for native make-graph analysis, graph-match, shortest paths, components, or persistent graphs."
   ],
+  "verification": [
+    "If any required function is missing, deploy it using the .create-or-alter commands below."
+  ],
   "domains": [
     "cloud",
     "software"
@@ -25,7 +28,13 @@
     "verification",
     "whenToUse"
   ],
-  "verification": [
-    "If any required function is missing, deploy it using the .create-or-alter commands below."
+  "keywords": [
+    "graph visualization",
+    "attack path view",
+    "entity relationships",
+    "investigation graph"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

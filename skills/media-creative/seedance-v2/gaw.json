@@ -21,5 +21,18 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when generating a short cinematic video from image, video and audio references with natural lip-sync, or when the user asks for Seedance 2."
+  ],
+  "keywords": [
+    "spokesperson ad",
+    "lip sync",
+    "ai video",
+    "dialogue video"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

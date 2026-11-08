@@ -18,5 +18,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use after a coding session to find improvements to the agent's environment: navigation, automated checks, coding rules and docs."
+  ],
+  "keywords": [
+    "lessons learned",
+    "post-mortem",
+    "agent improvement",
+    "guardrails"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

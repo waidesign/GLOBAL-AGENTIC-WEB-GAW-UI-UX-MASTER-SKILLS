@@ -23,5 +23,19 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when enforcing package boundaries in a TypeScript repo so other code can only import each package's entry points."
+  ],
+  "keywords": [
+    "monorepo boundaries",
+    "import rules",
+    "encapsulation",
+    "dependency cycles",
+    "lint imports"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

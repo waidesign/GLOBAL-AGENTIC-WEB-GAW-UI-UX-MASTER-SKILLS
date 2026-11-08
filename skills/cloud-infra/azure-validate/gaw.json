@@ -35,5 +35,14 @@
     "summary",
     "verification",
     "whenToUse"
+  ],
+  "keywords": [
+    "deployment check",
+    "rbac verification",
+    "iac validation",
+    "readiness gate"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

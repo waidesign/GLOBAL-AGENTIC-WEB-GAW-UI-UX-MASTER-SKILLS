@@ -18,5 +18,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when generating songs or instrumentals from genre and mood tags and lyrics with ACE Step on RunComfy, or regenerating or extending part of a track."
+  ],
+  "keywords": [
+    "song generation",
+    "text to music",
+    "lyrics to song",
+    "audio inpainting",
+    "background music"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

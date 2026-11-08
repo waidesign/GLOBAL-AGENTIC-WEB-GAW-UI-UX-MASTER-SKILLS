@@ -11,15 +11,6 @@
     "licenseCheckedAt": "2026-11-08"
   },
   "summary": "The HyperFrames CLI by job - scaffold, check, look at frames, edit the timeline, preview, render locally or in the cloud, publish, project history - plus reading its JSON and recovering from build or render failures.",
-  "domains": [
-    "media"
-  ],
-  "derived": [
-    "domains",
-    "summary",
-    "verification",
-    "whenToUse"
-  ],
   "whenToUse": [
     "hyperframes render (local): fastest iteration loop, use while authoring. Previews, snapshots and draft checks stay local.",
     "hyperframes cloud render: zero-infra. HeyGen runs the render under the selected credential's allowance or billing. This is the default answer to \"render in the cloud\" when you don't want to manage Chrome/FFmpeg/AWS.",
@@ -35,5 +26,24 @@
     "Craft: warnings only, even under --strict (a film may break one on purpose), measured on an 8 fps sweep of the whole film and skipped under --range. Each message names the fix and the reference to read.",
     "text_below_floor: text under 2.6% of the frame's short side (28 px on 1080) held 0.5 s or more, one finding per file listing every element.",
     "first_frame_empty: frame 0 paints nothing but the background (no text, image, video, canvas or svg), or an opaque element covers every other clip and the message names it; it is the thumbnail on social players."
+  ],
+  "domains": [
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenToUse"
+  ],
+  "keywords": [
+    "npx hyperframes",
+    "render video",
+    "timeline editing",
+    "cloud render",
+    "lint video"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

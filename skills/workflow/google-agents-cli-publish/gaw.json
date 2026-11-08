@@ -13,7 +13,9 @@
   "summary": "This skill should be used when the user wants to \"publish an agent\", \"publish my ADK agent\", \"register an agent with Gemini\", \"publish to Gemini\" (formerly Gemini Enterprise), or needs guidance on the agents-cli publish gemini command. Also use when the user wants to \"manage agents in Agent…",
   "whenToUse": [
     "This skill should be used when the user wants to \"publish an agent\", \"publish my ADK agent\", \"register an agent with Gemini\", \"publish to Gemini\" (formerly Gemini Enterprise), or needs guidance on the agents-cli publish gemini command.",
-    "Also use when the user wants to \"manage agents in Agent Registry\", \"list/update/delete registered agents\", or \"register an MCP server\".",
+    "Also use when the user wants to \"manage agents in Agent Registry\", \"list/update/delete registered agents\", or \"register an MCP server\"."
+  ],
+  "whenNotToUse": [
     "Do NOT use for deployment (use google-agents-cli-deploy)."
   ],
   "domains": [
@@ -23,6 +25,16 @@
   "derived": [
     "domains",
     "summary",
+    "whenNotToUse",
     "whenToUse"
+  ],
+  "keywords": [
+    "agent marketplace",
+    "mcp server registration",
+    "agent catalog",
+    "agent discovery"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

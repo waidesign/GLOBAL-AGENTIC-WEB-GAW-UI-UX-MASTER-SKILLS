@@ -18,5 +18,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when designing mobile app screens from a brief with the Sleek API, editing a Sleek project, or turning its screens into React Native or HTML code."
+  ],
+  "keywords": [
+    "mobile ui design",
+    "expo",
+    "sleek api",
+    "mobile mockup"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

@@ -27,5 +27,19 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when a HyperFrames launch video scene involves a pointer or click, kicks off a UI demo, or feels static and needs motion to guide the eye."
+  ],
+  "keywords": [
+    "mouse pointer animation",
+    "click animation",
+    "ui demo video",
+    "product launch video",
+    "screen recording style"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

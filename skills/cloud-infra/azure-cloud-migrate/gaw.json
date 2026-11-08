@@ -18,5 +18,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when moving an existing workload from AWS, Google Cloud or Heroku to Azure, with an assessment first and then code conversion."
+  ],
+  "keywords": [
+    "aws migration",
+    "gcp to azure",
+    "replatform",
+    "migration assessment",
+    "cross-cloud move"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

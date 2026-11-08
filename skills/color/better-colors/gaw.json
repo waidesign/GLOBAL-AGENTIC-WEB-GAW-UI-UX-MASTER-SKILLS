@@ -12,5 +12,23 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when generating color ramps, mapping steps to semantic token roles, converting color notation, or measuring the contrast of rendered color pairs."
+  ],
+  "whenNotToUse": [
+    "Deciding whether a pair must pass accessibility (better-accessibility) or styling surfaces, shadows and icon color (better-ui)"
+  ],
+  "keywords": [
+    "color ramp",
+    "oklch",
+    "dark mode palette",
+    "color scale",
+    "gamut"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

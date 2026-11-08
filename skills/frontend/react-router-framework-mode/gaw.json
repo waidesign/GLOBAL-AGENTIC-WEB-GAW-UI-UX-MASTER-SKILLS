@@ -17,5 +17,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "remix",
+    "file-based routing",
+    "ssr",
+    "data loader",
+    "form mutations"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

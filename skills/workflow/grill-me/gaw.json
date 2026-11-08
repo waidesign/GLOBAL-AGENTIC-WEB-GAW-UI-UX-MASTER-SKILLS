@@ -18,5 +18,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when the user wants a plan or design questioned hard, one round of questions at a time, until every decision is settled."
+  ],
+  "keywords": [
+    "stress test plan",
+    "challenge my idea",
+    "design interview",
+    "devil's advocate",
+    "decision review"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

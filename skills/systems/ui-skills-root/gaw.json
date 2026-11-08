@@ -25,5 +25,18 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "whenNotToUse": [
+    "Tasks that are not UI-related"
+  ],
+  "keywords": [
+    "skill router",
+    "ui context",
+    "frontend skills",
+    "skill selection"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse"
   ]
 }

@@ -31,5 +31,15 @@
     "summary",
     "verification",
     "whenToUse"
+  ],
+  "keywords": [
+    "setup script",
+    "manual checklist",
+    "env file setup",
+    "github secrets",
+    "guided procedure"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

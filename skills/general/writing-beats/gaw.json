@@ -17,5 +17,23 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when turning a fixed pile of raw notes into an article one beat at a time, choosing each next step from a few candidates."
+  ],
+  "whenNotToUse": [
+    "Gathering raw material when the exploring is not done yet (writing-fragments)"
+  ],
+  "keywords": [
+    "article draft",
+    "narrative structure",
+    "essay writing",
+    "blog post",
+    "storytelling"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

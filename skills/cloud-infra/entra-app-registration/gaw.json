@@ -13,8 +13,13 @@
   },
   "summary": "Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration. USE FOR: create app registration, register Azure AD app, configure OAuth, set up authentication, add API permissions, generate service principal, MSAL example, console app auth, Entra ID setup, Azure AD…",
   "whenToUse": [
-    "USE FOR: create app registration, register Azure AD app, configure OAuth, set up authentication, add API permissions, generate service principal, MSAL example, console app auth, Entra ID setup, Azure AD authentication.",
+    "USE FOR: create app registration, register Azure AD app, configure OAuth, set up authentication, add API permissions, generate service principal, MSAL example, console app auth, Entra ID setup, Azure AD authentication."
+  ],
+  "whenNotToUse": [
     "DO NOT USE FOR: Key Vault secrets (use azure-keyvault-expiration-audit), general Azure resource security guidance."
+  ],
+  "verification": [
+    "Portal: Look for green checkmarks in \"Status\" column CLI: Look for consentType: \"AllPrincipals\" (admin consented)"
   ],
   "domains": [
     "cloud",
@@ -25,9 +30,17 @@
     "domains",
     "summary",
     "verification",
+    "whenNotToUse",
     "whenToUse"
   ],
-  "verification": [
-    "Portal: Look for green checkmarks in \"Status\" column CLI: Look for consentType: \"AllPrincipals\" (admin consented)"
+  "keywords": [
+    "single sign-on",
+    "client secret",
+    "redirect uri",
+    "identity platform",
+    "login with microsoft"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

@@ -18,5 +18,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when generating videos from text or an image, or extending a video, on RunComfy, with help choosing the right video model."
+  ],
+  "keywords": [
+    "ad creative",
+    "promo video",
+    "social video",
+    "short-form video"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

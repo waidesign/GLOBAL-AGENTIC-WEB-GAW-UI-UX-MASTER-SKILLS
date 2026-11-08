@@ -18,13 +18,23 @@
     "media",
     "business"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
     "summary",
     "whenToUse"
   ],
-  "permissions": [
-    "shell"
+  "keywords": [
+    "design import",
+    "brand assets",
+    "design tokens",
+    "figma api",
+    "logo export"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

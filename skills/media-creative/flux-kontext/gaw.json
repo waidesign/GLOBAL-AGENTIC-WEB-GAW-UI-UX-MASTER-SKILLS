@@ -22,5 +22,21 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when making a precise local edit to one image while keeping the subject's identity, or when the user asks for Flux Kontext by name."
+  ],
+  "whenNotToUse": [
+    "Batch edits across many images (Nano Banana Edit) or generating from scratch without a source image (Flux 2 Klein)"
+  ],
+  "keywords": [
+    "image editing",
+    "photo edit",
+    "inpainting"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

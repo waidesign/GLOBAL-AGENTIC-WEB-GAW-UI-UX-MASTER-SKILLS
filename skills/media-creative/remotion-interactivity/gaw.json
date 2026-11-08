@@ -17,5 +17,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when structuring Remotion components so users can select, move, trim and style timeline items and edit props in Studio."
+  ],
+  "keywords": [
+    "editable timeline",
+    "studio props",
+    "schema fields",
+    "keyframes",
+    "video editor"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

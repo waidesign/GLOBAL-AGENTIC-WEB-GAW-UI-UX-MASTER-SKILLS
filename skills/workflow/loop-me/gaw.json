@@ -23,5 +23,19 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when the user wants to find recurring routines worth delegating and be interviewed into written workflow specs in this workspace."
+  ],
+  "keywords": [
+    "automation ideas",
+    "recurring tasks",
+    "delegation",
+    "personal workflows",
+    "routine spec"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

@@ -26,5 +26,18 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "whenNotToUse": [
+    "Ambient sound or one-off sound effects"
+  ],
+  "keywords": [
+    "song generation",
+    "text to music",
+    "vocal track",
+    "music for video"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse"
   ]
 }

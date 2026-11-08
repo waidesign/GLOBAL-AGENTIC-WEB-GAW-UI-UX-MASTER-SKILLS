@@ -17,5 +17,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when the user asks to make a new video with Remotion, including scaffolding a new project and opening the Studio preview."
+  ],
+  "keywords": [
+    "new video project",
+    "scaffold video",
+    "react video",
+    "create-video",
+    "video composition"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

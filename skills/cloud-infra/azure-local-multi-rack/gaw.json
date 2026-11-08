@@ -16,6 +16,9 @@
     "Use when the deployment is multi-rack / rack scale: preintegrated racks, an aggregation rack, a Network Fabric Controller, a Cluster Manager, SAN storage, or the networkcloud / managednetworkfabric CLI extensions.",
     "Do not use for standard Azure Local (1-16 node hyperconverged, up to 64 disaggregated) or rack-aware clusters — hand off to the azure-local skill."
   ],
+  "whenNotToUse": [
+    "NOT for standard 1-16 node Azure Local, and NOT for rack-aware clusters (two racks as availability zones, up to 8 nodes, synchronous replication) — those are standard scale."
+  ],
   "domains": [
     "cloud",
     "software"
@@ -23,6 +26,16 @@
   "derived": [
     "domains",
     "summary",
+    "whenNotToUse",
     "whenToUse"
+  ],
+  "keywords": [
+    "large on-premises deployment",
+    "datacenter racks",
+    "private cloud",
+    "networkcloud cli"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

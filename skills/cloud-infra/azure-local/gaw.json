@@ -25,5 +25,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "hyperconverged infrastructure",
+    "on-premises azure",
+    "edge cluster",
+    "hybrid cloud",
+    "datacenter"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

@@ -18,5 +18,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a HyperFrames video needs a headline hero shot where a grid of tiles flips to reveal a second headline."
+  ],
+  "keywords": [
+    "title card",
+    "text reveal",
+    "webgl",
+    "tile flip",
+    "motion graphics"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

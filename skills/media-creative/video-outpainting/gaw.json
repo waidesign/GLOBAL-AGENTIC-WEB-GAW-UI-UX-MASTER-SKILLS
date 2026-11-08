@@ -18,5 +18,22 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when changing a video's aspect ratio, for example vertical to horizontal, by extending the frame while keeping the central action."
+  ],
+  "whenNotToUse": [
+    "Hero ad delivery with strict seam-quality requirements (use a ComfyUI outpainting workflow)"
+  ],
+  "keywords": [
+    "reframe video",
+    "social cuts",
+    "widescreen conversion",
+    "landscape version"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

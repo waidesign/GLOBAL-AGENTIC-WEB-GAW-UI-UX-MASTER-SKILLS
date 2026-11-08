@@ -17,5 +17,22 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when making a face in a photo or video speak a specific audio track, such as dubbing footage into another language, with consent from the person shown."
+  ],
+  "whenNotToUse": [
+    "Real public figures without consent, or defamatory or sexually explicit synthetic media"
+  ],
+  "keywords": [
+    "dubbing",
+    "talking head",
+    "voiceover video",
+    "translated video"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

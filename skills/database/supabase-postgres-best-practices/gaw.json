@@ -11,6 +11,16 @@
     "licenseCheckedAt": "2026-11-08"
   },
   "summary": "Postgres best practices maintained by Supabase, for Postgres running anywhere. Load this skill BEFORE writing or changing anything that lives in a Postgres database: creating or altering tables and columns (including choosing column types), schema design, migrations and declarative schema files,…",
+  "verification": [
+    "Title is clear and action-oriented",
+    "Impact level matches the performance gain",
+    "impactDescription includes quantification",
+    "Explanation is concise (1-2 sentences)",
+    "Has at least 1 Incorrect SQL example",
+    "Has at least 1 Correct SQL example",
+    "SQL uses semantic naming",
+    "Comments explain _why_, not _what_"
+  ],
   "domains": [
     "data",
     "software",
@@ -22,14 +32,18 @@
     "summary",
     "verification"
   ],
-  "verification": [
-    "Title is clear and action-oriented",
-    "Impact level matches the performance gain",
-    "impactDescription includes quantification",
-    "Explanation is concise (1-2 sentences)",
-    "Has at least 1 Incorrect SQL example",
-    "Has at least 1 Correct SQL example",
-    "SQL uses semantic naming",
-    "Comments explain _why_, not _what_"
+  "whenToUse": [
+    "Use before writing or changing anything in a Postgres database: schema design, migrations, indexes, RLS policies, query optimization or connection pooling."
+  ],
+  "keywords": [
+    "sql performance",
+    "query tuning",
+    "index design",
+    "row level security",
+    "database schema"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

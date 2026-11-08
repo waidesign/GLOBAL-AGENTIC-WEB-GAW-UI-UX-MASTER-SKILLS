@@ -17,5 +17,20 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when looking for refactoring opportunities that make a codebase more testable and easier for AI agents to navigate.",
+    "Use when concepts are spread across many shallow modules and changes cause friction."
+  ],
+  "keywords": [
+    "refactoring",
+    "architecture review",
+    "technical debt",
+    "deep modules",
+    "code health report"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

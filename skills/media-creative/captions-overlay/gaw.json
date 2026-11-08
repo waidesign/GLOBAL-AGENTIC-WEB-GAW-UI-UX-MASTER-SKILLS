@@ -17,5 +17,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when adding captions or subtitles to a HyperFrames talking-head or launch video and deciding which phrases to drop, show on the rail, or promote."
+  ],
+  "keywords": [
+    "lower third",
+    "talking head video",
+    "caption styling",
+    "burned-in captions"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

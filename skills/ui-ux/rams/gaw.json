@@ -14,5 +14,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when reviewing UI component code for WCAG accessibility issues and visual design problems, file by file or across a project."
+  ],
+  "keywords": [
+    "accessibility audit",
+    "wcag",
+    "a11y",
+    "ui code review",
+    "aria labels"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

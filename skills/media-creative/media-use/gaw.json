@@ -12,8 +12,15 @@
     "filesLeftAtSource": 20
   },
   "summary": "Get or make any media for a HyperFrames video - music, sound effects, images, icons, logos, voiceover, avatar and generated video, transcripts, cutouts, colour grades and looks - with HeyGen or free local tools, and mix placed audio. Also for footage that looks dark, flat or dull, or should be…",
+  "verification": [
+    "Every event carries surface: \"media-use\".",
+    "Event properties are coarse — never intent text, file names, or paths."
+  ],
   "domains": [
     "media"
+  ],
+  "permissions": [
+    "shell"
   ],
   "derived": [
     "domains",
@@ -21,11 +28,18 @@
     "summary",
     "verification"
   ],
-  "verification": [
-    "Every event carries surface: \"media-use\".",
-    "Event properties are coarse — never intent text, file names, or paths."
+  "whenToUse": [
+    "Use when a HyperFrames video needs music, sound effects, images, logos, voiceover, avatar video, transcripts, cutouts or color grading."
   ],
-  "permissions": [
-    "shell"
+  "keywords": [
+    "stock assets",
+    "background music",
+    "text to speech",
+    "color grade",
+    "remove background"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

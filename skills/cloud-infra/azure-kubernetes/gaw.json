@@ -30,5 +30,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "kubernetes cluster",
+    "container orchestration",
+    "managed prometheus",
+    "aks upgrade",
+    "cluster provisioning"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

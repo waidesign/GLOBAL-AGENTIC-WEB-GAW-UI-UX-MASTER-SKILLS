@@ -12,7 +12,7 @@
     "filesLeftAtSource": 1
   },
   "summary": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
-  "whenToUse": [
+  "whenNotToUse": [
     "Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts."
   ],
   "domains": [
@@ -20,13 +20,27 @@
     "software",
     "ai"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
     "summary",
-    "whenToUse"
+    "whenNotToUse"
   ],
-  "permissions": [
-    "shell"
+  "whenToUse": [
+    "Use when a claude.ai artifact needs several components, state management, routing or shadcn/ui, built with React and bundled into one HTML file."
+  ],
+  "keywords": [
+    "claude artifact",
+    "single html bundle",
+    "vite",
+    "parcel",
+    "react app"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

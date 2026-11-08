@@ -21,5 +21,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when reviewing a screen or component against a design system, checking token usage, or deciding whether to build, audit or migrate a design system."
+  ],
+  "keywords": [
+    "ui review",
+    "token usage check",
+    "design drift",
+    "consistency audit",
+    "playbook router"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

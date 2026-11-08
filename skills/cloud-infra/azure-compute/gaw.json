@@ -18,6 +18,11 @@
     "User asks about Capacity Reservation Groups (CRG) — reserve, guarantee capacity, pre-provision",
     "User asks about Essential Machine Management (EMM) — machine enrollment, monitor"
   ],
+  "verification": [
+    "Invoke the azure-quotas skill for complete quota CLI workflows across all Azure providers",
+    "VM Family Guide — Family-to-workload mapping",
+    "Azure VM quotas documentation"
+  ],
   "domains": [
     "cloud",
     "software",
@@ -30,9 +35,13 @@
     "verification",
     "whenToUse"
   ],
-  "verification": [
-    "Invoke the azure-quotas skill for complete quota CLI workflows across all Azure providers",
-    "VM Family Guide — Family-to-workload mapping",
-    "Azure VM quotas documentation"
+  "keywords": [
+    "virtual machine",
+    "vm sku",
+    "server hosting",
+    "compute pricing"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

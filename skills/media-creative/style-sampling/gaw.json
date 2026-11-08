@@ -14,6 +14,11 @@
   "whenToUse": [
     "Use for \"an episode of\", \"in the style of\", \"sample this style\", 「用这个风格做一集」."
   ],
+  "verification": [
+    "One heavy job at a time (renders, long ffmpeg, transcription): renders with --workers 1, ffmpeg with -threads 2 -nostdin. For a change, render only that window.",
+    "Run REMIX.md's checks. Report each of our numbers beside the series' own: cuts a minute, pause density, longest hold, loudness, sound effects on picture changes, the script fingerprint. Name every check that failed.",
+    "Stop 2: ask once on the draft: a contact sheet and npx hyperframes preview --background --no-open (add --port <free port> when 3002 is taken), with what is still a stand-in."
+  ],
   "domains": [
     "media",
     "finance",
@@ -25,9 +30,18 @@
     "verification",
     "whenToUse"
   ],
-  "verification": [
-    "One heavy job at a time (renders, long ffmpeg, transcription): renders with --workers 1, ffmpeg with -threads 2 -nostdin. For a change, render only that window.",
-    "Run REMIX.md's checks. Report each of our numbers beside the series' own: cuts a minute, pause density, longest hold, loudness, sound effects on picture changes, the script fingerprint. Name every check that failed.",
-    "Stop 2: ask once on the draft: a contact sheet and npx hyperframes preview --background --no-open (add --port <free port> when 3002 is taken), with what is still a stand-in."
+  "whenNotToUse": [
+    "Copying one specific video (reverse-any-video)"
+  ],
+  "keywords": [
+    "youtube explainer",
+    "series template",
+    "explainer video",
+    "video format",
+    "documentary style"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse"
   ]
 }

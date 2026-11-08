@@ -21,6 +21,9 @@
     "software",
     "ai"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
@@ -28,7 +31,13 @@
     "verification",
     "whenToUse"
   ],
-  "permissions": [
-    "shell"
+  "keywords": [
+    "pretooluse hook",
+    "force push protection",
+    "agent safety",
+    "command blocklist"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

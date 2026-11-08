@@ -12,9 +12,15 @@
   },
   "summary": "Analyze advanced AKS cost efficiency. WHEN: \\\"AKS NAP readiness\\\", \\\"AKS bin packing\\\", \\\"AKS node scaling bottleneck\\\", \\\"AKS blocked scale-down\\\", \\\"AKS storage cost\\\".",
   "whenToUse": [
-    "DO NOT USE AS DIRECT ENTRY FOR: overall AKS cost assessments or rightsizing/VPA/CAS/Spot (azure-kubernetes); spend/anomalies/commitments (cost-analysis/cost-optimization); incidents (aks-troubleshooting).",
     "Use for advanced existing-cluster analysis requiring scheduling, placement, or verified storage mapping.",
     "Route overall AKS cost assessments to azure-kubernetes, spend/anomalies to cost-analysis, commitments to cost-optimization, and incidents to aks-troubleshooting when those skills are available."
+  ],
+  "whenNotToUse": [
+    "DO NOT USE AS DIRECT ENTRY FOR: overall AKS cost assessments or rightsizing/VPA/CAS/Spot (azure-kubernetes); spend/anomalies/commitments (cost-analysis/cost-optimization); incidents (aks-troubleshooting)."
+  ],
+  "verification": [
+    "For default pools with CAS disabled: For custom pools, add --node-provisioning-default-pools None to disable default-pool creation, then apply the approved NodePool and AKSNodeClass manifests.",
+    "Verify pending-pod time, provisioned configurations, node count, workload SLOs, and cost against the agreed criteria."
   ],
   "domains": [
     "cloud",
@@ -25,10 +31,17 @@
     "domains",
     "summary",
     "verification",
+    "whenNotToUse",
     "whenToUse"
   ],
-  "verification": [
-    "For default pools with CAS disabled: For custom pools, add --node-provisioning-default-pools None to disable default-pool creation, then apply the approved NodePool and AKSNodeClass manifests.",
-    "Verify pending-pod time, provisioned configurations, node count, workload SLOs, and cost against the agreed criteria."
+  "keywords": [
+    "node autoprovisioning",
+    "cluster autoscaler",
+    "idle nodes",
+    "storage optimization",
+    "savings plans"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

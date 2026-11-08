@@ -24,13 +24,21 @@
     "software",
     "media"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
     "summary",
     "whenToUse"
   ],
-  "permissions": [
-    "shell"
+  "keywords": [
+    "outage",
+    "incident triage",
+    "log analytics"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

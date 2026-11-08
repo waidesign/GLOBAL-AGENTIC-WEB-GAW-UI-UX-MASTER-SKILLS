@@ -18,5 +18,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when the current work should continue in a fresh background agent, seeded with a summary of this conversation."
+  ],
+  "keywords": [
+    "context handoff",
+    "session summary",
+    "continue later",
+    "fresh context"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

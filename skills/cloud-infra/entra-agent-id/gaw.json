@@ -13,11 +13,14 @@
   "summary": "Provision Microsoft Entra Agent Identity Blueprints, BlueprintPrincipals, and per-instance Agent Identities via Microsoft Graph, and configure OAuth 2.0 token exchange (fmi_path, OBO, cross-tenant) including the Microsoft Entra SDK for AgentID sidecar. USE FOR: Agent Identity Blueprint,…",
   "whenToUse": [
     "USE FOR: Agent Identity Blueprint, BlueprintPrincipal, agent OAuth, fmi_path token exchange, agent OBO, Workload Identity Federation for agents, polyglot agent auth, Microsoft.Identity.Web.AgentIdentities.",
-    "DO NOT USE FOR: standard Entra app registration (use entra-app-registration), Microsoft Foundry agent authoring (use microsoft-foundry).",
     "Provisioning a new Agent Identity Blueprint and BlueprintPrincipal",
     "Creating per-instance Agent Identities under a Blueprint",
     "Configuring credentials (FIC, Managed Identity, or client secret) on the Blueprint",
-    "Implementing the two-step fmi_path runtime token exchange (autonomous or OBO)"
+    "Implementing the two-step fmi_path runtime token exchange (autonomous or OBO)",
+    "Cross-tenant agent token flows"
+  ],
+  "whenNotToUse": [
+    "DO NOT USE FOR: standard Entra app registration (use entra-app-registration), Microsoft Foundry agent authoring (use microsoft-foundry)."
   ],
   "domains": [
     "cloud",
@@ -28,6 +31,16 @@
   "derived": [
     "domains",
     "summary",
+    "whenNotToUse",
     "whenToUse"
+  ],
+  "keywords": [
+    "agent authentication",
+    "ai agent identity",
+    "on-behalf-of flow",
+    "agent permissions"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

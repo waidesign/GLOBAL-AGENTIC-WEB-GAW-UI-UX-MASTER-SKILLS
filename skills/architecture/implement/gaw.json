@@ -17,5 +17,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a spec or tickets are ready and the agent should implement them with TDD, type checks, tests and a final code review."
+  ],
+  "keywords": [
+    "build the feature",
+    "execute ticket",
+    "issue implementation",
+    "tdd workflow"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

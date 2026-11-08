@@ -19,5 +19,17 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when the user wants a plan or design questioned hard and the decisions recorded as ADRs and a glossary in the repo."
+  ],
+  "keywords": [
+    "design interview",
+    "domain modeling",
+    "decision records"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

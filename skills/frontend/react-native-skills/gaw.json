@@ -19,5 +19,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when building or optimizing React Native or Expo apps: list and scroll performance, Reanimated animations, navigation, images, fonts or monorepo setup."
+  ],
+  "keywords": [
+    "expo",
+    "flashlist",
+    "reanimated",
+    "mobile app performance",
+    "ios and android"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

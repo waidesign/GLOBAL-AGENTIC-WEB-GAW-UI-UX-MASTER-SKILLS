@@ -12,12 +12,16 @@
   },
   "summary": "List, find, and show Azure resources across subscriptions or resource groups. Handles prompts like \\\"list the websites in my subscription\\\", \\\"list my web apps\\\", \\\"show my app services\\\", \\\"list virtual machines\\\", \\\"list my VMs\\\", \\\"show storage accounts\\\", \\\"find container apps\\\", and \\\"what…",
   "whenToUse": [
-    "USE FOR: list websites, list web apps, list app services, show websites in subscription, resource inventory, find resources by tag, tag analysis, orphaned resource discovery (not for cost analysis), unattached disks, count resources by type",
-    "DO NOT USE FOR: deploying/changing resources (use azure-deploy), cost optimization (use cost-optimization from the optional azure-cost plugin), or non-Azure clouds.",
     "List resources of any type (VMs, web apps, storage accounts, container apps, databases, etc.)",
     "Show resources in a specific subscription or resource group",
     "Query resources across multiple subscriptions or resource types",
-    "Find orphaned resources (unattached disks, unused NICs, idle IPs)"
+    "Find orphaned resources (unattached disks, unused NICs, idle IPs)",
+    "Discover resources missing required tags or configurations",
+    "Get a resource inventory spanning multiple types"
+  ],
+  "whenNotToUse": [
+    "USE FOR: list websites, list web apps, list app services, show websites in subscription, resource inventory, find resources by tag, tag analysis, orphaned resource discovery (not for cost analysis), unattached disks, count resources by type",
+    "DO NOT USE FOR: deploying/changing resources (use azure-deploy), cost optimization (use cost-optimization from the optional azure-cost plugin), or non-Azure clouds."
   ],
   "verification": [
     "For single-resource-type queries, check if a dedicated MCP tool can handle it: If a dedicated tool is available with full coverage, use it.",
@@ -33,6 +37,16 @@
     "domains",
     "summary",
     "verification",
+    "whenNotToUse",
     "whenToUse"
+  ],
+  "keywords": [
+    "orphaned resources",
+    "tag audit",
+    "asset inventory",
+    "cloud inventory"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

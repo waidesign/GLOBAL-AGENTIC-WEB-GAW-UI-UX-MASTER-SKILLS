@@ -18,5 +18,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a Remotion video needs a map: static maps, animated routes and markers, geographic explainers or 3D terrain flyovers."
+  ],
+  "keywords": [
+    "mapbox",
+    "maplibre",
+    "route animation",
+    "geographic explainer",
+    "3d flyover"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

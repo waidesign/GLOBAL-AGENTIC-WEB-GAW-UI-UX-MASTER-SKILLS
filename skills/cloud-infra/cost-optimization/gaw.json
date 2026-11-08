@@ -12,8 +12,15 @@
   },
   "summary": "Optimize existing Azure resources and analyze Reservations or Savings Plans. WHEN: \\\"optimize Azure costs\\\", \\\"reduce cloud spending\\\", \\\"rightsize resources\\\", \\\"find idle resources\\\", \\\"orphaned disk\\\", \\\"deleted VM still charged\\\", \\\"public IP still charging\\\", \\\"reservation utilization\\\",…",
   "whenToUse": [
-    "DO NOT USE FOR: cost spikes, forecasts, pricing estimates, budgets, or governance.",
     "Use for waste, rightsizing, and commitments."
+  ],
+  "whenNotToUse": [
+    "DO NOT USE FOR: cost spikes, forecasts, pricing estimates, budgets, or governance."
+  ],
+  "verification": [
+    "Separate quantified Advisor recommendations, observed-metric candidates, and",
+    "Check each proposed SKU, region, shutdown, or deletion against Azure Policy,",
+    "If commitments exist, load Commitment Analysis. Identify"
   ],
   "domains": [
     "cloud",
@@ -24,11 +31,17 @@
     "domains",
     "summary",
     "verification",
+    "whenNotToUse",
     "whenToUse"
   ],
-  "verification": [
-    "Separate quantified Advisor recommendations, observed-metric candidates, and",
-    "Check each proposed SKU, region, shutdown, or deletion against Azure Policy,",
-    "If commitments exist, load Commitment Analysis. Identify"
+  "keywords": [
+    "cost savings",
+    "reserved instances",
+    "waste reduction",
+    "underutilized resources",
+    "finops"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

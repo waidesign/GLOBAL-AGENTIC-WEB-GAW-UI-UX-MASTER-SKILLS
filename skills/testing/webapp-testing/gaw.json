@@ -19,12 +19,18 @@
   "domains": [
     "software"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
     "summary"
   ],
-  "permissions": [
-    "shell"
+  "whenToUse": [
+    "Use when testing a local web app in a real browser with Playwright: checking that features work, debugging UI behavior, taking screenshots or reading console logs."
+  ],
+  "drafts": [
+    "whenToUse"
   ]
 }

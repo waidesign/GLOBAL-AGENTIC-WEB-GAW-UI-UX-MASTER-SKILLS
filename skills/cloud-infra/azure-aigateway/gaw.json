@@ -11,6 +11,15 @@
     "licenseCheckedAt": "2026-11-08"
   },
   "summary": "Configure Azure API Management as an AI Gateway for AI models, MCP tools, and agents. WHEN: semantic caching, token limit, content safety, load balancing, AI model governance, MCP rate limiting, jailbreak detection, add Azure OpenAI backend, add AI Foundry model, test AI gateway, LLM policies,…",
+  "verification": [
+    "Use managed identity for all Azure-hosted apps",
+    "Never hardcode credentials, connection strings, or keys",
+    "Apply least-privilege RBAC roles at the narrowest scope",
+    "Use ManagedIdentityCredential (not DefaultAzureCredential) in production",
+    "Store any required secrets in Azure Key Vault",
+    "Rotate secrets and certificates on a schedule",
+    "Enable Microsoft Defender for Cloud on production resources"
+  ],
   "domains": [
     "cloud",
     "software",
@@ -22,13 +31,18 @@
     "summary",
     "verification"
   ],
-  "verification": [
-    "Use managed identity for all Azure-hosted apps",
-    "Never hardcode credentials, connection strings, or keys",
-    "Apply least-privilege RBAC roles at the narrowest scope",
-    "Use ManagedIdentityCredential (not DefaultAzureCredential) in production",
-    "Store any required secrets in Azure Key Vault",
-    "Rotate secrets and certificates on a schedule",
-    "Enable Microsoft Defender for Cloud on production resources"
+  "whenToUse": [
+    "Use when putting Azure API Management in front of AI models, MCP tools or agents to control tokens, cost, caching, safety and rate limits."
+  ],
+  "keywords": [
+    "apim",
+    "llm gateway",
+    "llm proxy",
+    "token quota",
+    "model backend routing"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

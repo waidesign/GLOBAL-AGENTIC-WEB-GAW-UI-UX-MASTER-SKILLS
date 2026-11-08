@@ -23,5 +23,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "prompt writing",
+    "agent instructions",
+    "skill description",
+    "documentation style",
+    "context engineering"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

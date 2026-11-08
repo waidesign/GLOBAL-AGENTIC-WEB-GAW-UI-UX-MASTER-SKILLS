@@ -18,5 +18,22 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when moving an existing Azure workload to another plan, tier or SKU within Azure (for example Functions Consumption to Flex Consumption, or Redis to Azure Managed Redis), or modernizing legacy Azure Java SDKs."
+  ],
+  "whenNotToUse": [
+    "Cross-cloud migration from other providers"
+  ],
+  "keywords": [
+    "plan upgrade",
+    "tier change",
+    "sku migration",
+    "sdk modernization"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

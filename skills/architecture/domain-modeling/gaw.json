@@ -22,5 +22,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "ubiquitous language",
+    "domain-driven design",
+    "ddd",
+    "naming concepts",
+    "architecture decision record"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

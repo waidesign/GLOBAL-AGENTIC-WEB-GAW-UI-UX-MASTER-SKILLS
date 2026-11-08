@@ -12,22 +12,15 @@
   },
   "summary": "Execute Azure deployments for ALREADY-PREPARED applications that have existing .azure/deployment-plan.md and infrastructure files. DO NOT use this skill when the user asks to CREATE a new application — use azure-prepare instead.",
   "whenToUse": [
-    "DO NOT use this skill when the user asks to CREATE a new application — use azure-prepare instead.",
-    "DO NOT USE WHEN: \\\"create and deploy\\\", \\\"build and deploy\\\", \\\"create a new app\\\", \\\"set up infrastructure\\\", \\\"create and deploy to Azure using Terraform\\\" — use azure-prepare for these.",
     "Execute deployment of an already-prepared application (azure.yaml and infra/ exist)",
     "Push updates to an existing Azure deployment",
     "Run azd up, azd deploy, or az deployment on a prepared project",
-    "Ship already-built code to production"
+    "Ship already-built code to production",
+    "Deploy an application that already includes API Management (APIM) gateway infrastructure"
   ],
-  "domains": [
-    "cloud",
-    "software"
-  ],
-  "derived": [
-    "domains",
-    "summary",
-    "verification",
-    "whenToUse"
+  "whenNotToUse": [
+    "DO NOT use this skill when the user asks to CREATE a new application — use azure-prepare instead.",
+    "DO NOT USE WHEN: \\\"create and deploy\\\", \\\"build and deploy\\\", \\\"create a new app\\\", \\\"set up infrastructure\\\", \\\"create and deploy to Azure using Terraform\\\" — use azure-prepare for these."
   ],
   "verification": [
     "Use managed identity for all Azure-hosted apps",
@@ -37,5 +30,26 @@
     "Store any required secrets in Azure Key Vault",
     "Rotate secrets and certificates on a schedule",
     "Enable Microsoft Defender for Cloud on production resources"
+  ],
+  "domains": [
+    "cloud",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenNotToUse",
+    "whenToUse"
+  ],
+  "keywords": [
+    "release to production",
+    "ship to azure",
+    "rollout",
+    "redeploy",
+    "deployment error recovery"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

@@ -17,5 +17,23 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a fixed pile of raw material, notes or a transcript should be shaped into an article paragraph by paragraph with the user."
+  ],
+  "whenNotToUse": [
+    "Gathering raw material when the exploring is not done yet (writing-fragments)"
+  ],
+  "keywords": [
+    "article draft",
+    "essay writing",
+    "blog post",
+    "editing",
+    "outline"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

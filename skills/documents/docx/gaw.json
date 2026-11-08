@@ -21,6 +21,9 @@
     "Also use when extracting or reorganizing content from .docx or .dotx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polish",
     "If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill."
   ],
+  "whenNotToUse": [
+    "Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation."
+  ],
   "verification": [
     "After writing a .docx, render it and look at it: pdftoppm zero-pads page numbers to the width of the page count (page-01.jpg…page-12.jpg)."
   ],
@@ -30,14 +33,15 @@
     "media",
     "data"
   ],
+  "permissions": [
+    "shell"
+  ],
   "derived": [
     "domains",
     "permissions",
     "summary",
     "verification",
+    "whenNotToUse",
     "whenToUse"
-  ],
-  "permissions": [
-    "shell"
   ]
 }

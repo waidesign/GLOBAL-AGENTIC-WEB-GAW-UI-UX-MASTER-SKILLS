@@ -28,5 +28,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "message queue",
+    "pub sub",
+    "consumer group",
+    "checkpointing",
+    "message broker"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

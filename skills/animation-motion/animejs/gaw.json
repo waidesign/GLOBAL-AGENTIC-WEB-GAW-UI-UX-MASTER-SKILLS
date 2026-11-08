@@ -27,5 +27,19 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when building JavaScript timeline animations, SVG morphing, or staggered list and grid reveals with Anime.js.",
+    "Use for animated number counters and chained entrance sequences outside a React-specific animation library."
+  ],
+  "keywords": [
+    "animated counter",
+    "waapi",
+    "choreography",
+    "entrance animation"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

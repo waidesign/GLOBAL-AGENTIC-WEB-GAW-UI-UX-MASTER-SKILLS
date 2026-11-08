@@ -18,5 +18,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when the user wants step-by-step remediation for a specific Azure Advisor recommendation on a specific resource."
+  ],
+  "keywords": [
+    "remediation steps",
+    "resolve recommendation",
+    "azure cli fix",
+    "powershell fix"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

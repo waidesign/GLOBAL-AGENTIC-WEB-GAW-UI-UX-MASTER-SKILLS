@@ -23,5 +23,24 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when recreating an existing video file, which the person has the right to use, as an editable HyperFrames project that matches it frame by frame."
+  ],
+  "whenNotToUse": [
+    "Videos the person has no right to use",
+    "Making a new episode in a known series style (style-sampling)"
+  ],
+  "keywords": [
+    "video recreation",
+    "reverse engineer video",
+    "remake video",
+    "frame matching",
+    "editable template"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

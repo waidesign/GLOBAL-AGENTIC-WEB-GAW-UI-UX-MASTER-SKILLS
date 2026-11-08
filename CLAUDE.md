@@ -14,10 +14,11 @@ Do **NOT** read through the 235 skill files or 63 design files on startup. Use t
 
 ### Common Commands
 ```bash
-npm test                 # Run the test suite (16 test suites in scripts/run-tests.js)
+npm test                 # Run the test suite (17 test suites in scripts/run-tests.js)
 node bin/gaw.js context  # What GAW knows about the current project (same as MCP get_project_context)
 node bin/gaw.js skills add <link|folder|file>  # Add any skill as GSS (license check, split, index)
 node bin/gaw.js skills lint   # Check all skills against the GAW Skill Standard (docs/gss/spec.md)
+node bin/gaw.js skills review --all  # AI-drafted fields waiting for a person (--approve/--reject <name|all>)
 node bin/gaw.js skills licenses [--apply]  # Verify each skill's license at its source (GitHub API: set GITHUB_TOKEN)
 npm run eval             # Skill selection benchmark vs eval/baseline.json (run after any skill/search change)
 node bin/gaw.js doctor   # Verify runtime, 235 registered skills, and 63 design presets
@@ -113,7 +114,7 @@ global-agentic-web/
 ### 1b. Skill Engine & GAW Skill Standard (`core/skill-discovery/`, `core/skill-registry/`)
 - **GSS**: skills are folders `skills/<category>/<name>/SKILL.md` (standard Agent Skills frontmatter, GAW data in `metadata.gaw-*`) + optional `gaw.json` contract (keywords, dependsOn, frameworks, verification, source). Spec: `docs/gss/spec.md`.
 - **Matching** (`SkillDiscovery.findRelevant`) implements **GSS Ranking v1** (spec section 8): metadata only (never skill bodies), rare words weigh more (IDF), a skill must cover enough of the task (or of one part of a multi-part task), `whenNotToUse` excludes, `domains` boosts slightly, trust only breaks ties, and nothing is returned when nothing fits. `explainMatch()` gives the "Why" shown to users. `summary`/`whenToUse` are deliberately not scored (measured: no gain).
-- **Rankability levels** (`core/skill-registry/rankability.js`): Incomplete / Findable / Rankable / Precise. `gaw skills add` requires Findable. `gaw skills enrich` fills contract fields from skill text only (recorded in `derived`); unreviewed AI `drafts` never count.
+- **Rankability levels** (`core/skill-registry/rankability.js`): Incomplete / Findable / Rankable / Precise. `gaw skills add` requires Findable. `gaw skills enrich` fills contract fields from skill text only (recorded in `derived`); unreviewed AI `drafts` never count. Drafts only fill empty fields (`core/skill-registry/drafts.js`); only a person approves them (`gaw skills review`), never an agent.
 - **Loading** (`SkillOrchestrator.loadSkillsForTask`): at most 4 skills, full bodies within a token budget (default 8000), short form + file path beyond it. Design presets only for UI tasks.
 - Tune with `npm run eval`; don't change thresholds without checking the score and the no-match cases.
 
@@ -170,7 +171,7 @@ When writing UI code or reviewing designs:
 ## 🛠️ Testing & Development Guidelines
 
 - **Dependencies**: GAW runs natively on modern Node.js using ESM. The only npm dependency is `@modelcontextprotocol/sdk`. The Graphify CLI (Python) is an optional external tool; the e2e test that uses real Graphify is skipped without it.
-- **Run tests before committing**: `npm test` executes the 16 native test suites in `tests/`. The runner sets a throwaway `GAW_HOME`, so tests never touch the real `~/.gaw`.
+- **Run tests before committing**: `npm test` executes the 17 native test suites in `tests/`. The runner sets a throwaway `GAW_HOME`, so tests never touch the real `~/.gaw`.
 - **Measure skill selection changes**: `npm run eval` scores skill picks on the tuning set (`eval/cases/skill-selection.json`) and the held-out set (`skill-selection-holdout.json`), and compares with `eval/baseline.json`. Never adjust the engine to fix held-out cases: they are the honest check. Only update the baseline (`npm run eval -- --save-baseline`) when a change is an intended improvement.
 - **Licenses**: never relabel a skill's license. Imported skills keep their source's license, verified by `gaw skills licenses`. Only split/modify skills whose `source.licenseStatus` is `open` or `copyleft`.
 - **Git workflow**: Main branch is `main`. Remote is `origin` (`https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git`).

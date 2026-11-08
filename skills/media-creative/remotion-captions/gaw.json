@@ -17,5 +17,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when transcribing audio or video into captions, importing .srt subtitles, or displaying and animating captions in a Remotion video."
+  ],
+  "keywords": [
+    "subtitles",
+    "srt import",
+    "speech to text",
+    "animated subtitles",
+    "transcript"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

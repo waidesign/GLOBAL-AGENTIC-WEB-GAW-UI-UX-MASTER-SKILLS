@@ -18,5 +18,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a Remotion API or concept needs to be checked against the current documentation instead of memory."
+  ],
+  "keywords": [
+    "api reference",
+    "documentation lookup",
+    "algolia search",
+    "react video api"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

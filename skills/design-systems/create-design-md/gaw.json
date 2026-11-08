@@ -31,5 +31,15 @@
     "summary",
     "verification",
     "whenToUse"
+  ],
+  "keywords": [
+    "design documentation",
+    "style guide",
+    "brand guidelines",
+    "agent ui context",
+    "design spec"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

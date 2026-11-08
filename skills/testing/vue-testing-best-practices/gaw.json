@@ -17,5 +17,13 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "pinia testing",
+    "component tests",
+    "e2e tests"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

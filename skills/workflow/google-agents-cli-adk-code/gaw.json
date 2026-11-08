@@ -13,7 +13,18 @@
   "summary": "This skill should be used when the user wants to \"write agent code\", \"build an agent with ADK\", \"add a tool\", \"create a callback\", \"define an agent\", \"use state management\" — in a project that needs ADK (Agent Development Kit) API patterns and code examples. It provides a quick reference for…",
   "whenToUse": [
     "This skill should be used when the user wants to \"write agent code\", \"build an agent with ADK\", \"add a tool\", \"create a callback\", \"define an agent\", \"use state management\" — in a project that needs ADK (Agent Development Kit) API patterns ",
+    "Managed agent — powerful out-of-the-box capabilities (server-side web search, code execution) without operating the environment yourself. Trade-off: predefined server-side toolset, no client-side tools, runs only in the managed environment.",
+    "LlmAgent (§2) — when you need control over the model, instructions, custom/MCP tools, or where execution happens."
+  ],
+  "whenNotToUse": [
     "Do NOT use for scaffolding (use google-agents-cli-scaffold) or deployment (use google-agents-cli-deploy)."
+  ],
+  "verification": [
+    "START must exist and have no incoming edges",
+    "All non-START nodes must be reachable",
+    "No duplicate node names or edges",
+    "At most one DEFAULT route per node",
+    "No unconditional cycles (cycles need at least one routed edge)"
   ],
   "domains": [
     "software",
@@ -24,13 +35,16 @@
     "domains",
     "summary",
     "verification",
+    "whenNotToUse",
     "whenToUse"
   ],
-  "verification": [
-    "START must exist and have no incoming edges",
-    "All non-START nodes must be reachable",
-    "No duplicate node names or edges",
-    "At most one DEFAULT route per node",
-    "No unconditional cycles (cycles need at least one routed edge)"
+  "keywords": [
+    "multi-agent",
+    "tool calling",
+    "gemini agent",
+    "agent framework"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

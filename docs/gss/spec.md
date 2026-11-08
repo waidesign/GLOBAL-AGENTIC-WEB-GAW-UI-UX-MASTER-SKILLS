@@ -184,7 +184,7 @@ Rules:
 | `domains` | The category, plus clear words in the description |
 | `permissions` | Bundled scripts or hooks (`shell`) |
 
-Filled fields are listed in `derived`. `keywords` are never derived, because synonyms must come from people. AI-drafted fields will be listed in `drafts` and only count once a person reviews them.
+Filled fields are listed in `derived`. `keywords` are never derived, because synonyms must come from people. AI-drafted fields are listed in `drafts` and only count once a person approves them with `gaw skills review --approve <name|all>` (`--reject` deletes them). Drafts only fill empty fields; they never replace author or derived values.
 
 ### 8.4 Domains
 

@@ -19,6 +19,9 @@
     "Generate Bicep or Terraform for subscription-scope or multi-resource-group deployments",
     "Plan disaster recovery, failover, or cross-region high-availability topologies"
   ],
+  "verification": [
+    "Run az bicep build --file infra/main.bicep to validate syntax before deploying."
+  ],
   "domains": [
     "cloud",
     "software",
@@ -30,7 +33,13 @@
     "verification",
     "whenToUse"
   ],
-  "verification": [
-    "Run az bicep build --file infra/main.bicep to validate syntax before deploying."
+  "keywords": [
+    "vnet design",
+    "well-architected framework",
+    "infrastructure as code",
+    "disaster recovery design"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

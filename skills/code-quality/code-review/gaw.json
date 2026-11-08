@@ -22,5 +22,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "diff review",
+    "coding standards check",
+    "spec compliance",
+    "pre-merge review",
+    "branch review"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

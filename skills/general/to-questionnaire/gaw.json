@@ -13,5 +13,18 @@
   "summary": "Turn a decision you can't fully answer into a questionnaire for someone else to fill in.",
   "derived": [
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a decision depends on knowledge someone else holds, and a Markdown questionnaire should be written for that person to fill in."
+  ],
+  "keywords": [
+    "discovery questions",
+    "stakeholder interview",
+    "requirements gathering",
+    "async survey"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

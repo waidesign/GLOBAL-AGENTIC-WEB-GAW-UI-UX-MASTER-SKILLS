@@ -23,5 +23,14 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "ci deployment",
+    "headless deploy",
+    "access token auth",
+    "non-interactive login"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

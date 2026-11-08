@@ -17,5 +17,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when the user wants to learn a topic over several sessions, with lessons, reference sheets and learning records kept in the workspace."
+  ],
+  "keywords": [
+    "tutor",
+    "learning plan",
+    "lessons",
+    "study",
+    "cheat sheet"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

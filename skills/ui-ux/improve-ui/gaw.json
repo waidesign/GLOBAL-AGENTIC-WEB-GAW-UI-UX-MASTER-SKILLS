@@ -30,5 +30,23 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when auditing one product screen or flow against its design system and writing plans for the fixes the user selects."
+  ],
+  "whenNotToUse": [
+    "Editing product source directly"
+  ],
+  "keywords": [
+    "ui audit",
+    "design review",
+    "visual polish",
+    "consistency check",
+    "design debt"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

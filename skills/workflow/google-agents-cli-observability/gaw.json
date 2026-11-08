@@ -12,8 +12,14 @@
   },
   "summary": "This skill should be used when the user wants to \"set up tracing\", \"monitor my agent\", \"configure logging\", \"add observability\", \"debug production traffic\", or needs guidance on monitoring deployed agents, including ADK (Agent Development Kit) agents. Covers Cloud Trace, prompt-response logging,…",
   "whenToUse": [
-    "This skill should be used when the user wants to \"set up tracing\", \"monitor my agent\", \"configure logging\", \"add observability\", \"debug production traffic\", or needs guidance on monitoring deployed agents, including ADK (Agent Development K",
+    "This skill should be used when the user wants to \"set up tracing\", \"monitor my agent\", \"configure logging\", \"add observability\", \"debug production traffic\", or needs guidance on monitoring deployed agents, including ADK (Agent Development K"
+  ],
+  "whenNotToUse": [
     "Do NOT use for deployment setup (use google-agents-cli-deploy) or API code patterns (use google-agents-cli-adk-code)."
+  ],
+  "verification": [
+    "After deploying, verify prompt-response logging is working: If data is not appearing: check LOGS_BUCKET_NAME is set, verify SA has storage.objectCreator on the bucket, check application logs for telemetry setup warnings.",
+    "Log export to BigQuery may take a few minutes to propagate."
   ],
   "domains": [
     "software",
@@ -24,10 +30,16 @@
     "domains",
     "summary",
     "verification",
+    "whenNotToUse",
     "whenToUse"
   ],
-  "verification": [
-    "After deploying, verify prompt-response logging is working: If data is not appearing: check LOGS_BUCKET_NAME is set, verify SA has storage.objectCreator on the bucket, check application logs for telemetry setup warnings.",
-    "Log export to BigQuery may take a few minutes to propagate."
+  "keywords": [
+    "agent monitoring",
+    "production logs",
+    "bigquery analytics",
+    "telemetry"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

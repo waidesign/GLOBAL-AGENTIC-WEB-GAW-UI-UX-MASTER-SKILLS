@@ -22,5 +22,22 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when generating quick image drafts, social thumbnails or batch variants with readable in-image text, or when the user asks for Nano Banana 2."
+  ],
+  "whenNotToUse": [
+    "Editing an existing image (nano-banana-edit) or hyperrealistic portraits (Nano Banana Pro)"
+  ],
+  "keywords": [
+    "text to image",
+    "social thumbnails",
+    "fast drafts",
+    "image variants"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

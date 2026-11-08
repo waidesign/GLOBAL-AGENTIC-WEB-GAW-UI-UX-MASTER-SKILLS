@@ -17,5 +17,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when building an app around Remotion, such as a form that renders a video or a browser video editor with the Player."
+  ],
+  "keywords": [
+    "video app",
+    "video editor",
+    "embedded player",
+    "lambda rendering",
+    "saas template"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

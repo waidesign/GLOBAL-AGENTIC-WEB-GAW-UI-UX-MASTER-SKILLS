@@ -17,5 +17,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when starting Remotion Studio to preview a video while creating or editing it."
+  ],
+  "keywords": [
+    "live preview",
+    "dev server",
+    "video preview",
+    "studio port"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

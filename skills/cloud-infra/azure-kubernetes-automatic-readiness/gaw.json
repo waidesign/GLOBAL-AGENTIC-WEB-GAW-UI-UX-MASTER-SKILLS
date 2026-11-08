@@ -20,6 +20,16 @@
     "\"Identify AKS Automatic migration blockers\"",
     "Any mention of AKS Automatic + (migration | readiness | compatibility | assessment | validation)"
   ],
+  "verification": [
+    "Collect cluster/node-pool metadata through a host-discovered Azure MCP AKS capability (or az), then evaluate sanitized Kubernetes manifests locally against the bundled constraint spec",
+    "Resolve all incompatible findings — these are hard blockers",
+    "Apply all requiresChanges fixes — these will be denied at admission",
+    "Review autoFixed items — understand what AKS Automatic will mutate at runtime",
+    "Decide whether the target will opt into PSS Restricted or run Windows node pools; only then apply the conditionalSafeguards rules",
+    "Address cluster-level Day-0 config issues (see below)",
+    "workload health and service objectives remain stable on the target;",
+    "required data is synchronized and integrity checks pass;"
+  ],
   "domains": [
     "cloud",
     "software"
@@ -30,14 +40,13 @@
     "verification",
     "whenToUse"
   ],
-  "verification": [
-    "Collect cluster/node-pool metadata through a host-discovered Azure MCP AKS capability (or az), then evaluate sanitized Kubernetes manifests locally against the bundled constraint spec",
-    "Resolve all incompatible findings — these are hard blockers",
-    "Apply all requiresChanges fixes — these will be denied at admission",
-    "Review autoFixed items — understand what AKS Automatic will mutate at runtime",
-    "Decide whether the target will opt into PSS Restricted or run Windows node pools; only then apply the conditionalSafeguards rules",
-    "Address cluster-level Day-0 config issues (see below)",
-    "workload health and service objectives remain stable on the target;",
-    "required data is synchronized and integrity checks pass;"
+  "keywords": [
+    "deployment safeguards",
+    "pod security standards",
+    "admission webhooks",
+    "migration checklist"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

@@ -18,5 +18,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when a video must keep the same character, product or set steady across a shot, driven by several image, video and audio references."
+  ],
+  "keywords": [
+    "character consistency",
+    "multi-reference video",
+    "product video",
+    "alibaba video",
+    "ai video"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

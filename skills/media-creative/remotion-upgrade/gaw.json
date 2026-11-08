@@ -17,5 +17,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when updating Remotion and all @remotion packages in a project to one current version, with matching auxiliary packages."
+  ],
+  "keywords": [
+    "dependency update",
+    "version bump",
+    "package upgrade",
+    "lockfile update"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

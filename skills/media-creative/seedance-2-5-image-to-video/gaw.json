@@ -18,5 +18,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when animating one still image into a single 4-30 second clip that keeps the subject and framing, optionally with generated audio."
+  ],
+  "keywords": [
+    "animate photo",
+    "photo to video",
+    "bytedance video",
+    "ai video"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

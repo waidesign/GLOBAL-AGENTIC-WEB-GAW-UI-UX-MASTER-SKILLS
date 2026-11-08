@@ -24,5 +24,17 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "whenNotToUse": [
+    "Code that targets another LLM provider such as OpenAI or Gemini"
+  ],
+  "keywords": [
+    "llm app",
+    "prompt caching",
+    "messages api"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse"
   ]
 }

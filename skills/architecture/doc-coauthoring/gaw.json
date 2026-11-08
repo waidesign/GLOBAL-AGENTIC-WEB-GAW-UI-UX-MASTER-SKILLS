@@ -28,5 +28,15 @@
     "summary",
     "verification",
     "whenToUse"
+  ],
+  "keywords": [
+    "prd",
+    "rfc",
+    "design doc",
+    "writing partner",
+    "document review"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

@@ -12,5 +12,15 @@
     "domains",
     "summary",
     "whenToUse"
+  ],
+  "keywords": [
+    "root cause",
+    "troubleshooting",
+    "regression hunt",
+    "bisect",
+    "reproduce bug"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

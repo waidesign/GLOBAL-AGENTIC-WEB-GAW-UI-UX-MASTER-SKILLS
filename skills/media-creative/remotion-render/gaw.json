@@ -17,5 +17,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when rendering a Remotion composition to a video file, still image, frame sequence or transparent video."
+  ],
+  "keywords": [
+    "render video",
+    "mp4 output",
+    "transparent video",
+    "still image",
+    "cli render"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

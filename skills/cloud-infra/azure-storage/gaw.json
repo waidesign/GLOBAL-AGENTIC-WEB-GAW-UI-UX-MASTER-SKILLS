@@ -12,8 +12,19 @@
   },
   "summary": "Azure Storage Services including Blob Storage, File Shares, Queue Storage, Table Storage, and Data Lake. Answers questions about storage access tiers (hot, cool, cold, archive), when to use each tier, and tier comparison.",
   "whenToUse": [
-    "USE FOR: blob storage, file shares, queue storage, table storage, data lake, upload files, download blobs, storage accounts, access tiers, storage tiers, hot cool cold archive, storage tier comparison, when to use storage tiers, lifecycle m",
+    "USE FOR: blob storage, file shares, queue storage, table storage, data lake, upload files, download blobs, storage accounts, access tiers, storage tiers, hot cool cold archive, storage tier comparison, when to use storage tiers, lifecycle m"
+  ],
+  "whenNotToUse": [
     "DO NOT USE FOR: SQL databases, Cosmos DB (use azure-prepare), messaging with Event Hubs or Service Bus (use azure-messaging)."
+  ],
+  "verification": [
+    "Use managed identity for all Azure-hosted apps",
+    "Never hardcode credentials, connection strings, or keys",
+    "Apply least-privilege RBAC roles at the narrowest scope",
+    "Use ManagedIdentityCredential (not DefaultAzureCredential) in production",
+    "Store any required secrets in Azure Key Vault",
+    "Rotate secrets and certificates on a schedule",
+    "Enable Microsoft Defender for Cloud on production resources"
   ],
   "domains": [
     "cloud",
@@ -24,15 +35,17 @@
     "domains",
     "summary",
     "verification",
+    "whenNotToUse",
     "whenToUse"
   ],
-  "verification": [
-    "Use managed identity for all Azure-hosted apps",
-    "Never hardcode credentials, connection strings, or keys",
-    "Apply least-privilege RBAC roles at the narrowest scope",
-    "Use ManagedIdentityCredential (not DefaultAzureCredential) in production",
-    "Store any required secrets in Azure Key Vault",
-    "Rotate secrets and certificates on a schedule",
-    "Enable Microsoft Defender for Cloud on production resources"
+  "keywords": [
+    "blob container",
+    "backup storage",
+    "lifecycle policy",
+    "storage redundancy",
+    "smb share"
+  ],
+  "drafts": [
+    "keywords"
   ]
 }

@@ -22,5 +22,23 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when editing images while keeping the subject's identity, such as swapping a background or clothing, or editing up to 20 images consistently."
+  ],
+  "whenNotToUse": [
+    "Editing multilingual text inside an image (GPT Image 2 edit) or generating a new image from scratch (nano-banana-2)"
+  ],
+  "keywords": [
+    "background swap",
+    "batch photo edit",
+    "product photos",
+    "gemini image edit",
+    "outfit change"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

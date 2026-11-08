@@ -18,5 +18,19 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when editing existing images on RunComfy and the right edit model should be chosen for the job: batch, text rewrite, precise local edit or masked region."
+  ],
+  "keywords": [
+    "photo editing",
+    "background swap",
+    "object removal",
+    "product photos",
+    "retouch"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

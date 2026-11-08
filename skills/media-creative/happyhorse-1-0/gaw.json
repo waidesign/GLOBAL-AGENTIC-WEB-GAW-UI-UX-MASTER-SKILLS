@@ -22,5 +22,23 @@
     "domains",
     "summary",
     "verification"
+  ],
+  "whenToUse": [
+    "Use when generating a video from text with synchronized audio and consistent characters across shots, or when the user asks for HappyHorse by name."
+  ],
+  "whenNotToUse": [
+    "Lip-synced dialogue to a reference video (Seedance 2.0 Pro) or fine motion control (Wan 2.7)"
+  ],
+  "keywords": [
+    "text to video",
+    "video with sound",
+    "multi-shot video",
+    "ai video",
+    "storytelling clip"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse",
+    "whenToUse"
   ]
 }

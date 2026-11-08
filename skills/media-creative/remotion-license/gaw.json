@@ -17,5 +17,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when the user asks whether they need a paid Remotion license, about its terms, or where to buy one."
+  ],
+  "keywords": [
+    "commercial use",
+    "pricing",
+    "terms of use",
+    "company license"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

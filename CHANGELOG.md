@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (skill review)
+- **AI-drafted ranking fields, waiting for review**: 219 skills below Rankable got drafted `whenToUse`, `whenNotToUse` and `keywords` (374 fields), written only into empty fields of `gaw.json` and based only on each skill's own SKILL.md. They are listed in `drafts` and don't count for ranking until a person approves them. If all are approved, the library goes from 12 to 216 skills at Rankable or above (Incomplete 116 → 11).
+- **`gaw skills review`**: shows drafted fields (`--all` or one skill), approves them (`--approve <name|all>`) or rejects and deletes them (`--reject <name|all>`), optionally for one `--field`.
+- **`gaw skills enrich --refresh`** recomputes fields GAW derived earlier, after a derivation fix.
+
+### Fixed (skill review)
+- "DO NOT USE FOR: …" sentences in skill descriptions were derived as `whenToUse`. They now become `whenNotToUse`, so they exclude a skill instead of matching it.
+
 ### Added (project context)
 - **Per-project skill selection**: `ai-brain/skills.lock.json` records which library skills a project uses (version, reason, date). Manage it with `gaw skills select`, `gaw skills deselect` and `gaw skills selected`; onboarding fills it from the project goal. Agents read a generated short catalog, `ai-brain/project-skills.md` (~640 tokens for 6 skills in a sample project), and open a full skill only when a task needs it.
 - **Shared project context service** (`core/project-context/`): one validated view of a project's stack, goal, rules, skills, code graph and Global Brain. `gaw context` and MCP `get_project_context` return it, and the agent files are built from it.

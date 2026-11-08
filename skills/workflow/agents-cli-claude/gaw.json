@@ -14,6 +14,10 @@
   "whenToUse": [
     "Use when working in this project — adding tools, editing the agent, running, evaluating, serving or deploying it — or when guidance mentions ADK, LlmAgent, google.adk, adk web, or an ADK runner."
   ],
+  "verification": [
+    "Fix lint in the files you wrote or edited with uv run ruff check --fix app && uv run ruff format app.",
+    "If agents-cli lint flags the user's original files (scripts, notebooks, parked files), add them to [tool.ruff] extend-exclude, [tool.ty.src] exclude (e.g. \"bookshop/\") and, for spelling, [tool.codespell] skip instead of restyling them."
+  ],
   "domains": [
     "software",
     "ai"
@@ -24,8 +28,16 @@
     "verification",
     "whenToUse"
   ],
-  "verification": [
-    "Fix lint in the files you wrote or edited with uv run ruff check --fix app && uv run ruff format app.",
-    "If agents-cli lint flags the user's original files (scripts, notebooks, parked files), add them to [tool.ruff] extend-exclude, [tool.ty.src] exclude (e.g. \"bookshop/\") and, for spelling, [tool.codespell] skip instead of restyling them."
+  "whenNotToUse": [
+    "Agent projects built on Google ADK"
+  ],
+  "keywords": [
+    "a2a server",
+    "cloud run agent",
+    "python agent"
+  ],
+  "drafts": [
+    "keywords",
+    "whenNotToUse"
   ]
 }

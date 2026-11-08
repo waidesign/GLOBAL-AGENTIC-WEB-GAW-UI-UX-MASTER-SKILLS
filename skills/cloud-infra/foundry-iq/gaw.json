@@ -20,5 +20,18 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use when making local or Blob documents searchable as a Foundry IQ knowledge base, connecting a knowledge base to agents, or retrieving answers with citations."
+  ],
+  "keywords": [
+    "rag",
+    "document search",
+    "grounding data",
+    "knowledge retrieval"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }

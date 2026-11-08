@@ -20,5 +20,17 @@
   "derived": [
     "domains",
     "summary"
+  ],
+  "whenToUse": [
+    "Use before starting an Azure or Microsoft-cloud task when no loaded skill or tool covers it, to find and install the right Azure skill plugin."
+  ],
+  "keywords": [
+    "skill catalog",
+    "find azure skill",
+    "skill discovery"
+  ],
+  "drafts": [
+    "keywords",
+    "whenToUse"
   ]
 }
