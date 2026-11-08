@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "3d/threejs/SKILL.md:3575:912|accessibility/fixing-accessibility/SKILL.md:4829:1039|accessibility/web-design-guidelines/SKILL.md:1271:1022|animation-motion/animation-systems/SKILL.md:5350:694|animation-motion/animejs/SKILL.md:3782:1178|animation-motion/improve-animations/SKILL.md:8547:1008|animation-motion/motion-dev/SKILL.md:4426:1093|animation-motion/react-view-transitions/SKILL.md:14591:1886|architecture/codebase-design/SKILL.md:6556:1176|architecture/doc-coauthoring/SKILL.md:15929:1310|architecture/domain-modeling/SKILL.md:3456:973|architecture/implement-spec/SKILL.md:2912:862|architecture/implement/SKILL.md:699:850|architecture/improve-codebase-architecture/SKILL.md:6107:1039|architecture/setup-ts-deep-modules/SKILL.md:7625:1394|architecture/to-spec/SKILL.md:3120:943|architecture/to-tickets/SKILL.md:5891:1110|architecture/wayfinder/SKILL.md:12487:1167|cloud-infra/airunway-aks-setup/SKILL.md:4555:1340|cloud-infra/aks-cost-optimization/SKILL.md:1943:1944|cloud-infra/aks-gpu-inference/SKILL.md:3085:1391|cloud-infra/aks-known-issues/SKILL.md:1974:1408|cloud-infra/aks-network-capture/SKILL.md:2999:1288|cloud-infra/aks-troubleshooting/SKILL.md:12806:1611|cloud-infra/appinsights-instrumentation/SKILL.md:3838:1232|cloud-infra/azure-advisor-actionability/SKILL.md:2020:1001|cloud-infra/azure-advisor/SKILL.md:2805:1251|cloud-infra/azure-ai/SKILL.md:3725:1749|cloud-infra/azure-aigateway/SKILL.md:5004:1712|cloud-infra/azure-app-onboard-prereq/SKILL.md:10352:1537|cloud-infra/azure-app-onboard/SKILL.md:6854:2018|cloud-infra/azure-cloud-migrate/SKILL.md:4399:1142|cloud-infra/azure-compliance/SKILL.md:4017:1634|cloud-infra/azure-compute/SKILL.md:2663:1653|cloud-infra/azure-deploy/SKILL.md:6740:2209|cloud-infra/azure-diagnostics/SKILL.md:7524:1377|cloud-infra/azure-enterprise-infra-planner/SKILL.md:6383:1703|cloud-infra/azure-kubernetes-app-deploy/SKILL.md:2056:1528|cloud-infra/azure-kubernetes-automatic-readiness/SKILL.md:17650:2255|cloud-infra/azure-kubernetes/SKILL.md:13109:1526|cloud-infra/azure-kusto-graph/SKILL.md:19273:1264|cloud-infra/azure-kusto-irql-graph/SKILL.md:19156:1412|cloud-infra/azure-kusto-irql/SKILL.md:10533:1306|cloud-infra/azure-kusto/SKILL.md:8600:1425|cloud-infra/azure-local-multi-rack/SKILL.md:3858:1781|cloud-infra/azure-local/SKILL.md:3452:1392|cloud-infra/azure-messaging/SKILL.md:3327:1410|cloud-infra/azure-prepare/SKILL.md:12905:1996|cloud-infra/azure-quotas/SKILL.md:12148:1816|cloud-infra/azure-reliability/SKILL.md:10537:2374|cloud-infra/azure-resource-lookup/SKILL.md:5645:2250|cloud-infra/azure-resource-visualizer/SKILL.md:8572:1249|cloud-infra/azure-search-nav/SKILL.md:2441:1310|cloud-infra/azure-storage/SKILL.md:5068:1913|cloud-infra/azure-upgrade/SKILL.md:8878:1365|cloud-infra/azure-validate/SKILL.md:3579:1469|cloud-infra/capacity/SKILL.md:7055:1918|cloud-infra/cost-analysis/SKILL.md:2030:1568|cloud-infra/cost-estimation/SKILL.md:2015:1325|cloud-infra/cost-governance/SKILL.md:1977:1288|cloud-infra/cost-optimization/SKILL.md:2022:1590|cloud-infra/customize/SKILL.md:9033:1919|cloud-infra/deploy-model/SKILL.md:7345:1885|cloud-infra/deploy-to-vercel/SKILL.md:9792:1028|cloud-infra/discover-azure-skills/SKILL.md:2361:1218|cloud-infra/entra-agent-id/SKILL.md:16080:1840|cloud-infra/entra-app-registration/SKILL.md:8267:1703|cloud-infra/finetuning/SKILL.md:5541:1889|cloud-infra/foundry-iq/SKILL.md:3808:1244|cloud-infra/google-agents-cli-deploy/SKILL.md:15075:1502|cloud-infra/microsoft-foundry/SKILL.md:15599:1814|cloud-infra/preset/SKILL.md:5004:1593|cloud-infra/python-appservice-deploy/SKILL.md:3347:1501|cloud-infra/vercel-cli-with-tokens/SKILL.md:10545:948|cloud-infra/vercel-optimize/SKILL.md:17394:1561|cloud-infra/wizard/SKILL.md:4232:1491|code-quality/code-review/SKILL.md:6833:1104|code-quality/git-guardrails-claude-code/SKILL.md:2423:1236|code-quality/mcp-builder/SKILL.md:11207:1140|code-quality/scaffold-exercises/SKILL.md:3699:997|code-quality/writing-guidelines/SKILL.md:1272:1066|color/better-colors/SKILL.md:7800:840|color/oklch-skill/SKILL.md:4918:708|components/company-logos/SKILL.md:1175:689|components/container-lines/SKILL.md:3718:1453|database/supabase-postgres-best-practices/SKILL.md:2768:1639|database/supabase/SKILL.md:14361:1052|debugging/diagnosing-bugs/SKILL.md:8774:609|design-systems/build-design-system/SKILL.md:9460:841|design-systems/create-design-md/SKILL.md:16319:1576|design-systems/design-system-boss/SKILL.md:4154:814|design-systems/migrate-to-a-design-system/SKILL.md:8506:985|documents/docx/SKILL.md:6970:1850|documents/pdf/SKILL.md:8133:1000|documents/pptx/SKILL.md:20867:1149|documents/xlsx/SKILL.md:8661:1774|frontend-frameworks/react-best-practices/SKILL.md:7344:773|frontend/composition-patterns/SKILL.md:2700:969|frontend/design-mobile-apps/SKILL.md:8554:920|frontend/frontend-design/SKILL.md:9612:809|frontend/react-native-skills/SKILL.md:4268:950|frontend/react-router-framework-mode/SKILL.md:4682:906|frontend/tailwindcss/SKILL.md:2921:839|frontend/web-artifacts-builder/SKILL.md:3162:1417|general/algorithmic-art/SKILL.md:19843:958|general/ask-matt/SKILL.md:12668:824|general/canvas-design/SKILL.md:12013:980|general/claude-api/SKILL.md:15799:1439|general/codex-pet/SKILL.md:15295:1060|general/discernment-nudge/SKILL.md:10633:1350|general/internal-comms/SKILL.md:1584:1362|general/pr/SKILL.md:4082:644|general/runcomfy-cli/SKILL.md:14219:1140|general/software-factory/SKILL.md:6073:877|general/teach/SKILL.md:9754:847|general/template/SKILL.md:273:495|general/to-questionnaire/SKILL.md:2978:856|general/wait-what/SKILL.md:468:802|general/writing-beats/SKILL.md:4929:1043|general/writing-fragments/SKILL.md:3630:977|general/writing-shape/SKILL.md:5994:998|interaction/animation-on-scroll/SKILL.md:3657:871|media-creative/ace-step/SKILL.md:16366:1145|media-creative/ai-avatar-video/SKILL.md:16376:1073|media-creative/ai-image-generation/SKILL.md:14505:1107|media-creative/ai-music/SKILL.md:14348:1094|media-creative/ai-video-generation/SKILL.md:15580:1111|media-creative/canopy-part-title/SKILL.md:4138:944|media-creative/captions-overlay/SKILL.md:5893:1117|media-creative/changelog-video/SKILL.md:13541:1527|media-creative/code-slice-hero/SKILL.md:4927:959|media-creative/controlnet-pose/SKILL.md:10952:1090|media-creative/cuboid-carousel/SKILL.md:7316:929|media-creative/cut-the-curve/SKILL.md:18949:1119|media-creative/elevenlabs-music-generation/SKILL.md:11243:1468|media-creative/face-swap/SKILL.md:17939:1252|media-creative/figma/SKILL.md:6435:1121|media-creative/flux-2-klein/SKILL.md:11605:1392|media-creative/flux-kontext/SKILL.md:8081:1369|media-creative/frost-sequence-camera-orbit/SKILL.md:2589:1002|media-creative/glass-shard-title/SKILL.md:5501:945|media-creative/gpt-image-2/SKILL.md:10585:1428|media-creative/gpt-image-edit/SKILL.md:9502:1440|media-creative/happyhorse-1-0/SKILL.md:9545:1432|media-creative/hyperframes-cli/SKILL.md:7734:2814|media-creative/hyperframes-registry/SKILL.md:4619:1715|media-creative/hyperframes/SKILL.md:7467:1414|media-creative/image-edit/SKILL.md:13231:1147|media-creative/image-inpainting/SKILL.md:11475:1105|media-creative/image-outpainting/SKILL.md:11430:1283|media-creative/image-to-video/SKILL.md:11787:1124|media-creative/kling-3-0/SKILL.md:15829:964|media-creative/lipsync/SKILL.md:12709:1240|media-creative/media-use/SKILL.md:5370:1365|media-creative/motion-doctrine/SKILL.md:12026:1391|media-creative/nano-banana-2/SKILL.md:9562:1411|media-creative/nano-banana-edit/SKILL.md:9024:1465|media-creative/orbit-card/SKILL.md:3674:943|media-creative/oversized-cursor/SKILL.md:6717:1644|media-creative/relight/SKILL.md:10166:1209|media-creative/remotion-best-practices/SKILL.md:4450:559|media-creative/remotion-captions/SKILL.md:1238:833|media-creative/remotion-create/SKILL.md:2812:811|media-creative/remotion-docs/SKILL.md:1441:791|media-creative/remotion-interactivity/SKILL.md:13804:824|media-creative/remotion-license/SKILL.md:585:807|media-creative/remotion-maps/SKILL.md:1131:831|media-creative/remotion-markup/SKILL.md:13446:1112|media-creative/remotion-multimedia/SKILL.md:806:794|media-creative/remotion-render/SKILL.md:1178:779|media-creative/remotion-saas/SKILL.md:1154:797|media-creative/remotion-studio/SKILL.md:1712:732|media-creative/remotion-to-hyperframes/SKILL.md:5307:1467|media-creative/remotion-upgrade/SKILL.md:2048:802|media-creative/reverse-any-video/SKILL.md:5394:1536|media-creative/seam-craft/SKILL.md:4957:1066|media-creative/seedance-2-5-image-to-video/SKILL.md:12117:1134|media-creative/seedance-2-5-reference-to-video/SKILL.md:17630:1439|media-creative/seedance-v2/SKILL.md:9044:1216|media-creative/slack-gif-creator/SKILL.md:7923:992|media-creative/slideshow/SKILL.md:5196:1052|media-creative/style-sampling/SKILL.md:4758:1804|media-creative/video-edit/SKILL.md:11233:1141|media-creative/video-extend/SKILL.md:9570:1098|media-creative/video-inpainting/SKILL.md:10164:1269|media-creative/video-outpainting/SKILL.md:8985:1273|media-creative/wan-2-7/SKILL.md:8411:1265|media-creative/wan-3-0-prime-reference-to-video/SKILL.md:15745:1183|media-creative/wireframe-portal-title/SKILL.md:4358:982|micro-interactions/masked-reveal/SKILL.md:4074:1346|micro-interactions/micro-interactions-system/SKILL.md:3224:827|performance/fixing-motion-performance/SKILL.md:5673:946|react/improve-react/SKILL.md:12516:829|seo/fixing-metadata/SKILL.md:4501:1137|shadcn-ui/improve-shadcn/SKILL.md:15427:838|systems/baseline-ui/SKILL.md:3523:847|systems/ui-skills-root/SKILL.md:1492:1010|testing/migrate-to-shoehorn/SKILL.md:2900:1021|testing/setup-pre-commit/SKILL.md:2363:1277|testing/tdd/SKILL.md:3736:856|testing/vue-testing-best-practices/SKILL.md:2177:521|testing/webapp-testing/SKILL.md:3987:1046|typography/better-typography/SKILL.md:12351:783|typography/swiss-design/SKILL.md:13050:895|ui-ux/academy-guide/SKILL.md:7808:1226|ui-ux/brand-guidelines/SKILL.md:2306:1062|ui-ux/design-lab/SKILL.md:14741:751|ui-ux/improve-ui/SKILL.md:8053:1186|ui-ux/landing-page/SKILL.md:5377:966|ui-ux/pricing-page/SKILL.md:5960:1109|ui-ux/prototype/SKILL.md:3034:985|ui-ux/rams/SKILL.md:5164:579|ui-ux/taste-skill/SKILL.md:11975:2024|ui-ux/theme-factory/SKILL.md:3194:999|workflow/agents-cli-claude/SKILL.md:5454:1653|workflow/agents-cli-langchain/SKILL.md:4068:1309|workflow/chief-of-staff/SKILL.md:4804:919|workflow/claude-handoff/SKILL.md:1442:884|workflow/google-agents-cli-adk-code/SKILL.md:4351:2067|workflow/google-agents-cli-eval/SKILL.md:11001:1882|workflow/google-agents-cli-observability/SKILL.md:12033:1758|workflow/google-agents-cli-publish/SKILL.md:11772:1487|workflow/google-agents-cli-scaffold/SKILL.md:13251:1406|workflow/google-agents-cli-workflow/SKILL.md:14787:1275|workflow/grill-me/SKILL.md:232:874|workflow/grill-with-docs/SKILL.md:322:896|workflow/grilling/SKILL.md:2183:950|workflow/handoff/SKILL.md:958:906|workflow/loop-me/SKILL.md:2532:1116|workflow/research/SKILL.md:938:1045|workflow/retro/SKILL.md:4442:832|workflow/setup-matt-pocock-skills/SKILL.md:7599:1029|workflow/skill-creator/SKILL.md:9999:1289|workflow/triage/SKILL.md:6633:994|workflow/writing-for-agents/SKILL.md:10992:907",
+  "fingerprint": "3d/threejs/SKILL.md:3575:912|accessibility/fixing-accessibility/SKILL.md:4829:1039|accessibility/web-design-guidelines/SKILL.md:1271:1022|animation-motion/animation-systems/SKILL.md:5350:694|animation-motion/animejs/SKILL.md:3782:1161|animation-motion/improve-animations/SKILL.md:8547:971|animation-motion/motion-dev/SKILL.md:4426:1076|animation-motion/react-view-transitions/SKILL.md:14591:1886|architecture/codebase-design/SKILL.md:6556:1176|architecture/doc-coauthoring/SKILL.md:15929:1310|architecture/domain-modeling/SKILL.md:3456:973|architecture/implement-spec/SKILL.md:2912:845|architecture/implement/SKILL.md:699:833|architecture/improve-codebase-architecture/SKILL.md:6107:1010|architecture/setup-ts-deep-modules/SKILL.md:7625:1377|architecture/to-spec/SKILL.md:3120:926|architecture/to-tickets/SKILL.md:5891:1093|architecture/wayfinder/SKILL.md:12487:1130|cloud-infra/airunway-aks-setup/SKILL.md:4555:1340|cloud-infra/aks-cost-optimization/SKILL.md:1943:1944|cloud-infra/aks-gpu-inference/SKILL.md:3085:1391|cloud-infra/aks-known-issues/SKILL.md:1974:1408|cloud-infra/aks-network-capture/SKILL.md:2999:1288|cloud-infra/aks-troubleshooting/SKILL.md:12806:1594|cloud-infra/appinsights-instrumentation/SKILL.md:3838:1232|cloud-infra/azure-advisor-actionability/SKILL.md:2020:984|cloud-infra/azure-advisor/SKILL.md:2805:1234|cloud-infra/azure-ai/SKILL.md:3725:1732|cloud-infra/azure-aigateway/SKILL.md:5004:1695|cloud-infra/azure-app-onboard-prereq/SKILL.md:10352:1520|cloud-infra/azure-app-onboard/SKILL.md:6854:2012|cloud-infra/azure-cloud-migrate/SKILL.md:4399:1125|cloud-infra/azure-compliance/SKILL.md:4017:1617|cloud-infra/azure-compute/SKILL.md:2663:1653|cloud-infra/azure-deploy/SKILL.md:6740:2209|cloud-infra/azure-diagnostics/SKILL.md:7524:1377|cloud-infra/azure-enterprise-infra-planner/SKILL.md:6383:1703|cloud-infra/azure-kubernetes-app-deploy/SKILL.md:2056:1528|cloud-infra/azure-kubernetes-automatic-readiness/SKILL.md:17650:2255|cloud-infra/azure-kubernetes/SKILL.md:13109:1526|cloud-infra/azure-kusto-graph/SKILL.md:19273:1227|cloud-infra/azure-kusto-irql-graph/SKILL.md:19156:1412|cloud-infra/azure-kusto-irql/SKILL.md:10533:1276|cloud-infra/azure-kusto/SKILL.md:8600:1436|cloud-infra/azure-local-multi-rack/SKILL.md:3858:1781|cloud-infra/azure-local/SKILL.md:3452:1392|cloud-infra/azure-messaging/SKILL.md:3327:1410|cloud-infra/azure-prepare/SKILL.md:12905:1996|cloud-infra/azure-quotas/SKILL.md:12148:1816|cloud-infra/azure-reliability/SKILL.md:10537:2374|cloud-infra/azure-resource-lookup/SKILL.md:5645:2257|cloud-infra/azure-resource-visualizer/SKILL.md:8572:1232|cloud-infra/azure-search-nav/SKILL.md:2441:1310|cloud-infra/azure-storage/SKILL.md:5068:1913|cloud-infra/azure-upgrade/SKILL.md:8878:1328|cloud-infra/azure-validate/SKILL.md:3579:1469|cloud-infra/capacity/SKILL.md:7055:1918|cloud-infra/cost-analysis/SKILL.md:2030:1568|cloud-infra/cost-estimation/SKILL.md:2015:1325|cloud-infra/cost-governance/SKILL.md:1977:1288|cloud-infra/cost-optimization/SKILL.md:2022:1590|cloud-infra/customize/SKILL.md:9033:1919|cloud-infra/deploy-model/SKILL.md:7345:1885|cloud-infra/deploy-to-vercel/SKILL.md:9792:1028|cloud-infra/discover-azure-skills/SKILL.md:2361:1201|cloud-infra/entra-agent-id/SKILL.md:16080:1840|cloud-infra/entra-app-registration/SKILL.md:8267:1703|cloud-infra/finetuning/SKILL.md:5541:1889|cloud-infra/foundry-iq/SKILL.md:3808:1229|cloud-infra/google-agents-cli-deploy/SKILL.md:15075:1502|cloud-infra/microsoft-foundry/SKILL.md:15599:1814|cloud-infra/preset/SKILL.md:5004:1593|cloud-infra/python-appservice-deploy/SKILL.md:3347:1484|cloud-infra/vercel-cli-with-tokens/SKILL.md:10545:948|cloud-infra/vercel-optimize/SKILL.md:17394:1561|cloud-infra/wizard/SKILL.md:4232:1491|code-quality/code-review/SKILL.md:6833:1104|code-quality/git-guardrails-claude-code/SKILL.md:2423:1236|code-quality/mcp-builder/SKILL.md:11207:1140|code-quality/scaffold-exercises/SKILL.md:3699:997|code-quality/writing-guidelines/SKILL.md:1272:1066|color/better-colors/SKILL.md:7800:803|color/oklch-skill/SKILL.md:4918:662|components/company-logos/SKILL.md:1175:689|components/container-lines/SKILL.md:3718:1453|database/supabase-postgres-best-practices/SKILL.md:2768:1622|database/supabase/SKILL.md:14361:1052|debugging/diagnosing-bugs/SKILL.md:8774:609|design-systems/build-design-system/SKILL.md:9460:828|design-systems/create-design-md/SKILL.md:16319:1576|design-systems/design-system-boss/SKILL.md:4154:797|design-systems/migrate-to-a-design-system/SKILL.md:8506:948|documents/docx/SKILL.md:6970:1850|documents/pdf/SKILL.md:8133:1000|documents/pptx/SKILL.md:20867:1149|documents/xlsx/SKILL.md:8661:1774|frontend-frameworks/react-best-practices/SKILL.md:7344:773|frontend/composition-patterns/SKILL.md:2700:952|frontend/design-mobile-apps/SKILL.md:8554:903|frontend/frontend-design/SKILL.md:9612:792|frontend/react-native-skills/SKILL.md:4268:933|frontend/react-router-framework-mode/SKILL.md:4682:906|frontend/tailwindcss/SKILL.md:2921:839|frontend/web-artifacts-builder/SKILL.md:3162:1400|general/algorithmic-art/SKILL.md:19843:958|general/ask-matt/SKILL.md:12668:807|general/canvas-design/SKILL.md:12013:980|general/claude-api/SKILL.md:15799:1419|general/codex-pet/SKILL.md:15295:1043|general/discernment-nudge/SKILL.md:10633:1330|general/internal-comms/SKILL.md:1584:1341|general/pr/SKILL.md:4082:644|general/runcomfy-cli/SKILL.md:14219:1123|general/software-factory/SKILL.md:6073:860|general/teach/SKILL.md:9754:830|general/template/SKILL.md:273:495|general/to-questionnaire/SKILL.md:2978:839|general/wait-what/SKILL.md:468:785|general/writing-beats/SKILL.md:4929:1006|general/writing-fragments/SKILL.md:3630:940|general/writing-shape/SKILL.md:5994:961|interaction/animation-on-scroll/SKILL.md:3657:871|media-creative/ace-step/SKILL.md:16366:1128|media-creative/ai-avatar-video/SKILL.md:16376:1056|media-creative/ai-image-generation/SKILL.md:14505:1090|media-creative/ai-music/SKILL.md:14348:1077|media-creative/ai-video-generation/SKILL.md:15580:1094|media-creative/canopy-part-title/SKILL.md:4138:927|media-creative/captions-overlay/SKILL.md:5893:1100|media-creative/changelog-video/SKILL.md:13541:1527|media-creative/code-slice-hero/SKILL.md:4927:942|media-creative/controlnet-pose/SKILL.md:10952:1073|media-creative/cuboid-carousel/SKILL.md:7316:912|media-creative/cut-the-curve/SKILL.md:18949:1102|media-creative/elevenlabs-music-generation/SKILL.md:11243:1448|media-creative/face-swap/SKILL.md:17939:1215|media-creative/figma/SKILL.md:6435:1121|media-creative/flux-2-klein/SKILL.md:11605:1355|media-creative/flux-kontext/SKILL.md:8081:1332|media-creative/frost-sequence-camera-orbit/SKILL.md:2589:985|media-creative/glass-shard-title/SKILL.md:5501:928|media-creative/gpt-image-2/SKILL.md:10585:1391|media-creative/gpt-image-edit/SKILL.md:9502:1403|media-creative/happyhorse-1-0/SKILL.md:9545:1395|media-creative/hyperframes-cli/SKILL.md:7734:2814|media-creative/hyperframes-registry/SKILL.md:4619:1715|media-creative/hyperframes/SKILL.md:7467:1397|media-creative/image-edit/SKILL.md:13231:1130|media-creative/image-inpainting/SKILL.md:11475:1105|media-creative/image-outpainting/SKILL.md:11430:1246|media-creative/image-to-video/SKILL.md:11787:1107|media-creative/kling-3-0/SKILL.md:15829:947|media-creative/lipsync/SKILL.md:12709:1203|media-creative/media-use/SKILL.md:5370:1348|media-creative/motion-doctrine/SKILL.md:12026:1374|media-creative/nano-banana-2/SKILL.md:9562:1374|media-creative/nano-banana-edit/SKILL.md:9024:1428|media-creative/orbit-card/SKILL.md:3674:926|media-creative/oversized-cursor/SKILL.md:6717:1593|media-creative/relight/SKILL.md:10166:1189|media-creative/remotion-best-practices/SKILL.md:4450:542|media-creative/remotion-captions/SKILL.md:1238:816|media-creative/remotion-create/SKILL.md:2812:794|media-creative/remotion-docs/SKILL.md:1441:774|media-creative/remotion-interactivity/SKILL.md:13804:807|media-creative/remotion-license/SKILL.md:585:790|media-creative/remotion-maps/SKILL.md:1131:814|media-creative/remotion-markup/SKILL.md:13446:1095|media-creative/remotion-multimedia/SKILL.md:806:777|media-creative/remotion-render/SKILL.md:1178:762|media-creative/remotion-saas/SKILL.md:1154:780|media-creative/remotion-studio/SKILL.md:1712:715|media-creative/remotion-to-hyperframes/SKILL.md:5307:1467|media-creative/remotion-upgrade/SKILL.md:2048:785|media-creative/reverse-any-video/SKILL.md:5394:1499|media-creative/seam-craft/SKILL.md:4957:1049|media-creative/seedance-2-5-image-to-video/SKILL.md:12117:1117|media-creative/seedance-2-5-reference-to-video/SKILL.md:17630:1419|media-creative/seedance-v2/SKILL.md:9044:1199|media-creative/slack-gif-creator/SKILL.md:7923:992|media-creative/slideshow/SKILL.md:5196:1032|media-creative/style-sampling/SKILL.md:4758:1784|media-creative/video-edit/SKILL.md:11233:1124|media-creative/video-extend/SKILL.md:9570:1098|media-creative/video-inpainting/SKILL.md:10164:1232|media-creative/video-outpainting/SKILL.md:8985:1236|media-creative/wan-2-7/SKILL.md:8411:1248|media-creative/wan-3-0-prime-reference-to-video/SKILL.md:15745:1166|media-creative/wireframe-portal-title/SKILL.md:4358:965|micro-interactions/masked-reveal/SKILL.md:4074:1348|micro-interactions/micro-interactions-system/SKILL.md:3224:810|performance/fixing-motion-performance/SKILL.md:5673:946|react/improve-react/SKILL.md:12516:792|seo/fixing-metadata/SKILL.md:4501:1137|shadcn-ui/improve-shadcn/SKILL.md:15427:791|systems/baseline-ui/SKILL.md:3523:847|systems/ui-skills-root/SKILL.md:1492:990|testing/migrate-to-shoehorn/SKILL.md:2900:1001|testing/setup-pre-commit/SKILL.md:2363:1277|testing/tdd/SKILL.md:3736:856|testing/vue-testing-best-practices/SKILL.md:2177:521|testing/webapp-testing/SKILL.md:3987:1011|typography/better-typography/SKILL.md:12351:746|typography/swiss-design/SKILL.md:13050:895|ui-ux/academy-guide/SKILL.md:7808:1206|ui-ux/brand-guidelines/SKILL.md:2306:1062|ui-ux/design-lab/SKILL.md:14741:734|ui-ux/improve-ui/SKILL.md:8053:1149|ui-ux/landing-page/SKILL.md:5377:966|ui-ux/pricing-page/SKILL.md:5960:1109|ui-ux/prototype/SKILL.md:3034:985|ui-ux/rams/SKILL.md:5164:540|ui-ux/taste-skill/SKILL.md:11975:2040|ui-ux/theme-factory/SKILL.md:3194:941|workflow/agents-cli-claude/SKILL.md:5454:1633|workflow/agents-cli-langchain/SKILL.md:4068:1289|workflow/chief-of-staff/SKILL.md:4804:902|workflow/claude-handoff/SKILL.md:1442:867|workflow/google-agents-cli-adk-code/SKILL.md:4351:2067|workflow/google-agents-cli-eval/SKILL.md:11001:1879|workflow/google-agents-cli-observability/SKILL.md:12033:1758|workflow/google-agents-cli-publish/SKILL.md:11772:1456|workflow/google-agents-cli-scaffold/SKILL.md:13251:1406|workflow/google-agents-cli-workflow/SKILL.md:14787:1275|workflow/grill-me/SKILL.md:232:857|workflow/grill-with-docs/SKILL.md:322:879|workflow/grilling/SKILL.md:2183:950|workflow/handoff/SKILL.md:958:889|workflow/loop-me/SKILL.md:2532:1099|workflow/research/SKILL.md:938:1045|workflow/retro/SKILL.md:4442:815|workflow/setup-matt-pocock-skills/SKILL.md:7599:1012|workflow/skill-creator/SKILL.md:9999:1289|workflow/triage/SKILL.md:6633:973|workflow/writing-for-agents/SKILL.md:10992:907",
   "skills": [
     {
       "id": "threejs",
@@ -318,8 +318,7 @@
           "entrance animation"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -399,9 +398,7 @@
           "animation plan"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -486,8 +483,7 @@
           "reduced motion"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -811,8 +807,7 @@
           "worktrees"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -871,8 +866,7 @@
           "tdd workflow"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -890,10 +884,10 @@
       "tags": [],
       "keywords": [
         "refactoring",
-        "architecture review",
         "technical debt",
         "deep modules",
-        "code health report"
+        "module boundaries",
+        "coupling"
       ],
       "frameworks": [
         "any"
@@ -928,14 +922,13 @@
         ],
         "keywords": [
           "refactoring",
-          "architecture review",
           "technical debt",
           "deep modules",
-          "code health report"
+          "module boundaries",
+          "coupling"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -1002,8 +995,7 @@
           "lint imports"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -1062,8 +1054,7 @@
           "product spec"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -1129,8 +1120,7 @@
           "work breakdown"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -1195,9 +1185,7 @@
           "open questions"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -1613,8 +1601,7 @@
           "kubectl"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -1743,8 +1730,7 @@
           "powershell fix"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -1810,8 +1796,7 @@
           "postpone recommendation"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -1888,8 +1873,7 @@
           "voice synthesis"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -1963,8 +1947,7 @@
           "model backend routing"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -2031,8 +2014,7 @@
           "migration readiness"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -2051,7 +2033,7 @@
       "keywords": [
         "lift and shift",
         "architecture plan",
-        "azure service selection",
+        "service selection",
         "scaffold infrastructure",
         "guided onboarding"
       ],
@@ -2102,7 +2084,7 @@
         "keywords": [
           "lift and shift",
           "architecture plan",
-          "azure service selection",
+          "service selection",
           "scaffold infrastructure",
           "guided onboarding"
         ],
@@ -2169,8 +2151,7 @@
           "cross-cloud move"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -2243,8 +2224,7 @@
           "audit report"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -2820,9 +2800,7 @@
           "path finding"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -2906,9 +2884,9 @@
       "tags": [],
       "keywords": [
         "soc analyst",
-        "hunting query",
+        "attack investigation",
         "incident triage",
-        "detection query"
+        "detection rules"
       ],
       "frameworks": [
         "any"
@@ -2948,14 +2926,12 @@
         ],
         "keywords": [
           "soc analyst",
-          "hunting query",
+          "attack investigation",
           "incident triage",
-          "detection query"
+          "detection rules"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -2975,7 +2951,7 @@
         "big data analytics",
         "siem",
         "security analytics",
-        "query logs",
+        "telemetry exploration",
         "sensor data"
       ],
       "frameworks": [
@@ -3019,7 +2995,7 @@
           "big data analytics",
           "siem",
           "security analytics",
-          "query logs",
+          "telemetry exploration",
           "sensor data"
         ],
         "drafts": [
@@ -3470,9 +3446,9 @@
       "tags": [],
       "keywords": [
         "orphaned resources",
-        "tag audit",
         "asset inventory",
-        "cloud inventory"
+        "cloud inventory",
+        "unused resources"
       ],
       "frameworks": [
         "any"
@@ -3525,9 +3501,9 @@
         ],
         "keywords": [
           "orphaned resources",
-          "tag audit",
           "asset inventory",
-          "cloud inventory"
+          "cloud inventory",
+          "unused resources"
         ],
         "drafts": [
           "keywords"
@@ -3590,8 +3566,7 @@
           "architecture documentation"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -3795,9 +3770,7 @@
           "sdk modernization"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -4497,8 +4470,7 @@
           "skill discovery"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -4743,7 +4715,7 @@
       "tags": [],
       "keywords": [
         "rag",
-        "document search",
+        "enterprise search",
         "grounding data",
         "knowledge retrieval"
       ],
@@ -4782,13 +4754,12 @@
         ],
         "keywords": [
           "rag",
-          "document search",
+          "enterprise search",
           "grounding data",
           "knowledge retrieval"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -5075,8 +5046,7 @@
           "zip deploy"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -5663,9 +5633,7 @@
           "gamut"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -5685,8 +5653,7 @@
         "perceptual color",
         "apca",
         "color ramp",
-        "wide gamut",
-        "tailwind theme colors"
+        "wide gamut"
       ],
       "frameworks": [
         "any",
@@ -5718,12 +5685,10 @@
           "perceptual color",
           "apca",
           "color ramp",
-          "wide gamut",
-          "tailwind theme colors"
+          "wide gamut"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -5924,8 +5889,7 @@
           "database schema"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -6068,7 +6032,7 @@
         "design tokens",
         "component library",
         "ui consistency",
-        "visual regression",
+        "screenshot comparison",
         "style audit"
       ],
       "frameworks": [
@@ -6117,12 +6081,11 @@
           "design tokens",
           "component library",
           "ui consistency",
-          "visual regression",
+          "screenshot comparison",
           "style audit"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -6275,8 +6238,7 @@
           "playbook router"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -6361,9 +6323,7 @@
           "pixel diff"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -6748,8 +6708,7 @@
           "react 19"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -6809,8 +6768,7 @@
           "mobile mockup"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -6888,8 +6846,7 @@
           "art direction"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -6952,8 +6909,7 @@
           "ios and android"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -7139,8 +7095,7 @@
           "react app"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -7251,8 +7206,7 @@
           "skill map"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -7375,8 +7329,7 @@
           "messages api"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -7436,8 +7389,7 @@
           "animated mascot"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -7501,8 +7453,7 @@
           "verify claims"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -7521,7 +7472,6 @@
       "keywords": [
         "status update",
         "team update",
-        "weekly report",
         "announcement",
         "company memo"
       ],
@@ -7566,7 +7516,6 @@
         "keywords": [
           "status update",
           "team update",
-          "weekly report",
           "announcement",
           "company memo"
         ],
@@ -7687,8 +7636,7 @@
           "hosted models"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -7745,8 +7693,7 @@
           "glossary"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -7807,8 +7754,7 @@
           "cheat sheet"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -7905,8 +7851,7 @@
           "async survey"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -7963,8 +7908,7 @@
           "simplify explanation"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -8028,9 +7972,7 @@
           "storytelling"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -8094,9 +8036,7 @@
           "blog post"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -8160,9 +8100,7 @@
           "outline"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -8275,8 +8213,7 @@
           "background music"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -8334,8 +8271,7 @@
           "ugc video"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -8394,8 +8330,7 @@
           "illustration"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -8455,8 +8390,7 @@
           "soundtrack"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -8516,8 +8450,7 @@
           "short-form video"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -8579,8 +8512,7 @@
           "nature title"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -8639,8 +8571,7 @@
           "burned-in captions"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -8777,8 +8708,7 @@
           "motion graphics"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -8835,8 +8765,7 @@
           "pose reference"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -8897,8 +8826,7 @@
           "motion graphics"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -8959,8 +8887,7 @@
           "video editing"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -9028,8 +8955,7 @@
           "music for video"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -9092,9 +9018,7 @@
           "identity transfer"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -9227,9 +9151,7 @@
           "art direction"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -9294,9 +9216,7 @@
           "inpainting"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -9358,8 +9278,7 @@
           "motion graphics"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -9421,8 +9340,7 @@
           "motion graphics"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -9491,9 +9409,7 @@
           "signage"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -9562,9 +9478,7 @@
           "photo edit"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -9633,9 +9547,7 @@
           "storytelling clip"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -9855,8 +9767,7 @@
           "explainer video"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -9918,8 +9829,7 @@
           "retouch"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10041,9 +9951,7 @@
           "canvas expansion"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10062,7 +9970,7 @@
       "keywords": [
         "animate photo",
         "photo to video",
-        "product reveal",
+        "turntable shot",
         "lip sync",
         "portrait animation"
       ],
@@ -10099,13 +10007,12 @@
         "keywords": [
           "animate photo",
           "photo to video",
-          "product reveal",
+          "turntable shot",
           "lip sync",
           "portrait animation"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10162,8 +10069,7 @@
           "cinematic video"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10225,9 +10131,7 @@
           "translated video"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10298,8 +10202,7 @@
           "remove background"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10370,8 +10273,7 @@
           "camera movement"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10438,9 +10340,7 @@
           "image variants"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10509,9 +10409,7 @@
           "outfit change"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10573,8 +10471,7 @@
           "motion graphics"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10593,8 +10490,7 @@
       "keywords": [
         "mouse pointer animation",
         "click animation",
-        "ui demo video",
-        "product launch video",
+        "ui demo",
         "screen recording style"
       ],
       "frameworks": [
@@ -10640,13 +10536,11 @@
         "keywords": [
           "mouse pointer animation",
           "click animation",
-          "ui demo video",
-          "product launch video",
+          "ui demo",
           "screen recording style"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10709,8 +10603,7 @@
           "photo mood"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10767,8 +10660,7 @@
           "motion graphics"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10829,8 +10721,7 @@
           "transcript"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10891,8 +10782,7 @@
           "video composition"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -10952,8 +10842,7 @@
           "react video api"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -11014,8 +10903,7 @@
           "video editor"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -11074,8 +10962,7 @@
           "company license"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -11137,8 +11024,7 @@
           "3d flyover"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -11205,8 +11091,7 @@
           "video layout"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -11265,8 +11150,7 @@
           "media file info"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -11327,8 +11211,7 @@
           "cli render"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -11389,8 +11272,7 @@
           "saas template"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -11449,8 +11331,7 @@
           "studio port"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -11581,8 +11462,7 @@
           "lockfile update"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -11653,9 +11533,7 @@
           "editable template"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -11712,8 +11590,7 @@
           "render bug"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -11773,8 +11650,7 @@
           "ai video"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -11792,7 +11668,6 @@
       "tags": [],
       "keywords": [
         "character consistency",
-        "product film",
         "bytedance video",
         "multi-reference"
       ],
@@ -11832,7 +11707,6 @@
         ],
         "keywords": [
           "character consistency",
-          "product film",
           "bytedance video",
           "multi-reference"
         ],
@@ -11900,8 +11774,7 @@
           "dialogue video"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -12026,8 +11899,7 @@
           "live presentation"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -12100,8 +11972,7 @@
           "documentary style"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -12162,8 +12033,7 @@
           "footage editing"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -12290,9 +12160,7 @@
           "frame editing"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -12355,9 +12223,7 @@
           "landscape version"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -12423,8 +12289,7 @@
           "motion control"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -12486,8 +12351,7 @@
           "ai video"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -12549,8 +12413,7 @@
           "motion graphics"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -12571,7 +12434,7 @@
         "scroll animation",
         "headline animation",
         "split text",
-        "word stagger"
+        "stagger reveal"
       ],
       "frameworks": [
         "framer-motion",
@@ -12617,7 +12480,7 @@
           "scroll animation",
           "headline animation",
           "split text",
-          "word stagger"
+          "stagger reveal"
         ],
         "drafts": [
           "keywords"
@@ -12700,8 +12563,7 @@
           "form validation feedback"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -12834,9 +12696,7 @@
           "code review"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -12922,8 +12782,8 @@
       ],
       "keywords": [
         "component library audit",
-        "radix primitives",
-        "improvement plan"
+        "improvement plan",
+        "ui kit"
       ],
       "frameworks": [
         "react",
@@ -12968,13 +12828,11 @@
         ],
         "keywords": [
           "component library audit",
-          "radix primitives",
-          "improvement plan"
+          "improvement plan",
+          "ui kit"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -13104,8 +12962,7 @@
           "skill selection"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -13169,8 +13026,7 @@
           "mock data"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -13406,9 +13262,6 @@
         ],
         "whenToUse": [
           "Use when testing a local web app in a real browser with Playwright: checking that features work, debugging UI behavior, taking screenshots or reading console logs."
-        ],
-        "drafts": [
-          "whenToUse"
         ]
       },
       "format": "gss",
@@ -13468,9 +13321,7 @@
           "fonts"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -13585,8 +13436,7 @@
           "getting started guide"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -13725,8 +13575,7 @@
           "design iteration"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -13816,9 +13665,7 @@
           "design debt"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -14025,7 +13872,6 @@
         "accessibility audit",
         "wcag",
         "a11y",
-        "ui code review",
         "aria labels"
       ],
       "frameworks": [
@@ -14061,12 +13907,10 @@
           "accessibility audit",
           "wcag",
           "a11y",
-          "ui code review",
           "aria labels"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -14083,9 +13927,10 @@
       "version": "1.0.0",
       "tags": [],
       "keywords": [
-        "website design",
-        "marketing site",
-        "premium web design"
+        "company homepage",
+        "brand website",
+        "hotel website",
+        "cafe website"
       ],
       "frameworks": [
         "any"
@@ -14133,9 +13978,10 @@
           "whenToUse"
         ],
         "keywords": [
-          "website design",
-          "marketing site",
-          "premium web design"
+          "company homepage",
+          "brand website",
+          "hotel website",
+          "cafe website"
         ],
         "drafts": [
           "keywords"
@@ -14155,8 +14001,6 @@
       "version": "1.0.0",
       "tags": [],
       "keywords": [
-        "color palette",
-        "font pairing",
         "slide styling",
         "presentation theme",
         "document styling"
@@ -14195,15 +14039,12 @@
           "Use when applying a consistent color and font theme to slides, documents, reports or HTML pages, from 10 preset themes or a new one."
         ],
         "keywords": [
-          "color palette",
-          "font pairing",
           "slide styling",
           "presentation theme",
           "document styling"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -14270,8 +14111,7 @@
           "python agent"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -14337,8 +14177,7 @@
           "stategraph"
         ],
         "drafts": [
-          "keywords",
-          "whenNotToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -14400,8 +14239,7 @@
           "project memory"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -14461,8 +14299,7 @@
           "fresh context"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -14558,7 +14395,7 @@
         "agent testing",
         "llm as judge",
         "quality metrics",
-        "regression testing"
+        "agent benchmark"
       ],
       "frameworks": [
         "any"
@@ -14604,7 +14441,7 @@
           "agent testing",
           "llm as judge",
           "quality metrics",
-          "regression testing"
+          "agent benchmark"
         ],
         "drafts": [
           "keywords"
@@ -14696,7 +14533,6 @@
       "tags": [],
       "keywords": [
         "agent marketplace",
-        "mcp server registration",
         "agent catalog",
         "agent discovery"
       ],
@@ -14739,7 +14575,6 @@
         ],
         "keywords": [
           "agent marketplace",
-          "mcp server registration",
           "agent catalog",
           "agent discovery"
         ],
@@ -14937,8 +14772,7 @@
           "decision review"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -14997,8 +14831,7 @@
           "decision records"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -15123,8 +14956,7 @@
           "compact conversation"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -15191,8 +15023,7 @@
           "routine spec"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -15313,8 +15144,7 @@
           "guardrails"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -15377,8 +15207,7 @@
           "glossary setup"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",
@@ -15466,7 +15295,7 @@
         "bug reports",
         "issue labels",
         "backlog grooming",
-        "pull request review"
+        "incoming issues"
       ],
       "frameworks": [
         "any"
@@ -15505,11 +15334,10 @@
           "bug reports",
           "issue labels",
           "backlog grooming",
-          "pull request review"
+          "incoming issues"
         ],
         "drafts": [
-          "keywords",
-          "whenToUse"
+          "keywords"
         ]
       },
       "format": "gss",

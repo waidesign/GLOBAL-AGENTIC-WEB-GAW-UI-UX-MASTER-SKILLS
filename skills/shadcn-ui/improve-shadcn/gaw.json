@@ -28,12 +28,10 @@
   ],
   "keywords": [
     "component library audit",
-    "radix primitives",
-    "improvement plan"
+    "improvement plan",
+    "ui kit"
   ],
   "drafts": [
-    "keywords",
-    "whenNotToUse",
-    "whenToUse"
+    "keywords"
   ]
 }

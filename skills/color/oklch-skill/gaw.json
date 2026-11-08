@@ -20,11 +20,9 @@
     "perceptual color",
     "apca",
     "color ramp",
-    "wide gamut",
-    "tailwind theme colors"
+    "wide gamut"
   ],
   "drafts": [
-    "keywords",
-    "whenToUse"
+    "keywords"
   ]
 }

@@ -22,11 +22,9 @@
     "accessibility audit",
     "wcag",
     "a11y",
-    "ui code review",
     "aria labels"
   ],
   "drafts": [
-    "keywords",
-    "whenToUse"
+    "keywords"
   ]
 }

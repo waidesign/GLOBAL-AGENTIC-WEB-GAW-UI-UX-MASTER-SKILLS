@@ -39,8 +39,6 @@
     "editable template"
   ],
   "drafts": [
-    "keywords",
-    "whenNotToUse",
-    "whenToUse"
+    "keywords"
   ]
 }

@@ -29,11 +29,10 @@
     "design tokens",
     "component library",
     "ui consistency",
-    "visual regression",
+    "screenshot comparison",
     "style audit"
   ],
   "drafts": [
-    "keywords",
-    "whenToUse"
+    "keywords"
   ]
 }

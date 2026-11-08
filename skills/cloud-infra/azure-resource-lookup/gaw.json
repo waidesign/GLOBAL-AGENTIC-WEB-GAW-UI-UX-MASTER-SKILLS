@@ -42,9 +42,9 @@
   ],
   "keywords": [
     "orphaned resources",
-    "tag audit",
     "asset inventory",
-    "cloud inventory"
+    "cloud inventory",
+    "unused resources"
   ],
   "drafts": [
     "keywords"

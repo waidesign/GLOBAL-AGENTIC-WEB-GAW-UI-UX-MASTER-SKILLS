@@ -8,7 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added (skill review)
-- **AI-drafted ranking fields, waiting for review**: 219 skills below Rankable got drafted `whenToUse`, `whenNotToUse` and `keywords` (374 fields), written only into empty fields of `gaw.json` and based only on each skill's own SKILL.md. They are listed in `drafts` and don't count for ranking until a person approves them. If all are approved, the library goes from 12 to 216 skills at Rankable or above (Incomplete 116 → 11).
+- **AI-drafted ranking fields, waiting for review**: 219 skills below Rankable got drafted `whenToUse`, `whenNotToUse` and `keywords` (374 fields), written only into empty fields of `gaw.json` and based only on each skill's own SKILL.md. They are listed in `drafts` and don't count for ranking until a person approves them.
+  - Approved (on the maintainer's instruction, after a benchmark check): all drafted `whenToUse` (118) and `whenNotToUse` (38). Benchmark unchanged (tuning 94%, held-out 93%); Incomplete skills 116 → 11.
+  - Still drafts: `keywords` for 218 skills. 21 keywords built on general words ("tag", "query", "regression", "word", "report", "theme") were rewritten after they pulled skills into unrelated tasks. Approving all keywords now would lift 216 skills to Rankable and the tuning score to 95%, but lowers held-out onboarding precision (78% → 75%) because many similar media skills compete for the same picks, so they wait for a ranking improvement or a person's review.
 - **`gaw skills review`**: shows drafted fields (`--all` or one skill), approves them (`--approve <name|all>`) or rejects and deletes them (`--reject <name|all>`), optionally for one `--field`.
 - **`gaw skills enrich --refresh`** recomputes fields GAW derived earlier, after a derivation fix.
 

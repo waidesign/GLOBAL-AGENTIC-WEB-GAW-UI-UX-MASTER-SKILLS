@@ -36,8 +36,6 @@
     "image variants"
   ],
   "drafts": [
-    "keywords",
-    "whenNotToUse",
-    "whenToUse"
+    "keywords"
   ]
 }

@@ -27,8 +27,6 @@
     "gamut"
   ],
   "drafts": [
-    "keywords",
-    "whenNotToUse",
-    "whenToUse"
+    "keywords"
   ]
 }

@@ -26,12 +26,11 @@
   ],
   "keywords": [
     "rag",
-    "document search",
+    "enterprise search",
     "grounding data",
     "knowledge retrieval"
   ],
   "drafts": [
-    "keywords",
-    "whenToUse"
+    "keywords"
   ]
 }

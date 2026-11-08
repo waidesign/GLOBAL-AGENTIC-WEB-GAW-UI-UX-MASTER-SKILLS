@@ -32,8 +32,6 @@
     "landscape version"
   ],
   "drafts": [
-    "keywords",
-    "whenNotToUse",
-    "whenToUse"
+    "keywords"
   ]
 }

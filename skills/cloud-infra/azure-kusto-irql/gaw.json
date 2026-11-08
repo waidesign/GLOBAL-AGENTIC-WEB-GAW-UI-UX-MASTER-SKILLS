@@ -29,13 +29,11 @@
   ],
   "keywords": [
     "soc analyst",
-    "hunting query",
+    "attack investigation",
     "incident triage",
-    "detection query"
+    "detection rules"
   ],
   "drafts": [
-    "keywords",
-    "whenNotToUse",
-    "whenToUse"
+    "keywords"
   ]
 }

@@ -24,13 +24,12 @@
   ],
   "keywords": [
     "refactoring",
-    "architecture review",
     "technical debt",
     "deep modules",
-    "code health report"
+    "module boundaries",
+    "coupling"
   ],
   "drafts": [
-    "keywords",
-    "whenToUse"
+    "keywords"
   ]
 }

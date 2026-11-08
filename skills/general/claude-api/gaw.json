@@ -34,7 +34,6 @@
     "messages api"
   ],
   "drafts": [
-    "keywords",
-    "whenNotToUse"
+    "keywords"
   ]
 }

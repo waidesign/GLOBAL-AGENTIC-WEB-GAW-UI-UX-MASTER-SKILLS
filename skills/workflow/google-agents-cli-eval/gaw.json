@@ -35,7 +35,7 @@
     "agent testing",
     "llm as judge",
     "quality metrics",
-    "regression testing"
+    "agent benchmark"
   ],
   "drafts": [
     "keywords"

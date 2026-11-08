@@ -28,10 +28,9 @@
     "bug reports",
     "issue labels",
     "backlog grooming",
-    "pull request review"
+    "incoming issues"
   ],
   "drafts": [
-    "keywords",
-    "whenToUse"
+    "keywords"
   ]
 }
