@@ -9,6 +9,10 @@ import { SkillRegistry } from '../skill-registry/SkillRegistry.js';
 import { SkillOrchestrator } from '../orchestrator/SkillOrchestrator.js';
 import { MemoryEngine } from '../memory-engine/MemoryEngine.js';
 import { writeCatalog, CATALOG_FILE } from '../project-context/ProjectContext.js';
+import {
+  PROJECT_BRAIN_FILES, SNAPSHOT_FILE, writeGlobalBrainSnapshot, findLegacyPreferenceCopies
+} from '../project-context/globalBrainLink.js';
+import { DEFAULT_BRAIN_DIR } from '../memory-engine/paths.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -92,24 +96,9 @@ export class ProjectBootstrapper {
       return result;
     };
 
-    const brainFileNames = [
-      'README.md',
-      'context.md',
-      'identity.md',
-      'rules.md',
-      'playbook.md',
-      'project-history.md',
-      'design-principles.md',
-      'coding-preferences.md',
-      'component-preferences.md',
-      'workflow-preferences.md',
-      'tool-preferences.md',
-      'lessons-learned.md',
-      'confirmed-preferences.md',
-      'decision-history.md'
-    ];
-
-    for (const filename of brainFileNames) {
+    // Only project files: preferences stay in the user's Global Brain (~/.gaw/brain),
+    // so a stale copy can never override them
+    for (const filename of PROJECT_BRAIN_FILES) {
       const p = path.join(brainDir, filename);
       if (!fs.existsSync(p) || force) {
         let content = '';
@@ -189,10 +178,12 @@ export class ProjectBootstrapper {
     report.integrations.agentAdapters = adapterRes;
     report.steps.push({ step: 6, name: 'Configure AI Agents', status: 'Configured' });
 
-    // Project skill catalog (ai-brain/project-skills.md): what agents read instead of full skills
+    // Project skill catalog (ai-brain/project-skills.md): what agents read instead of full skills,
+    // and a read-only summary of the user's Global Brain for agents that can't read ~/.gaw
     if (!dryRun) {
       await writeCatalog(dir, this.registry);
       report.created.push(`ai-brain/${CATALOG_FILE}`);
+      if (writeGlobalBrainSnapshot(dir, this.memoryEngine.globalBrainDir)) report.created.push(`ai-brain/${SNAPSHOT_FILE}`);
     }
 
     // Step 9: Recommend Relevant Skills
@@ -225,6 +216,12 @@ export class ProjectBootstrapper {
     if (projectInfo.isReact) {
       const agentation = new AgentationManager({ projectRoot: dir });
       agentation.configure(projectInfo, { dryRun: false });
+    }
+
+    // Keep the Global Brain summary current with the user's latest preferences
+    if (brain) {
+      await this.memoryEngine.initGlobalBrain();
+      writeGlobalBrainSnapshot(dir, this.memoryEngine.globalBrainDir);
     }
 
     return {
@@ -275,14 +272,7 @@ export class ProjectBootstrapper {
         return res;
       };
 
-      const brainFileNames = [
-        'README.md', 'context.md', 'identity.md', 'rules.md', 'playbook.md',
-        'project-history.md', 'design-principles.md', 'coding-preferences.md',
-        'component-preferences.md', 'workflow-preferences.md', 'tool-preferences.md',
-        'lessons-learned.md', 'confirmed-preferences.md', 'decision-history.md'
-      ];
-
-      for (const filename of brainFileNames) {
+      for (const filename of PROJECT_BRAIN_FILES) {
         const dest = path.join(brainDir, filename);
         if (!fs.existsSync(dest)) {
           const tmplPath = path.join(templatesDir, filename);
@@ -295,6 +285,21 @@ export class ProjectBootstrapper {
           result.preservedBrainFiles.push(`ai-brain/${filename}`);
         }
       }
+
+      // Older GAW versions copied Global Brain files into projects, where they
+      // overrode the user's live preferences. Remove copies nobody changed;
+      // keep edited ones as deliberate project choices.
+      await this.memoryEngine.initGlobalBrain();
+      const legacy = findLegacyPreferenceCopies(dir, [
+        path.join(this.repoRoot, 'templates', 'legacy-project-brain'),
+        DEFAULT_BRAIN_DIR,
+        this.memoryEngine.globalBrainDir
+      ]);
+      for (const file of legacy.untouched) fs.unlinkSync(path.join(brainDir, file));
+      result.removedLegacyCopies = legacy.untouched.map(f => `ai-brain/${f}`);
+      result.keptProjectOverrides = legacy.edited.map(f => `ai-brain/${f}`);
+      writeGlobalBrainSnapshot(dir, this.memoryEngine.globalBrainDir);
+      result.globalBrainSnapshot = `ai-brain/${SNAPSHOT_FILE}`;
     }
 
     // Rebuild the Graphify graph (skipped when Graphify is not installed)

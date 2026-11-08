@@ -11,6 +11,12 @@ Global Agentic Web uses a two-tier memory hierarchy:
 - On first use, GAW copies its default files from `brain/` in the GAW repository. Files you already have are never overwritten, so updating GAW can't erase your memory.
 - `brain/` in the repository contains **defaults only**. Edit it to change what new users start with, never to record personal decisions.
 
+## How a project uses the Global Brain
+- `gaw init` does **not** copy your Global Brain into a project. Projects only get project files (`context.md`, `rules.md`, `identity.md`, `playbook.md`, `project-history.md`, skills), so the live Global Brain is never shadowed by a stale copy.
+- Each project gets `ai-brain/global-brain.md`, a **generated, read-only summary** of your Global Brain (preferences plus your 10 most recent decisions). It's for agents that can't read outside the project folder. `gaw start`, `gaw update` and `gaw brain update` refresh it. It's personal, so GAW adds it to the project's `.gitignore`, and each teammate gets one from their own Global Brain.
+- Agents connected over MCP can read the Global Brain directly (`get_global_brain`, `get_project_context`).
+- Projects created by older GAW versions contain copies of Global Brain files. `gaw update` removes copies nobody changed and keeps edited ones as deliberate project choices (they override the Global Brain in that project). `gaw context` lists any overrides.
+
 ## Memory Precedence Rule
 When contradictory instructions arise, agents must strictly follow this precedence:
 1. **User Request (Immediate)**

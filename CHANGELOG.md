@@ -13,7 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **New MCP tools**: `get_project_skills`, `load_project_skills` (only project skills that fit the task, within a token budget), `select_project_skills`.
 - **Agent instructions stay current**: the GAW section in CLAUDE.md, .cursorrules, AGENTS.md, GEMINI.md, Copilot and generic instructions is refreshed in place by `gaw update` (previously written once and never updated), and all six now share the same lines.
 
+- **Global Brain reaches every project without being copied**: each project gets `ai-brain/global-brain.md`, a generated, read-only summary of `~/.gaw/brain` for agents that can't read outside the project folder. It's refreshed by `gaw start`, `gaw update` and `gaw brain update`, and added to `.gitignore` because it's personal.
+
 ### Fixed (project context)
+- **Stale preference copies overrode the Global Brain**: `gaw init` copied 8 Global Brain files (design principles, coding preferences, …) into every project, and as project files they took precedence over the user's live Global Brain, even after a preference changed. Projects now get only project files. `gaw update` removes copies nobody changed in existing projects and keeps edited ones as deliberate project overrides, which `gaw context` lists.
 - `package.json` (and other JSON) saved with a byte-order mark, common on Windows, was misread, so React/Next.js projects were detected as plain frontend.
 
 ### Changed

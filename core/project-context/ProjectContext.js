@@ -15,6 +15,7 @@ import { SkillRegistry } from '../skill-registry/SkillRegistry.js';
 import { SkillOrchestrator } from '../orchestrator/SkillOrchestrator.js';
 import { GraphifyManager } from '../graphify-manager/GraphifyManager.js';
 import { userBrainDir } from '../memory-engine/paths.js';
+import { GLOBAL_PREFERENCE_FILES } from './globalBrainLink.js';
 
 export const CONTEXT_VERSION = 1;
 export const LOCK_FILE = 'skills.lock.json';
@@ -209,6 +210,10 @@ export async function loadProjectContext(projectDir, options = {}) {
   const set = await projectSkillSet(dir, libraryRegistry);
   if (set.missing.length) warnings.push(`Selected skills not found in the GAW library: ${set.missing.join(', ')}.`);
   if (!initialized) warnings.push('No ai-brain/ folder: run `gaw init` in this project.');
+  const overrides = initialized ? GLOBAL_PREFERENCE_FILES.filter(f => fs.existsSync(path.join(brainDir(dir), f))) : [];
+  if (overrides.length) {
+    warnings.push(`These project files override your Global Brain here: ${overrides.map(f => `ai-brain/${f}`).join(', ')}. Run \`gaw update\` to remove unchanged copies.`);
+  }
 
   const graph = GraphifyManager.locateGraph(dir);
   const describe = (s) => ({
@@ -240,7 +245,8 @@ export async function loadProjectContext(projectDir, options = {}) {
       rules: 'ai-brain/rules.md',
       skillCatalog: fs.existsSync(path.join(brainDir(dir), CATALOG_FILE)) ? `ai-brain/${CATALOG_FILE}` : null,
       activeTaskSkills: fs.existsSync(path.join(brainDir(dir), 'active-skills.md')) ? 'ai-brain/active-skills.md' : null,
-      design: fs.existsSync(path.join(brainDir(dir), 'design.md')) ? 'ai-brain/design.md' : null
+      design: fs.existsSync(path.join(brainDir(dir), 'design.md')) ? 'ai-brain/design.md' : null,
+      globalBrainSummary: fs.existsSync(path.join(brainDir(dir), 'global-brain.md')) ? 'ai-brain/global-brain.md' : null
     },
     skills: {
       selected: set.selected.map(describe),

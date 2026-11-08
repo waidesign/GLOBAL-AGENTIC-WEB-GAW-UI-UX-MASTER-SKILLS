@@ -11,6 +11,7 @@ import { resolveSkillLicense } from '../core/skill-registry/licenses.js';
 import { applyLicense, planSplit, applySplit, canModify, writeSkillFolder, readSkillFolder, toSkillName } from '../core/skill-registry/gss.js';
 import { enrichContract, rankabilityLevel, LEVEL_NAMES } from '../core/skill-registry/rankability.js';
 import { selectSkills, deselectSkills, writeCatalog, loadProjectContext } from '../core/project-context/ProjectContext.js';
+import { writeGlobalBrainSnapshot, SNAPSHOT_FILE } from '../core/project-context/globalBrainLink.js';
 import { SkillDiscovery } from '../core/skill-discovery/SkillDiscovery.js';
 import { SkillOrchestrator } from '../core/orchestrator/SkillOrchestrator.js';
 import { PresetRegistry } from '../core/preset-registry/PresetRegistry.js';
@@ -937,6 +938,10 @@ export class GawCli {
       await this.memoryEngine.recordDecision(category, decision, `Updated via CLI in ${path.basename(process.cwd())}`);
       console.log(`✅ Recorded decision in Global Brain: [${category}] ${decision}`);
       console.log(`   ${path.join(this.memoryEngine.globalBrainDir, 'decision-history.md')}`);
+      // Agents in this project see it right away
+      if (writeGlobalBrainSnapshot(process.cwd(), this.memoryEngine.globalBrainDir)) {
+        console.log(`   Refreshed ai-brain/${SNAPSHOT_FILE} in this project.`);
+      }
       return;
     }
 
@@ -1031,6 +1036,13 @@ export class GawCli {
       }
       if (res.agentFilesUpdated?.length) console.log(`✓ Refreshed agent instructions: ${res.agentFilesUpdated.join(', ')}`);
       if (res.catalogUpdated) console.log(`✓ Refreshed ai-brain/project-skills.md`);
+      if (res.globalBrainSnapshot) console.log(`✓ Refreshed ${res.globalBrainSnapshot} from your Global Brain (${this.memoryEngine.globalBrainDir})`);
+      if (res.removedLegacyCopies?.length) {
+        console.log(`✓ Removed old, unchanged copies of Global Brain files (your live Global Brain now applies): ${res.removedLegacyCopies.join(', ')}`);
+      }
+      if (res.keptProjectOverrides?.length) {
+        console.log(`ℹ Kept edited copies as project-level choices (they override your Global Brain here): ${res.keptProjectOverrides.join(', ')}`);
+      }
       console.log(`\n🎉 Project successfully updated to latest GAW standards!\n`);
     } else {
       console.log(`ℹ️ No local 'ai-brain/' directory found in current path (${process.cwd()}).`);

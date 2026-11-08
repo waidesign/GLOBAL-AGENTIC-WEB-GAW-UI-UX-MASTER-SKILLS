@@ -212,6 +212,8 @@ Ranking is part of the standard: **GSS Ranking v1** ([spec](docs/gss/spec.md#8-r
 
 ### Global Brain (`~/.gaw/brain/`)
 Your cross-project preferences live in **your own folder**, `~/.gaw/brain/`. On first use, GAW copies its default files (from `brain/` in this repo) into it. From then on it reads and writes only your copy, so updating GAW never overwrites your memory and your decisions never end up in GAW's repository. `gaw brain path` shows the location. Set `GAW_HOME` to move it, for example into a synced folder (Dropbox, OneDrive, a private git repo) to share one brain across machines.
+
+**Two layers, never mixed:** `gaw init` doesn't copy your Global Brain into a project. Every project reads the same live Global Brain, and its own `ai-brain/` holds only project things. For agents that can't read outside the project folder, each project gets `ai-brain/global-brain.md`, a generated read-only summary that `gaw start` and `gaw update` keep current. It's personal, so it stays out of git.
 - `identity.md`: Engineer persona, anti-slop principles.
 - `design-principles.md`: Confirmed design rules (compositor animations, high-contrast text).
 - `coding-preferences.md`: TypeScript first, modular architecture, strict types.
@@ -228,6 +230,7 @@ ai-brain/
 ├── playbook.md         # Recommended design-to-code iteration loop
 ├── project-history.md  # Project-specific milestone history
 ├── rules.md            # Non-negotiable local constraints
+├── global-brain.md     # Generated, read-only summary of YOUR Global Brain (kept out of git)
 ├── skills.lock.json    # Library skills this project uses (gaw skills select / deselect)
 ├── project-skills.md   # Generated short catalog of the project's skills (what agents read)
 └── skills/             # Project skills in GSS format (code-generation, review, debugging, seo)

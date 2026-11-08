@@ -11,6 +11,7 @@ export function agentBlock({ marker, heading, extra = [] }) {
     `<!-- ${marker} -->`,
     `# ${heading}`,
     `- Project Brain: ./ai-brain/ (goal: context.md, rules: rules.md). Follow ./ai-brain/rules.md.`,
+    `- Global Brain (the user's preferences across all projects): ./ai-brain/global-brain.md, a read-only summary of ~/.gaw/brain.`,
     `- Project skills: ./ai-brain/project-skills.md lists the skills chosen for this project. Open a skill only when the task needs it.`,
     `- Current task skills: prioritize ./ai-brain/active-skills.md when present.`,
     `- Code graph: ./graphify-out/graph.json and GRAPH_REPORT.md (if present; build with \`gaw graph\`).`,
