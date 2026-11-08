@@ -40,6 +40,28 @@ gaw use "Build a checkout form with payment validation" --inject
 gaw use "Build a checkout form with payment validation" --copy
 ```
 
+## Real-World Design Presets (GradientDeck Integration)
+```bash
+# List all design presets with live inspiration links
+gaw designs
+
+# Search presets by aesthetic, theme or industry
+gaw designs search "developer tools"
+gaw designs --theme dark
+
+# Inspect preset palette, typography & archetype
+gaw design railway
+
+# Apply design preset directly to ai-brain/design.md
+gaw design railway --apply
+
+# Open live inspiration website in browser
+gaw design railway --open
+
+# Open style reference deck in browser
+gaw design railway --deck
+```
+
 ## Diagnostics & Brain Inspection
 ```bash
 gaw brain

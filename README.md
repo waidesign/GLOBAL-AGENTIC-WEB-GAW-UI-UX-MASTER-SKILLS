@@ -126,6 +126,8 @@ gaw use "Build a responsive SaaS dashboard with a sidebar, data table, and smoot
 | `gaw init --no-graphify` | Skip Graphify codebase graph generation. |
 | `gaw start` | Resume an already initialized project with verified contexts. |
 | `gaw skills [category]` | List all registered skills or filter by category. |
+| `gaw designs [search <q>]` | List or search real-world design presets from GradientDeck with live links. |
+| `gaw design <id> [--apply]` | Inspect palette & typography, open live inspiration site, or apply to `ai-brain/design.md`. |
 | `gaw search "<query>"` | Full-text relevance search across skills, tags, and frameworks. |
 | `gaw recommend "<task>"` | Analyze task prompt and output primary, supporting, and dependent skills. |
 | `gaw use "<task>"` | Progressively load and format full skill instructions for immediate agent execution. |

@@ -1,10 +1,11 @@
 import path from 'node:path';
 import fs from 'node:fs';
-import { spawn } from 'node:child_process';
+import { spawn, exec } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { SkillRegistry } from '../core/skill-registry/SkillRegistry.js';
 import { SkillDiscovery } from '../core/skill-discovery/SkillDiscovery.js';
 import { SkillOrchestrator } from '../core/orchestrator/SkillOrchestrator.js';
+import { PresetRegistry } from '../core/preset-registry/PresetRegistry.js';
 import { MemoryEngine } from '../core/memory-engine/MemoryEngine.js';
 import { ProjectDetector } from '../core/project-detector/ProjectDetector.js';
 import { ProjectBootstrapper } from '../core/bootstrapper/ProjectBootstrapper.js';
@@ -21,7 +22,8 @@ export class GawCli {
     this.repoRoot = REPO_ROOT;
     this.registry = new SkillRegistry({ skillsDir: path.join(this.repoRoot, 'skills') });
     this.discovery = new SkillDiscovery(this.registry);
-    this.orchestrator = new SkillOrchestrator(this.registry);
+    this.presetRegistry = new PresetRegistry({ presetsDir: path.join(this.repoRoot, 'presets', 'designs') });
+    this.orchestrator = new SkillOrchestrator(this.registry, this.presetRegistry);
     this.memoryEngine = new MemoryEngine({ globalBrainDir: path.join(this.repoRoot, 'brain') });
     this.bootstrapper = new ProjectBootstrapper({ repoRoot: this.repoRoot });
   }
@@ -45,6 +47,14 @@ export class GawCli {
           break;
         case 'skills':
           await this.cmdSkills(args.slice(1));
+          break;
+        case 'designs':
+        case 'presets':
+          await this.cmdDesigns(args.slice(1));
+          break;
+        case 'design':
+        case 'preset':
+          await this.cmdDesign(args.slice(1));
           break;
         case 'search':
           await this.cmdSearch(args.slice(1));
@@ -234,6 +244,23 @@ export class GawCli {
         console.log(`  ! [${c.skills.join(' ↔ ')}]: ${c.resolution}`);
       }
     }
+
+    if (recs.designPresets && recs.designPresets.length > 0) {
+      console.log(`\n🎨 Recommended Design Presets (Click to preview inspiration):`);
+      for (const dp of recs.designPresets) {
+        console.log(`  ★ \x1b[1m${dp.name}\x1b[0m (${dp.id}) — [${dp.theme} | ${dp.category}]`);
+        if (dp.reason) {
+          console.log(`    • ${dp.reason}`);
+        }
+        if (dp.vibe) {
+          console.log(`    • Vibe: "${dp.vibe}"`);
+        }
+        if (dp.liveUrl) {
+          console.log(`    • 🌐 \x1b[36mLive Inspiration:\x1b[0m ${dp.liveUrl} (Ctrl + Click)`);
+        }
+        console.log(`    • 📖 \x1b[35mStyle Reference:\x1b[0m  ${dp.previewUrl}`);
+      }
+    }
     console.log();
   }
 
@@ -293,6 +320,16 @@ export class GawCli {
         console.log(`\n⚠️ Active Conflict Resolutions:`);
         for (const conf of loaded.conflictResolutions) {
           console.log(`  ! [${conf.skills.join(' ↔ ')}]: ${conf.resolution}`);
+        }
+      }
+
+      if (loaded.recommendedDesignPreset) {
+        const designPath = path.join(brainDir, 'design.md');
+        fs.writeFileSync(designPath, loaded.recommendedDesignPreset.content, 'utf8');
+        console.log(`\n🎨 Injected Design Preset [${loaded.recommendedDesignPreset.name}] directly into:`);
+        console.log(`   📄 ${path.relative(process.cwd(), designPath)}`);
+        if (loaded.recommendedDesignPreset.liveUrl) {
+          console.log(`   🌐 Live Inspiration: ${loaded.recommendedDesignPreset.liveUrl} (Ctrl + Click)`);
         }
       }
 
@@ -409,6 +446,123 @@ export class GawCli {
     }
   }
 
+  openUrl(url) {
+    if (!url) return;
+    const cmd = process.platform === 'darwin' ? 'open' : process.platform === 'win32' ? 'start ""' : 'xdg-open';
+    exec(`${cmd} "${url}"`);
+  }
+
+  async cmdDesigns(args) {
+    this.printHeader();
+    const sub = args[0];
+    const themeFilter = args.includes('--theme') ? args[args.indexOf('--theme') + 1] : null;
+
+    let presets = [];
+    if (sub === 'search') {
+      const q = args.slice(1).filter(a => !a.startsWith('--')).join(' ');
+      presets = await this.presetRegistry.searchPresets(q, { theme: themeFilter });
+      console.log(`Search results for design presets "${q}" (${presets.length} matches):\n`);
+    } else {
+      presets = await this.presetRegistry.getAllPresets();
+      if (themeFilter) {
+        presets = presets.filter(p => p.theme.toLowerCase() === themeFilter.toLowerCase());
+      }
+      console.log(`🎨 GradientDeck Design Presets Library (${presets.length} presets available):\n`);
+    }
+
+    for (const p of presets) {
+      console.log(`• \x1b[1m${p.id}\x1b[0m (${p.name}) — [${p.theme} | ${p.category}]`);
+      if (p.liveUrl) {
+        console.log(`  🌐 \x1b[36mLive:\x1b[0m ${p.liveUrl} (Ctrl + Click) | 📖 \x1b[35mDeck:\x1b[0m ${p.previewUrl}`);
+      } else {
+        console.log(`  📖 \x1b[35mDeck:\x1b[0m ${p.previewUrl}`);
+      }
+      if (p.vibe) {
+        console.log(`  "${p.vibe}"\n`);
+      } else {
+        console.log();
+      }
+    }
+
+    console.log(`👉 Use 'gaw design <id>' to inspect palette & typography.`);
+    console.log(`👉 Use 'gaw design <id> --apply' to write directly to ai-brain/design.md.`);
+    console.log(`👉 Use 'gaw design <id> --open' to launch the live site in browser.\n`);
+  }
+
+  async cmdDesign(args) {
+    this.printHeader();
+    const id = args[0];
+    if (!id || id.startsWith('--')) {
+      console.log(`Please specify a design preset ID: gaw design <id> [--apply] [--open] [--deck]`);
+      return;
+    }
+
+    const preset = await this.presetRegistry.getPreset(id);
+    if (!preset) {
+      console.log(`❌ Preset '${id}' not found. Run 'gaw designs' to see all available presets.`);
+      return;
+    }
+
+    if (args.includes('--open')) {
+      if (preset.liveUrl) {
+        console.log(`🌐 Launching live inspiration in browser: ${preset.liveUrl}`);
+        this.openUrl(preset.liveUrl);
+      } else {
+        console.log(`📖 Launching preview deck: ${preset.previewUrl}`);
+        this.openUrl(preset.previewUrl);
+      }
+      return;
+    }
+
+    if (args.includes('--deck')) {
+      console.log(`📖 Launching preview deck in browser: ${preset.previewUrl}`);
+      this.openUrl(preset.previewUrl);
+      return;
+    }
+
+    if (args.includes('--apply')) {
+      const brainDir = path.join(process.cwd(), 'ai-brain');
+      if (!fs.existsSync(brainDir)) {
+        fs.mkdirSync(brainDir, { recursive: true });
+      }
+      const targetFile = path.join(brainDir, 'design.md');
+      fs.writeFileSync(targetFile, preset.content, 'utf8');
+      console.log(`✅ Applied design preset '${preset.name}' directly to:`);
+      console.log(`   📄 ${path.relative(process.cwd(), targetFile)}\n`);
+      if (preset.liveUrl) {
+        console.log(`🌐 Live Inspiration: ${preset.liveUrl} (Ctrl + Click)`);
+      }
+      console.log(`\n👉 Your AI coding agent will now adhere to the typography, color roles, and layout constraints of this design!\n`);
+      return;
+    }
+
+    // Default inspection view
+    console.log(`🎨 DESIGN PRESET: \x1b[1m${preset.name}\x1b[0m (${preset.id})\n`);
+    console.log(`Theme:    ${preset.theme.toUpperCase()}`);
+    console.log(`Category: ${preset.category}`);
+    if (preset.liveUrl) {
+      console.log(`🌐 Live Inspiration: \x1b[36m${preset.liveUrl}\x1b[0m (Ctrl + Click)`);
+    }
+    console.log(`📖 Style Reference:  \x1b[35m${preset.previewUrl}\x1b[0m\n`);
+
+    if (preset.vibe) {
+      console.log(`Archetype: "${preset.vibe}"\n`);
+    }
+
+    if (preset.colors && preset.colors.length > 0) {
+      console.log(`Color Palette Sample:`);
+      for (const c of preset.colors) {
+        console.log(`  ■ \x1b[1m${c.value.padEnd(10)}\x1b[0m ${c.name.padEnd(20)} (${c.role})`);
+      }
+      console.log();
+    }
+
+    console.log(`Actions:`);
+    console.log(`  • Apply to project:    gaw design ${preset.id} --apply`);
+    console.log(`  • Open live website:   gaw design ${preset.id} --open`);
+    console.log(`  • Open style deck:     gaw design ${preset.id} --deck\n`);
+  }
+
   async cmdDoctor(args) {
     this.printHeader();
     console.log(`🏥 GAW DIAGNOSTIC DOCTOR:\n`);
@@ -420,6 +574,9 @@ export class GawCli {
 
     const categories = await this.registry.getCategories();
     console.log(`[✓] Taxonomy:           ${categories.length} categories active`);
+
+    const presets = await this.presetRegistry.getAllPresets();
+    console.log(`[✓] Design Presets:     ${presets.length} presets active (with live inspiration links)`);
 
     const graphify = new GraphifyManager({ projectRoot: process.cwd() });
     const hasGraphCli = graphify.isGraphifyCliAvailable();
@@ -442,6 +599,10 @@ export class GawCli {
     console.log(`                        Initialize current project with GAW ecosystem`);
     console.log(`  start                 Resume an existing initialized project`);
     console.log(`  skills [category]     List all skills or filter by category`);
+    console.log(`  designs [search <q>] [--theme <dark|light>]`);
+    console.log(`                        List or search real-world design presets from GradientDeck`);
+    console.log(`  design <id> [--apply] [--open] [--deck]`);
+    console.log(`                        Inspect preset with color palette & live website link`);
     console.log(`  search <query>        Search skills library with relevance ranking`);
     console.log(`  recommend <task>      Analyze task and recommend targeted skills`);
     console.log(`  use <task> [--inject] [--copy]`);

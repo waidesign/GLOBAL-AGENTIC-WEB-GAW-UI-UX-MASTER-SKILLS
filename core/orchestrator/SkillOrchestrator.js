@@ -1,9 +1,11 @@
 import { SkillDiscovery } from '../skill-discovery/SkillDiscovery.js';
+import { PresetRegistry } from '../preset-registry/PresetRegistry.js';
 
 export class SkillOrchestrator {
-  constructor(skillRegistry) {
+  constructor(skillRegistry, presetRegistry = null) {
     this.registry = skillRegistry;
     this.discovery = new SkillDiscovery(skillRegistry);
+    this.presetRegistry = presetRegistry || new PresetRegistry();
   }
 
   /**
@@ -113,6 +115,7 @@ export class SkillOrchestrator {
    */
   async recommend(taskPrompt, projectContext = {}) {
     const analysis = await this.analyzeTask(taskPrompt, projectContext);
+    const designPresets = await this.presetRegistry.recommend(taskPrompt);
     
     return {
       prompt: taskPrompt,
@@ -138,6 +141,7 @@ export class SkillOrchestrator {
         reason: `Required dependency for selected skills.`
       })),
       conflicts: analysis.conflicts,
+      designPresets,
       executionOrder: analysis.recommendedOrder.map(s => s.id)
     };
   }
@@ -188,12 +192,16 @@ export class SkillOrchestrator {
       };
     });
 
+    const recommendedDesignPresets = await this.presetRegistry.recommend(taskPrompt);
+    const recommendedDesignPreset = recommendedDesignPresets[0] || null;
+
     const contextPayload = {
       timestamp: new Date().toISOString(),
       task: taskPrompt,
       selectedSkillCount: selected.length,
       skills: loadedInstructions,
       conflictResolutions: conflicts,
+      recommendedDesignPreset,
       formattedInstructions: this.formatInstructions(loadedInstructions, conflicts)
     };
 
