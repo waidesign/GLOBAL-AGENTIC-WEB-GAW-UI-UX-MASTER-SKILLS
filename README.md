@@ -1,11 +1,16 @@
 # 🌐 GLOBAL AGENTIC WEB (GAW)
-### UI/UX Master Skills Repository, Global Brain & Universal Project Bootstrapper
+### The Universal Intelligence Layer for AI Agents
+**One Brain. Any Agent. Every Project.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node: >=18](https://img.shields.io/badge/Node-%3E%3D18-brightgreen.svg)](package.json)
 [![MCP: Supported](https://img.shields.io/badge/MCP-Supported-purple.svg)](mcp/server.js)
 
-**Global Agentic Web** is a centralized, reusable, intelligent developer skills ecosystem that connects AI coding agents (Claude Code, Cursor, Codex, Gemini CLI, Copilot) to a structured library of specialized UI/UX skills, persistent cross-project memory (Global Brain), project-specific intelligence (Project Brain), automated codebase graph analysis (Graphify), and visual feedback loops (Agentation).
+**Global Agentic Web** is an open-source intelligence layer for AI coding agents (Claude Code, Cursor, Codex, Gemini CLI, Copilot). It gives every agent, in every project:
+- a **skill library for any field**: cloud and infrastructure, testing, architecture, documents, databases, media, agent workflows, UI and more, with skills chosen per task so agents don't waste context;
+- **persistent memory** that follows you across projects (Global Brain) and memory for each project (Project Brain);
+- **project intelligence**: stack detection, a shared project context, and an optional code map (Graphify);
+- **one setup for every agent**: `gaw init` configures CLAUDE.md, .cursorrules, AGENTS.md, GEMINI.md and more, plus an MCP server.
 
 ---
 
@@ -15,10 +20,10 @@
 3. [Architecture & System Flow](#-architecture--system-flow)
 4. [Quick Start & Installation](#-quick-start--installation)
 5. [CLI Commands Reference](#-cli-commands-reference)
-6. [Centralized Skills Library](#-centralized-skills-library)
+6. [Skills Library](#-skills-library)
 7. [Global Brain & Project Brain](#-global-brain--project-brain)
 8. [Graphify — Codebase Intelligence](#-graphify--codebase-intelligence)
-9. [Agentation — Visual Feedback](#-agentation--visual-feedback)
+9. [Design Presets & Agentation (UI projects)](#-design-presets--agentation-ui-projects)
 10. [MCP (Model Context Protocol) Server](#-mcp-model-context-protocol-server)
 11. [AI Coding Agent Integrations](#-ai-coding-agent-integrations)
 12. [Testing & Verification](#-testing--verification)
@@ -28,32 +33,32 @@
 
 ## 🎯 CORE VISION
 
-In traditional AI coding workflows, developers constantly repeat prompt constraints, re-explain project context, configure tools from scratch, and suffer from generic "AI aesthetic slop" (meaningless purple gradients, unrequested layout animations, and accessibility violations).
+In everyday AI-assisted work, people repeat the same constraints in every prompt, re-explain each project from scratch, set up every tool and agent by hand, and get generic output because the agent knows nothing about their standards, their stack or their past decisions.
 
-**Global Agentic Web solves this with a unified model:**
-> **ONE CENTRAL BRAIN. ONE REUSABLE SKILLS ECOSYSTEM. EVERY PROJECT CONNECTED. EVERY AGENT BETTER INFORMED.**
+**Global Agentic Web solves this with one shared layer:**
+> **ONE BRAIN. ANY AGENT. EVERY PROJECT.**
 
 ```
 +------------------------------------------------------------------------+
-|                   GLOBAL AGENTIC WEB ECOSYSTEM                         |
+|                   GLOBAL AGENTIC WEB                                   |
 |                                                                        |
 |  +--------------------+   +-------------------+   +-----------------+  |
-|  | Central Skills     |   | Global Brain      |   | MCP Server      |  |
-|  | (Taxonomy Registry)|   | (Memory Engine)   |   | (Stdio Tooling) |  |
+|  | Skill Libraries    |   | Global Brain      |   | MCP Server      |  |
+|  | (official+personal)|   | (your memory)     |   | (agent tools)   |  |
 |  +---------+----------+   +---------+---------+   +--------+--------+  |
 +------------|------------------------|----------------------|-----------+
              |                        |                      |
              v                        v                      v
 +------------------------------------------------------------------------+
-|                          LOCAL PROJECT                                 |
+|                          YOUR PROJECT                                  |
 |                                                                        |
 |  +------------------------------------------------------------------+  |
 |  | `gaw init` / Universal Bootstrapper                              |  |
 |  +------------------------------------------------------------------+  |
-|  | • ai-brain/ (context.md, rules.md, identity.md, playbook.md)      |  |
+|  | • ai-brain/ (goal, rules, chosen skills, Global Brain summary)   |  |
 |  | • Graphify: graphify-out/ (graph.json, graph.html, GRAPH_REPORT) |  |
-|  | • Agentation: Dev-only visual feedback (React/Next.js/Vite)     |  |
-|  | • Agent Adapters: CLAUDE.md, .cursorrules, AGENTS.md, GEMINI.md  |  |
+|  | • Agent files: CLAUDE.md, .cursorrules, AGENTS.md, GEMINI.md     |  |
+|  | • Agentation: dev-only visual feedback (React projects only)     |  |
 |  +------------------------------------------------------------------+  |
 +------------------------------------------------------------------------+
 ```
@@ -62,17 +67,18 @@ In traditional AI coding workflows, developers constantly repeat prompt constrai
 
 ## ⚡ KEY CAPABILITIES
 
-- **Single-Command Project Initialization (`gaw init`)**: Instantly inspects the repository, identifies framework (React, Next.js, Vite, Vue, Svelte, Angular, HTML/CSS), installs dependencies, creates `ai-brain/`, configures Graphify, mounts Agentation (dev-only for React), and hooks up AI agent adapters.
-- **Progressive Skill Loading (Levels 1–6)**: Instead of flooding the LLM context with hundreds of skills, GAW dynamically discovers, scores, resolves dependencies for, and loads *only* the specific instructions required for the immediate task.
-- **Strict Anti-Slop UI Baselines**: Enforces compositor-only animations (`transform`, `opacity`), 60fps interaction budgets, high-contrast typography, and accessible component primitives (Radix, Base UI).
-- **Two-Tier Hierarchical Memory**:
-  1. *User Prompt* (highest precedence)
-  2. *Project Brain* (`ai-brain/rules.md`)
+- **One-command project setup (`gaw init`)**: detects the stack (language, framework, package manager), creates `ai-brain/`, runs a short onboarding (goal, matching skills, rules), offers the optional Graphify code map, and configures every AI agent. For React projects it also adds Agentation (dev only).
+- **The right skills, only when they fit**: GAW picks skills that closely match the task, loads full instructions within a token budget, explains every pick, and loads nothing when nothing fits.
+- **An open skill standard (GSS)**: every skill follows the GAW Skill Standard, an extension of the open Agent Skills `SKILL.md` format, with published ranking rules, license checks at the source, and trust levels (official, community, personal, project).
+- **Layered memory, with a clear order of precedence**:
+  1. *Your current instruction* (highest)
+  2. *Project Brain* (`ai-brain/rules.md`, `ai-brain/context.md`)
   3. *Global Brain* (`~/.gaw/brain/`)
-  4. *Specialized Skills*
-  5. *Framework Defaults*
-- **MCP Server Ready**: Built on `@modelcontextprotocol/sdk` to provide real-time skill querying, task recommendations, and memory reading to Claude Code, Cursor, and any MCP-compatible agent.
-- **Universal Multi-Agent Support**: Out-of-the-box adapters for Claude Code, Cursor, OpenAI Codex, Gemini CLI, and GitHub Copilot.
+  4. *Skill instructions*
+  5. *Framework and tool defaults*
+- **Quality defaults you control**: the Global Brain starts with coding, workflow and design preferences (including anti-slop UI rules for interface work) that you can change once and apply everywhere.
+- **MCP server**: built on `@modelcontextprotocol/sdk`, so Claude Code, Cursor and any MCP-compatible agent can query skills, project context and memory directly.
+- **Every major agent supported**: Claude Code, Cursor, OpenAI Codex, Gemini CLI, GitHub Copilot, and a generic instructions file for the rest.
 
 ---
 
@@ -85,7 +91,7 @@ In traditional AI coding workflows, developers constantly repeat prompt constrai
 
 ### 1. Install Globally or Link
 ```bash
-git clone https://github.com/your-username/global-agentic-web.git
+git clone https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git global-agentic-web
 cd global-agentic-web
 npm install
 npm link
@@ -93,7 +99,7 @@ npm link
 
 ### 2. Verify Installation
 ```bash
-gaw doctor   # also shows whether the optional Graphify CLI is installed
+gaw doctor   # runtime, skill libraries, and whether the optional Graphify CLI is installed
 ```
 
 ### 3. Initialize Any Project
@@ -105,7 +111,7 @@ gaw init
 
 In a terminal, `gaw init` then runs a short onboarding that works for any kind of project. Press Enter to skip any question:
 1. **What are you building?** Saved as the project goal in `ai-brain/context.md`.
-2. **Suggested skills:** only skills that closely match your goal are shown, from any field (cloud, testing, architecture, UI, ...). Pick all, some (by number), or none. They are recorded in `ai-brain/skills.lock.json` and listed in the short catalog `ai-brain/project-skills.md`.
+2. **Suggested skills:** only skills that closely match your goal are shown, from any field (cloud, testing, architecture, documents, UI, ...). Pick all, some (by number), or none. They are recorded in `ai-brain/skills.lock.json` and listed in the short catalog `ai-brain/project-skills.md`.
 3. **Rules your AI agents must always follow**, e.g. "All API endpoints require auth". Saved to `ai-brain/rules.md`.
 4. **Graphify code map:** asked only when Graphify is not installed.
 
@@ -119,7 +125,9 @@ gaw start
 
 ### 5. Load Targeted Skills for a Task
 ```bash
-gaw use "Build a responsive SaaS dashboard with a sidebar, data table, and smooth animations"
+gaw use "Deploy this Python web app to Azure App Service"
+gaw use "Write integration tests first for the checkout flow"
+gaw use "Build a responsive SaaS dashboard with a sidebar and data table"
 ```
 
 ---
@@ -128,7 +136,7 @@ gaw use "Build a responsive SaaS dashboard with a sidebar, data table, and smoot
 
 | Command | Description |
 |---|---|
-| `gaw init` | Initialize current project with `ai-brain/`, Graphify, Agentation (React), and agent configs. |
+| `gaw init` | Set up the current project: `ai-brain/`, onboarding, agent files, optional Graphify code map, Agentation (React only). |
 | `gaw init --dry-run` | Preview planned initialization changes without writing files. |
 | `gaw init --force` | Regenerate configuration files safely. |
 | `gaw init --no-agentation` | Skip Agentation installation. |
@@ -136,68 +144,73 @@ gaw use "Build a responsive SaaS dashboard with a sidebar, data table, and smoot
 | `gaw init --no-graphify` | Skip the Graphify question and the code map. |
 | `gaw setup` | Install Graphify later (asks before installing uv). |
 | `gaw start` | Resume an already initialized project with verified contexts. |
-| `gaw skills [category]` | List all registered skills or filter by category. |
-| `gaw skills select <name...>` | Use library skills in this project (`ai-brain/skills.lock.json`); `deselect` removes, `selected` lists. |
+| `gaw update` | Refresh this project: agent instructions, skill catalog, Global Brain summary and code graph. |
 | `gaw context [--json]` | Everything GAW knows about this project: stack, goal, rules, skills, graph, Global Brain. |
+| `gaw skills [category]` | List all skills, or one category, with their trust level. |
+| `gaw skills select <name...>` | Use library skills in this project (`ai-brain/skills.lock.json`); `deselect` removes, `selected` lists. |
 | `gaw skills add <link\|folder\|file>` | Add any skill to **your personal library** (`~/.gaw/skills/`): converted to GSS, license checked at the source, supporting files copied, split if oversized, indexed. `--project` adds it to `ai-brain/skills/`, `--official` to GAW's own library (for contributors). |
 | `gaw skills new "<title>"` | Create a new GSS skill from a template (personal library by default). |
 | `gaw skills mine` | List the skills in your personal library. |
 | `gaw skills share <name>` | Copy a personal skill into this project (`ai-brain/skills/`) so teammates get it when they clone. |
 | `gaw skills pin\|block <name...>` | Prefer skills you trust, or never have a skill suggested (`unpin`, `unblock`, `prefs` to show). |
 | `gaw skills lint [folder] [--levels]` | Check skills against the GAW Skill Standard and show their ranking levels. |
+| `gaw skills review [--all]` | Review AI-drafted ranking fields; `--approve` / `--reject` them. |
 | `gaw skills enrich [--apply]` | Fill ranking fields (summary, whenToUse, verification, domains…) from each skill's own text. |
 | `gaw skills licenses [--apply]` | Find each imported skill's real license at its source. |
 | `gaw skills split <name\|--all> [--apply]` | Move the long parts of oversized skills into `references/` (lossless). |
 | `gaw skills repair <name\|--all> [--apply]` | Restore supporting files imported skills are missing (text files; `--include-binary` for all). |
-| `gaw designs [search <q>]` | List or search real-world design presets from GradientDeck with live links. |
-| `gaw design <id> [--apply]` | Inspect palette & typography, open live inspiration site, or apply to `ai-brain/design.md`. |
-| `gaw search "<query>"` | Full-text relevance search across skills, tags, and frameworks. |
-| `gaw recommend "<task>"` | Analyze task prompt and output primary, supporting, and dependent skills. |
-| `gaw use "<task>"` | Progressively load and format full skill instructions for immediate agent execution. |
-| `gaw use "<task>" --inject` | Directly write active skills to `ai-brain/active-skills.md` without copy-pasting. |
-| `gaw use "<task>" --copy` | Copy formatted skill instructions directly to OS clipboard. |
+| `gaw search "<query>"` | Relevance search across skill names, tags, keywords and descriptions. |
+| `gaw recommend "<task>"` | Recommend skills for a task, each with the reason it was picked. |
+| `gaw use "<task>"` | Load the closely matching skills' instructions for an agent, within a token budget. |
+| `gaw use "<task>" --inject` | Write the active skills to `ai-brain/active-skills.md`. |
+| `gaw use "<task>" --copy` | Copy formatted skill instructions to the clipboard. |
 | `gaw brain` | Inspect Global Brain preferences and local Project Brain rules. |
-| `gaw brain update <cat> <msg>` | Append a confirmed user decision to the Global Brain. |
-| `gaw project` | Display deep inspection of project architecture, frameworks, and tools. |
+| `gaw brain update <cat> <msg>` | Append a confirmed decision to the Global Brain. |
+| `gaw designs [search <q>]` | UI projects: list or search real-world design presets from GradientDeck, with live links. |
+| `gaw design <id> [--apply]` | UI projects: inspect a preset's palette and typography, open its live site, or apply it to `ai-brain/design.md`. |
+| `gaw project` | Detailed analysis of the project's frameworks, dependencies and tools. |
 | `gaw graph [--force\|--full]` | Build the Graphify code graph in `graphify-out/` (`--force`: refresh changed files, `--full`: rebuild). |
-| `gaw doctor` | Diagnostic health check of runtime, registry, and environment. |
-| `gaw update` | Check for updates to skills from upstream sources. |
+| `gaw doctor` | Health check of runtime, skill libraries and environment. |
 | `gaw version` | Display GAW version information. |
 | `gaw help` | Display CLI help menu. |
 
 ---
 
-## 📚 CENTRALIZED SKILLS LIBRARY
+## 📚 SKILLS LIBRARY
 
-Skills are organized into specialized categories under `skills/`:
+GAW's official library has **235 skills** in `skills/`, across many fields:
 
-- **Design Systems (`skills/design-systems/`)**: `build-design-system`, `design-system-boss`, `migrate-to-a-design-system`, `create-design-md`
-- **UI/UX & Surfaces (`skills/ui-ux/`)**: `improve-ui`, `design-lab`, `landing-page`, `pricing-page`
-- **Frontend & Craft (`skills/frontend/`)**: `frontend-design`, `tailwindcss`
-- **Animation & Motion (`skills/animation-motion/`)**: `improve-animations`, `animation-systems`
-- **Components & Systems (`skills/systems/`, `skills/shadcn-ui/`)**: `baseline-ui`, `ui-skills-root`, `improve-shadcn`
-- **Performance (`skills/performance/`, `skills/react/`)**: `improve-react`, `fixing-motion-performance`
-- **Accessibility (`skills/accessibility/`)**: `fixing-accessibility`
-- **SEO & Quality (`skills/seo/`)**: `fixing-metadata`
-- **3D & Emerging (`skills/3d/`)**: `threejs`
+| Area | Skills | Examples |
+|---|---|---|
+| Media & creative | 67 | `ai-image-generation`, `ai-video-generation`, `ai-music`, `hyperframes`, `remotion-create` |
+| Cloud & infrastructure | 58 | `azure-deploy`, `aks-troubleshooting`, `cost-optimization`, `deploy-to-vercel`, `google-agents-cli-deploy` |
+| UI, frontend & design | 45 | `frontend-design`, `build-design-system`, `fixing-accessibility`, `react-best-practices`, `better-typography` |
+| Agent workflows | 21 | `chief-of-staff`, `handoff`, `triage`, `grilling`, `skill-creator` |
+| General | 17 | `claude-api`, `internal-comms`, `teach`, `canvas-design`, `discernment-nudge` |
+| Code quality, testing & debugging | 11 | `code-review`, `tdd`, `webapp-testing`, `diagnosing-bugs`, `setup-pre-commit` |
+| Architecture & planning | 10 | `codebase-design`, `domain-modeling`, `to-spec`, `to-tickets`, `implement` |
+| Documents | 4 | `docx`, `pdf`, `pptx`, `xlsx` |
+| Databases | 2 | `supabase`, `supabase-postgres-best-practices` |
+
+Browse them with `gaw skills`, `gaw skills <category>` or `gaw search "<keyword>"`.
 
 Every skill follows the **GAW Skill Standard (GSS)**, which extends the open Agent Skills `SKILL.md` format, so GAW skills also work in any tool that supports Agent Skills. Each skill is a folder:
 
 ```
-skills/design-systems/build-design-system/
+skills/testing/tdd/
 ├── SKILL.md   # standard Agent Skills frontmatter + instructions
-└── gaw.json   # optional GSS contract: keywords, dependencies, frameworks, verification...
+├── gaw.json   # optional GSS contract: keywords, when to use, dependencies, verification...
+└── tests.md   # optional supporting files the skill refers to
 ```
 
 ```markdown
 ---
-name: "build-design-system"
-description: "Ground up construction of an evidence-based design system..."
+name: "tdd"
+description: "Test-driven development. Use when the user wants to build features or fix bugs test-first..."
 license: "MIT"
 metadata:
-  gaw-title: "Build a Design System"
-  gaw-category: "design-systems"
-  gaw-author: "arla6ka"
+  gaw-category: "testing"
+  gaw-author: "mattpocock"
   gaw-version: "1.0.0"
 ---
 ```
@@ -228,30 +241,33 @@ Ranking is part of the standard: **GSS Ranking v1** ([spec](docs/gss/spec.md#8-r
 Your cross-project preferences live in **your own folder**, `~/.gaw/brain/`. On first use, GAW copies its default files (from `brain/` in this repo) into it. From then on it reads and writes only your copy, so updating GAW never overwrites your memory and your decisions never end up in GAW's repository. `gaw brain path` shows the location. Set `GAW_HOME` to move it, for example into a synced folder (Dropbox, OneDrive, a private git repo) to share one brain across machines.
 
 **Two layers, never mixed:** `gaw init` doesn't copy your Global Brain into a project. Every project reads the same live Global Brain, and its own `ai-brain/` holds only project things. For agents that can't read outside the project folder, each project gets `ai-brain/global-brain.md`, a generated read-only summary that `gaw start` and `gaw update` keep current. It's personal, so it stays out of git.
-- `identity.md`: Engineer persona, anti-slop principles.
-- `design-principles.md`: Confirmed design rules (compositor animations, high-contrast text).
-- `coding-preferences.md`: TypeScript first, modular architecture, strict types.
-- `decision-history.md`: Traceable log of confirmed architectural decisions.
-- `workflow-preferences.md`: Test-driven verification, non-destructive file updates.
+
+The main default files, all yours to edit (others hold tool and component preferences and lessons learned):
+- `identity.md`: how your agents should work (role, focus, values).
+- `coding-preferences.md`: languages, typing, structure and modularity.
+- `workflow-preferences.md`: verification and safe-update habits.
+- `design-principles.md`: rules for interface work (contrast, accessibility, compositor-only animation, no AI-slop styling).
+- `decision-history.md`: a log of confirmed decisions.
+- `skill-preferences.json`: pinned and blocked skills (created when you first pin or block one).
 
 ### Project Brain (`ai-brain/`)
-Generated inside each target project by `gaw init`:
+Generated inside each project by `gaw init`:
 ```text
 ai-brain/
-├── README.md           # Project AI overview and link to central GAW
-├── context.md          # Real detected framework, languages, UI libs, and hubs
-├── identity.md         # Project design direction and visual tone
-├── playbook.md         # Recommended design-to-code iteration loop
-├── project-history.md  # Project-specific milestone history
-├── rules.md            # Non-negotiable local constraints
+├── README.md           # What this folder is and how agents use it
+├── context.md          # Project goal plus the detected stack (framework, languages, libraries)
+├── identity.md         # Project identity and direction (tone, design direction)
+├── playbook.md         # How agents should work in this project, step by step
+├── project-history.md  # Project milestones and decisions
+├── rules.md            # Rules agents must always follow here
 ├── global-brain.md     # Generated, read-only summary of YOUR Global Brain (kept out of git)
 ├── skills.lock.json    # Library skills this project uses (gaw skills select / deselect)
 ├── project-skills.md   # Generated short catalog of the project's skills (what agents read)
-└── skills/             # Project skills in GSS format (code-generation, review, debugging, seo)
+└── skills/             # The project's own skills in GSS format (starter: code-generation, code-review, debugging, seo)
 ```
 
 ### Project skills: chosen per project, loaded only when needed
-Each project keeps its own skill selection in `ai-brain/skills.lock.json`, which records each skill's version, why it was chosen, and when. Onboarding fills it from your goal, and `gaw skills select` / `gaw skills deselect` change it. Agents don't get full skills up front. They read `ai-brain/project-skills.md`, a short catalog (about 300 tokens per skill instead of thousands), and open a skill only when a task needs it. Over MCP, `load_project_skills` loads just the project skills that fit the current task.
+Each project keeps its own skill selection in `ai-brain/skills.lock.json`, which records each skill's version, why it was chosen, when, and where it came from. Onboarding fills it from your goal, and `gaw skills select` / `gaw skills deselect` change it. Agents don't get full skills up front. They read `ai-brain/project-skills.md`, a short catalog (about 300 tokens per skill instead of thousands), and open a skill only when a task needs it. Over MCP, `load_project_skills` loads just the project skills that fit the current task.
 
 `gaw context` (and the MCP tool `get_project_context`) shows everything GAW knows about a project in one place: stack, goal, rules, skills, code graph, and where your Global Brain lives. The CLI, the MCP server and every agent file read this same context. `gaw update` refreshes the GAW section of CLAUDE.md, .cursorrules, AGENTS.md and the others in place, so agent instructions never go stale.
 
@@ -283,13 +299,17 @@ GAW runs Graphify in code-only mode, which writes to `graphify-out/`:
 
 ---
 
-## 🎨 AGENTATION — VISUAL FEEDBACK
+## 🎨 DESIGN PRESETS & AGENTATION (UI PROJECTS)
 
-For React projects (Vite, Next.js, Remix), `gaw init` automatically installs `agentation` as a development dependency and configures the component:
+These two features only apply when a project has a user interface.
+
+**Design presets:** 63 real-world design archetypes (Linear, Stripe Press, Railway, Cloudflare, Tailwind CSS and more) from [GradientDeck](https://ui.gradientdeck.com), each with its palette, typography and a link to the live site. `gaw use` suggests one only for UI tasks; `gaw design <id> --apply` writes it to `ai-brain/design.md`.
+
+**Agentation:** for React projects (Vite, Next.js, Remix), `gaw init` installs `agentation` as a development dependency and adds its visual feedback overlay:
 - **Vite**: `{import.meta.env.DEV && <Agentation />}`
 - **Next.js / Standard React**: `{process.env.NODE_ENV === 'development' && <Agentation />}`
 
-**Guaranteed Safety:** Agentation is strictly tree-shaken and excluded from production builds. It is never installed on non-React projects.
+Agentation is excluded from production builds and never installed in non-React projects. Skip it with `gaw init --no-agentation`.
 
 ---
 
@@ -298,39 +318,40 @@ For React projects (Vite, Next.js, Remix), `gaw init` automatically installs `ag
 GAW includes a full Model Context Protocol server in `mcp/server.js`.
 
 ### Connecting to Claude Code or Cursor
-Add to your `claude.json` or Cursor MCP settings:
+Add to your MCP settings (`.mcp.json` for Claude Code, or Cursor's MCP settings), with the path to your GAW folder:
 ```json
 {
   "mcpServers": {
     "global-agentic-web": {
       "command": "node",
-      "args": ["E:/master-skills/mcp/server.js"]
+      "args": ["/path/to/global-agentic-web/mcp/server.js"]
     }
   }
 }
 ```
 
 ### Available MCP Tools
-- `list_skills`: Browse skills registry with category filtering.
+- `list_skills`: Browse skills with category filtering (with trust levels).
 - `search_skills`: Search skills with relevance ranking.
-- `get_skill`: Retrieve full markdown content for a specific skill.
-- `recommend_skills`: Get tailored skill recommendations for a task prompt.
-- `load_skills`: Get formatted, ready-to-execute skill context.
-- `get_global_brain`: Fetch global principles and coding preferences.
+- `get_skill`: Retrieve full instructions and metadata for a specific skill.
+- `recommend_skills`: Get skill recommendations for a task, each with a reason.
+- `load_skills`: Get formatted, ready-to-use skill instructions for a task.
+- `get_global_brain`: Fetch the user's Global Brain preferences.
 - `get_project_context`: Everything GAW knows about the project (stack, goal, rules, selected skills, code graph, Global Brain), validated. Call it first.
 - `get_project_skills`: The project's chosen skills as short entries (no full text).
 - `load_project_skills`: Full instructions of only the project skills that fit the current task, within a token budget.
 - `select_project_skills`: Add library skills to the project (after the user agrees).
 - `update_project_memory`: Append confirmed decisions to project memory.
-- `initialize_project`: Remotely trigger `gaw init` workflow.
-- `get_project_graph`: Retrieve Graphify architectural relationship graph.
-- `get_project_status`: Check readiness of current project.
+- `initialize_project`: Run the `gaw init` workflow (never installs Graphify).
+- `analyze_project`: Inspect the project's framework, dependencies and tools.
+- `get_project_graph`: Retrieve the Graphify relationship graph.
+- `get_project_status`: Check whether the project is initialized and ready.
 
 ---
 
 ## 🤖 AI CODING AGENT INTEGRATIONS
 
-`gaw init` automatically injects reference links to the Project Brain and Central Skills without overwriting user configs:
+`gaw init` adds a GAW section pointing to the Project Brain and skills, without overwriting your own content. `gaw update` refreshes that section in place:
 - **Claude Code**: `CLAUDE.md`
 - **Cursor**: `.cursorrules`
 - **OpenAI Codex**: `AGENTS.md`
@@ -339,29 +360,32 @@ Add to your `claude.json` or Cursor MCP settings:
 - **Generic Agents**: `AGENT_INSTRUCTIONS.md`
 
 ### Fallback Master Prompt
-When working in an environment before `gaw` CLI is installed, copy and paste [`NEW-PROJECT-MASTER-PROMPT.md`](NEW-PROJECT-MASTER-PROMPT.md) into your assistant!
+Before the `gaw` CLI is installed, you can paste [`NEW-PROJECT-MASTER-PROMPT.md`](NEW-PROJECT-MASTER-PROMPT.md) into your assistant.
 
 ---
 
 ## 🧪 TESTING & VERIFICATION
 
-Run the full automated test suite:
 ```bash
-npm test
+npm test        # 18 test suites; uses a throwaway GAW_HOME, never your real ~/.gaw
+npm run eval    # skill selection benchmark: tuning set + held-out set, compared with eval/baseline.json
 ```
-The test suite covers:
-- Skill Registry indexing & frontmatter parsing
-- Skill Discovery keyword ranking & filtering
-- Orchestrator task analysis, recommendations & progressive loading
-- Memory Engine precedence & decision logging
-- Graphify AST relationship analysis
-- Agentation React-only safety & dev isolation
-- E2E Project Bootstrapper idempotency on fresh React projects
+
+The tests cover:
+- Skill registry, GSS conversion, frontmatter parsing, imports and license handling
+- Skill discovery, ranking levels, AI drafts and the eval cases
+- Personal library, trust levels and pin/block preferences
+- Orchestrator task analysis, recommendations and progressive loading
+- Project context, Global Brain link and memory precedence
+- Onboarding, Graphify setup and code graph
+- Agentation (React only, dev only)
+- End-to-end `gaw init` on fresh projects
 
 ---
 
 ## 📄 CONTRIBUTING & LICENSE
 
-- Distributed under the [MIT License](LICENSE).
-- Upstream skills are sourced and credited to [ui-skills.com](https://www.ui-skills.com) and their respective authors (`arla6ka`, `anthropic`, `emilkowalski`, `ibelick`, `millionco`).
-
+- **GAW's code** (CLI, engine, MCP server) is distributed under the [MIT License](LICENSE).
+- **Each skill keeps its own license**, shown in its `SKILL.md` and checked at its source (`gaw skills licenses`): 168 MIT, 48 Apache-2.0, and 19 whose source has no license yet (the linter flags them; they need the author's permission before redistribution). GAW never relabels a skill's license.
+- **Skills come from their authors**, credited in each skill: Anthropic, Microsoft, Google, Vercel, Supabase, Remotion, HeyGen (HyperFrames), Matt Pocock, gencraft-labs, [ui-skills.com](https://www.ui-skills.com) and individual authors (`arla6ka`, `emilkowalski`, `ibelick`, `millionco` and others).
+- **Contributing a skill:** add it with `gaw skills add <link|folder> --official`, run `npm test` and `npm run eval`, and open a pull request.
