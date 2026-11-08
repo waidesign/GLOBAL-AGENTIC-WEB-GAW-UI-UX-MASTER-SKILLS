@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GAW is now "Guided Agent Workflow"** (formerly "Global Agentic Web"): The Universal Intelligence Layer for AI Agents. The CLI header, MCP server name (`guided-agent-workflow-mcp`), package name (`guided-agent-workflow`), agent-file sections and docs use the new name. `gaw update` replaces agent-file sections written under the old name in place; nothing is duplicated.
 - **No longer UI-only by default**: the default Global Brain persona and the project `identity.md` template now fit any kind of project; interface rules apply only to projects with a user interface. Existing Global Brains and project files are not changed.
 
+### Removed
+- `ui-skills-master.md`: an early working note about importing skills from ui-skills.com. Nothing used it; those skills are in the official library and credited in the README.
+
 ### Fixed (project detection)
 - Any JavaScript project without a known UI framework was labeled "plain-frontend", and every project was assumed to use JavaScript. Languages now come from the project's files (package.json, tsconfig, pyproject/requirements, go.mod, Cargo.toml, Maven/Gradle, .csproj), and stacks are named for what they are: `node`, `express`, `fastify`, `nestjs`, `django`, `fastapi`, `flask`, `python`, ... "plain-frontend" needs real frontend signs (index.html or a bundler).
 - `gaw init --yes` suggested unrelated starter skills (a website-design skill for a Node API; an AKS skill because its description mentions Express). Starter skills must now be about the stack by name, tags or keywords; otherwise none are suggested.
