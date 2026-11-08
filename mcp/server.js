@@ -16,6 +16,7 @@ import { MemoryEngine } from '../core/memory-engine/MemoryEngine.js';
 import { ProjectDetector } from '../core/project-detector/ProjectDetector.js';
 import { ProjectBootstrapper } from '../core/bootstrapper/ProjectBootstrapper.js';
 import { GraphifyManager } from '../core/graphify-manager/GraphifyManager.js';
+import { loadProjectContext, loadProjectSkillsForTask, selectSkills, writeCatalog } from '../core/project-context/ProjectContext.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -110,12 +111,48 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       },
       {
         name: 'get_project_context',
-        description: 'Retrieve local Project Brain (ai-brain/) context, rules, and identity for the current project.',
+        description: 'Everything GAW knows about the project, validated: stack, goal, project rules, selected skills (short entries, not full text), code graph and Global Brain location. Call this first when starting work in a project.',
         inputSchema: {
           type: 'object',
           properties: {
             projectPath: { type: 'string', description: 'Optional project directory path (defaults to current dir)' }
           }
+        }
+      },
+      {
+        name: 'get_project_skills',
+        description: 'The skills chosen for this project (from ai-brain/skills.lock.json and ai-brain/skills/): name, summary, why chosen, size and file path. Does not load full instructions.',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            projectPath: { type: 'string', description: 'Optional project directory path (defaults to current dir)' }
+          }
+        }
+      },
+      {
+        name: 'load_project_skills',
+        description: 'Load full instructions of only those project skills that closely match the current task, within a token budget. Returns nothing when no project skill fits.',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            taskPrompt: { type: 'string', description: 'The task you are about to do' },
+            projectPath: { type: 'string', description: 'Optional project directory path (defaults to current dir)' },
+            tokenBudget: { type: 'number', description: 'Max tokens of full skill instructions (default 8000)' }
+          },
+          required: ['taskPrompt']
+        }
+      },
+      {
+        name: 'select_project_skills',
+        description: 'Add library skills to the project (ai-brain/skills.lock.json). Only call this after the user agrees to use these skills in the project.',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            ids: { type: 'array', items: { type: 'string' }, description: 'Skill names to add' },
+            reason: { type: 'string', description: 'Why the project needs them' },
+            projectPath: { type: 'string', description: 'Optional project directory path (defaults to current dir)' }
+          },
+          required: ['ids']
         }
       },
       {
@@ -267,15 +304,39 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       }
 
       case 'get_project_context': {
-        const pPath = args.projectPath || process.cwd();
-        const pBrain = await memoryEngine.getProjectBrain(pPath);
+        // The same validated context the CLI (gaw context) and agent files use
+        const ctx = await loadProjectContext(args.projectPath || process.cwd(), { registry });
         return {
-          content: [{ type: 'text', text: JSON.stringify(pBrain, null, 2) }]
+          content: [{ type: 'text', text: JSON.stringify(ctx, null, 2) }]
+        };
+      }
+
+      case 'get_project_skills': {
+        const ctx = await loadProjectContext(args.projectPath || process.cwd(), { registry });
+        return {
+          content: [{ type: 'text', text: JSON.stringify({ selected: ctx.skills.selected, project: ctx.skills.project, warnings: ctx.warnings }, null, 2) }]
+        };
+      }
+
+      case 'load_project_skills': {
+        // Only the project's chosen skills that fit this task, within the token budget
+        const payload = await loadProjectSkillsForTask(args.projectPath || process.cwd(), registry, args.taskPrompt, { tokenBudget: args.tokenBudget });
+        return {
+          content: [{ type: 'text', text: payload.formattedInstructions }]
+        };
+      }
+
+      case 'select_project_skills': {
+        const target = args.projectPath || process.cwd();
+        const res = await selectSkills(target, registry, args.ids || [], args.reason);
+        await writeCatalog(target, registry);
+        return {
+          content: [{ type: 'text', text: JSON.stringify(res, null, 2) }]
         };
       }
 
       case 'update_project_memory': {
-        await memoryEngine.recordDecision(args.category, args.decision, args.context, true);
+        await memoryEngine.recordDecision(args.category, args.decision, args.context, true, args.projectPath || process.cwd());
         return {
           content: [{ type: 'text', text: `Successfully updated project decision history: [${args.category}] ${args.decision}` }]
         };

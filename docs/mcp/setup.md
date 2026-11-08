@@ -48,8 +48,11 @@ Global Agentic Web provides a native MCP server (`mcp/server.js`) compliant with
 - `recommend_skills(taskPrompt: string, framework?: string)`
 - `load_skills(taskPrompt: string)`
 - `get_global_brain()`
-- `get_project_context(projectPath?: string)`
-- `update_project_memory(category: string, decision: string, context: string)`
+- `get_project_context(projectPath?: string)`: validated project context (stack, goal, rules, selected skills, graph, Global Brain). Call it first.
+- `get_project_skills(projectPath?: string)`: the project's chosen skills as short entries
+- `load_project_skills(taskPrompt: string, projectPath?: string, tokenBudget?: number)`: only the project skills that fit the task
+- `select_project_skills(ids: string[], reason?: string, projectPath?: string)`: add skills to the project (after the user agrees)
+- `update_project_memory(category: string, decision: string, context: string, projectPath?: string)`
 - `initialize_project(projectPath?: string, dryRun?: boolean)`
 - `analyze_project(projectPath?: string)`
 - `get_project_graph(projectPath?: string, forceRegenerate?: boolean)`

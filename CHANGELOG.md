@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (project context)
+- **Per-project skill selection**: `ai-brain/skills.lock.json` records which library skills a project uses (version, reason, date). Manage it with `gaw skills select`, `gaw skills deselect` and `gaw skills selected`; onboarding fills it from the project goal. Agents read a generated short catalog, `ai-brain/project-skills.md` (~640 tokens for 6 skills in a sample project), and open a full skill only when a task needs it.
+- **Shared project context service** (`core/project-context/`): one validated view of a project's stack, goal, rules, skills, code graph and Global Brain. `gaw context` and MCP `get_project_context` return it, and the agent files are built from it.
+- **New MCP tools**: `get_project_skills`, `load_project_skills` (only project skills that fit the task, within a token budget), `select_project_skills`.
+- **Agent instructions stay current**: the GAW section in CLAUDE.md, .cursorrules, AGENTS.md, GEMINI.md, Copilot and generic instructions is refreshed in place by `gaw update` (previously written once and never updated), and all six now share the same lines.
+
+### Fixed (project context)
+- `package.json` (and other JSON) saved with a byte-order mark, common on Windows, was misread, so React/Next.js projects were detected as plain frontend.
+
 ### Changed
 - **The Global Brain moved out of the GAW package** into your user folder, `~/.gaw/brain/` (or `$GAW_HOME/brain/`). On first use GAW copies its defaults from `brain/` and never overwrites your files, so updates can't erase your memory and personal decisions never end up in GAW's repository. `gaw brain path` shows the location, and `GAW_HOME` pointed at a synced folder shares one brain across machines. The repository's `decision-history.md` is now an empty template. Global decisions record the project name, not its full local path.
 

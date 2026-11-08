@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { readJsonFile } from '../utils/readJson.js';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseFrontmatter } from './frontmatter.js';
@@ -128,7 +129,7 @@ export class SkillRegistry {
         let contract = {};
         if (isGss) {
           const contractFile = path.join(path.dirname(file), 'gaw.json');
-          if (fs.existsSync(contractFile)) contract = JSON.parse(fs.readFileSync(contractFile, 'utf8'));
+          if (fs.existsSync(contractFile)) contract = readJsonFile(contractFile);
         }
         const record = toSkillRecord({ data, contract, relPath, categoryFromPath, isGss });
         record.tokenEstimate = estimateTokens(content);
@@ -162,7 +163,7 @@ export class SkillRegistry {
     const indexFile = path.join(this.skillsDir, INDEX_FILE);
     if (!fs.existsSync(indexFile)) return null;
     try {
-      const index = JSON.parse(fs.readFileSync(indexFile, 'utf8'));
+      const index = readJsonFile(indexFile);
       if (index.version !== INDEX_VERSION) return null;
       return index.fingerprint === this.fingerprint(files) ? index : null;
     } catch {

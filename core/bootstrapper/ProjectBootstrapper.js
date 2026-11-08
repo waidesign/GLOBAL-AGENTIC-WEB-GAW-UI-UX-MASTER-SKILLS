@@ -8,6 +8,7 @@ import { AgentAdapters } from '../agent-adapters/AgentAdapters.js';
 import { SkillRegistry } from '../skill-registry/SkillRegistry.js';
 import { SkillOrchestrator } from '../orchestrator/SkillOrchestrator.js';
 import { MemoryEngine } from '../memory-engine/MemoryEngine.js';
+import { writeCatalog, CATALOG_FILE } from '../project-context/ProjectContext.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -188,6 +189,12 @@ export class ProjectBootstrapper {
     report.integrations.agentAdapters = adapterRes;
     report.steps.push({ step: 6, name: 'Configure AI Agents', status: 'Configured' });
 
+    // Project skill catalog (ai-brain/project-skills.md): what agents read instead of full skills
+    if (!dryRun) {
+      await writeCatalog(dir, this.registry);
+      report.created.push(`ai-brain/${CATALOG_FILE}`);
+    }
+
     // Step 9: Recommend Relevant Skills
     const initialQuery = `${projectInfo.framework} ${projectInfo.languages.join(' ')} ${projectInfo.uiLibraries.join(' ')}`;
     const recs = await this.orchestrator.recommend(initialQuery, { framework: projectInfo.framework });
@@ -300,6 +307,14 @@ export class ProjectBootstrapper {
       const agentation = new AgentationManager({ projectRoot: dir });
       agentation.configure(projectInfo, { dryRun: false });
       result.agentationChecked = true;
+    }
+
+    // Keep agent instructions and the skill catalog current
+    if (fs.existsSync(brainDir)) {
+      const adapters = AgentAdapters.configureAll(dir, projectInfo, {});
+      result.agentFilesUpdated = Object.values(adapters).filter(a => a.action !== 'unchanged').map(a => path.relative(dir, a.target));
+      await writeCatalog(dir, this.registry);
+      result.catalogUpdated = true;
     }
 
     return result;

@@ -3,6 +3,7 @@
  * to GSS, apply verified licenses, and split oversized skills. See docs/gss/spec.md.
  */
 import fs from 'node:fs';
+import { readJsonFile } from '../utils/readJson.js';
 import path from 'node:path';
 import { parseFrontmatter, stringifyFrontmatter } from './frontmatter.js';
 
@@ -18,7 +19,7 @@ const estimateTokens = (text) => Math.round((text || '').length / 4);
 export function readSkillFolder(dir) {
   const { data, content } = parseFrontmatter(fs.readFileSync(path.join(dir, 'SKILL.md'), 'utf8'));
   const contractFile = path.join(dir, 'gaw.json');
-  const contract = fs.existsSync(contractFile) ? JSON.parse(fs.readFileSync(contractFile, 'utf8')) : { gss: 1 };
+  const contract = fs.existsSync(contractFile) ? readJsonFile(contractFile) : { gss: 1 };
   return { data, content, contract };
 }
 

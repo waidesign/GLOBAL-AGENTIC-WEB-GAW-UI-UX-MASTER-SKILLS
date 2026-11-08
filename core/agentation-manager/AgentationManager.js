@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { readJsonFile } from '../utils/readJson.js';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 
@@ -24,7 +25,7 @@ export class AgentationManager {
     }
 
     try {
-      const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+      const pkg = readJsonFile(pkgPath);
       const deps = { ...(pkg.dependencies || {}), ...(pkg.devDependencies || {}) };
       if (deps['agentation']) {
         return { installed: true, alreadyPresent: true, reason: 'agentation already in package.json' };

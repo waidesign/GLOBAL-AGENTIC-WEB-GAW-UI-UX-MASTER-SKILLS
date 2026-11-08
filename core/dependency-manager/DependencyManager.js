@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { readJsonFile } from '../utils/readJson.js';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 
@@ -41,7 +42,7 @@ export class DependencyManager {
     }
 
     try {
-      const pkg = JSON.parse(fs.readFileSync(pkgJsonPath, 'utf8'));
+      const pkg = readJsonFile(pkgJsonPath);
       const deps = { ...(pkg.dependencies || {}), ...(pkg.devDependencies || {}) };
       if (deps[pkgName]) {
         return { success: true, alreadyInstalled: true };

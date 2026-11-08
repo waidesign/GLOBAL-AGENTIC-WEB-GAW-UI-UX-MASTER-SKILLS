@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { readJsonFile } from '../utils/readJson.js';
 import path from 'node:path';
 import os from 'node:os';
 import { GraphifyManager } from '../graphify-manager/GraphifyManager.js';
@@ -14,7 +15,7 @@ export class ProjectDetector {
     let pkg = null;
     if (fs.existsSync(pkgPath)) {
       try {
-        pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+        pkg = readJsonFile(pkgPath);
       } catch (err) {
         pkg = null;
       }

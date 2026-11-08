@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { readJsonFile } from '../utils/readJson.js';
 import path from 'node:path';
 import { parseFrontmatter } from './frontmatter.js';
 import { rankabilityLevel, MAX_KEYWORDS, MAX_KEYWORD_LENGTH, MAX_TAGS, LEVEL_NAMES } from './rankability.js';
@@ -131,7 +132,7 @@ export function lintSkillFolder(dir, knownSkills = null) {
   let contract = {};
   if (fs.existsSync(contractFile)) {
     try {
-      contract = JSON.parse(fs.readFileSync(contractFile, 'utf8'));
+      contract = readJsonFile(contractFile);
     } catch (err) {
       errors.push(`gaw.json is not valid JSON: ${err.message}`);
       contract = null;

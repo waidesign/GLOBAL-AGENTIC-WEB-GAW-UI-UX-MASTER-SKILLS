@@ -62,9 +62,14 @@ test('onboarding - UI goal: saves goal, activates matching skills, saves rules',
   assert.ok(read(dir, 'context.md').includes('A SaaS landing page with pricing for my startup'));
   assert.ok(!read(dir, 'context.md').includes('Add an overview of what the application does'));
 
-  const active = read(dir, 'active-skills.md');
-  assert.ok(active.includes('(landing-page)'));
-  assert.ok(active.includes('**Objective**: A SaaS landing page'));
+  // Chosen skills are recorded in the lockfile and listed (not loaded) in the catalog
+  const lock = JSON.parse(read(dir, 'skills.lock.json'));
+  assert.ok(lock.skills.some(s => s.id === 'landing-page'));
+  assert.ok(lock.skills.every(s => s.reason.startsWith('Matches the project goal')));
+  const catalog = read(dir, 'project-skills.md');
+  assert.ok(catalog.includes('(`landing-page`)'));
+  assert.ok(catalog.includes('Open a skill only when the current task needs it'));
+  assert.equal(exists(dir, 'active-skills.md'), false, 'no full skill bodies written up front');
 
   const rules = read(dir, 'rules.md');
   assert.ok(rules.includes('## Project-Specific Rules\n- Support Safari 15+'));
@@ -82,7 +87,7 @@ test('onboarding - field the library does not cover: no unrelated skills are sug
 
   await runOnboarding({ bootstrapper, projectDir: dir, ask, log: (m) => logs.push(m) });
 
-  assert.equal(exists(dir, 'active-skills.md'), false);
+  assert.equal(exists(dir, 'skills.lock.json'), false);
   assert.ok(logs.join('\n').includes('No skills in the library closely match'));
   assert.ok(!asked.some(q => q.includes('Use these?')), 'does not ask to pick skills');
   assert.ok(read(dir, 'rules.md').includes('- Follow MISRA C'));
@@ -95,8 +100,8 @@ test('onboarding - picking by number keeps only the chosen skills', async () => 
 
   await runOnboarding({ bootstrapper, projectDir: dir, ask, log: silent });
 
-  const active = read(dir, 'active-skills.md');
-  assert.ok(active.includes('Loaded 1 specialized skill(s)'));
+  const lock = JSON.parse(read(dir, 'skills.lock.json'));
+  assert.equal(lock.skills.length, 1);
   fs.rmSync(dir, { recursive: true, force: true });
 });
 
@@ -111,7 +116,7 @@ test('onboarding - skipping everything writes nothing', async () => {
   assert.equal(res.written.length, 0);
   assert.equal(read(dir, 'context.md'), contextBefore);
   assert.equal(read(dir, 'rules.md'), rulesBefore);
-  assert.equal(exists(dir, 'active-skills.md'), false);
+  assert.equal(exists(dir, 'skills.lock.json'), false);
   fs.rmSync(dir, { recursive: true, force: true });
 });
 

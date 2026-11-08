@@ -105,7 +105,7 @@ gaw init
 
 In a terminal, `gaw init` then runs a short onboarding that works for any kind of project. Press Enter to skip any question:
 1. **What are you building?** Saved as the project goal in `ai-brain/context.md`.
-2. **Suggested skills:** only skills that closely match your goal are shown, from any field (cloud, testing, architecture, UI, ...). Pick all, some (by number), or none. They are written to `ai-brain/active-skills.md`.
+2. **Suggested skills:** only skills that closely match your goal are shown, from any field (cloud, testing, architecture, UI, ...). Pick all, some (by number), or none. They are recorded in `ai-brain/skills.lock.json` and listed in the short catalog `ai-brain/project-skills.md`.
 3. **Rules your AI agents must always follow**, e.g. "All API endpoints require auth". Saved to `ai-brain/rules.md`.
 4. **Graphify code map:** asked only when Graphify is not installed.
 
@@ -137,6 +137,8 @@ gaw use "Build a responsive SaaS dashboard with a sidebar, data table, and smoot
 | `gaw setup` | Install Graphify later (asks before installing uv). |
 | `gaw start` | Resume an already initialized project with verified contexts. |
 | `gaw skills [category]` | List all registered skills or filter by category. |
+| `gaw skills select <name...>` | Use library skills in this project (`ai-brain/skills.lock.json`); `deselect` removes, `selected` lists. |
+| `gaw context [--json]` | Everything GAW knows about this project: stack, goal, rules, skills, graph, Global Brain. |
 | `gaw skills add <link\|folder\|file>` | Add any skill: converted to GSS, license checked at the source, supporting files copied, split if oversized, indexed. `--project` adds it to `ai-brain/skills/`. |
 | `gaw skills new "<title>"` | Create a new GSS skill from a template. |
 | `gaw skills lint [folder] [--levels]` | Check skills against the GAW Skill Standard and show their ranking levels. |
@@ -226,8 +228,15 @@ ai-brain/
 ├── playbook.md         # Recommended design-to-code iteration loop
 ├── project-history.md  # Project-specific milestone history
 ├── rules.md            # Non-negotiable local constraints
-└── skills/             # Local implementation guides (code-generation, review, debugging, seo)
+├── skills.lock.json    # Library skills this project uses (gaw skills select / deselect)
+├── project-skills.md   # Generated short catalog of the project's skills (what agents read)
+└── skills/             # Project skills in GSS format (code-generation, review, debugging, seo)
 ```
+
+### Project skills: chosen per project, loaded only when needed
+Each project keeps its own skill selection in `ai-brain/skills.lock.json`, which records each skill's version, why it was chosen, and when. Onboarding fills it from your goal, and `gaw skills select` / `gaw skills deselect` change it. Agents don't get full skills up front. They read `ai-brain/project-skills.md`, a short catalog (about 300 tokens per skill instead of thousands), and open a skill only when a task needs it. Over MCP, `load_project_skills` loads just the project skills that fit the current task.
+
+`gaw context` (and the MCP tool `get_project_context`) shows everything GAW knows about a project in one place: stack, goal, rules, skills, code graph, and where your Global Brain lives. The CLI, the MCP server and every agent file read this same context. `gaw update` refreshes the GAW section of CLAUDE.md, .cursorrules, AGENTS.md and the others in place, so agent instructions never go stale.
 
 ---
 
@@ -291,7 +300,10 @@ Add to your `claude.json` or Cursor MCP settings:
 - `recommend_skills`: Get tailored skill recommendations for a task prompt.
 - `load_skills`: Get formatted, ready-to-execute skill context.
 - `get_global_brain`: Fetch global principles and coding preferences.
-- `get_project_context`: Fetch local `ai-brain/` rules and context.
+- `get_project_context`: Everything GAW knows about the project (stack, goal, rules, selected skills, code graph, Global Brain), validated. Call it first.
+- `get_project_skills`: The project's chosen skills as short entries (no full text).
+- `load_project_skills`: Full instructions of only the project skills that fit the current task, within a token budget.
+- `select_project_skills`: Add library skills to the project (after the user agrees).
 - `update_project_memory`: Append confirmed decisions to project memory.
 - `initialize_project`: Remotely trigger `gaw init` workflow.
 - `get_project_graph`: Retrieve Graphify architectural relationship graph.

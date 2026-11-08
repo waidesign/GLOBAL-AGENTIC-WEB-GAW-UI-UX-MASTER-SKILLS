@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ensureGraphify } from './graphify-setup.js';
 import { explainMatch } from '../core/skill-discovery/SkillDiscovery.js';
+import { selectSkills, writeCatalog } from '../core/project-context/ProjectContext.js';
 
 const MAX_RULES = 20;
 
@@ -83,7 +84,7 @@ function saveRules(brainDir, rules) {
 /**
  * Interactive onboarding after `gaw init`. Works for any kind of project:
  *   1. What are you building?     -> ai-brain/context.md
- *   2. Suggested skills (if any closely match the goal) -> ai-brain/active-skills.md
+ *   2. Suggested skills (if any closely match the goal) -> ai-brain/skills.lock.json + project-skills.md
  *   3. Rules agents must follow   -> ai-brain/rules.md
  *   4. Graphify code map          (only when Graphify is missing)
  *   5. Summary
@@ -151,12 +152,16 @@ export async function runOnboarding(options) {
 
       const chosen = (picked || []).map(i => matches[i]);
       if (chosen.length > 0) {
-        const loaded = await bootstrapper.orchestrator.loadSkillsByIds(chosen.map(s => s.id), goal, { reasons });
-        fs.writeFileSync(path.join(brainDir, 'active-skills.md'), loaded.formattedInstructions, 'utf8');
-        written.push(`ai-brain/active-skills.md (${chosen.length} skill${chosen.length > 1 ? 's' : ''})`);
-        log(`    ✓ Activated: ${chosen.map(s => s.id).join(', ')}`);
+        // Record the choice in the project's skill lockfile; agents read the short
+        // catalog and open a full skill only when a task needs it
+        for (const s of chosen) {
+          await selectSkills(projectDir, bootstrapper.registry, [s.id], `Matches the project goal: ${reasons.get(s.id)}`);
+        }
+        await writeCatalog(projectDir, bootstrapper.registry);
+        written.push(`ai-brain/skills.lock.json + project-skills.md (${chosen.length} skill${chosen.length > 1 ? 's' : ''})`);
+        log(`    ✓ Selected for this project: ${chosen.map(s => s.id).join(', ')}`);
       } else {
-        log(`    No skills activated.`);
+        log(`    No skills selected.`);
       }
     }
   }

@@ -7,6 +7,7 @@
  *   await installSkill(prepared, preview)         // write folder, license, split
  */
 import fs from 'node:fs';
+import { readJsonFile } from '../utils/readJson.js';
 import path from 'node:path';
 import { parseFrontmatter } from './frontmatter.js';
 import { parseGitHubUrl } from './github.js';
@@ -130,7 +131,7 @@ function readFromLocal(target) {
   if (dir) {
     const contractFile = path.join(dir, 'gaw.json');
     if (fs.existsSync(contractFile)) {
-      try { existingContract = JSON.parse(fs.readFileSync(contractFile, 'utf8')); } catch { /* ignored; rebuilt */ }
+      try { existingContract = readJsonFile(contractFile); } catch { /* ignored; rebuilt */ }
     }
     const walk = (d) => {
       for (const e of fs.readdirSync(d, { withFileTypes: true })) {
@@ -298,7 +299,7 @@ export async function restoreSupportFiles(github, skill, missing) {
   let written = 0;
   if (missing.binaryLeftAtSource) {
     const contractFile = path.join(skill.dir, 'gaw.json');
-    const contract = fs.existsSync(contractFile) ? JSON.parse(fs.readFileSync(contractFile, 'utf8')) : { gss: 1 };
+    const contract = fs.existsSync(contractFile) ? readJsonFile(contractFile) : { gss: 1 };
     contract.source = { ...(contract.source || {}), filesLeftAtSource: missing.binaryLeftAtSource };
     fs.writeFileSync(contractFile, `${JSON.stringify(contract, null, 2)}\n`, 'utf8');
   }

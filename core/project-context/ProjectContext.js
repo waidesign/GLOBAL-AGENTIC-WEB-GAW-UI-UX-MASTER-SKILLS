@@ -1,0 +1,253 @@
+/**
+ * Shared project context service. The CLI, the MCP server and the agent
+ * instruction files all read a project through this module, so they always
+ * agree on the project's goal, rules, skills and tools.
+ *
+ * Project skill selection lives in ai-brain/skills.lock.json (which library
+ * skills this project uses). ai-brain/project-skills.md is a generated catalog:
+ * one short entry per skill, so agents open a full skill only when a task needs it.
+ */
+import fs from 'node:fs';
+import { readJsonFile } from '../utils/readJson.js';
+import path from 'node:path';
+import { ProjectDetector } from '../project-detector/ProjectDetector.js';
+import { SkillRegistry } from '../skill-registry/SkillRegistry.js';
+import { SkillOrchestrator } from '../orchestrator/SkillOrchestrator.js';
+import { GraphifyManager } from '../graphify-manager/GraphifyManager.js';
+import { userBrainDir } from '../memory-engine/paths.js';
+
+export const CONTEXT_VERSION = 1;
+export const LOCK_FILE = 'skills.lock.json';
+export const CATALOG_FILE = 'project-skills.md';
+
+const brainDir = (projectDir) => path.join(projectDir, 'ai-brain');
+const lockPath = (projectDir) => path.join(brainDir(projectDir), LOCK_FILE);
+const today = () => new Date().toISOString().split('T')[0];
+
+// ---------- Skill lockfile ----------
+
+/** The project's skill selection: { gss: 1, skills: [{ id, version, reason, addedAt }] }. */
+export function readLock(projectDir) {
+  const file = lockPath(projectDir);
+  if (!fs.existsSync(file)) return { gss: 1, skills: [] };
+  try {
+    const lock = readJsonFile(file);
+    return { gss: 1, skills: Array.isArray(lock.skills) ? lock.skills : [] };
+  } catch {
+    return { gss: 1, skills: [], invalid: true };
+  }
+}
+
+export function writeLock(projectDir, lock) {
+  fs.mkdirSync(brainDir(projectDir), { recursive: true });
+  const skills = [...lock.skills].sort((a, b) => a.id.localeCompare(b.id));
+  fs.writeFileSync(lockPath(projectDir), `${JSON.stringify({ gss: 1, skills }, null, 2)}\n`, 'utf8');
+}
+
+/**
+ * Add library skills to the project. Records the version, why it was chosen,
+ * and when. Returns { added, already, unknown }.
+ */
+export async function selectSkills(projectDir, registry, ids, reason = '') {
+  const lock = readLock(projectDir);
+  const result = { added: [], already: [], unknown: [] };
+  for (const id of ids) {
+    const skill = await registry.getSkill(id);
+    if (!skill) { result.unknown.push(id); continue; }
+    const existing = lock.skills.find(s => s.id === id);
+    if (existing) { result.already.push(id); continue; }
+    lock.skills.push({ id, version: skill.version, reason: reason || 'Selected for this project.', addedAt: today() });
+    result.added.push(id);
+  }
+  if (result.added.length) writeLock(projectDir, lock);
+  return result;
+}
+
+/** Remove skills from the project. Returns the IDs removed. */
+export function deselectSkills(projectDir, ids) {
+  const lock = readLock(projectDir);
+  const removed = lock.skills.filter(s => ids.includes(s.id)).map(s => s.id);
+  if (removed.length) writeLock(projectDir, { ...lock, skills: lock.skills.filter(s => !ids.includes(s.id)) });
+  return removed;
+}
+
+// ---------- Project skills: selected library skills + skills in ai-brain/skills ----------
+
+/** Registry over the project's own skills (ai-brain/skills), without writing an index into the project. */
+export function projectSkillRegistry(projectDir) {
+  return new SkillRegistry({ skillsDir: path.join(brainDir(projectDir), 'skills'), autoIndex: false });
+}
+
+/**
+ * The skills this project uses: library skills selected in the lockfile plus the
+ * project's own skills. Returns a registry-shaped object for SkillOrchestrator.
+ */
+export async function projectSkillSet(projectDir, libraryRegistry) {
+  const lock = readLock(projectDir);
+  const selected = [];
+  const missing = [];
+  for (const entry of lock.skills) {
+    const skill = await libraryRegistry.getSkill(entry.id);
+    // A wrapper with the selection attached; the shared registry object (and its lazy body) stay untouched
+    if (skill) selected.push(Object.assign(Object.create(skill), { selection: entry }));
+    else missing.push(entry.id);
+  }
+  const own = await projectSkillRegistry(projectDir).getAllSkills();
+  const all = [...selected, ...own.filter(s => !selected.some(x => x.id === s.id))];
+  const byId = new Map(all.map(s => [s.id, s]));
+  return {
+    selected,
+    own,
+    missing,
+    getAllSkills: async () => all,
+    getSkill: async (id) => byId.get(id) || null
+  };
+}
+
+const firstItems = (list, n) => (Array.isArray(list) ? list.slice(0, n) : []);
+
+/** Write ai-brain/project-skills.md: a short catalog agents read instead of full skills. */
+export async function writeCatalog(projectDir, libraryRegistry) {
+  const set = await projectSkillSet(projectDir, libraryRegistry);
+  const lines = [
+    '# Project Skills',
+    '',
+    '_Generated by GAW from `ai-brain/skills.lock.json` and `ai-brain/skills/`. Do not edit; use `gaw skills select` / `gaw skills deselect`._',
+    '',
+    'These are the skills chosen for this project. **Open a skill only when the current task needs it**, or ask GAW for the ones that fit a task (MCP tool `load_project_skills`).',
+    ''
+  ];
+  if (set.selected.length === 0 && set.own.length === 0) {
+    lines.push('No skills selected yet. Add some with `gaw skills select <skill-name>`.');
+  }
+
+  const entry = (skill, origin) => {
+    const c = skill.contract || {};
+    const out = [`## ${skill.name} (\`${skill.id}\`)`, ''];
+    out.push(c.summary || skill.description);
+    const when = firstItems(c.whenToUse, 2);
+    if (when.length) out.push('', `**When to use**: ${when.join(' ')}`);
+    if (skill.selection?.reason) out.push(`**Why chosen**: ${skill.selection.reason}`);
+    if ((c.permissions || []).includes('shell')) out.push('**Can run commands**: review its scripts before running them.');
+    const file = origin === 'project'
+      ? path.relative(projectDir, skill.filePath).replace(/\\/g, '/')
+      : skill.filePath.replace(/\\/g, '/');
+    out.push(`**Full instructions** (~${skill.tokenEstimate ?? '?'} tokens): \`${file}\``, '');
+    return out.join('\n');
+  };
+
+  if (set.selected.length) {
+    lines.push('## Selected from the GAW library', '');
+    for (const s of set.selected) lines.push(entry(s, 'library').replace(/^## /, '### '));
+  }
+  if (set.own.length) {
+    lines.push('## Project skills (`ai-brain/skills/`)', '');
+    for (const s of set.own) lines.push(entry(s, 'project').replace(/^## /, '### '));
+  }
+  if (set.missing.length) {
+    lines.push('', `_Not found in the GAW library: ${set.missing.join(', ')}. Run \`gaw skills deselect\` to remove them._`);
+  }
+
+  fs.mkdirSync(brainDir(projectDir), { recursive: true });
+  fs.writeFileSync(path.join(brainDir(projectDir), CATALOG_FILE), `${lines.join('\n').replace(/\n{3,}/g, '\n\n').trim()}\n`, 'utf8');
+  return set;
+}
+
+/**
+ * Skills for a task, chosen only among the project's skills: close matches
+ * within the token budget, formatted like `gaw use`. Returns the same shape as
+ * SkillOrchestrator.loadSkillsForTask.
+ */
+export async function loadProjectSkillsForTask(projectDir, libraryRegistry, taskPrompt, options = {}) {
+  const set = await projectSkillSet(projectDir, libraryRegistry);
+  const orchestrator = new SkillOrchestrator(set);
+  return orchestrator.loadSkillsForTask(taskPrompt, {}, options);
+}
+
+// ---------- Reading ai-brain files ----------
+
+function sectionText(markdown, headingRe) {
+  const lines = markdown.replace(/\r\n/g, '\n').split('\n');
+  const start = lines.findIndex(l => /^##\s/.test(l) && headingRe.test(l));
+  if (start === -1) return '';
+  const end = lines.findIndex((l, i) => i > start && /^##\s/.test(l));
+  return lines.slice(start + 1, end === -1 ? undefined : end).join('\n').trim();
+}
+
+const PLACEHOLDER_OVERVIEW = 'Add an overview of what the application does';
+
+function readProjectGoal(projectDir) {
+  const file = path.join(brainDir(projectDir), 'context.md');
+  if (!fs.existsSync(file)) return null;
+  const text = fs.readFileSync(file, 'utf8');
+  const goal = sectionText(text, /project goal/i) || sectionText(text, /product overview/i);
+  return goal && !goal.startsWith(PLACEHOLDER_OVERVIEW) ? goal : null;
+}
+
+function readProjectRules(projectDir) {
+  const file = path.join(brainDir(projectDir), 'rules.md');
+  if (!fs.existsSync(file)) return [];
+  return sectionText(fs.readFileSync(file, 'utf8'), /project-specific rules/i)
+    .split('\n')
+    .filter(l => /^\s*-\s+/.test(l))
+    .map(l => l.replace(/^\s*-\s+/, '').trim());
+}
+
+/**
+ * Everything GAW knows about a project, validated, in one object. Used by
+ * `gaw context`, the MCP server (get_project_context) and the agent adapters.
+ */
+export async function loadProjectContext(projectDir, options = {}) {
+  const dir = path.resolve(projectDir);
+  const libraryRegistry = options.registry || new SkillRegistry();
+  const info = ProjectDetector.detect(dir);
+  const initialized = fs.existsSync(brainDir(dir));
+  const warnings = [];
+
+  const lock = readLock(dir);
+  if (lock.invalid) warnings.push(`ai-brain/${LOCK_FILE} is not valid JSON; no skills are selected until it is fixed.`);
+  const set = await projectSkillSet(dir, libraryRegistry);
+  if (set.missing.length) warnings.push(`Selected skills not found in the GAW library: ${set.missing.join(', ')}.`);
+  if (!initialized) warnings.push('No ai-brain/ folder: run `gaw init` in this project.');
+
+  const graph = GraphifyManager.locateGraph(dir);
+  const describe = (s) => ({
+    id: s.id,
+    name: s.name,
+    summary: s.contract?.summary || s.description,
+    reason: s.selection?.reason || null,
+    version: s.selection?.version || s.version,
+    tokens: s.tokenEstimate ?? null,
+    permissions: s.contract?.permissions || [],
+    path: s.filePath
+  });
+
+  return {
+    version: CONTEXT_VERSION,
+    project: {
+      name: info.projectName,
+      path: dir,
+      framework: info.framework,
+      languages: info.languages,
+      packageManager: info.packageManager,
+      uiLibraries: info.uiLibraries
+    },
+    initialized,
+    goal: initialized ? readProjectGoal(dir) : null,
+    rules: initialized ? readProjectRules(dir) : [],
+    files: {
+      context: 'ai-brain/context.md',
+      rules: 'ai-brain/rules.md',
+      skillCatalog: fs.existsSync(path.join(brainDir(dir), CATALOG_FILE)) ? `ai-brain/${CATALOG_FILE}` : null,
+      activeTaskSkills: fs.existsSync(path.join(brainDir(dir), 'active-skills.md')) ? 'ai-brain/active-skills.md' : null,
+      design: fs.existsSync(path.join(brainDir(dir), 'design.md')) ? 'ai-brain/design.md' : null
+    },
+    skills: {
+      selected: set.selected.map(describe),
+      project: set.own.map(describe)
+    },
+    graph: graph ? { available: true, json: graph.jsonPath, report: graph.reportPath } : { available: false },
+    globalBrain: options.globalBrainDir || userBrainDir(),
+    warnings
+  };
+}

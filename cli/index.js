@@ -10,6 +10,7 @@ import { GitHubClient } from '../core/skill-registry/github.js';
 import { resolveSkillLicense } from '../core/skill-registry/licenses.js';
 import { applyLicense, planSplit, applySplit, canModify, writeSkillFolder, readSkillFolder, toSkillName } from '../core/skill-registry/gss.js';
 import { enrichContract, rankabilityLevel, LEVEL_NAMES } from '../core/skill-registry/rankability.js';
+import { selectSkills, deselectSkills, writeCatalog, loadProjectContext } from '../core/project-context/ProjectContext.js';
 import { SkillDiscovery } from '../core/skill-discovery/SkillDiscovery.js';
 import { SkillOrchestrator } from '../core/orchestrator/SkillOrchestrator.js';
 import { PresetRegistry } from '../core/preset-registry/PresetRegistry.js';
@@ -84,6 +85,9 @@ export class GawCli {
           break;
         case 'graph':
           await this.cmdGraph(args.slice(1));
+          break;
+        case 'context':
+          await this.cmdContext(args.slice(1));
           break;
         case 'update':
           await this.cmdUpdate(args.slice(1));
@@ -254,6 +258,9 @@ export class GawCli {
     if (args[0] === 'new') return this.cmdSkillsNew(args.slice(1));
     if (args[0] === 'repair') return this.cmdSkillsRepair(args.slice(1));
     if (args[0] === 'enrich') return this.cmdSkillsEnrich(args.slice(1));
+    if (args[0] === 'select') return this.cmdSkillsSelect(args.slice(1));
+    if (args[0] === 'deselect') return this.cmdSkillsDeselect(args.slice(1));
+    if (args[0] === 'selected') return this.cmdSkillsSelected();
 
     this.printHeader();
     const category = args[0];
@@ -657,6 +664,74 @@ export class GawCli {
     }
   }
 
+  /** gaw skills select <name...> [--reason "<why>"]: use library skills in this project. */
+  async cmdSkillsSelect(args) {
+    const { values, positional } = this.parseOptions(args, ['--reason']);
+    if (!positional.length) {
+      console.log(`Usage: gaw skills select <skill-name> [more names] [--reason "<why this project needs it>"]`);
+      return;
+    }
+    const res = await selectSkills(process.cwd(), this.registry, positional, values.reason);
+    await writeCatalog(process.cwd(), this.registry);
+    if (res.added.length) console.log(`✓ Selected for this project: ${res.added.join(', ')}`);
+    if (res.already.length) console.log(`  Already selected: ${res.already.join(', ')}`);
+    if (res.unknown.length) {
+      console.log(`  Not found in the library: ${res.unknown.join(', ')} (search with: gaw search "<keyword>")`);
+      process.exitCode = 1;
+    }
+    console.log(`  Agents see them in ai-brain/project-skills.md and open each one only when a task needs it.`);
+  }
+
+  /** gaw skills deselect <name...>: stop using skills in this project. */
+  async cmdSkillsDeselect(args) {
+    if (!args.length) {
+      console.log(`Usage: gaw skills deselect <skill-name> [more names]`);
+      return;
+    }
+    const removed = deselectSkills(process.cwd(), args);
+    await writeCatalog(process.cwd(), this.registry);
+    console.log(removed.length ? `✓ Removed from this project: ${removed.join(', ')}` : `None of these skills were selected.`);
+  }
+
+  /** gaw skills selected: the skills this project uses. */
+  async cmdSkillsSelected() {
+    const ctx = await loadProjectContext(process.cwd(), { registry: this.registry });
+    if (!ctx.skills.selected.length && !ctx.skills.project.length) {
+      console.log(`No skills selected for this project. Add some with: gaw skills select <skill-name>`);
+      return;
+    }
+    if (ctx.skills.selected.length) {
+      console.log(`Selected from the GAW library:`);
+      for (const s of ctx.skills.selected) console.log(`  • ${s.id} (v${s.version})${s.reason ? ` — ${s.reason}` : ''}`);
+    }
+    if (ctx.skills.project.length) {
+      console.log(`Project skills (ai-brain/skills/):`);
+      for (const s of ctx.skills.project) console.log(`  • ${s.id}`);
+    }
+    for (const w of ctx.warnings) console.log(`⚠ ${w}`);
+  }
+
+  /** gaw context [--json]: everything GAW knows about this project (what MCP get_project_context returns). */
+  async cmdContext(args) {
+    const ctx = await loadProjectContext(process.cwd(), { registry: this.registry });
+    if (args.includes('--json')) {
+      console.log(JSON.stringify(ctx, null, 2));
+      return;
+    }
+    this.printHeader();
+    console.log(`Project:        ${ctx.project.name} (${ctx.project.framework})`);
+    console.log(`Project Brain:  ${ctx.initialized ? 'ai-brain/' : 'not initialized (run gaw init)'}`);
+    console.log(`Goal:           ${ctx.goal || '(none yet)'}`);
+    console.log(`Rules:          ${ctx.rules.length ? '' : '(none yet)'}`);
+    for (const r of ctx.rules) console.log(`  - ${r}`);
+    console.log(`Skills:         ${ctx.skills.selected.length} selected, ${ctx.skills.project.length} project skill(s)`);
+    for (const s of [...ctx.skills.selected, ...ctx.skills.project]) console.log(`  • ${s.id}${s.tokens ? ` (~${s.tokens} tokens, loaded only when needed)` : ''}`);
+    console.log(`Code graph:     ${ctx.graph.available ? ctx.graph.json : 'not built (gaw graph)'}`);
+    console.log(`Global Brain:   ${ctx.globalBrain}`);
+    for (const w of ctx.warnings) console.log(`⚠ ${w}`);
+    console.log();
+  }
+
   /** gaw skills index: rebuild skills/index.json after adding or editing skills. */
   async cmdSkillsIndex() {
     const index = this.registry.writeIndex();
@@ -954,6 +1029,8 @@ export class GawCli {
       if (res.agentationChecked) {
         console.log(`✓ Agentation visual inspection verified.`);
       }
+      if (res.agentFilesUpdated?.length) console.log(`✓ Refreshed agent instructions: ${res.agentFilesUpdated.join(', ')}`);
+      if (res.catalogUpdated) console.log(`✓ Refreshed ai-brain/project-skills.md`);
       console.log(`\n🎉 Project successfully updated to latest GAW standards!\n`);
     } else {
       console.log(`ℹ️ No local 'ai-brain/' directory found in current path (${process.cwd()}).`);
@@ -1127,6 +1204,10 @@ export class GawCli {
     console.log(`                        Create a new GSS skill from a template`);
     console.log(`  skills lint [folder] [--levels]  Check skills against GSS and show ranking levels`);
     console.log(`  skills enrich [--apply]  Fill ranking fields from each skill's own text`);
+    console.log(`  skills select <name...> [--reason r]  Use library skills in this project (skills.lock.json)`);
+    console.log(`  skills deselect <name...>  Stop using skills in this project`);
+    console.log(`  skills selected       List the skills this project uses`);
+    console.log(`  context [--json]      Everything GAW knows about this project (goal, rules, skills, graph)`);
     console.log(`  skills licenses [--apply]  Check each skill's license at its source`);
     console.log(`  skills split <name|--all> [--apply]  Move long parts of oversized skills into references/`);
     console.log(`  skills index          Rebuild skills/index.json (also happens automatically)`);
