@@ -149,8 +149,31 @@ export class SkillOrchestrator {
    * Level 3: Full instructions of selected skills
    */
   async loadSkillsForTask(taskPrompt, projectContext = {}, options = {}) {
-    const analysis = await this.analyzeTask(taskPrompt, projectContext);
-    const selected = analysis.recommendedOrder;
+    // Check if taskPrompt contains explicit skill IDs (e.g. "<landing-page>, <pricing-page>" or "landing-page pricing-page")
+    const cleanedTokens = (taskPrompt || '')
+      .replace(/[<>,()]/g, ' ')
+      .split(/\s+/)
+      .map(t => t.trim().toLowerCase())
+      .filter(Boolean);
+
+    const explicitSkills = [];
+    for (const token of cleanedTokens) {
+      const skill = await this.registry.getSkill(token);
+      if (skill && !explicitSkills.some(s => s.id === skill.id)) {
+        explicitSkills.push(skill);
+      }
+    }
+
+    let selected = [];
+    let conflicts = [];
+
+    if (explicitSkills.length > 0) {
+      selected = explicitSkills;
+    } else {
+      const analysis = await this.analyzeTask(taskPrompt, projectContext);
+      selected = analysis.recommendedOrder;
+      conflicts = analysis.conflicts;
+    }
 
     // Build the progressive loaded context payload
     const loadedInstructions = selected.map(skill => {
@@ -170,8 +193,8 @@ export class SkillOrchestrator {
       task: taskPrompt,
       selectedSkillCount: selected.length,
       skills: loadedInstructions,
-      conflictResolutions: analysis.conflicts,
-      formattedInstructions: this.formatInstructions(loadedInstructions, analysis.conflicts)
+      conflictResolutions: conflicts,
+      formattedInstructions: this.formatInstructions(loadedInstructions, conflicts)
     };
 
     return contextPayload;
