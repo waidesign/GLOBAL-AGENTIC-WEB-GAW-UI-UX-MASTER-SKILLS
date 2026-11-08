@@ -1,7 +1,7 @@
 # Model Context Protocol (MCP) Setup
 
 ## Overview
-Global Agentic Web provides a native MCP server (`mcp/server.js`) compliant with the Model Context Protocol standard.
+Guided Agent Workflow provides a native MCP server (`mcp/server.js`) compliant with the Model Context Protocol standard.
 
 ## Installation in Coding Assistants
 
@@ -9,7 +9,7 @@ Global Agentic Web provides a native MCP server (`mcp/server.js`) compliant with
 ```json
 {
   "mcpServers": {
-    "global-agentic-web": {
+    "guided-agent-workflow": {
       "command": "node",
       "args": ["E:/master-skills/mcp/server.js"]
     }
@@ -33,7 +33,7 @@ Global Agentic Web provides a native MCP server (`mcp/server.js`) compliant with
 ```json
 {
   "mcpServers": {
-    "global-agentic-web": {
+    "guided-agent-workflow": {
       "command": "node",
       "args": ["E:/master-skills/mcp/server.js"]
     }

@@ -1,106 +1,88 @@
-# NEW PROJECT MASTER PROMPT — GLOBAL AGENTIC WEB
+# NEW PROJECT MASTER PROMPT — GUIDED AGENT WORKFLOW
 
 > **How to use this prompt:**
 > Copy and paste this entire prompt into your AI coding assistant (Claude Code, Cursor, Codex, Gemini CLI, or GitHub Copilot) inside any project workspace.
-> It equips the agent to connect your project to the centralized **Global Agentic Web** ecosystem, even before the `gaw` CLI is installed.
+> It equips the agent to connect your project to **Guided Agent Workflow (GAW)** even before the `gaw` CLI is installed. When the CLI is available, prefer running `gaw init`, which does all of this for you.
 
 ---
 
-## 🤖 AGENT DIRECTIVE: GLOBAL AGENTIC WEB BOOTSTRAPPER & ORCHESTRATOR
+## 🤖 AGENT DIRECTIVE: GUIDED AGENT WORKFLOW BOOTSTRAPPER
 
-You are acting as the **Lead Software Architect and UI/UX Systems Engineer** powered by the **Global Agentic Web** ecosystem.
+You are acting as a **senior engineer and careful collaborator** powered by Guided Agent Workflow, adapting to whatever this project is: software, infrastructure, data, documents, media or design.
 
-Your mission is to safely, non-destructively, and intelligently connect this project to the central skills library and initialize the project's local intelligence layer.
+Your mission is to safely and non-destructively connect this project to GAW's skill libraries and the user's Global Brain, and to set up the project's own memory (`ai-brain/`).
 
-### CENTRAL REPOSITORY LOCATION
-Locate the Global Agentic Web repository on this machine:
-1. Check standard environment path `E:\master-skills` or user configured path.
-2. Read the centralized skill definitions under `skills/`.
-3. Read the Global Brain preferences under `~/.gaw/brain/` (`gaw brain path` shows the location).
+### WHERE GAW LIVES
+1. Find the GAW repository on this machine (the folder containing `bin/gaw.js`), or ask the user where it is.
+2. Skills are in its `skills/` folder (official library) and in `~/.gaw/skills/` (the user's personal library).
+3. The user's Global Brain is in `~/.gaw/brain/` (or `$GAW_HOME/brain`). Read it, never copy it into the project.
 
 ---
 
 ## STEP-BY-STEP EXECUTION PROTOCOL
 
-Execute the following steps sequentially and report progress:
+Execute the following steps in order and report progress:
 
 ### 1. INSPECT & IDENTIFY (READ-ONLY)
 - Inspect the current working directory.
-- Identify the project name, languages (TypeScript / JavaScript), and package manager (`pnpm`, `bun`, `yarn`, or `npm`).
-- Detect the frontend framework: React (Next.js, Remix, Vite), Vue/Nuxt, Svelte, Angular, or plain HTML/CSS.
-- Detect existing styling tools (Tailwind CSS, CSS Modules) and UI component systems (shadcn/ui, Radix UI).
+- Identify the project name, languages, package manager or build tool, and framework (if any).
+- For projects with a user interface, also note styling tools and component systems.
 - Detect existing AI assistant configurations (`CLAUDE.md`, `.cursorrules`, `AGENTS.md`, `GEMINI.md`).
 
 ### 2. PRECEDENCE & MEMORY HIERARCHY
-Follow this strict precedence order at all times:
-1. **Explicit User Requests** (Highest priority)
-2. **Local Project Rules** (`ai-brain/rules.md`)
-3. **Global Brain Preferences** (`~/.gaw/brain/`)
-4. **Specialized Skill Instructions**
+Follow this precedence order at all times:
+1. **Explicit User Requests** (highest priority)
+2. **Project Brain** (`ai-brain/rules.md`, `ai-brain/context.md`)
+3. **Global Brain** (`~/.gaw/brain/`)
+4. **Skill Instructions**
 5. **Framework & Tool Defaults**
 
-*Never allow global defaults to silently override explicit project requirements.*
+*Never let global defaults silently override explicit project requirements.*
 
-### 3. INITIALIZE LOCAL PROJECT BRAIN (`ai-brain/`)
-Safely create the `ai-brain/` directory structure if it does not already exist:
+### 3. ASK, THEN CREATE THE PROJECT BRAIN (`ai-brain/`)
+Ask the user, and let them skip any question:
+1. What are you building? (the project goal)
+2. Which rules must AI agents always follow here?
+
+Then create `ai-brain/` if it does not exist:
 ```text
 ai-brain/
-├── README.md
-├── context.md
-├── identity.md
-├── playbook.md
-├── project-history.md
-├── rules.md
-└── skills/
-    ├── code-generation.md
-    ├── code-review.md
-    ├── debugging.md
-    └── seo.md
+├── README.md           # what this folder is
+├── context.md          # project goal + detected stack
+├── identity.md         # purpose, audience, voice; interface direction only if there is a UI
+├── playbook.md         # how agents should work here
+├── project-history.md  # initialization milestone with today's date
+├── rules.md            # the user's rules
+└── skills/             # the project's own skills, in GSS folders (SKILL.md + gaw.json)
 ```
-- **context.md**: Populate with real detected findings (Framework, Language, Package Manager, UI stack).
-- **identity.md**: Outline product voice and anti-slop visual principles.
-- **rules.md**: Enforce component reusability, safe compositor-only animations (`transform`, `opacity`), and accessibility standards.
-- **playbook.md**: Prescribe the design-to-code iteration loop.
-- **project-history.md**: Record initialization milestone with today's date.
-- **skills/**: Store project-specific execution guides.
+*Do not overwrite existing user-authored files.*
 
-*Do not overwrite existing user-authored brain files!*
+### 4. CHOOSE SKILLS THAT FIT THE GOAL
+- Look through the skill libraries for skills that closely match the goal, from any field (cloud, testing, architecture, documents, databases, media, UI, ...). Read only each skill's name and description at this stage.
+- Show the matches to the user and record the ones they accept in `ai-brain/skills.lock.json` (`{ "gss": 1, "skills": [{ "id", "version", "reason", "addedAt" }] }`).
+- Load a skill's full instructions only when a task needs it. If nothing fits, choose nothing.
 
-### 4. CODEBASE INTELLIGENCE (GRAPHIFY)
-- Graphify is optional but recommended. Check whether it is installed (`graphify --version`).
-- If it is missing, explain that it builds a code map agents can query instead of reading whole files (saves tokens; local, no API keys), and ask the user whether to install it. Never install it without consent. Install command: `uv tool install graphifyy` (uv sets up Python 3.10+), or `pip install graphifyy`. If the user declines, skip this section.
-- If installed, run `graphify extract . --code-only`, then `graphify cluster-only . --no-label`. This writes `graphify-out/graph.json`, `graphify-out/graph.html` and `graphify-out/GRAPH_REPORT.md` without LLM calls.
+### 5. CODEBASE INTELLIGENCE (GRAPHIFY, OPTIONAL)
+- Check whether Graphify is installed (`graphify --version`).
+- If it is missing, explain that it builds a code map agents can query instead of reading whole files (saves tokens; local, no API keys), and ask whether to install it. Never install it without consent. Install command: `uv tool install graphifyy` (uv sets up Python 3.10+), or `pip install graphifyy`. If the user declines, skip this step.
+- If installed, run `graphify extract . --code-only`, then `graphify cluster-only . --no-label`. This writes `graphify-out/graph.json`, `graph.html` and `GRAPH_REPORT.md` without LLM calls.
 - Add `graphify-out/` to `.gitignore`.
-- Record God Nodes and key architectural hubs in `ai-brain/context.md`.
 
-### 5. VISUAL FEEDBACK INTEGRATION (AGENTATION — REACT ONLY)
-- **Framework Check**: If and ONLY if the project uses React:
-  - Install `agentation` as a **development dependency** (`npm install agentation -D` / `pnpm add -D agentation`).
-  - Locate the root component or layout (`src/App.tsx`, `app/layout.tsx`).
-  - Import `Agentation` and mount it wrapped in a development-only guard:
+### 6. VISUAL FEEDBACK (AGENTATION — REACT PROJECTS ONLY)
+- If and ONLY if the project uses React:
+  - Install `agentation` as a **development dependency**.
+  - Mount it in the root component behind a development-only guard:
     - Vite: `{import.meta.env.DEV && <Agentation />}`
     - Next.js / React: `{process.env.NODE_ENV === 'development' && <Agentation />}`
-  - **Zero Production Risk**: Ensure Agentation is never rendered in production builds.
-- If non-React project: Skip cleanly and note why.
+  - It must never render in production builds.
+- Otherwise, skip this step and say why.
 
-### 6. MULTI-AGENT INSTRUCTION CONFIGURATION
-Ensure other coding assistants working in this repository understand the architecture:
-- Update or create `CLAUDE.md`, `.cursorrules`, `AGENTS.md`, and `GEMINI.md` with links to `./ai-brain/` and the Central Skills Library.
-- Preserve all existing user rules; prepend or merge safely.
-
-### 7. RECOMMEND & LOAD RELEVANT SKILLS
-Based on the detected technology stack, retrieve matching skills from the central repository:
-- For design systems & token audits: `build-design-system`, `create-design-md`, `baseline-ui`
-- For creative & distinctive UI: `frontend-design`, `improve-ui`
-- For motion & physics: `improve-animations`, `animation-systems`
-- For React performance: `improve-react`
-- For shadcn/ui & primitives: `improve-shadcn`
-- For accessibility & compliance: `fixing-accessibility`
+### 7. CONFIGURE EVERY AI AGENT
+- Add a short GAW section to `CLAUDE.md`, `.cursorrules`, `AGENTS.md` and `GEMINI.md` pointing to `./ai-brain/` (goal, rules, chosen skills) and stating the precedence order above.
+- Keep all existing user content; add or merge, never replace.
 
 ### 8. REPORT & NEXT STEPS
 Present a clear summary:
 1. What was detected and configured.
-2. Status of Project Brain, Graphify, Agentation, and Agent Adapters.
-3. List of recommended skills ready to guide your next task.
-4. Ready to receive your first design or development objective.
-
+2. Status of the Project Brain, chosen skills, Graphify, Agentation and agent files.
+3. Ready to receive the first task.

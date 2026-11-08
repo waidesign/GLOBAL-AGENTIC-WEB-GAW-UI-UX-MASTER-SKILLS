@@ -1,10 +1,10 @@
 # CLAUDE.md — Project Memory & Handoff Context
 
-> **Project**: Global Agentic Web (GAW)  
+> **Project**: Guided Agent Workflow (GAW)  
 > **Repository**: `E:\global-agentic-web`  
 > **Remote**: `https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git` (`main`)  
 > **Runtime**: Node.js >= 18 (ESM modules: `"type": "module"`). Optional, recommended: the Graphify CLI (Python 3.10+; `gaw setup` or `uv tool install graphifyy`)  
-> **Role**: Centralized UI/UX Master Skills Ecosystem, Global Memory Engine, Real-World Design Presets Library & Universal Project Bootstrapper.
+> **Role**: The Universal Intelligence Layer for AI Agents ("One Brain. Any Agent. Every Project."): skill libraries for any field (GAW Skill Standard), Global Brain memory, project context, universal project bootstrapper, and design presets for UI projects. Formerly named "Global Agentic Web"; the repo folder and GitHub URL keep the old name.
 
 ---
 
@@ -14,7 +14,7 @@ Do **NOT** read through the 235 skill files or 63 design files on startup. Use t
 
 ### Common Commands
 ```bash
-npm test                 # Run the test suite (18 test suites in scripts/run-tests.js)
+npm test                 # Run the test suite (19 test suites in scripts/run-tests.js)
 node bin/gaw.js context  # What GAW knows about the current project (same as MCP get_project_context)
 node bin/gaw.js skills add <link|folder|file>  # Add any skill as GSS to the personal library (~/.gaw/skills); --official for GAW's library
 node bin/gaw.js skills lint   # Check all skills against the GAW Skill Standard (docs/gss/spec.md)
@@ -64,7 +64,7 @@ global-agentic-web/
 │   ├── utils/
 │   │   └── readJson.js          # BOM-tolerant JSON reader for files people edit (package.json, gaw.json, lockfile)
 │   ├── project-detector/
-│   │   └── ProjectDetector.js   # Detects framework (Next, React, Vue, Svelte), lang, pkg mgr
+│   │   └── ProjectDetector.js   # Detects stack (UI frameworks, node/express/nestjs, python/django/fastapi, go, rust...), languages from project files, pkg mgr
 │   ├── graphify-manager/
 │   │   ├── GraphifyManager.js   # Runs the optional Graphify CLI, reads graphify-out/
 │   │   ├── GraphifyInstaller.js # Installs uv + Graphify (callers get consent first)
@@ -127,7 +127,7 @@ global-agentic-web/
 ### 1c. Project Context & Project Skills (`core/project-context/`)
 - **One source of truth**: `loadProjectContext()` is used by `gaw context`, MCP `get_project_context`, and the agent adapters (shared section in `integrations/shared/agentBlock.js`). Don't read `ai-brain/` ad hoc in new code; extend the context instead.
 - **Per-project skills**: `ai-brain/skills.lock.json` (library skills chosen for the project; `gaw skills select/deselect`, onboarding, MCP `select_project_skills`) plus project skills in `ai-brain/skills/`. `ai-brain/project-skills.md` is a generated catalog. Agents open full skills only when needed; MCP `load_project_skills` loads only project skills matching a task.
-- Agent files are **refreshed in place** between `<!-- GLOBAL AGENTIC WEB … -->` markers (`gaw update`), never duplicated.
+- Agent files are **refreshed in place** between `<!-- GUIDED AGENT WORKFLOW … -->` markers (`gaw update`), never duplicated. Sections with the old `GLOBAL AGENTIC WEB` markers are recognized and replaced (`integrations/shared/agentBlock.js`); keep that legacy support.
 - **Global Brain link** (`globalBrainLink.js`): projects never get copies of Global Brain files (`PROJECT_BRAIN_FILES` only). `ai-brain/global-brain.md` is a generated, gitignored, read-only summary of `~/.gaw/brain` (refreshed by init/start/update/`gaw brain update`). `gaw update` removes untouched legacy copies (compared with `templates/legacy-project-brain/`) and keeps edited ones as project overrides.
 
 ### 2. GradientDeck Design Presets Library (`core/preset-registry/`, `presets/designs/`)
@@ -158,7 +158,7 @@ When `gaw init` runs in any target project, it executes 7 steps:
 4. **Configure Graphify** (optional): If Graphify is missing, `gaw init` explains it and asks to install it (`cli/graphify-setup.js`). Non-interactive runs and MCP never install. When available, runs Graphify in code-only mode, writing `graphify-out/graph.json`, `graph.html`, and `GRAPH_REPORT.md`. Otherwise the step is skipped.
 5. **Configure Agentation**: Injects dev-only visual feedback overlay if React.
 6. **Configure AI Agent Adapters**: Updates `CLAUDE.md`, `.cursorrules`, `AGENTS.md`, `GEMINI.md`.
-7. **Recommend Starter Skills**: Identifies the top skills for the detected stack (non-interactive runs only).
+7. **Recommend Starter Skills**: Skills about the detected framework or UI libraries by name, tags or keywords (never generic language names or description-only matches); none when nothing fits (non-interactive runs only).
 
 In a terminal, init then runs onboarding (`cli/interactive.js`), designed for any kind of project, not only UI: goal → `ai-brain/context.md`, skills that closely match the goal (`SkillDiscovery.findRelevant`) → `ai-brain/skills.lock.json` + `project-skills.md` catalog, rules → `ai-brain/rules.md`, then Graphify if missing.
 
@@ -177,7 +177,7 @@ When writing UI code or reviewing designs:
 ## 🛠️ Testing & Development Guidelines
 
 - **Dependencies**: GAW runs natively on modern Node.js using ESM. The only npm dependency is `@modelcontextprotocol/sdk`. The Graphify CLI (Python) is an optional external tool; the e2e test that uses real Graphify is skipped without it.
-- **Run tests before committing**: `npm test` executes the 18 native test suites in `tests/`. The runner sets a throwaway `GAW_HOME`, so tests never touch the real `~/.gaw`.
+- **Run tests before committing**: `npm test` executes the 19 native test suites in `tests/`. The runner sets a throwaway `GAW_HOME`, so tests never touch the real `~/.gaw`.
 - **Measure skill selection changes**: `npm run eval` scores skill picks on the tuning set (`eval/cases/skill-selection.json`) and the held-out set (`skill-selection-holdout.json`), and compares with `eval/baseline.json`. Never adjust the engine to fix held-out cases: they are the honest check. Only update the baseline (`npm run eval -- --save-baseline`) when a change is an intended improvement.
 - **Licenses**: never relabel a skill's license. Imported skills keep their source's license, verified by `gaw skills licenses`. Only split/modify skills whose `source.licenseStatus` is `open` or `copyleft`.
 - **Git workflow**: Main branch is `main`. Remote is `origin` (`https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git`).

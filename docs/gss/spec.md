@@ -1,6 +1,6 @@
 # GAW Skill Standard (GSS) v1
 
-GSS is how Global Agentic Web packages skills. It **extends the open [Agent Skills](https://agentskills.io/specification) format** instead of replacing it:
+GSS is how Guided Agent Workflow packages skills. It **extends the open [Agent Skills](https://agentskills.io/specification) format** instead of replacing it:
 
 - Every GSS skill is a valid Agent Skill. Copy its folder into any tool that supports `SKILL.md` and it works.
 - Every Agent Skill is a valid GSS skill. GAW-specific data is optional.

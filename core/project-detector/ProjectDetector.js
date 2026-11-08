@@ -33,16 +33,23 @@ export class ProjectDetector {
     else if (fs.existsSync(path.join(dir, 'yarn.lock'))) packageManager = 'yarn';
     else if (fs.existsSync(path.join(dir, 'package-lock.json'))) packageManager = 'npm';
 
-    // Detect language
-    const tsconfigPath = path.join(dir, 'tsconfig.json');
-    const hasTypeScript = fs.existsSync(tsconfigPath) || Object.keys(allDependencies).some(d => d.includes('typescript'));
-    const languages = [hasTypeScript ? 'TypeScript' : 'JavaScript'];
-    if (fs.existsSync(path.join(dir, 'pyproject.toml')) || fs.existsSync(path.join(dir, 'requirements.txt'))) {
-      languages.push('Python');
-    }
+    // Detect languages from the project's own files (not assumed: GAW works for any kind of project)
+    const has = (file) => fs.existsSync(path.join(dir, file));
+    let rootFiles = [];
+    try { rootFiles = fs.readdirSync(dir); } catch { /* unreadable folder */ }
+    const hasTypeScript = has('tsconfig.json') || Object.keys(allDependencies).some(d => d.includes('typescript'));
+    const languages = [];
+    if (hasTypeScript) languages.push('TypeScript');
+    else if (pkg || has('jsconfig.json')) languages.push('JavaScript');
+    const pythonFiles = ['pyproject.toml', 'requirements.txt', 'setup.py', 'Pipfile'].filter(has);
+    if (pythonFiles.length) languages.push('Python');
+    if (has('go.mod')) languages.push('Go');
+    if (has('Cargo.toml')) languages.push('Rust');
+    if (has('pom.xml') || has('build.gradle') || has('build.gradle.kts')) languages.push('Java/Kotlin');
+    if (rootFiles.some(f => /\.(csproj|sln)$/i.test(f))) languages.push('C#');
 
-    // Detect framework
-    let framework = 'plain-frontend';
+    // Detect framework. UI frameworks first; then frontend signs; then server and other stacks.
+    let framework = 'unknown';
     let isReact = false;
 
     if (allDependencies['next']) {
@@ -64,6 +71,17 @@ export class ProjectDetector {
       framework = 'svelte';
     } else if (allDependencies['@angular/core']) {
       framework = 'angular';
+    } else if (has('index.html') || allDependencies['vite'] || allDependencies['webpack'] || allDependencies['parcel']
+      || has('vite.config.js') || has('vite.config.ts') || has('webpack.config.js')) {
+      framework = 'plain-frontend';
+    } else if (pkg) {
+      const server = ['@nestjs/core', 'express', 'fastify', 'koa', 'hono'].find(d => allDependencies[d]);
+      framework = server ? server.replace('@nestjs/core', 'nestjs') : 'node';
+    } else if (pythonFiles.length) {
+      const text = pythonFiles.map(f => { try { return fs.readFileSync(path.join(dir, f), 'utf8').toLowerCase(); } catch { return ''; } }).join('\n');
+      framework = ['django', 'fastapi', 'flask'].find(f => text.includes(f)) || 'python';
+    } else if (languages.length) {
+      framework = languages[0].toLowerCase();
     }
 
     // Detect build system

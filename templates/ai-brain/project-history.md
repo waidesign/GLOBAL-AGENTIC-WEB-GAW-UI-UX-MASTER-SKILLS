@@ -4,5 +4,5 @@ This file tracks the project's key milestones, major architectural refactors, an
 
 | Date | Category | Decision | Context |
 |---|---|---|---|
-| {{DATE}} | Initialization | Initialized with Global Agentic Web | Baseline architecture and Project Brain established |
+| {{DATE}} | Initialization | Initialized with Guided Agent Workflow | Baseline architecture and Project Brain established |
 

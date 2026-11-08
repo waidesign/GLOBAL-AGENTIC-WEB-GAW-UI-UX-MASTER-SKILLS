@@ -90,6 +90,7 @@ test('load_project_skills - only the project skills that fit the task', async ()
 test('agent files - the GAW section is refreshed in place, other content kept', () => {
   const dir = makeProject();
   const claudeMd = path.join(dir, 'CLAUDE.md');
+  // Written by an older GAW, under its previous name (Global Agentic Web)
   fs.writeFileSync(claudeMd, '<!-- GLOBAL AGENTIC WEB — CLAUDE CODE CONFIGURATION -->\n# Old\n- Old line\n<!-- END GLOBAL AGENTIC WEB -->\n\n# My own notes\nKeep me.\n', 'utf8');
 
   assert.equal(ClaudeCodeAdapter.configure(dir, { framework: 'react' }).action, 'updated');
@@ -97,7 +98,9 @@ test('agent files - the GAW section is refreshed in place, other content kept', 
   assert.ok(text.includes('project-skills.md'));
   assert.ok(!text.includes('- Old line'));
   assert.ok(text.includes('# My own notes\nKeep me.'));
-  assert.equal(text.split('GLOBAL AGENTIC WEB — CLAUDE CODE CONFIGURATION').length - 1, 1, 'no duplicate section');
+  assert.ok(!text.includes('GLOBAL AGENTIC WEB'), 'the old-name section is replaced, not kept next to the new one');
+  assert.equal(text.split('GUIDED AGENT WORKFLOW — CLAUDE CODE CONFIGURATION').length - 1, 1, 'no duplicate section');
+  assert.ok(text.includes('<!-- END GUIDED AGENT WORKFLOW -->'));
   assert.equal(ClaudeCodeAdapter.configure(dir, { framework: 'react' }).action, 'unchanged');
   fs.rmSync(dir, { recursive: true, force: true });
 });

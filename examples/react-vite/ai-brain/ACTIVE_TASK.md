@@ -2,7 +2,7 @@
 
 Timestamp: 2026-11-06T13:36:53.839Z
 
-# GLOBAL AGENTIC WEB — ACTIVE SKILL CONTEXT
+# GUIDED AGENT WORKFLOW — ACTIVE SKILL CONTEXT
 
 Loaded 6 specialized skill(s) for the current task.
 

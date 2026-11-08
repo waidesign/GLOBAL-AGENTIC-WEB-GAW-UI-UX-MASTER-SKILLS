@@ -1,27 +1,31 @@
 # GAW Skills Taxonomy
 
-The Global Agentic Web organizes skills into 23 specialized UI/UX and engineering categories:
-1. `architecture`: Routing, loaders, state flow, and system topology.
-2. `code-quality`: Anti-slop reviews, linting rules, code hygiene.
-3. `color`: OKLCH color spaces, contrast checking, palette generation.
-4. `components`: Primitives, component architecture, layout structures.
-5. `debugging`: Systematic bug reproduction, isolation, and repair.
-6. `design-systems`: Design tokens, allowlists, and governance.
-7. `frontend`: CSS, Tailwind, core frontend implementation.
-8. `frontend-frameworks`: React, Next.js, Vue, Svelte best practices.
-9. `interaction`: User feedback, scroll behaviors, form interactions.
-10. `micro-interactions`: Physics-driven feedback and state transitions.
-11. `performance`: Eliminating re-renders, 60fps compositor budgeting.
-12. `react`: React runtime and hooks optimization.
-13. `seo`: Metadata, Open Graph cards, sitemaps, structured data.
-14. `shadcn-ui`: Radix UI and shadcn component patterns.
-15. `systems`: Baseline UI deslopping and root routing.
-16. `testing`: Component testing, integration tests, E2E fixtures.
-17. `tooling`: Code generation, design.md tools, CLI automation.
-18. `typography`: Swiss design, type scales, font smoothing, cadence.
-19. `ui-ux`: User flows, landing pages, pricing tables, dashboards.
-20. `video`: Programmatic video generation with Remotion.
-21. `3d`: Three.js, WebGL, 3D scenes.
-22. `accessibility`: WCAG AA compliance, ARIA attributes, keyboard navigation.
-23. `animation-motion`: Fluid animation systems and physics transitions.
+Guided Agent Workflow organizes its official skills into categories that span many fields, not only interfaces. A skill's category is a folder under `skills/` and the `gaw-category` in its `SKILL.md`; browse one with `gaw skills <category>`.
 
+## Engineering & delivery
+- `architecture`: system design, specs, tickets, domain modeling, implementation planning.
+- `code-quality`: code review, guardrails, linting, writing standards.
+- `testing`: test-driven development, unit, integration and end-to-end testing.
+- `debugging`: reproducing, isolating and fixing hard bugs and regressions.
+- `database`: Postgres and Supabase schema, queries, security and performance.
+- `cloud-infra`: Azure, Kubernetes (AKS), Vercel and Google Cloud deployment, diagnostics and cost.
+- `workflow`: agent workflows, handoffs, triage, planning and agent frameworks.
+
+## Content & media
+- `documents`: Word, PDF, PowerPoint and Excel files.
+- `media-creative`: image, video and music generation, programmatic video (HyperFrames, Remotion).
+- `general`: writing, teaching, communication and other cross-field skills.
+
+## Interfaces (for projects with a UI)
+- `ui-ux`: user flows, landing pages, pricing pages, UI audits.
+- `frontend`, `frontend-frameworks`, `react`: frontend implementation and React/Next.js practices.
+- `design-systems`: design tokens, governance and migrations.
+- `components`, `systems`, `shadcn-ui`: component patterns, baseline UI rules, Radix/shadcn.
+- `typography`, `color`: type scales, font choices, OKLCH palettes and contrast.
+- `animation-motion`, `micro-interactions`, `interaction`: motion systems, feedback and scroll behavior.
+- `accessibility`: WCAG compliance, ARIA and keyboard navigation.
+- `performance`: rendering and animation performance.
+- `seo`: metadata, Open Graph and structured data.
+- `3d`: Three.js and WebGL scenes.
+
+New categories can be added with `gaw skills add --category <name>`; keep names short, lowercase and hyphenated.

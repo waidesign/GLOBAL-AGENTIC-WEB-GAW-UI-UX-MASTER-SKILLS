@@ -1,7 +1,7 @@
 # Cursor IDE Integration
 
 ## Overview
-Connects Cursor IDE agent with Global Agentic Web.
+Connects Cursor IDE agent with Guided Agent Workflow.
 
 ## How it Works
 1. Generates `.cursorrules` pointing to `ai-brain/` and `graph.json`.

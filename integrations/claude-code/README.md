@@ -1,7 +1,7 @@
 # Claude Code Integration
 
 ## Overview
-Connects Anthropic's Claude Code CLI with the Global Agentic Web ecosystem.
+Connects Anthropic's Claude Code CLI with the Guided Agent Workflow ecosystem.
 
 ## How it Works
 1. Generates or safely merges instructions into `CLAUDE.md`.

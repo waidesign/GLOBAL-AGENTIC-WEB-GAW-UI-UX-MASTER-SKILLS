@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { agentBlock, upsertAgentBlock } from '../shared/agentBlock.js';
 
-const MARKER = 'GLOBAL AGENTIC WEB — GENERIC AGENT INSTRUCTIONS';
+const MARKER = 'GUIDED AGENT WORKFLOW — GENERIC AGENT INSTRUCTIONS';
 
 export class GenericAgentAdapter {
   static configure(projectPath, projectInfo, options = {}) {

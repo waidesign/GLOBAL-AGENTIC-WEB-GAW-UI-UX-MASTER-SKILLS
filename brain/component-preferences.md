@@ -1,6 +1,6 @@
 # Component Preferences & Universal Reusability Standards
 
-> This document defines the universal component architecture and reusability standards for Global Agentic Web.
+> This document defines the universal component architecture and reusability standards for Guided Agent Workflow.
 > Refer to [coding-preferences.md](coding-preferences.md) for full implementation patterns and TypeScript conventions.
 
 ## Core Rules for Every Component

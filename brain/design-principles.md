@@ -1,5 +1,7 @@
 # Confirmed Design Principles
 
+_These apply when a project has a user interface. Projects without one can ignore them._
+
 > **Conflict Resolution Hierarchy**:  
 > When design rules or implementation trade-offs conflict, resolve in strict order:  
 > **Accessibility → Clarity → Coherence → Performance → Polish**

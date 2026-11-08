@@ -8,7 +8,7 @@
 
 ## Reporting a Vulnerability
 
-The Global Agentic Web team takes security seriously.
+The Guided Agent Workflow team takes security seriously.
 
 If you discover a security vulnerability within GAW, please do not disclose it publicly in an open GitHub Issue.
 

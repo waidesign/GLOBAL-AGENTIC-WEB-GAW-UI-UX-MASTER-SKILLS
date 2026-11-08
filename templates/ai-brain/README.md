@@ -1,6 +1,6 @@
 # AI Brain — {{PROJECT_NAME}}
 
-Project-specific intelligence layer connected to Global Agentic Web.
+Project-specific intelligence layer connected to Guided Agent Workflow.
 - Framework: `{{FRAMEWORK}}`
 - Initialized: `{{DATE}}`
 

@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { agentBlock, upsertAgentBlock } from '../shared/agentBlock.js';
 
-const MARKER = 'GLOBAL AGENTIC WEB — GITHUB COPILOT INSTRUCTIONS';
+const MARKER = 'GUIDED AGENT WORKFLOW — GITHUB COPILOT INSTRUCTIONS';
 
 export class GitHubCopilotAdapter {
   static configure(projectPath, projectInfo, options = {}) {

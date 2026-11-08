@@ -54,7 +54,7 @@ export class GawCli {
 
   printHeader() {
     console.log(`\n======================================================`);
-    console.log(`🌐 GLOBAL AGENTIC WEB (GAW) — UI/UX MASTER SKILLS CLI`);
+    console.log(`🌐 GUIDED AGENT WORKFLOW (GAW) — One Brain. Any Agent. Every Project.`);
     console.log(`======================================================\n`);
   }
 

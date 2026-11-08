@@ -38,7 +38,7 @@ export class SkillLoader {
   }
 
   formatInstructions(skills, conflicts = []) {
-    let md = `# GLOBAL AGENTIC WEB — ACTIVE SKILL CONTEXT\n\n`;
+    let md = `# GUIDED AGENT WORKFLOW — ACTIVE SKILL CONTEXT\n\n`;
     md += `Loaded ${skills.length} specialized skill(s) for the current task.\n\n`;
 
     if (conflicts && conflicts.length > 0) {

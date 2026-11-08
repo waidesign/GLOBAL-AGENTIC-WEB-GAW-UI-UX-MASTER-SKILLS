@@ -80,9 +80,9 @@ export class ProjectBootstrapper {
     const templateReplacements = {
       '{{PROJECT_NAME}}': projectInfo.projectName,
       '{{FRAMEWORK}}': projectInfo.framework,
-      '{{LANGUAGES}}': projectInfo.languages.join(', '),
+      '{{LANGUAGES}}': projectInfo.languages.join(', ') || 'not detected',
       '{{PACKAGE_MANAGER}}': projectInfo.packageManager,
-      '{{UI_LIBRARIES}}': projectInfo.uiLibraries.join(', ') || 'Standard CSS',
+      '{{UI_LIBRARIES}}': projectInfo.uiLibraries.join(', ') || 'none detected',
       '{{BUILD_SYSTEM}}': projectInfo.buildSystem,
       '{{DATE}}': new Date().toISOString().split('T')[0],
       '{{REPO_ROOT}}': this.repoRoot
@@ -186,11 +186,21 @@ export class ProjectBootstrapper {
       if (writeGlobalBrainSnapshot(dir, this.memoryEngine.globalBrainDir)) report.created.push(`ai-brain/${SNAPSHOT_FILE}`);
     }
 
-    // Step 9: Recommend Relevant Skills
-    const initialQuery = `${projectInfo.framework} ${projectInfo.languages.join(' ')} ${projectInfo.uiLibraries.join(' ')}`;
-    const recs = await this.orchestrator.recommend(initialQuery, { framework: projectInfo.framework });
-    report.skillsRecommended = recs.primarySkills.map(s => `${s.name} (${s.id})`);
-    report.steps.push({ step: 7, name: 'Skill Recommendations', status: 'Identified', count: recs.primarySkills.length });
+    // Step 9: Recommend Relevant Skills from the detected stack. Generic language names
+    // ("JavaScript", "Python") match skills of every field, so only specific signals count:
+    // a known framework and UI libraries. Without them, nothing is suggested (the goal-based
+    // onboarding, or `gaw recommend "<task>"`, gives better suggestions).
+    const stackTerms = [
+      ...(['unknown', 'node', 'plain-frontend'].includes(projectInfo.framework) ? [] : [projectInfo.framework]),
+      ...projectInfo.uiLibraries
+    ];
+    // A skill must be about the stack (name, tags, keywords), not just mention it in its description
+    const matches = stackTerms.length
+      ? await this.orchestrator.discovery.findRelevant(stackTerms.join(' '), { limit: 3, withScores: true })
+      : [];
+    const starters = matches.filter(e => e.reasons.some(r => r.fields.some(f => f !== 'description'))).map(e => e.skill);
+    report.skillsRecommended = starters.map(s => `${s.name} (${s.id})`);
+    report.steps.push({ step: 7, name: 'Skill Recommendations', status: 'Identified', count: starters.length });
 
     // Summary
     report.summary = {
@@ -256,9 +266,9 @@ export class ProjectBootstrapper {
       const templateReplacements = {
         '{{PROJECT_NAME}}': projectInfo.projectName,
         '{{FRAMEWORK}}': projectInfo.framework,
-        '{{LANGUAGES}}': projectInfo.languages.join(', '),
+        '{{LANGUAGES}}': projectInfo.languages.join(', ') || 'not detected',
         '{{PACKAGE_MANAGER}}': projectInfo.packageManager,
-        '{{UI_LIBRARIES}}': projectInfo.uiLibraries.join(', ') || 'Standard CSS',
+        '{{UI_LIBRARIES}}': projectInfo.uiLibraries.join(', ') || 'none detected',
         '{{BUILD_SYSTEM}}': projectInfo.buildSystem,
         '{{DATE}}': new Date().toISOString().split('T')[0],
         '{{REPO_ROOT}}': this.repoRoot

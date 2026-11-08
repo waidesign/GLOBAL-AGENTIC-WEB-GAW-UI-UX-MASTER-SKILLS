@@ -1,7 +1,7 @@
 # Global Brain & Project Brain Architecture
 
 ## Two-Tier Intelligence
-Global Agentic Web uses a two-tier memory hierarchy:
+Guided Agent Workflow uses a two-tier memory hierarchy:
 1. **Global Brain (`~/.gaw/brain/`)**: your cross-project persona, design principles, coding preferences, and confirmed decisions. It lives in your user folder, not in the GAW package.
 2. **Project Brain (`ai-brain/`)**: local, project-specific architecture, detected technology stack, local rules, and history. It lives in each project, and teams share it through git.
 

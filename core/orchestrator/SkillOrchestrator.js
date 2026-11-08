@@ -215,7 +215,7 @@ export class SkillOrchestrator {
   }
 
   formatInstructions(skills, conflicts = [], options = {}) {
-    let md = `# GLOBAL AGENTIC WEB — ACTIVE SKILL CONTEXT\n\n`;
+    let md = `# GUIDED AGENT WORKFLOW — ACTIVE SKILL CONTEXT\n\n`;
     if (options.objective) md += `**Objective**: ${options.objective}\n\n`;
 
     if (skills.length === 0) {

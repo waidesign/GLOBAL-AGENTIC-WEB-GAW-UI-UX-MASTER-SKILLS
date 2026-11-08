@@ -1,4 +1,4 @@
-# 🌐 GLOBAL AGENTIC WEB (GAW)
+# 🌐 GUIDED AGENT WORKFLOW (GAW)
 ### The Universal Intelligence Layer for AI Agents
 **One Brain. Any Agent. Every Project.**
 
@@ -6,7 +6,7 @@
 [![Node: >=18](https://img.shields.io/badge/Node-%3E%3D18-brightgreen.svg)](package.json)
 [![MCP: Supported](https://img.shields.io/badge/MCP-Supported-purple.svg)](mcp/server.js)
 
-**Global Agentic Web** is an open-source intelligence layer for AI coding agents (Claude Code, Cursor, Codex, Gemini CLI, Copilot). It gives every agent, in every project:
+**Guided Agent Workflow** is an open-source intelligence layer for AI coding agents (Claude Code, Cursor, Codex, Gemini CLI, Copilot). It gives every agent, in every project:
 - a **skill library for any field**: cloud and infrastructure, testing, architecture, documents, databases, media, agent workflows, UI and more, with skills chosen per task so agents don't waste context;
 - **persistent memory** that follows you across projects (Global Brain) and memory for each project (Project Brain);
 - **project intelligence**: stack detection, a shared project context, and an optional code map (Graphify);
@@ -35,12 +35,12 @@
 
 In everyday AI-assisted work, people repeat the same constraints in every prompt, re-explain each project from scratch, set up every tool and agent by hand, and get generic output because the agent knows nothing about their standards, their stack or their past decisions.
 
-**Global Agentic Web solves this with one shared layer:**
+**Guided Agent Workflow solves this with one shared layer:**
 > **ONE BRAIN. ANY AGENT. EVERY PROJECT.**
 
 ```
 +------------------------------------------------------------------------+
-|                   GLOBAL AGENTIC WEB                                   |
+|                   GUIDED AGENT WORKFLOW                                   |
 |                                                                        |
 |  +--------------------+   +-------------------+   +-----------------+  |
 |  | Skill Libraries    |   | Global Brain      |   | MCP Server      |  |
@@ -91,8 +91,8 @@ In everyday AI-assisted work, people repeat the same constraints in every prompt
 
 ### 1. Install Globally or Link
 ```bash
-git clone https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git global-agentic-web
-cd global-agentic-web
+git clone https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git guided-agent-workflow
+cd guided-agent-workflow
 npm install
 npm link
 ```
@@ -322,9 +322,9 @@ Add to your MCP settings (`.mcp.json` for Claude Code, or Cursor's MCP settings)
 ```json
 {
   "mcpServers": {
-    "global-agentic-web": {
+    "guided-agent-workflow": {
       "command": "node",
-      "args": ["/path/to/global-agentic-web/mcp/server.js"]
+      "args": ["/path/to/guided-agent-workflow/mcp/server.js"]
     }
   }
 }

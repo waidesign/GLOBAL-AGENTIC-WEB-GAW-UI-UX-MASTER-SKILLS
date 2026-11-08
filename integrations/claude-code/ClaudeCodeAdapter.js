@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { agentBlock, upsertAgentBlock } from '../shared/agentBlock.js';
 
-const MARKER = 'GLOBAL AGENTIC WEB — CLAUDE CODE CONFIGURATION';
+const MARKER = 'GUIDED AGENT WORKFLOW — CLAUDE CODE CONFIGURATION';
 
 export class ClaudeCodeAdapter {
   static configure(projectPath, projectInfo, options = {}) {

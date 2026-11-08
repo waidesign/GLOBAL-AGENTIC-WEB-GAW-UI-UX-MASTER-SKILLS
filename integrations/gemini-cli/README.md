@@ -1,7 +1,7 @@
 # Gemini CLI Integration
 
 ## Overview
-Connects Google Gemini CLI and assistants with Global Agentic Web.
+Connects Google Gemini CLI and assistants with Guided Agent Workflow.
 
 ## How it Works
 1. Generates `GEMINI.md` in the project root.

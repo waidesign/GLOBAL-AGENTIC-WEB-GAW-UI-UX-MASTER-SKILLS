@@ -20,7 +20,7 @@ test('SkillOrchestrator - task analysis and recommendations', async () => {
   assert.ok(recs.executionOrder.length > 0, 'Should provide an execution order');
 
   const loadedContext = await orchestrator.loadSkillsForTask(task, { framework: 'react' });
-  assert.ok(loadedContext.formattedInstructions.includes('GLOBAL AGENTIC WEB — ACTIVE SKILL CONTEXT'));
+  assert.ok(loadedContext.formattedInstructions.includes('GUIDED AGENT WORKFLOW — ACTIVE SKILL CONTEXT'));
   assert.ok(loadedContext.skills.length > 0);
 });
 

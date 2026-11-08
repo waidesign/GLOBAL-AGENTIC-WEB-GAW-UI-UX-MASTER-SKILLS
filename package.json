@@ -1,5 +1,5 @@
 {
-  "name": "global-agentic-web",
+  "name": "guided-agent-workflow",
   "version": "1.0.0",
   "description": "Centralized Agentic Skills Ecosystem, Global Brain & Universal Project Bootstrapper",
   "type": "module",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/global-agentic-web.git"
+    "url": "https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git"
   },
   "keywords": [
     "ai",
@@ -32,7 +32,7 @@
     "claude-code",
     "cursor"
   ],
-  "author": "Global Agentic Web Team",
+  "author": "Guided Agent Workflow Team",
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"

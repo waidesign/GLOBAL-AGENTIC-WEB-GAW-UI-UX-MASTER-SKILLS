@@ -1,6 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+// Section markers. GAW was called "Global Agentic Web" before; agent files written
+// then use the old prefix, so it is still recognized and replaced in place.
+export const MARKER_PREFIX = 'GUIDED AGENT WORKFLOW';
+const LEGACY_MARKER_PREFIX = 'GLOBAL AGENTIC WEB';
+const END_MARKER = `<!-- END ${MARKER_PREFIX} -->`;
+const LEGACY_END_MARKER = `<!-- END ${LEGACY_MARKER_PREFIX} -->`;
+
 /**
  * The GAW section written into agent instruction files (CLAUDE.md, .cursorrules,
  * AGENTS.md, GEMINI.md, copilot-instructions.md, AGENT_INSTRUCTIONS.md). Every
@@ -18,7 +25,7 @@ export function agentBlock({ marker, heading, extra = [] }) {
     `- GAW over MCP (if connected): get_project_context, load_project_skills (skills for the current task).`,
     `- Precedence: user request > ./ai-brain/rules.md > Global Brain (~/.gaw/brain) > skills > tool defaults.`,
     ...extra,
-    `<!-- END GLOBAL AGENTIC WEB -->`,
+    END_MARKER,
     ''
   ].join('\n');
 }
@@ -38,15 +45,19 @@ export function upsertAgentBlock(target, block, marker, dryRun = false) {
   }
 
   const existing = fs.readFileSync(target, 'utf8');
-  const start = existing.indexOf(`<!-- ${marker} -->`);
+  let start = existing.indexOf(`<!-- ${marker} -->`);
+  if (start === -1) start = existing.indexOf(`<!-- ${marker.replace(MARKER_PREFIX, LEGACY_MARKER_PREFIX)} -->`);
   if (start === -1) {
     if (!dryRun) fs.writeFileSync(target, `${block}\n${existing}`, 'utf8');
     return { target, action: 'merged' };
   }
 
-  const endMarker = '<!-- END GLOBAL AGENTIC WEB -->';
-  const endIdx = existing.indexOf(endMarker, start);
-  const end = endIdx === -1 ? existing.length : endIdx + endMarker.length;
+  // The section ends at the first end marker after it, old or new name
+  const ends = [END_MARKER, LEGACY_END_MARKER]
+    .map(m => ({ m, i: existing.indexOf(m, start) }))
+    .filter(e => e.i !== -1)
+    .sort((a, b) => a.i - b.i);
+  const end = ends.length ? ends[0].i + ends[0].m.length : existing.length;
   const updated = `${existing.slice(0, start)}${block.trimEnd()}${existing.slice(end)}`;
   if (updated === existing) return { target, action: 'unchanged' };
   if (!dryRun) fs.writeFileSync(target, updated, 'utf8');

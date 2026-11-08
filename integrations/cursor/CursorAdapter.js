@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { agentBlock, upsertAgentBlock } from '../shared/agentBlock.js';
 
-const MARKER = 'GLOBAL AGENTIC WEB — CURSOR CONFIGURATION';
+const MARKER = 'GUIDED AGENT WORKFLOW — CURSOR CONFIGURATION';
 
 export class CursorAdapter {
   static configure(projectPath, projectInfo, options = {}) {

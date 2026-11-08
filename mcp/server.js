@@ -32,7 +32,7 @@ const bootstrapper = new ProjectBootstrapper({ repoRoot: REPO_ROOT });
 
 const server = new Server(
   {
-    name: 'global-agentic-web-mcp',
+    name: 'guided-agent-workflow-mcp',
     version: '1.0.0'
   },
   {
@@ -47,7 +47,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
     tools: [
       {
         name: 'list_skills',
-        description: 'List all available skills from the Global Agentic Web central registry.',
+        description: 'List all available skills from the Guided Agent Workflow central registry.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -162,7 +162,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         inputSchema: {
           type: 'object',
           properties: {
-            category: { type: 'string', description: 'Category (e.g. Architecture, UI/UX, Performance)' },
+            category: { type: 'string', description: 'Category (e.g. Architecture, Testing, Performance, UI/UX)' },
             decision: { type: 'string', description: 'Confirmed decision summary' },
             context: { type: 'string', description: 'Context or rationale' }
           },
@@ -171,7 +171,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       },
       {
         name: 'initialize_project',
-        description: 'Initialize a project directory with Global Agentic Web, creating ai-brain/, the Graphify code graph (graphify-out/, only when the optional Graphify CLI is installed), and agent adapters.',
+        description: 'Initialize a project directory with Guided Agent Workflow, creating ai-brain/, the Graphify code graph (graphify-out/, only when the optional Graphify CLI is installed), and agent adapters.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -399,7 +399,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error('Global Agentic Web MCP Server running on stdio');
+  console.error('Guided Agent Workflow MCP Server running on stdio');
 }
 
 main().catch(err => {

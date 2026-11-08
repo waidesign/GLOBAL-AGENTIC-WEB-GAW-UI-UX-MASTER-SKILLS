@@ -1,10 +1,10 @@
-# Contributing to Global Agentic Web (GAW)
+# Contributing to Guided Agent Workflow (GAW)
 
-Thank you for your interest in contributing to the Global Agentic Web ecosystem!
+Thank you for your interest in contributing to the Guided Agent Workflow ecosystem!
 
 ## 1. How to Contribute
 
-- **Proposing New Skills**: Submit new UI/UX or engineering skills adhering to the [Skill Authoring Guide](docs/skills/authoring-guide.md). Skills follow the [GAW Skill Standard (GSS)](docs/gss/spec.md): a folder with `SKILL.md` (standard Agent Skills frontmatter) and an optional `gaw.json`. Run `gaw skills lint` and `gaw skills index` before submitting. Imported skills must keep their original author's license.
+- **Proposing New Skills**: Submit new skills for any field (engineering, cloud, testing, documents, media, interfaces, ...) adhering to the [Skill Authoring Guide](docs/skills/authoring-guide.md). Skills follow the [GAW Skill Standard (GSS)](docs/gss/spec.md): a folder with `SKILL.md` (standard Agent Skills frontmatter) and an optional `gaw.json`. Run `gaw skills lint` and `gaw skills index` before submitting. Imported skills must keep their original author's license.
 - **Reporting Issues**: Open a GitHub Issue detailing steps to reproduce, expected vs. actual behavior, and environment (`node -v`, OS).
 - **Submitting Pull Requests**: Follow the development workflow below.
 
@@ -18,8 +18,8 @@ graphify --version
 ```
 
 ```bash
-git clone https://github.com/<your-username>/global-agentic-web.git
-cd global-agentic-web
+git clone https://github.com/<your-username>/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git guided-agent-workflow
+cd guided-agent-workflow
 npm install
 npm link
 ```

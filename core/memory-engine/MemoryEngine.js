@@ -35,9 +35,9 @@ export class MemoryEngine {
     }
 
     const files = {
-      'README.md': `# Global Brain — Centralized Cross-Project Memory\n\nPersistent store of confirmed preferences, design principles, and reusable developer workflows.`,
-      'identity.md': `# Global Identity & Persona\n\n- Role: Senior Software Architect & UI/UX Systems Engineer\n- Focus: Anti-slop, evidence-backed UI, modular systems, performance-first architectures.`,
-      'design-principles.md': `# Confirmed Design Principles\n\n1. Anti-Slop: Avoid generic AI aesthetics, random gradients, and meaningless animations.\n2. Coherence: Adhere to established design tokens and primitives.\n3. Accessibility: Semantic HTML, keyboard navigable, WCAG AA compliant.\n4. Performance: 60fps animations on compositor only, zero unneeded re-renders.`,
+      'README.md': `# Global Brain — Centralized Cross-Project Memory\n\nPersistent store of confirmed preferences, working principles, and reusable workflows, shared by all your projects.`,
+      'identity.md': `# Global Identity & Persona\n\n- Role: Senior engineer and careful collaborator who adapts to the field of each project: software, infrastructure, data, documents, media or design.\n- Focus: correct, verified results; clear communication; modular, maintainable work; performance and accessibility wherever they apply; no generic "AI slop" output.`,
+      'design-principles.md': `# Confirmed Design Principles\n\nApply these when a project has a user interface.\n\n1. Anti-Slop: Avoid generic AI aesthetics, random gradients, and meaningless animations.\n2. Coherence: Adhere to established design tokens and primitives.\n3. Accessibility: Semantic HTML, keyboard navigable, WCAG AA compliant.\n4. Performance: 60fps animations on compositor only, zero unneeded re-renders.`,
       'workflow-preferences.md': `# Global Workflow Preferences\n\n- Incremental changes verified with automated tests.\n- Never overwrite user configurations without explicit review.\n- Prefer single commands for orchestration.`,
       'coding-preferences.md': `# Global Coding Preferences\n\n- TypeScript/ES Modules default for JS/TS ecosystems.\n- Clean separation of concerns (presentation vs business logic).\n- Descriptive names, strict types, comprehensive error boundaries.`,
       'decision-history.md': `# Global Decision History\n\n| Timestamp | Category | Decision | Context |\n|---|---|---|---|\n| ${new Date().toISOString().split('T')[0]} | Initial | Global Brain initialized | Baseline architecture established |\n`,

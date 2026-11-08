@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { agentBlock, upsertAgentBlock } from '../shared/agentBlock.js';
 
-const MARKER = 'GLOBAL AGENTIC WEB — GEMINI CLI CONFIGURATION';
+const MARKER = 'GUIDED AGENT WORKFLOW — GEMINI CLI CONFIGURATION';
 
 export class GeminiCliAdapter {
   static configure(projectPath, projectInfo, options = {}) {
