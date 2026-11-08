@@ -32,7 +32,7 @@ export class GawCli {
     this.discovery = new SkillDiscovery(this.registry);
     this.presetRegistry = new PresetRegistry({ presetsDir: path.join(this.repoRoot, 'presets', 'designs') });
     this.orchestrator = new SkillOrchestrator(this.registry, this.presetRegistry);
-    this.memoryEngine = new MemoryEngine({ globalBrainDir: path.join(this.repoRoot, 'brain') });
+    this.memoryEngine = new MemoryEngine();
     this.bootstrapper = new ProjectBootstrapper({ repoRoot: this.repoRoot });
   }
 
@@ -858,16 +858,26 @@ export class GawCli {
     if (sub === 'update') {
       const category = args[1] || 'General';
       const decision = args.slice(2).join(' ') || 'User confirmed preference update';
-      await this.memoryEngine.recordDecision(category, decision, `Updated via CLI from ${process.cwd()}`);
+      // Record the project by name only: full local paths don't belong in shared memory
+      await this.memoryEngine.recordDecision(category, decision, `Updated via CLI in ${path.basename(process.cwd())}`);
       console.log(`✅ Recorded decision in Global Brain: [${category}] ${decision}`);
+      console.log(`   ${path.join(this.memoryEngine.globalBrainDir, 'decision-history.md')}`);
       return;
     }
 
+    if (sub === 'path') {
+      console.log(this.memoryEngine.globalBrainDir);
+      return;
+    }
+
+    await this.memoryEngine.initGlobalBrain();
     console.log(`🧠 GLOBAL BRAIN & MEMORY PRECEDENCE:`);
+    console.log(`  Global Brain location: ${this.memoryEngine.globalBrainDir}`);
+    console.log(`  (set GAW_HOME to move it, e.g. into a synced folder)\n`);
     console.log(`  Precedence Order:`);
     console.log(`  1. Explicit User Request (Highest)`);
     console.log(`  2. Project Brain (./ai-brain/rules.md)`);
-    console.log(`  3. Global Brain (${path.join(this.repoRoot, 'brain')})`);
+    console.log(`  3. Global Brain (${this.memoryEngine.globalBrainDir})`);
     console.log(`  4. Specialized Skill Instructions`);
     console.log(`  5. Framework & Tool Defaults\n`);
 
@@ -1073,6 +1083,8 @@ export class GawCli {
     console.log(`🏥 GAW DIAGNOSTIC DOCTOR:\n`);
     console.log(`[✓] Node.js Runtime:    ${process.version}`);
     console.log(`[✓] GAW Repository:     ${this.repoRoot}`);
+    await this.memoryEngine.initGlobalBrain();
+    console.log(`[✓] Global Brain:       ${this.memoryEngine.globalBrainDir}`);
 
     const skills = await this.registry.getAllSkills();
     console.log(`[✓] Registered Skills:  ${skills.length} skills verified`);
@@ -1126,7 +1138,7 @@ export class GawCli {
     console.log(`  recommend <task>      Analyze task and recommend targeted skills`);
     console.log(`  use <task> [--inject] [--copy] [--budget <tokens>]`);
     console.log(`                        Load closely matching skills (use --inject to write to ai-brain/)`);
-    console.log(`  brain [update <msg>]  Inspect or update Global Brain and precedence`);
+    console.log(`  brain [update <msg> | path]  Inspect or update your Global Brain (~/.gaw/brain)`);
     console.log(`  project               Display detailed project architecture analysis`);
     console.log(`  graph [--force|--full] Build the code graph (--force: refresh changed files, --full: rebuild)`);
     console.log(`  doctor                Diagnose environment, dependencies & registry`);

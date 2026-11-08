@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **The Global Brain moved out of the GAW package** into your user folder, `~/.gaw/brain/` (or `$GAW_HOME/brain/`). On first use GAW copies its defaults from `brain/` and never overwrites your files, so updates can't erase your memory and personal decisions never end up in GAW's repository. `gaw brain path` shows the location, and `GAW_HOME` pointed at a synced folder shares one brain across machines. The repository's `decision-history.md` is now an empty template. Global decisions record the project name, not its full local path.
+
 ### Added
 - **GSS Ranking v1** (`docs/gss/spec.md`, section 8): ranking is now part of the GAW Skill Standard. It publishes which fields count and how much: identity, intent, exclusion via `whenNotToUse`, context via the new `domains` field, and trust only as a tie-breaker. It defines **rankability levels** (Findable, Rankable, Precise), anti-gaming limits, and a versioning rule (changes must not hurt the held-out benchmark).
 - **`gaw skills add` rejects skills below Level 1 (Findable)**: a skill must say what it does and when to use it. `--when` and `--description` fix this on the spot.

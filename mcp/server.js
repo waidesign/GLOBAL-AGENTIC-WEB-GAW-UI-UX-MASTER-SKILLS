@@ -24,7 +24,8 @@ const REPO_ROOT = path.resolve(__dirname, '../');
 const registry = new SkillRegistry({ skillsDir: path.join(REPO_ROOT, 'skills') });
 const discovery = new SkillDiscovery(registry);
 const orchestrator = new SkillOrchestrator(registry);
-const memoryEngine = new MemoryEngine({ globalBrainDir: path.join(REPO_ROOT, 'brain') });
+// The user's Global Brain (~/.gaw/brain or GAW_HOME/brain), not the installed package
+const memoryEngine = new MemoryEngine();
 const bootstrapper = new ProjectBootstrapper({ repoRoot: REPO_ROOT });
 
 const server = new Server(

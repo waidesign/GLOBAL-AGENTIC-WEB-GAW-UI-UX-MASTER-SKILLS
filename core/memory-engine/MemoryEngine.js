@@ -1,14 +1,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const REPO_ROOT = path.resolve(__dirname, '../../');
+import { userBrainDir, DEFAULT_BRAIN_DIR } from './paths.js';
 
 export class MemoryEngine {
   constructor(options = {}) {
-    this.globalBrainDir = options.globalBrainDir || path.join(REPO_ROOT, 'brain');
+    // The user's own Global Brain (~/.gaw/brain, or GAW_HOME/brain). Never the
+    // installed GAW package: updates must not overwrite user memory, and personal
+    // decisions must not end up in GAW's repository.
+    this.globalBrainDir = options.globalBrainDir || userBrainDir();
+    // Defaults shipped with GAW, copied into a new user's brain
+    this.defaultsDir = options.defaultsDir || DEFAULT_BRAIN_DIR;
     this.projectRoot = options.projectRoot || process.cwd();
   }
 
@@ -17,10 +18,21 @@ export class MemoryEngine {
   }
 
   /**
-   * Initialize Global Brain if not present
+   * Create the Global Brain if needed: copy GAW's default files into it, then
+   * add built-in templates for anything still missing. Never overwrites a file
+   * the user already has.
    */
   async initGlobalBrain() {
     fs.mkdirSync(this.globalBrainDir, { recursive: true });
+
+    if (path.resolve(this.defaultsDir) !== path.resolve(this.globalBrainDir) && fs.existsSync(this.defaultsDir)) {
+      for (const file of fs.readdirSync(this.defaultsDir)) {
+        const target = path.join(this.globalBrainDir, file);
+        if (file.endsWith('.md') && !fs.existsSync(target)) {
+          fs.copyFileSync(path.join(this.defaultsDir, file), target);
+        }
+      }
+    }
 
     const files = {
       'README.md': `# Global Brain — Centralized Cross-Project Memory\n\nPersistent store of confirmed preferences, design principles, and reusable developer workflows.`,
@@ -109,7 +121,7 @@ export class MemoryEngine {
    * Get merged context respecting precedence:
    * 1. User Prompt
    * 2. Project Brain (ai-brain/)
-   * 3. Global Brain (brain/)
+   * 3. Global Brain (~/.gaw/brain/)
    */
   async getHierarchicalContext(userPrompt, projectPath = this.projectRoot) {
     const globalBrain = await this.getGlobalBrain();
@@ -119,7 +131,7 @@ export class MemoryEngine {
       precedence: [
         '1. User Request (Highest)',
         '2. Project Brain (ai-brain/)',
-        '3. Global Brain (brain/)',
+        '3. Global Brain (~/.gaw/brain/)',
         '4. Skill Instructions',
         '5. Framework/Tool Defaults'
       ],

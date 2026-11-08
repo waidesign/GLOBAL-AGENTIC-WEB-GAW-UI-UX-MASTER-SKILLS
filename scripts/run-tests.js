@@ -1,6 +1,11 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
+
+// Tests never touch the real ~/.gaw: each run gets a throwaway GAW_HOME
+const testHome = fs.mkdtempSync(path.join(os.tmpdir(), 'gaw-test-home-'));
+const testEnv = { ...process.env, GAW_HOME: testHome };
 
 function findTestFiles(dir) {
   let results = [];
@@ -24,7 +29,7 @@ let failed = 0;
 
 for (const file of testFiles) {
   console.log(`▶ Running: ${file}`);
-  const res = spawnSync('node', ['--test', file], { stdio: 'inherit' });
+  const res = spawnSync('node', ['--test', file], { stdio: 'inherit', env: testEnv });
   if (res.status === 0) {
     passed++;
   } else {
@@ -33,6 +38,7 @@ for (const file of testFiles) {
   console.log('--------------------------------------------------');
 }
 
+fs.rmSync(testHome, { recursive: true, force: true });
 console.log(`\nTest Run Summary: ${passed} passed, ${failed} failed out of ${testFiles.length} suites.`);
 if (failed > 0) {
   process.exit(1);

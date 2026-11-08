@@ -18,7 +18,7 @@ export class ProjectBootstrapper {
     this.repoRoot = options.repoRoot || REPO_ROOT;
     this.registry = new SkillRegistry({ skillsDir: path.join(this.repoRoot, 'skills') });
     this.orchestrator = new SkillOrchestrator(this.registry);
-    this.memoryEngine = new MemoryEngine({ globalBrainDir: path.join(this.repoRoot, 'brain') });
+    this.memoryEngine = new MemoryEngine(options.globalBrainDir ? { globalBrainDir: options.globalBrainDir } : {});
     this.createGraphifyManager = options.createGraphifyManager || ((dir) => new GraphifyManager({ projectRoot: dir }));
   }
 
@@ -60,7 +60,7 @@ export class ProjectBootstrapper {
 
     // Step 3: Global Brain Verification
     await this.memoryEngine.initGlobalBrain();
-    report.steps.push({ step: 2, name: 'Connect Global Brain', status: 'Connected', path: path.join(this.repoRoot, 'brain') });
+    report.steps.push({ step: 2, name: 'Connect Global Brain', status: 'Connected', path: this.memoryEngine.globalBrainDir });
 
     // Step 4 & 5: Create Project Brain (`ai-brain/`)
     const brainDir = path.join(dir, 'ai-brain');

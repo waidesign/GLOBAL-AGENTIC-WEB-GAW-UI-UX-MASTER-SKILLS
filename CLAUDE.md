@@ -66,7 +66,8 @@ global-agentic-web/
 │   │   └── AgentationManager.js # React dev-only visual feedback overlay manager
 │   └── agent-adapters/
 │       └── AgentAdapters.js     # Configures CLAUDE.md, .cursorrules, AGENTS.md, GEMINI.md
-├── brain/                       # Central Global Brain cross-project memory
+├── brain/                       # DEFAULT Global Brain files, copied to each user's ~/.gaw/brain on first use
+│                                #   (user memory lives in ~/.gaw/brain or $GAW_HOME/brain; never write personal decisions here)
 │   ├── identity.md              # Engineer persona & core values
 │   ├── design-principles.md     # Non-negotiable anti-slop principles & WCAG 2.2 AA standards
 │   ├── coding-preferences.md    # TypeScript first, token architecture, modular patterns
@@ -126,7 +127,7 @@ global-agentic-web/
 Always enforce this strict order when resolving conflicts:
 1. **Explicit User Instruction** (Immediate conversation prompt)
 2. **Project Brain** (`./ai-brain/rules.md` and `./ai-brain/context.md`)
-3. **Global Brain** (`brain/design-principles.md` and `brain/coding-preferences.md`)
+3. **Global Brain** (the user's `~/.gaw/brain/`: `design-principles.md`, `coding-preferences.md`; see `core/memory-engine/paths.js`)
 4. **Specialized Skill Instructions**
 5. **Framework & Tool Defaults**
 
@@ -157,7 +158,7 @@ When writing UI code or reviewing designs:
 ## 🛠️ Testing & Development Guidelines
 
 - **Dependencies**: GAW runs natively on modern Node.js using ESM. The only npm dependency is `@modelcontextprotocol/sdk`. The Graphify CLI (Python) is an optional external tool; the e2e test that uses real Graphify is skipped without it.
-- **Run tests before committing**: `npm test` executes the 14 native test suites in `tests/`.
+- **Run tests before committing**: `npm test` executes the 14 native test suites in `tests/`. The runner sets a throwaway `GAW_HOME`, so tests never touch the real `~/.gaw`.
 - **Measure skill selection changes**: `npm run eval` scores skill picks on the tuning set (`eval/cases/skill-selection.json`) and the held-out set (`skill-selection-holdout.json`), and compares with `eval/baseline.json`. Never adjust the engine to fix held-out cases: they are the honest check. Only update the baseline (`npm run eval -- --save-baseline`) when a change is an intended improvement.
 - **Licenses**: never relabel a skill's license. Imported skills keep their source's license, verified by `gaw skills licenses`. Only split/modify skills whose `source.licenseStatus` is `open` or `copyleft`.
 - **Git workflow**: Main branch is `main`. Remote is `origin` (`https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git`).

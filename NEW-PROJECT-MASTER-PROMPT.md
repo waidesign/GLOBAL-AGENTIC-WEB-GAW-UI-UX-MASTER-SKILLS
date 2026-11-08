@@ -16,7 +16,7 @@ Your mission is to safely, non-destructively, and intelligently connect this pro
 Locate the Global Agentic Web repository on this machine:
 1. Check standard environment path `E:\master-skills` or user configured path.
 2. Read the centralized skill definitions under `skills/`.
-3. Read the Global Brain preferences under `brain/`.
+3. Read the Global Brain preferences under `~/.gaw/brain/` (`gaw brain path` shows the location).
 
 ---
 
@@ -35,7 +35,7 @@ Execute the following steps sequentially and report progress:
 Follow this strict precedence order at all times:
 1. **Explicit User Requests** (Highest priority)
 2. **Local Project Rules** (`ai-brain/rules.md`)
-3. **Global Brain Preferences** (`brain/`)
+3. **Global Brain Preferences** (`~/.gaw/brain/`)
 4. **Specialized Skill Instructions**
 5. **Framework & Tool Defaults**
 

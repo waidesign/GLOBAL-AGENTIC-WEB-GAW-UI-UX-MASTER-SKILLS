@@ -3,7 +3,7 @@
 ## 1. Memory Precedence
 1. **Explicit User Instruction** (Highest priority)
 2. **Project Rules** (This file: `./ai-brain/rules.md`)
-3. **Global Brain Preferences** (`brain/`)
+3. **Global Brain Preferences** (your `~/.gaw/brain/`)
 4. **Specialized Skill Instructions**
 5. **Tool & Framework Defaults**
 

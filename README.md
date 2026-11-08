@@ -68,7 +68,7 @@ In traditional AI coding workflows, developers constantly repeat prompt constrai
 - **Two-Tier Hierarchical Memory**:
   1. *User Prompt* (highest precedence)
   2. *Project Brain* (`ai-brain/rules.md`)
-  3. *Global Brain* (`brain/`)
+  3. *Global Brain* (`~/.gaw/brain/`)
   4. *Specialized Skills*
   5. *Framework Defaults*
 - **MCP Server Ready**: Built on `@modelcontextprotocol/sdk` to provide real-time skill querying, task recommendations, and memory reading to Claude Code, Cursor, and any MCP-compatible agent.
@@ -208,8 +208,8 @@ Ranking is part of the standard: **GSS Ranking v1** ([spec](docs/gss/spec.md#8-r
 
 ## 🧠 GLOBAL BRAIN & PROJECT BRAIN
 
-### Global Brain (`brain/`)
-Maintained centrally in the GAW repository to record cross-project user preferences:
+### Global Brain (`~/.gaw/brain/`)
+Your cross-project preferences live in **your own folder**, `~/.gaw/brain/`. On first use, GAW copies its default files (from `brain/` in this repo) into it. From then on it reads and writes only your copy, so updating GAW never overwrites your memory and your decisions never end up in GAW's repository. `gaw brain path` shows the location. Set `GAW_HOME` to move it, for example into a synced folder (Dropbox, OneDrive, a private git repo) to share one brain across machines.
 - `identity.md`: Engineer persona, anti-slop principles.
 - `design-principles.md`: Confirmed design rules (compositor animations, high-contrast text).
 - `coding-preferences.md`: TypeScript first, modular architecture, strict types.
