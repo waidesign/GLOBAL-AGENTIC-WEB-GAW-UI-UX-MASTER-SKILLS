@@ -1,0 +1,9 @@
+{
+  "gss": 1,
+  "frameworks": [
+    "react",
+    "vue",
+    "svelte"
+  ],
+  "lastVerified": "2026-11-06"
+}

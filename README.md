@@ -169,22 +169,31 @@ Skills are organized into specialized categories under `skills/`:
 - **SEO & Quality (`skills/seo/`)**: `fixing-metadata`
 - **3D & Emerging (`skills/3d/`)**: `threejs`
 
-Every skill features standardized metadata frontmatter:
+Every skill follows the **GAW Skill Standard (GSS)**, which extends the open Agent Skills `SKILL.md` format, so GAW skills also work in any tool that supports Agent Skills. Each skill is a folder:
+
+```
+skills/design-systems/build-design-system/
+├── SKILL.md   # standard Agent Skills frontmatter + instructions
+└── gaw.json   # optional GSS contract: keywords, dependencies, frameworks, verification...
+```
+
 ```markdown
 ---
-id: "build-design-system"
-name: "Build a Design System"
-category: "design-systems"
+name: "build-design-system"
 description: "Ground up construction of an evidence-based design system..."
-author: "arla6ka"
 license: "MIT"
-version: "1.0.0"
-tags: ["design-system", "tokens", "components"]
-frameworks: ["react", "nextjs", "vue", "svelte", "html"]
-dependencies: []
-relatedSkills: ["design-system-boss", "migrate-to-a-design-system"]
+metadata:
+  gaw-title: "Build a Design System"
+  gaw-category: "design-systems"
+  gaw-author: "arla6ka"
+  gaw-version: "1.0.0"
 ---
 ```
+
+See the [GSS spec](docs/gss/spec.md) and the [authoring guide](docs/skills/authoring-guide.md). Check skills with `gaw skills lint`.
+
+### How GAW picks skills
+`gaw use`, `gaw recommend` and onboarding load only skills that **closely match** the task. Rare, specific words count more than common ones, and every pick comes with a reason (*Matched "pricing", "page" (name); "SaaS" (description)*). When nothing fits, GAW loads nothing instead of unrelated skills. Full skill instructions are loaded within a token budget (default 8,000, `--budget` to change). Skills that don't fit are listed in short form with a path the agent can open if needed. Selection quality is measured with `npm run eval`.
 
 ---
 

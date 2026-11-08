@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import { spawn, exec } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { SkillRegistry } from '../core/skill-registry/SkillRegistry.js';
+import { lintLibrary } from '../core/skill-registry/SkillLinter.js';
 import { SkillDiscovery } from '../core/skill-discovery/SkillDiscovery.js';
 import { SkillOrchestrator } from '../core/orchestrator/SkillOrchestrator.js';
 import { PresetRegistry } from '../core/preset-registry/PresetRegistry.js';
@@ -239,6 +240,9 @@ export class GawCli {
   }
 
   async cmdSkills(args) {
+    if (args[0] === 'lint') return this.cmdSkillsLint(args.slice(1));
+    if (args[0] === 'index') return this.cmdSkillsIndex();
+
     this.printHeader();
     const category = args[0];
     let skills;
@@ -255,6 +259,30 @@ export class GawCli {
       console.log(`  ${s.description || 'No description'}`);
       console.log(`  Author: ${s.author} | Frameworks: ${(s.frameworks || []).join(', ')}\n`);
     }
+  }
+
+  /** gaw skills lint [folder] [--quiet]: check skills against the GAW Skill Standard (docs/gss/spec.md). */
+  async cmdSkillsLint(args) {
+    const quiet = args.includes('--quiet');
+    const target = args.find(a => !a.startsWith('--'));
+    const root = target ? path.resolve(target) : this.registry.skillsDir;
+    const { results, errorCount, warningCount } = lintLibrary(root);
+
+    for (const r of results) {
+      if (r.errors.length === 0 && (quiet || r.warnings.length === 0)) continue;
+      console.log(`${r.errors.length ? '✗' : '⚠'} ${path.relative(process.cwd(), r.dir) || r.dir}`);
+      for (const e of r.errors) console.log(`    error:   ${e}`);
+      if (!quiet) for (const w of r.warnings) console.log(`    warning: ${w}`);
+    }
+
+    console.log(`\n${results.length} skill(s) checked: ${errorCount} error(s), ${warningCount} warning(s).`);
+    if (errorCount > 0) process.exitCode = 1;
+  }
+
+  /** gaw skills index: rebuild skills/index.json after adding or editing skills. */
+  async cmdSkillsIndex() {
+    const index = this.registry.writeIndex();
+    console.log(`✓ Wrote ${path.relative(process.cwd(), path.join(this.registry.skillsDir, 'index.json'))} (${index.skills.length} skills).`);
   }
 
   async cmdSearch(args) {
@@ -286,16 +314,22 @@ export class GawCli {
     const projectInfo = ProjectDetector.detect(process.cwd());
     const recs = await this.orchestrator.recommend(prompt, projectInfo);
 
-    console.log(`🎯 Primary Skills:`);
-    for (const p of recs.primarySkills) {
-      console.log(`  ★ \x1b[1m${p.name}\x1b[0m (${p.id}) — [${p.category}]`);
-      console.log(`    Reason: ${p.reason}`);
+    if (recs.primarySkills.length === 0) {
+      console.log(`No skills in the library closely match this task.`);
+      console.log(`Try different words, browse with 'gaw skills', or search with 'gaw search "<keyword>"'.`);
+    } else {
+      console.log(`🎯 Primary Skills:`);
+      for (const p of recs.primarySkills) {
+        console.log(`  ★ \x1b[1m${p.name}\x1b[0m (${p.id}) — [${p.category}]`);
+        console.log(`    Why: ${p.reason}`);
+      }
     }
 
     if (recs.supportingSkills.length > 0) {
       console.log(`\n🛠️ Supporting Skills:`);
       for (const s of recs.supportingSkills) {
         console.log(`  • ${s.name} (${s.id}) — [${s.category}]`);
+        console.log(`    Why: ${s.reason}`);
       }
     }
 
@@ -356,16 +390,32 @@ export class GawCli {
     const isInject = args.includes('--inject') || args.includes('--save') || args.includes('-i');
     const isCopy = args.includes('--copy') || args.includes('-c');
 
-    const cleanArgs = args.filter(a => !['--inject', '--save', '-i', '--copy', '-c'].includes(a));
+    // --budget <tokens>: how much skill content to load in full (default 8000)
+    const budgetIdx = args.indexOf('--budget');
+    const tokenBudget = budgetIdx !== -1 ? Number(args[budgetIdx + 1]) : undefined;
+    if (budgetIdx !== -1 && !(tokenBudget > 0)) {
+      console.log(`--budget needs a positive number of tokens, e.g. --budget 4000`);
+      return;
+    }
+
+    const cleanArgs = args.filter((a, i) =>
+      !['--inject', '--save', '-i', '--copy', '-c', '--budget'].includes(a) && !(budgetIdx !== -1 && i === budgetIdx + 1));
     const prompt = cleanArgs.join(' ').trim();
 
     if (!prompt) {
-      console.log(`Please provide a task prompt or skill list: gaw use "<task description>" [--inject] [--copy]`);
+      console.log(`Please provide a task prompt or skill list: gaw use "<task description>" [--inject] [--copy] [--budget <tokens>]`);
       return;
     }
 
     const projectInfo = ProjectDetector.detect(process.cwd());
-    const loaded = await this.orchestrator.loadSkillsForTask(prompt, projectInfo);
+    const loaded = await this.orchestrator.loadSkillsForTask(prompt, projectInfo, { tokenBudget });
+
+    if (isInject && loaded.selectedSkillCount === 0) {
+      this.printHeader();
+      console.log(`No skills in the library closely match this task, so ai-brain/active-skills.md was left unchanged.`);
+      console.log(`Try different words, browse with 'gaw skills', or name skills directly: gaw use "<skill-id>, <skill-id>" --inject\n`);
+      return;
+    }
 
     if (isInject) {
       this.printHeader();
@@ -379,9 +429,11 @@ export class GawCli {
       console.log(`✅ Injected ${loaded.selectedSkillCount} specialized skill(s) directly into:`);
       console.log(`   📄 ${path.relative(process.cwd(), activeSkillsPath)}\n`);
 
-      console.log(`🎯 Active Skills Loaded:`);
+      console.log(`🎯 Active Skills Loaded (budget ~${loaded.tokenBudget} tokens):`);
       for (const s of loaded.skills) {
-        console.log(`  ★ \x1b[1m${s.name}\x1b[0m (${s.id}) — [${s.category}]`);
+        const mode = s.mode === 'summary' ? ` — short form (full skill ~${s.fullTokens} tokens, read on demand)` : '';
+        console.log(`  ★ \x1b[1m${s.name}\x1b[0m (${s.id}) — [${s.category}]${mode}`);
+        console.log(`    Why: ${s.reason}`);
       }
 
       if (loaded.conflictResolutions && loaded.conflictResolutions.length > 0) {
@@ -678,14 +730,16 @@ export class GawCli {
     console.log(`  setup [--yes]         Install Graphify (optional code map for AI agents)`);
     console.log(`  start                 Resume an existing initialized project`);
     console.log(`  skills [category]     List all skills or filter by category`);
+    console.log(`  skills lint [folder]  Check skills against the GAW Skill Standard (GSS)`);
+    console.log(`  skills index          Rebuild skills/index.json after editing skills`);
     console.log(`  designs [search <q>] [--theme <dark|light>]`);
     console.log(`                        List or search real-world design presets from GradientDeck`);
     console.log(`  design <id> [--apply] [--open] [--deck]`);
     console.log(`                        Inspect preset with color palette & live website link`);
     console.log(`  search <query>        Search skills library with relevance ranking`);
     console.log(`  recommend <task>      Analyze task and recommend targeted skills`);
-    console.log(`  use <task> [--inject] [--copy]`);
-    console.log(`                        Load skills (use --inject to write directly to ai-brain/)`);
+    console.log(`  use <task> [--inject] [--copy] [--budget <tokens>]`);
+    console.log(`                        Load closely matching skills (use --inject to write to ai-brain/)`);
     console.log(`  brain [update <msg>]  Inspect or update Global Brain and precedence`);
     console.log(`  project               Display detailed project architecture analysis`);
     console.log(`  graph [--force]       Generate or inspect Codebase Architecture Graph`);

@@ -2,6 +2,7 @@ import readline from 'node:readline';
 import fs from 'node:fs';
 import path from 'node:path';
 import { ensureGraphify } from './graphify-setup.js';
+import { explainMatch } from '../core/skill-discovery/SkillDiscovery.js';
 
 const MAX_RULES = 20;
 
@@ -127,7 +128,9 @@ export async function runOnboarding(options) {
     log(`    Skipped: no goal to match skills against.`);
     log(`    Later: gaw use "<your task>" --inject`);
   } else {
-    const matches = await bootstrapper.orchestrator.discovery.findRelevant(goal, { limit: 5 });
+    const scored = await bootstrapper.orchestrator.discovery.findRelevant(goal, { limit: 5, withScores: true });
+    const matches = scored.map(e => e.skill);
+    const reasons = new Map(scored.map(e => [e.skill.id, explainMatch(e)]));
     if (matches.length === 0) {
       log(`    No skills in the library closely match this goal yet.`);
       log(`    Browse them with: gaw skills   or search: gaw search "<keyword>"`);
@@ -137,6 +140,7 @@ export async function runOnboarding(options) {
         const description = (s.description || '').replace(/\s+/g, ' ').trim();
         const short = description.length > 70 ? `${description.slice(0, 67)}...` : description;
         log(`      ${i + 1}. ${s.id}${short ? `  ${short}` : ''}`);
+        log(`         Why: ${reasons.get(s.id)}`);
       });
 
       let picked = null;
@@ -147,7 +151,7 @@ export async function runOnboarding(options) {
 
       const chosen = (picked || []).map(i => matches[i]);
       if (chosen.length > 0) {
-        const loaded = await bootstrapper.orchestrator.loadSkillsByIds(chosen.map(s => s.id), goal);
+        const loaded = await bootstrapper.orchestrator.loadSkillsByIds(chosen.map(s => s.id), goal, { reasons });
         fs.writeFileSync(path.join(brainDir, 'active-skills.md'), loaded.formattedInstructions, 'utf8');
         written.push(`ai-brain/active-skills.md (${chosen.length} skill${chosen.length > 1 ? 's' : ''})`);
         log(`    ✓ Activated: ${chosen.map(s => s.id).join(', ')}`);

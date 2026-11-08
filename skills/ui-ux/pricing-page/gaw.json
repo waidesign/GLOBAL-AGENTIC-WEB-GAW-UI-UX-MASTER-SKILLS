@@ -1,0 +1,12 @@
+{
+  "gss": 1,
+  "related": [
+    "landing-page"
+  ],
+  "frameworks": [
+    "react",
+    "nextjs",
+    "tailwind"
+  ],
+  "lastVerified": "2026-11-06"
+}

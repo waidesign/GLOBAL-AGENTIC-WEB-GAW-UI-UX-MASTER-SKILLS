@@ -1,0 +1,13 @@
+{
+  "gss": 1,
+  "keywords": [
+    "acrobat",
+    "pdf form"
+  ],
+  "lastVerified": "2026-11-08",
+  "source": {
+    "repo": "anthropics/skills",
+    "path": "skills/pdf/SKILL.md",
+    "licenseVerified": false
+  }
+}

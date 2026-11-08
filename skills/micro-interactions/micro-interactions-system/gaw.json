@@ -1,0 +1,16 @@
+{
+  "gss": 1,
+  "related": [
+    "motion-dev",
+    "animejs",
+    "baseline-ui"
+  ],
+  "frameworks": [
+    "react",
+    "vue",
+    "svelte",
+    "html",
+    "tailwind"
+  ],
+  "lastVerified": "2026-11-06"
+}

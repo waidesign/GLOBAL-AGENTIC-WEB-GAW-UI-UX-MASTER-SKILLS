@@ -238,8 +238,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         if (!skill) {
           return { isError: true, content: [{ type: 'text', text: `Skill not found: ${args.id}` }] };
         }
+        // `content` is loaded on demand (not an enumerable field), so include it explicitly
         return {
-          content: [{ type: 'text', text: JSON.stringify(skill, null, 2) }]
+          content: [{ type: 'text', text: JSON.stringify({ ...skill, content: skill.content }, null, 2) }]
         };
       }
 

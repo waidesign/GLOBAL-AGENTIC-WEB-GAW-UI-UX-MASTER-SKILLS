@@ -1,0 +1,14 @@
+{
+  "gss": 1,
+  "related": [
+    "frontend-design",
+    "improve-shadcn"
+  ],
+  "frameworks": [
+    "react",
+    "nextjs",
+    "remix",
+    "vite"
+  ],
+  "lastVerified": "2026-11-06"
+}

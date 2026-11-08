@@ -1,0 +1,13 @@
+{
+  "gss": 1,
+  "keywords": [
+    "three.js",
+    "webgl",
+    "3d scene"
+  ],
+  "frameworks": [
+    "threejs",
+    "react-three-fiber"
+  ],
+  "lastVerified": "2026-11-06"
+}

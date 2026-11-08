@@ -1,0 +1,14 @@
+{
+  "gss": 1,
+  "related": [
+    "build-design-system",
+    "improve-ui",
+    "baseline-ui"
+  ],
+  "frameworks": [
+    "react",
+    "nextjs",
+    "vite"
+  ],
+  "lastVerified": "2026-11-06"
+}

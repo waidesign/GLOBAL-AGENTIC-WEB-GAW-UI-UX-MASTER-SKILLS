@@ -1,46 +1,71 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { parseFrontmatter } from './frontmatter.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '../../');
 
+export const INDEX_FILE = 'index.json';
+const INDEX_VERSION = 1;
+
+// Kept for existing imports; the full YAML-subset parser lives in frontmatter.js
+export { parseFrontmatter };
+
+const estimateTokens = (text) => Math.round((text || '').length / 4);
+const toList = (value) => (Array.isArray(value) ? value : String(value || '').split(',').map(s => s.trim()).filter(Boolean));
+
 /**
- * Simple, robust frontmatter parser for markdown files.
+ * Turn a parsed skill (GSS folder or legacy single file) into the registry's
+ * skill shape. `content` is attached separately so it can load lazily.
  */
-export function parseFrontmatter(content) {
-  if (!content || !content.startsWith('---')) {
-    return { data: {}, content: content || '' };
-  }
-  const endIdx = content.indexOf('\n---', 3);
-  if (endIdx === -1) {
-    return { data: {}, content };
-  }
-  const rawHeader = content.slice(3, endIdx).trim();
-  const body = content.slice(endIdx + 4).trim();
-  const data = {};
+function toSkillRecord({ data, contract, relPath, categoryFromPath, isGss }) {
+  const meta = (data.metadata && typeof data.metadata === 'object') ? data.metadata : {};
 
-  const lines = rawHeader.split('\n');
-  for (const line of lines) {
-    const colonIdx = line.indexOf(':');
-    if (colonIdx === -1) continue;
-    const key = line.slice(0, colonIdx).trim();
-    let val = line.slice(colonIdx + 1).trim();
-
-    if (val.startsWith('[') && val.endsWith(']')) {
-      const items = val.slice(1, -1).split(',').map(s => s.trim().replace(/^["']|["']$/g, '')).filter(Boolean);
-      data[key] = items;
-    } else if (val.startsWith('"') && val.endsWith('"')) {
-      data[key] = val.slice(1, -1);
-    } else if (val.startsWith("'") && val.endsWith("'")) {
-      data[key] = val.slice(1, -1);
-    } else {
-      data[key] = val;
-    }
+  if (isGss) {
+    return {
+      id: data.name,
+      name: meta['gaw-title'] || data.name,
+      category: meta['gaw-category'] || categoryFromPath,
+      description: data.description || '',
+      author: meta['gaw-author'] || 'unknown',
+      license: data.license || 'UNKNOWN',
+      version: meta['gaw-version'] || '1.0.0',
+      tags: toList(meta['gaw-tags']),
+      keywords: toList(contract.keywords),
+      frameworks: contract.frameworks?.length ? contract.frameworks : ['any'],
+      dependencies: contract.dependsOn || [],
+      relatedSkills: contract.related || [],
+      lastVerified: contract.lastVerified || null,
+      summary: contract.summary || '',
+      contract,
+      format: 'gss',
+      path: relPath
+    };
   }
 
-  return { data, content: body };
+  // Legacy single-file skill (frontmatter with id/name/category/...)
+  const id = data.id || path.basename(relPath, '.md');
+  return {
+    id,
+    name: data.name || id,
+    category: data.category || categoryFromPath,
+    description: data.description || '',
+    author: data.author || 'unknown',
+    license: data.license || 'UNKNOWN',
+    version: data.version || '1.0.0',
+    tags: toList(data.tags),
+    keywords: [],
+    frameworks: Array.isArray(data.frameworks) && data.frameworks.length ? data.frameworks : ['any'],
+    dependencies: Array.isArray(data.dependencies) ? data.dependencies : [],
+    relatedSkills: Array.isArray(data.relatedSkills) ? data.relatedSkills : [],
+    lastVerified: data.lastVerified || null,
+    summary: '',
+    contract: {},
+    format: 'legacy',
+    path: relPath
+  };
 }
 
 export class SkillRegistry {
@@ -49,71 +74,149 @@ export class SkillRegistry {
     this.skills = new Map();
     this.categories = new Set();
     this.initialized = false;
+    this.duplicates = [];
+  }
+
+  /** Skill files on disk: GSS folders (SKILL.md) and legacy single .md files. */
+  listSkillFiles() {
+    const found = [];
+    const walk = (dir) => {
+      let entries = [];
+      try {
+        entries = fs.readdirSync(dir, { withFileTypes: true });
+      } catch {
+        return;
+      }
+      if (entries.some(e => e.isFile() && e.name === 'SKILL.md')) {
+        found.push({ file: path.join(dir, 'SKILL.md'), isGss: true });
+        return; // files inside a skill folder (references/, scripts/) are not skills
+      }
+      for (const entry of entries) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) walk(full);
+        else if (entry.isFile() && entry.name.endsWith('.md') && entry.name !== 'README.md') {
+          found.push({ file: full, isGss: false });
+        }
+      }
+    };
+    walk(this.skillsDir);
+    return found.sort((a, b) => a.file.localeCompare(b.file));
+  }
+
+  /** Cheap fingerprint of the library: paths and sizes of skill files and contracts. */
+  fingerprint(files) {
+    return files.map(({ file, isGss }) => {
+      const rel = path.relative(this.skillsDir, file).replace(/\\/g, '/');
+      const size = fs.statSync(file).size;
+      const contractFile = path.join(path.dirname(file), 'gaw.json');
+      const contractSize = isGss && fs.existsSync(contractFile) ? fs.statSync(contractFile).size : 0;
+      return `${rel}:${size}:${contractSize}`;
+    }).join('|');
+  }
+
+  /** Read and parse every skill file (full scan). Returns records with token estimates. */
+  scanSkills(files = this.listSkillFiles()) {
+    const records = [];
+    for (const { file, isGss } of files) {
+      try {
+        const raw = fs.readFileSync(file, 'utf8');
+        const { data, content } = parseFrontmatter(raw);
+        const relPath = path.relative(this.skillsDir, file).replace(/\\/g, '/');
+        const categoryFromPath = relPath.includes('/') ? relPath.split('/')[0] : 'general';
+        let contract = {};
+        if (isGss) {
+          const contractFile = path.join(path.dirname(file), 'gaw.json');
+          if (fs.existsSync(contractFile)) contract = JSON.parse(fs.readFileSync(contractFile, 'utf8'));
+        }
+        const record = toSkillRecord({ data, contract, relPath, categoryFromPath, isGss });
+        record.tokenEstimate = estimateTokens(content);
+        records.push({ record, content });
+      } catch (err) {
+        console.error(`Error loading skill from ${file}:`, err.message);
+      }
+    }
+    return records;
+  }
+
+  /** Build the metadata index (what `gaw skills index` writes to skills/index.json). */
+  buildIndex() {
+    const files = this.listSkillFiles();
+    const records = this.scanSkills(files).map(r => r.record);
+    return {
+      version: INDEX_VERSION,
+      fingerprint: this.fingerprint(files),
+      skills: records
+    };
+  }
+
+  writeIndex() {
+    const index = this.buildIndex();
+    fs.writeFileSync(path.join(this.skillsDir, INDEX_FILE), `${JSON.stringify(index, null, 2)}\n`, 'utf8');
+    return index;
+  }
+
+  /** The saved index, if it exists and still matches the files on disk. */
+  readFreshIndex(files) {
+    const indexFile = path.join(this.skillsDir, INDEX_FILE);
+    if (!fs.existsSync(indexFile)) return null;
+    try {
+      const index = JSON.parse(fs.readFileSync(indexFile, 'utf8'));
+      if (index.version !== INDEX_VERSION) return null;
+      return index.fingerprint === this.fingerprint(files) ? index : null;
+    } catch {
+      return null;
+    }
+  }
+
+  /** Attach `content` as a lazy property: the skill body is read only when used. */
+  attachContent(record, preloaded) {
+    const filePath = path.join(this.skillsDir, record.path);
+    let cached = preloaded;
+    Object.defineProperty(record, 'content', {
+      enumerable: false,
+      get() {
+        if (cached === undefined) {
+          try {
+            cached = parseFrontmatter(fs.readFileSync(filePath, 'utf8')).content;
+          } catch {
+            cached = '';
+          }
+        }
+        return cached;
+      }
+    });
+    record.filePath = filePath;
+    record.dir = path.dirname(filePath);
+    return record;
   }
 
   async loadSkills() {
     this.skills.clear();
     this.categories.clear();
+    this.duplicates = [];
 
     if (!fs.existsSync(this.skillsDir)) {
       this.initialized = true;
-      return Array.from(this.skills.values());
+      return [];
     }
 
-    const traverse = (dir) => {
-      const entries = fs.readdirSync(dir, { withFileTypes: true });
-      for (const entry of entries) {
-        const fullPath = path.join(dir, entry.name);
-        if (entry.isDirectory()) {
-          traverse(fullPath);
-        } else if (entry.isFile() && entry.name.endsWith('.md')) {
-          try {
-            const raw = fs.readFileSync(fullPath, 'utf8');
-            const { data, content } = parseFrontmatter(raw);
-            const relativePath = path.relative(this.skillsDir, fullPath).replace(/\\/g, '/');
-            const categoryFromPath = relativePath.includes('/') ? relativePath.split('/')[0] : 'general';
-            
-            const id = data.id || path.basename(entry.name, '.md');
-            const name = data.name || id;
-            const category = data.category || categoryFromPath;
-            const description = data.description || '';
-            const author = data.author || 'unknown';
-            const license = data.license || 'MIT';
-            const version = data.version || '1.0.0';
-            const tags = Array.isArray(data.tags) ? data.tags : [];
-            const frameworks = Array.isArray(data.frameworks) ? data.frameworks : ['any'];
-            const dependencies = Array.isArray(data.dependencies) ? data.dependencies : [];
-            const relatedSkills = Array.isArray(data.relatedSkills) ? data.relatedSkills : [];
-            const lastVerified = data.lastVerified || new Date().toISOString().split('T')[0];
+    const files = this.listSkillFiles();
+    const index = this.readFreshIndex(files);
+    const entries = index
+      ? index.skills.map(record => ({ record: { ...record }, content: undefined }))
+      : this.scanSkills(files);
 
-            const skill = {
-              id,
-              name,
-              category,
-              description,
-              author,
-              license,
-              version,
-              tags,
-              frameworks,
-              dependencies,
-              relatedSkills,
-              lastVerified,
-              filePath: fullPath,
-              content
-            };
-
-            this.skills.set(id, skill);
-            this.categories.add(category);
-          } catch (err) {
-            console.error(`Error loading skill from ${fullPath}:`, err.message);
-          }
-        }
+    for (const { record, content } of entries) {
+      if (this.skills.has(record.id)) {
+        this.duplicates.push(record.id);
+        continue; // first one wins; `gaw skills lint` reports duplicates
       }
-    };
+      this.skills.set(record.id, this.attachContent(record, content));
+      this.categories.add(record.category);
+    }
 
-    traverse(this.skillsDir);
     this.initialized = true;
+    this.loadedFromIndex = Boolean(index);
     return Array.from(this.skills.values());
   }
 
@@ -163,4 +266,3 @@ export class SkillRegistry {
 }
 
 export default SkillRegistry;
-

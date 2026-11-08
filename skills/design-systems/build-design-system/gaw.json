@@ -1,0 +1,16 @@
+{
+  "gss": 1,
+  "related": [
+    "design-system-boss",
+    "migrate-to-a-design-system",
+    "baseline-ui"
+  ],
+  "frameworks": [
+    "react",
+    "nextjs",
+    "vue",
+    "svelte",
+    "html"
+  ],
+  "lastVerified": "2026-11-06"
+}

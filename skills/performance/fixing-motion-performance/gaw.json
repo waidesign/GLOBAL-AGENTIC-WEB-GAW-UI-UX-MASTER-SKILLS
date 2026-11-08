@@ -1,0 +1,12 @@
+{
+  "gss": 1,
+  "related": [
+    "improve-animations"
+  ],
+  "frameworks": [
+    "react",
+    "nextjs",
+    "framer-motion"
+  ],
+  "lastVerified": "2026-11-06"
+}

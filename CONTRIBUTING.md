@@ -4,7 +4,7 @@ Thank you for your interest in contributing to the Global Agentic Web ecosystem!
 
 ## 1. How to Contribute
 
-- **Proposing New Skills**: Submit new UI/UX or engineering skills adhering to the [Skill Authoring Guide](docs/skills/authoring-guide.md). Every skill must have complete frontmatter metadata (`id`, `name`, `category`, `description`, `author`, `license`, `version`, `tags`, `frameworks`).
+- **Proposing New Skills**: Submit new UI/UX or engineering skills adhering to the [Skill Authoring Guide](docs/skills/authoring-guide.md). Skills follow the [GAW Skill Standard (GSS)](docs/gss/spec.md): a folder with `SKILL.md` (standard Agent Skills frontmatter) and an optional `gaw.json`. Run `gaw skills lint` and `gaw skills index` before submitting. Imported skills must keep their original author's license.
 - **Reporting Issues**: Open a GitHub Issue detailing steps to reproduce, expected vs. actual behavior, and environment (`node -v`, OS).
 - **Submitting Pull Requests**: Follow the development workflow below.
 

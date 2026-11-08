@@ -1,0 +1,14 @@
+{
+  "gss": 1,
+  "related": [
+    "frontend-design",
+    "improve-ui"
+  ],
+  "frameworks": [
+    "react",
+    "nextjs",
+    "framer-motion",
+    "tailwind"
+  ],
+  "lastVerified": "2026-11-06"
+}

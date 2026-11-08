@@ -1,5 +1,20 @@
-import { SkillDiscovery } from '../skill-discovery/SkillDiscovery.js';
+import { SkillDiscovery, explainMatch } from '../skill-discovery/SkillDiscovery.js';
 import { PresetRegistry } from '../preset-registry/PresetRegistry.js';
+
+// Default context budget for `gaw use`: full instructions are loaded while they
+// fit; anything beyond is listed in short form for the agent to open if needed.
+export const DEFAULT_TOKEN_BUDGET = 8000;
+const MAX_SKILLS_PER_TASK = 4;
+
+// Skill categories that mean the task involves a user interface, so a design preset can help
+const UI_CATEGORIES = new Set([
+  'ui-ux', 'design-systems', 'frontend', 'frontend-frameworks', 'animation-motion',
+  'micro-interactions', 'interaction', 'typography', 'color', 'components', 'shadcn-ui',
+  'systems', 'react', '3d'
+]);
+const UI_TASK_WORDS = /\b(ui|ux|website|web ?site|web ?page|landing|dashboard|layout|interface|front-?end|component|styling|css|tailwind|design system|screen|app design)\b/i;
+
+const estimateTokens = (text) => Math.round((text || '').length / 4);
 
 export class SkillOrchestrator {
   constructor(skillRegistry, presetRegistry = null) {
@@ -8,138 +23,85 @@ export class SkillOrchestrator {
     this.presetRegistry = presetRegistry || new PresetRegistry();
   }
 
+  /** A task needs a design preset only when it involves a user interface. */
+  isUiTask(taskPrompt, skills = []) {
+    return UI_TASK_WORDS.test(taskPrompt || '') || skills.some(s => UI_CATEGORIES.has(s.category));
+  }
+
   /**
-   * Analyze a user task prompt and project context
+   * Analyze a task: find skills that closely match it (and nothing when none do),
+   * with a reason for each.
    */
   async analyzeTask(taskPrompt, projectContext = {}) {
-    const prompt = taskPrompt || '';
-    const tokens = prompt.toLowerCase();
+    const matches = await this.discovery.findRelevant(taskPrompt, { limit: MAX_SKILLS_PER_TASK + 2, withScores: true });
+    const reasonById = new Map(matches.map(m => [m.skill.id, explainMatch(m)]));
+    const ranked = matches.map(m => m.skill);
 
-    // Categorization heuristics
-    const detectedCategories = new Set();
-    const detectedFrameworks = new Set();
+    const primarySkills = ranked.slice(0, 3);
+    const supportingSkills = ranked.slice(3, MAX_SKILLS_PER_TASK + 2);
 
-    if (/design system|token|component library|tokens|ds\b/i.test(tokens)) {
-      detectedCategories.add('design-systems');
-    }
-    if (/animat|motion|transition|gsap|framer|scroll|micro-interaction/i.test(tokens)) {
-      detectedCategories.add('animation-motion');
-    }
-    if (/ui|ux|wireframe|flow|layout|dashboard|landing|pricing|saas/i.test(tokens)) {
-      detectedCategories.add('ui-ux');
-    }
-    if (/react|jsx|tsx|hook|virtual dom|state|million/i.test(tokens)) {
-      detectedCategories.add('react');
-      detectedFrameworks.add('react');
-    }
-    if (/shadcn|radix|lucide|ui component/i.test(tokens)) {
-      detectedCategories.add('shadcn-ui');
-    }
-    if (/perform|speed|render|re-render|bundle|vitals/i.test(tokens)) {
-      detectedCategories.add('performance');
-    }
-    if (/accessib|a11y|screen reader|aria|wcag|contrast/i.test(tokens)) {
-      detectedCategories.add('accessibility');
-    }
-    if (/seo|metadata|meta tag|sitemap|open graph/i.test(tokens)) {
-      detectedCategories.add('seo');
-    }
-    if (/3d|three\.js|threejs|webgl|mesh|canvas/i.test(tokens)) {
-      detectedCategories.add('3d');
-    }
-    if (/tailwind|css|flex|grid|styling/i.test(tokens)) {
-      detectedCategories.add('frontend');
-    }
-
-    if (projectContext.framework) {
-      detectedFrameworks.add(projectContext.framework.toLowerCase());
-    }
-
-    // Run semantic/token discovery
-    const candidates = await this.discovery.search(taskPrompt, { limit: 12 });
-
-    // Select primary and supporting skills
-    const primarySkills = [];
-    const supportingSkills = [];
-    const dependencyIds = new Set();
-
-    for (let i = 0; i < candidates.length; i++) {
-      const candidate = candidates[i];
-      if (i < 3) {
-        primarySkills.push(candidate);
-      } else if (i < 6) {
-        supportingSkills.push(candidate);
-      }
-
-      // Check dependencies
-      if (candidate.dependencies && candidate.dependencies.length > 0) {
-        for (const dep of candidate.dependencies) {
-          dependencyIds.add(dep);
+    // Resolve declared dependencies that are not already selected
+    const selectedIds = new Set(ranked.map(s => s.id));
+    const dependencies = [];
+    for (const skill of ranked) {
+      for (const depId of skill.dependencies || []) {
+        if (selectedIds.has(depId)) continue;
+        const dep = await this.registry.getSkill(depId);
+        if (dep) {
+          dependencies.push(dep);
+          selectedIds.add(depId);
+          reasonById.set(depId, `Required by ${skill.id}.`);
         }
       }
     }
 
-    // Resolve dependencies
-    const resolvedDependencies = [];
-    for (const depId of dependencyIds) {
-      if (!primarySkills.some(s => s.id === depId) && !supportingSkills.some(s => s.id === depId)) {
-        const depSkill = await this.registry.getSkill(depId);
-        if (depSkill) resolvedDependencies.push(depSkill);
-      }
-    }
-
-    // Detect potential conflicts (e.g. baseline-ui vs custom raw styling, or animations when minimal motion required)
+    // Known conflicts between selected skills
     const conflicts = [];
-    const allSelectedIds = [...primarySkills, ...supportingSkills, ...resolvedDependencies].map(s => s.id);
-    if (allSelectedIds.includes('baseline-ui') && allSelectedIds.includes('improve-animations')) {
+    if (selectedIds.has('baseline-ui') && selectedIds.has('improve-animations')) {
       conflicts.push({
         skills: ['baseline-ui', 'improve-animations'],
         resolution: 'Baseline UI restricts unnecessary animations. Animations must strictly be compositor-driven and deliberate.'
       });
     }
 
+    const detectedFrameworks = new Set();
+    if (projectContext.framework) detectedFrameworks.add(projectContext.framework.toLowerCase());
+
     return {
       objective: taskPrompt,
-      detectedCategories: Array.from(detectedCategories),
-      detectedFrameworks: Array.from(detectedFrameworks),
+      detectedCategories: [...new Set(ranked.map(s => s.category))],
+      detectedFrameworks: [...detectedFrameworks],
       primarySkills,
       supportingSkills,
-      dependencies: resolvedDependencies,
+      dependencies,
       conflicts,
-      recommendedOrder: [...primarySkills, ...supportingSkills, ...resolvedDependencies]
+      reasons: reasonById,
+      recommendedOrder: [...primarySkills, ...supportingSkills, ...dependencies]
     };
   }
 
   /**
-   * Recommend skills for a task with structured rationale
+   * Recommend skills for a task, each with the reason it was chosen.
    */
   async recommend(taskPrompt, projectContext = {}) {
     const analysis = await this.analyzeTask(taskPrompt, projectContext);
-    const designPresets = await this.presetRegistry.recommend(taskPrompt);
-    
+    const describe = (s) => ({
+      id: s.id,
+      name: s.name,
+      category: s.category,
+      description: s.description,
+      reason: analysis.reasons.get(s.id) || 'Selected for this task.'
+    });
+
+    const designPresets = this.isUiTask(taskPrompt, analysis.recommendedOrder)
+      ? await this.presetRegistry.recommend(taskPrompt)
+      : [];
+
     return {
       prompt: taskPrompt,
-      primarySkills: analysis.primarySkills.map(s => ({
-        id: s.id,
-        name: s.name,
-        category: s.category,
-        description: s.description,
-        reason: `Primary skill addressing key objectives of '${s.category}' and requested functionality.`
-      })),
-      supportingSkills: analysis.supportingSkills.map(s => ({
-        id: s.id,
-        name: s.name,
-        category: s.category,
-        description: s.description,
-        reason: `Supporting guidance for '${s.category}'.`
-      })),
-      dependencies: analysis.dependencies.map(s => ({
-        id: s.id,
-        name: s.name,
-        category: s.category,
-        description: s.description,
-        reason: `Required dependency for selected skills.`
-      })),
+      primarySkills: analysis.primarySkills.map(describe),
+      supportingSkills: analysis.supportingSkills.map(describe),
+      dependencies: analysis.dependencies.map(describe),
       conflicts: analysis.conflicts,
       designPresets,
       executionOrder: analysis.recommendedOrder.map(s => s.id)
@@ -147,13 +109,15 @@ export class SkillOrchestrator {
   }
 
   /**
-   * Progressive Skill Loading:
-   * Level 1: Discovery (metadata only)
-   * Level 2: Selection
-   * Level 3: Full instructions of selected skills
+   * Progressive skill loading for a task:
+   *   1. explicit skill IDs in the prompt ("<landing-page>, <pricing-page>"), or
+   *   2. skills that closely match the task (none when nothing fits),
+   * then full instructions while they fit the token budget, short form after that.
    */
   async loadSkillsForTask(taskPrompt, projectContext = {}, options = {}) {
-    // Check if taskPrompt contains explicit skill IDs (e.g. "<landing-page>, <pricing-page>" or "landing-page pricing-page")
+    const tokenBudget = options.tokenBudget || DEFAULT_TOKEN_BUDGET;
+
+    // Explicit skill IDs (e.g. "<landing-page>, <pricing-page>" or "landing-page pricing-page")
     const cleanedTokens = (taskPrompt || '')
       .replace(/[<>,()]/g, ' ')
       .split(/\s+/)
@@ -170,17 +134,47 @@ export class SkillOrchestrator {
 
     let selected = [];
     let conflicts = [];
+    let reasons = new Map();
 
     if (explicitSkills.length > 0) {
       selected = explicitSkills;
+      reasons = new Map(explicitSkills.map(s => [s.id, 'Requested explicitly.']));
     } else {
       const analysis = await this.analyzeTask(taskPrompt, projectContext);
-      selected = analysis.recommendedOrder;
+      selected = analysis.recommendedOrder.slice(0, MAX_SKILLS_PER_TASK);
       conflicts = analysis.conflicts;
+      reasons = analysis.reasons;
     }
 
-    // Build the progressive loaded context payload
-    const loadedInstructions = selected.map(skill => {
+    const loadedInstructions = this.fitToBudget(selected, reasons, tokenBudget);
+
+    const recommendedDesignPreset = this.isUiTask(taskPrompt, selected)
+      ? (await this.presetRegistry.recommend(taskPrompt))[0] || null
+      : null;
+
+    return {
+      timestamp: new Date().toISOString(),
+      task: taskPrompt,
+      selectedSkillCount: selected.length,
+      tokenBudget,
+      skills: loadedInstructions,
+      conflictResolutions: conflicts,
+      recommendedDesignPreset,
+      formattedInstructions: this.formatInstructions(loadedInstructions, conflicts, { objective: taskPrompt })
+    };
+  }
+
+  /**
+   * Full instructions while they fit the token budget; beyond it, a short form
+   * (description, reason, file path) the agent opens only if needed.
+   * Reads skill bodies only for skills that are actually loaded.
+   */
+  fitToBudget(skills, reasons = new Map(), tokenBudget = DEFAULT_TOKEN_BUDGET) {
+    let used = 0;
+    return skills.map(skill => {
+      const fullTokens = skill.tokenEstimate ?? estimateTokens(skill.content);
+      const fits = used + fullTokens <= tokenBudget;
+      used += fits ? fullTokens : estimateTokens(skill.description) + 60;
       return {
         id: skill.id,
         name: skill.name,
@@ -188,45 +182,43 @@ export class SkillOrchestrator {
         author: skill.author,
         version: skill.version,
         frameworks: skill.frameworks,
-        content: skill.content
+        description: skill.description,
+        filePath: skill.filePath,
+        reason: reasons.get(skill.id) || 'Selected for this task.',
+        mode: fits ? 'full' : 'summary',
+        fullTokens,
+        content: fits ? skill.content : ''
       };
     });
-
-    const recommendedDesignPresets = await this.presetRegistry.recommend(taskPrompt);
-    const recommendedDesignPreset = recommendedDesignPresets[0] || null;
-
-    const contextPayload = {
-      timestamp: new Date().toISOString(),
-      task: taskPrompt,
-      selectedSkillCount: selected.length,
-      skills: loadedInstructions,
-      conflictResolutions: conflicts,
-      recommendedDesignPreset,
-      formattedInstructions: this.formatInstructions(loadedInstructions, conflicts)
-    };
-
-    return contextPayload;
   }
 
   /**
    * Load exactly the given skills (e.g. the ones a user picked during onboarding)
-   * and format them for ai-brain/active-skills.md. Unknown IDs are ignored.
+   * within the token budget, formatted for ai-brain/active-skills.md. Unknown IDs are ignored.
    */
-  async loadSkillsByIds(skillIds, objective = '') {
+  async loadSkillsByIds(skillIds, objective = '', options = {}) {
     const skills = [];
     for (const id of skillIds) {
       const skill = await this.registry.getSkill(id);
       if (skill && !skills.some(s => s.id === skill.id)) skills.push(skill);
     }
+    const loaded = this.fitToBudget(skills, options.reasons || new Map(), options.tokenBudget || DEFAULT_TOKEN_BUDGET);
     return {
-      skills,
-      formattedInstructions: this.formatInstructions(skills, [], { objective })
+      skills: loaded,
+      formattedInstructions: this.formatInstructions(loaded, [], { objective })
     };
   }
 
   formatInstructions(skills, conflicts = [], options = {}) {
     let md = `# GLOBAL AGENTIC WEB — ACTIVE SKILL CONTEXT\n\n`;
     if (options.objective) md += `**Objective**: ${options.objective}\n\n`;
+
+    if (skills.length === 0) {
+      md += `No skills in the library closely match this task, so none were loaded.\n`;
+      md += `Work from the project rules in ai-brain/ and your own expertise.\n`;
+      return md;
+    }
+
     md += `Loaded ${skills.length} specialized skill(s) for the current task.\n\n`;
 
     if (conflicts.length > 0) {
@@ -239,8 +231,17 @@ export class SkillOrchestrator {
 
     for (const skill of skills) {
       md += `## Skill: ${skill.name} (${skill.id})\n`;
-      md += `**Category**: \`${skill.category}\` | **Author**: ${skill.author} | **Version**: ${skill.version}\n\n`;
-      md += `${skill.content}\n\n`;
+      md += `**Category**: \`${skill.category}\` | **Author**: ${skill.author} | **Version**: ${skill.version}\n`;
+      if (skill.reason) md += `**Why**: ${skill.reason}\n`;
+      md += `\n`;
+
+      if (skill.mode === 'summary') {
+        md += `${skill.description}\n\n`;
+        md += `_Full instructions (~${skill.fullTokens} tokens) were not loaded to save context. `;
+        md += `Read them only if this task needs them: \`${skill.filePath}\`_\n\n`;
+      } else {
+        md += `${skill.content}\n\n`;
+      }
       md += `---\n\n`;
     }
 
@@ -249,4 +250,3 @@ export class SkillOrchestrator {
 }
 
 export default SkillOrchestrator;
-

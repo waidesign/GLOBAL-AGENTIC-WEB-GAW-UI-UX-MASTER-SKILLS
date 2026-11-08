@@ -1,0 +1,13 @@
+{
+  "gss": 1,
+  "keywords": [
+    "test-driven development",
+    "tests first"
+  ],
+  "lastVerified": "2026-11-08",
+  "source": {
+    "repo": "mattpocock/skills",
+    "path": "skills/engineering/tdd/SKILL.md",
+    "licenseVerified": false
+  }
+}

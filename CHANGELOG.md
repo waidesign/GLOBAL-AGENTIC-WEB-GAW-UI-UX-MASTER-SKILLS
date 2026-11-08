@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **GAW Skill Standard (GSS) v1** (`docs/gss/spec.md`): skills are folders with a standard Agent Skills `SKILL.md` plus an optional `gaw.json` contract (keywords, dependsOn, frameworks, verification, permissions, source). GSS skills work in any tool that supports Agent Skills. All 235 skills migrated.
+- **`gaw skills lint`** checks skills against GSS; **`gaw skills index`** rebuilds `skills/index.json`, so commands read skill metadata only and load skill bodies on demand.
+- **Explained skill picks**: `gaw use`, `gaw recommend` and onboarding show why each skill was chosen ("Matched "pricing", "page" (name); "SaaS" (description).").
+- **`gaw use --budget <tokens>`**: full skill instructions are loaded within a token budget (default 8,000); skills beyond it are listed in short form with a path the agent can open.
+- **Skill selection benchmark** (`npm run eval`): 36 labeled tasks across fields, including tasks no skill should match.
 - **New `gaw init` onboarding for any kind of project**: (1) what are you building → `ai-brain/context.md`, (2) skills that closely match the goal, picked by number → `ai-brain/active-skills.md`, (3) rules agents must always follow → `ai-brain/rules.md`, (4) Graphify, only if missing. It replaces the old questions (pick skill IDs from all 235, external skills, goal).
 - **`SkillDiscovery.findRelevant()`**: returns only close matches for a free-text goal, and nothing for fields the library does not cover.
 - **Guided Graphify install**: when Graphify is missing, `gaw init` explains what it does and asks whether to install it. It installs with uv, and asks separately before running Astral's uv install script. Non-interactive runs and the MCP server never install anything.
@@ -27,6 +32,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The built-in regex-based graph generator. Its "God Nodes" counted raw import strings (such as `node:fs`), so it often pointed agents to the wrong hubs.
 
 ### Fixed
+- **`gaw use` loaded unrelated skills.** It always loaded ~6 skills (~11,000 tokens), and 61% of them didn't fit the task (e.g. an Azure skill for a pricing page). It now loads only close matches: benchmark score 45% → 94%, precision 39% → 83%, ~2,600 tokens per task, and nothing for tasks no skill covers.
+- **47 skills had no description** (`description: ">"`): the importer could not read multi-line YAML. 46 were recovered from their source repositories and 1 was derived from the skill text.
+- **The importer stamped every imported skill as MIT**, regardless of its real license. It now keeps the source license (or `UNKNOWN`), and `gaw.json` records the source with `licenseVerified: false` until checked.
+- **The importer dropped skills' supporting files** (references, scripts, assets) and filed skills by substring ("aria" in "variables"). It now writes GSS folders with supporting files (within limits) and uses whole-word categories. 71 misfiled skills were recategorized, and a duplicate `create-design-md` was removed.
+- **Design presets were injected into non-UI tasks** (e.g. `gaw use "Analyze our Azure costs" --inject` wrote a design preset). Presets are now offered only for UI work.
+- **`gaw use --inject` overwrote `active-skills.md` with nothing** when no skill matched. It now leaves the file unchanged.
 - **Onboarding: accepting the recommended skills saved nothing.** Display names like `"Landing Page (landing-page)"` were looked up as skill IDs.
 - **Onboarding: the build goal was never read by agents.** It was saved to `ai-brain/ACTIVE_TASK.md`, which no agent instruction file references. It now goes to `context.md` and `active-skills.md`.
 - **Onboarding: piped or typed-ahead answers were lost**, and end of input ended onboarding silently.

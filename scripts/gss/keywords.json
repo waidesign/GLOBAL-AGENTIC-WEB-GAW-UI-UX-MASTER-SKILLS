@@ -1,0 +1,14 @@
+{
+  "description": "Search synonyms people use that are missing from a skill's name and description. Written into gaw.json `keywords` by migrate-to-gss.mjs. Keep entries short and factual.",
+  "keywords": {
+    "docx": ["word", "word document", "microsoft word"],
+    "xlsx": ["excel", "spreadsheet", "workbook", "csv"],
+    "pptx": ["powerpoint", "slides", "slide deck", "presentation"],
+    "pdf": ["acrobat", "pdf form"],
+    "pr": ["pull request", "pr description", "merge request"],
+    "tdd": ["test-driven development", "tests first"],
+    "webapp-testing": ["end-to-end", "e2e", "browser testing"],
+    "fixing-metadata": ["seo", "open graph", "meta tags"],
+    "threejs": ["three.js", "webgl", "3d scene"]
+  }
+}

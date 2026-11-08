@@ -1,29 +1,29 @@
 {
-  "generatedAt": "2026-11-08T13:52:38.500Z",
+  "generatedAt": "2026-11-08T14:18:49.951Z",
   "cases": 36,
   "coveredCases": 32,
   "noMatchCases": 4,
   "systems": {
     "onboarding": {
-      "hitRate": 0.906,
-      "precision": 0.609,
-      "noMatchAccuracy": 0.5,
-      "avgSkills": 2.39,
-      "avgTokens": 3859,
-      "score": 0.672
+      "hitRate": 1,
+      "precision": 0.829,
+      "noMatchAccuracy": 1,
+      "avgSkills": 1.81,
+      "avgTokens": 2690,
+      "score": 0.943
     },
     "use": {
-      "hitRate": 0.969,
-      "precision": 0.385,
-      "noMatchAccuracy": 0,
-      "avgSkills": 5.44,
-      "avgTokens": 10977,
-      "score": 0.451
+      "hitRate": 1,
+      "precision": 0.831,
+      "noMatchAccuracy": 1,
+      "avgSkills": 1.72,
+      "avgTokens": 2637,
+      "score": 0.944
     }
   },
   "library": {
     "skills": 235,
-    "missingDescriptions": 47,
+    "missingDescriptions": 0,
     "oversized": 13,
     "largestSkillTokens": 25991
   }

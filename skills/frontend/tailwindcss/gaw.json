@@ -1,0 +1,13 @@
+{
+  "gss": 1,
+  "related": [
+    "baseline-ui"
+  ],
+  "frameworks": [
+    "tailwind",
+    "react",
+    "nextjs",
+    "vue"
+  ],
+  "lastVerified": "2026-11-06"
+}

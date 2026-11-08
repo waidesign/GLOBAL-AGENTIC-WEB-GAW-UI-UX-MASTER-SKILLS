@@ -42,8 +42,10 @@ async function main() {
 
   const systems = {
     onboarding: async (task) => {
+      // What onboarding writes to ai-brain/active-skills.md when the user accepts all suggestions
       const skills = await orchestrator.discovery.findRelevant(task, { limit: 5 });
-      return { ids: skills.map(s => s.id), tokens: estimateTokens(orchestrator.formatInstructions(skills)) };
+      const loaded = await orchestrator.loadSkillsByIds(skills.map(s => s.id), task);
+      return { ids: skills.map(s => s.id), tokens: estimateTokens(loaded.formattedInstructions) };
     },
     use: async (task) => {
       const loaded = await orchestrator.loadSkillsForTask(task, {});
@@ -122,11 +124,14 @@ async function main() {
 function printReport(report, baseline, perCase) {
   // Higher is better for rates and score; lower is better for tokens and library problems
   const lowerIsBetter = new Set(['avgTokens', 'missingDescriptions', 'oversized', 'largestSkillTokens']);
+  const neutral = new Set(['avgSkills']); // more or fewer skills is neither good nor bad by itself
   const delta = (key, now, before) => {
     if (before === undefined || before === now) return '';
-    const better = lowerIsBetter.has(key) ? now < before : now > before;
     const diff = round(now - before, 3);
-    return `  (${diff > 0 ? '+' : ''}${diff} ${better ? 'better' : 'worse'})`;
+    const sign = diff > 0 ? '+' : '';
+    if (neutral.has(key)) return `  (${sign}${diff})`;
+    const better = lowerIsBetter.has(key) ? now < before : now > before;
+    return `  (${sign}${diff} ${better ? 'better' : 'worse'})`;
   };
   const pct = (n) => `${Math.round(n * 100)}%`;
 

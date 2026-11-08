@@ -1,0 +1,3 @@
+# Skills and the skill index use LF line endings on every OS, so the size-based
+# freshness check in skills/index.json gives the same result everywhere.
+skills/** text eol=lf

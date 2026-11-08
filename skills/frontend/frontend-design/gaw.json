@@ -1,0 +1,16 @@
+{
+  "gss": 1,
+  "related": [
+    "improve-ui",
+    "design-lab",
+    "baseline-ui"
+  ],
+  "frameworks": [
+    "react",
+    "nextjs",
+    "vue",
+    "svelte",
+    "tailwind"
+  ],
+  "lastVerified": "2026-11-06"
+}

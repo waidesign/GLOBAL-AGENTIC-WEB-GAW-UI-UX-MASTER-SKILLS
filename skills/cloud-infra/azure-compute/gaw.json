@@ -1,0 +1,9 @@
+{
+  "gss": 1,
+  "lastVerified": "2026-11-08",
+  "source": {
+    "repo": "microsoft/azure-skills",
+    "path": ".github/plugins/azure-skills/skills/azure-compute/SKILL.md",
+    "licenseVerified": false
+  }
+}

@@ -11,82 +11,183 @@ const STOP_WORDS = new Set([
   'project', 'something', 'thing', 'things'
 ]);
 
-const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+// How much a match in each skill field counts. A word in the skill's ID or
+// name says more about what the skill is for than a word in its description.
+const FIELD_WEIGHTS = { id: 3, name: 2, tags: 2, keywords: 2, category: 1, description: 1.5 };
+const FIELD_ORDER = ['id', 'name', 'tags', 'keywords', 'category', 'description'];
+// Matching inside skill bodies (weak signal). Off by default so search reads only
+// the metadata index and never loads skill bodies; see `npm run eval`.
+const CONTENT_WEIGHT = Number(process.env.GAW_CONTENT_WEIGHT || 0);
+
+// Relevance rules for findRelevant (tuned with `npm run eval`):
+// - the matched words must carry at least this share of the task's meaning
+const MIN_COVERAGE = 0.34;
+// - and a result must score at least this share of the best result
+const MIN_SHARE_OF_BEST = 0.4;
+// - a skill matching only one part of a multi-part task must cover at least half of that part
+const MIN_PART_COVERAGE = 0.5;
 
 /**
- * Split a query into meaningful lowercase tokens: drops filler words and
- * single characters, and trims a plural "s" ("pages" -> "page").
+ * Split text into meaningful lowercase tokens: drops filler words and single
+ * characters, joins dotted names ("three.js" -> "threejs"), and trims a plural
+ * "s" ("pages" -> "page").
  */
-export function tokenizeQuery(query) {
-  const tokens = String(query || '')
+export function tokenizeQuery(text) {
+  const tokens = String(text || '')
     .toLowerCase()
     .split(/[^a-z0-9+#.]+/)
-    .map(t => t.replace(/^\.+|\.+$/g, ''))
+    .map(t => t.replace(/^\.+|\.+$/g, '').replace(/\./g, ''))
     .filter(t => t.length >= 2 && !STOP_WORDS.has(t))
     .map(t => (t.length > 3 && t.endsWith('s') && !t.endsWith('ss') ? t.slice(0, -1) : t));
   return [...new Set(tokens)];
 }
 
 /**
- * Whole-word match for short tokens ("ui", "go"), word-start match for longer
- * ones ("auth" matches "authentication", but "api" does not match "rapid").
+ * Does a query token match a skill word? Exact for short tokens ("ui", "api"),
+ * word start for longer ones ("auth" -> "authentication"), and the reverse for
+ * word forms ("deployment" -> "deploy").
  */
-function wordMatcher(token) {
-  const t = escapeRegExp(token);
-  return token.length <= 2
-    ? new RegExp(`(^|[^a-z0-9])${t}($|[^a-z0-9])`)
-    : new RegExp(`(^|[^a-z0-9])${t}`);
+function tokenMatchesWord(token, word) {
+  if (token === word) return true;
+  if (token.length >= 4 && word.startsWith(token)) return true;
+  if (word.length >= 5 && token.startsWith(word)) return true;
+  return false;
+}
+
+const matchesAny = (token, words) => {
+  for (const word of words) {
+    if (tokenMatchesWord(token, word)) return true;
+  }
+  return false;
+};
+
+/**
+ * Split a multi-part task into its parts ("a, b, and c" -> ["a", "b", "c"]).
+ * Returns [] for single-part tasks.
+ */
+export function splitTaskParts(task) {
+  const parts = String(task || '')
+    .split(/[,;]|\band\b|\bthen\b|\bplus\b/i)
+    .map(p => p.trim())
+    .filter(p => tokenizeQuery(p).length > 0);
+  return parts.length > 1 ? parts : [];
+}
+
+/**
+ * Map each query token back to the word the user typed ("saa" -> "SaaS"),
+ * so explanations use the user's own words.
+ */
+function originalWords(text) {
+  const map = new Map();
+  for (const raw of String(text || '').split(/[^A-Za-z0-9+#.]+/)) {
+    const [token] = tokenizeQuery(raw);
+    if (token && !map.has(token)) map.set(token, raw.replace(/^\.+|\.+$/g, ''));
+  }
+  return map;
+}
+
+// Where a match counts most, for explanations: ID and name both read as "name"
+const FIELD_LABELS = [['id', 'name'], ['name', 'name'], ['tags', 'tags'], ['keywords', 'keywords'], ['category', 'category'], ['description', 'description']];
+
+/**
+ * Human-readable reason, e.g. 'Matched "pricing", "page" (name); "SaaS" (description).'
+ * Each word is listed under the most telling field it matched.
+ */
+export function explainMatch(entry) {
+  if (!entry?.reasons?.length) return 'Selected explicitly.';
+  const groups = new Map();
+  for (const r of entry.reasons) {
+    const label = FIELD_LABELS.find(([field]) => r.fields.includes(field))[1];
+    if (!groups.has(label)) groups.set(label, []);
+    groups.get(label).push(`"${r.word || r.token}"`);
+  }
+  const order = ['name', 'tags', 'keywords', 'category', 'description'];
+  const parts = order.filter(l => groups.has(l)).map(l => `${groups.get(l).join(', ')} (${l})`);
+  return `Matched ${parts.join('; ')}.`;
 }
 
 export class SkillDiscovery {
   constructor(skillRegistry) {
     this.registry = skillRegistry;
+    this.index = null;
+  }
+
+  /** Word sets per skill field, plus document frequencies for IDF. Built once per skill set. */
+  async getIndex() {
+    const skills = await this.registry.getAllSkills();
+    if (this.index && this.index.skills === skills.length) return this.index;
+
+    const entries = skills.map(skill => ({
+      skill,
+      fields: {
+        id: new Set(tokenizeQuery((skill.id || '').replace(/-/g, ' '))),
+        name: new Set(tokenizeQuery(skill.name)),
+        // Imported skills repeat their ID and category as tags; skip those so they don't count twice
+        tags: new Set((skill.tags || [])
+          .map(String)
+          .filter(t => t !== skill.id && t !== skill.category && t !== 'skills.sh')
+          .flatMap(t => tokenizeQuery(t))),
+        keywords: new Set((skill.keywords || []).flatMap(k => tokenizeQuery(String(k)))),
+        category: new Set(tokenizeQuery((skill.category || '').replace(/-/g, ' '))),
+        description: new Set(tokenizeQuery(skill.description))
+      },
+      content: CONTENT_WEIGHT > 0 ? new Set(tokenizeQuery(skill.content)) : new Set()
+    }));
+
+    this.index = { skills: skills.length, entries, df: new Map() };
+    return this.index;
+  }
+
+  /** Inverse document frequency: rare words (few skills mention them) weigh more. */
+  idf(index, token) {
+    if (!index.df.has(token)) {
+      let df = 0;
+      for (const entry of index.entries) {
+        if (FIELD_ORDER.some(f => matchesAny(token, entry.fields[f]))) df++;
+      }
+      index.df.set(token, df);
+    }
+    return Math.log(1 + index.entries.length / (1 + index.df.get(token)));
   }
 
   /**
-   * Score one skill against query tokens. `strongScore` leaves out matches found
-   * only in the skill body, which are weak signals of relevance.
+   * Score one indexed skill. Returns score, coverage (share of the task's
+   * meaning the skill matched in its metadata), matchedTokens and reasons.
    */
-  scoreSkill(skill, tokens) {
-    const idLower = (skill.id || '').toLowerCase();
-    const nameLower = (skill.name || '').toLowerCase();
-    const descLower = (skill.description || '').toLowerCase();
-    const catLower = (skill.category || '').toLowerCase();
-    const tags = (skill.tags || []).map(t => String(t).toLowerCase());
-    const frameworks = (skill.frameworks || []).map(f => String(f).toLowerCase());
-    const contentLower = (skill.content || '').toLowerCase();
-
-    let strongScore = 0;
-    let contentScore = 0;
-    let matchedTokens = 0;
+  scoreEntry(entry, tokens, weights, totalWeight) {
+    let score = 0;
+    let coveredWeight = 0;
+    let namesSkill = false;
+    const reasons = [];
+    const compactId = (entry.skill.id || '').replace(/-/g, '');
 
     for (const token of tokens) {
-      const matches = wordMatcher(token);
-      const before = strongScore;
-
-      if (idLower === token) strongScore += 25;
-      else if (matches.test(idLower)) strongScore += 15;
-
-      if (nameLower === token) strongScore += 20;
-      else if (matches.test(nameLower)) strongScore += 10;
-
-      if (tags.includes(token)) strongScore += 12;
-      else if (tags.some(tag => matches.test(tag))) strongScore += 6;
-
-      if (frameworks.includes(token)) strongScore += 10;
-      if (matches.test(catLower)) strongScore += 8;
-      if (matches.test(descLower)) strongScore += 5;
-      if (matches.test(contentLower)) contentScore += 1;
-
-      if (strongScore > before) matchedTokens++;
+      // The task names this skill outright ("teach me...", "tdd", "pdf")
+      if (token === compactId) namesSkill = true;
+      const w = weights.get(token);
+      const fields = FIELD_ORDER.filter(f => matchesAny(token, entry.fields[f]));
+      if (fields.length > 0) {
+        score += fields.reduce((sum, f) => sum + FIELD_WEIGHTS[f], 0) * w;
+        coveredWeight += w;
+        reasons.push({ token, fields });
+      } else if (entry.content.has(token)) {
+        score += CONTENT_WEIGHT * w;
+      }
     }
 
-    return { score: strongScore + contentScore, strongScore, matchedTokens };
+    return {
+      score,
+      strongScore: score,
+      coverage: totalWeight > 0 ? coveredWeight / totalWeight : 0,
+      matchedTokens: reasons.length,
+      namesSkill,
+      reasons
+    };
   }
 
   /**
    * Search skills by relevance. With `withScores: true`, returns
-   * [{ skill, score, strongScore, matchedTokens }] instead of skills.
+   * [{ skill, score, coverage, matchedTokens, reasons }] instead of skills.
    */
   async search(query, options = {}) {
     const skills = await this.registry.getAllSkills();
@@ -94,18 +195,25 @@ export class SkillDiscovery {
     // No query at all: list skills (used by `gaw skills` style browsing)
     if (!query || !String(query).trim()) {
       const filtered = this.filter(skills, options);
-      return options.withScores ? filtered.map(skill => ({ skill, score: 0, strongScore: 0 })) : filtered;
+      return options.withScores ? filtered.map(skill => ({ skill, score: 0, coverage: 0, matchedTokens: 0, reasons: [] })) : filtered;
     }
 
     // A query made only of filler words matches nothing
     const tokens = tokenizeQuery(query);
     if (tokens.length === 0) return [];
 
+    const index = await this.getIndex();
+    const weights = new Map(tokens.map(t => [t, this.idf(index, t)]));
+    const totalWeight = [...weights.values()].reduce((a, b) => a + b, 0);
+    const words = originalWords(query);
+
     const scored = [];
-    for (const skill of skills) {
-      const { score, strongScore, matchedTokens } = this.scoreSkill(skill, tokens);
-      if (score > 0 && this.matchesFilter(skill, options)) {
-        scored.push({ skill, score, strongScore, matchedTokens });
+    for (const entry of index.entries) {
+      if (!this.matchesFilter(entry.skill, options)) continue;
+      const result = this.scoreEntry(entry, tokens, weights, totalWeight);
+      if (result.score > 0) {
+        for (const r of result.reasons) r.word = words.get(r.token) || r.token;
+        scored.push({ skill: entry.skill, ...result });
       }
     }
 
@@ -116,18 +224,37 @@ export class SkillDiscovery {
   }
 
   /**
-   * Only close matches, for suggesting skills from a free-text goal.
-   * A skill qualifies when it matches 2+ words of the goal with a solid score,
-   * or one word very strongly (e.g. in its ID, name and tags). Returns [] for
-   * fields the library does not cover, rather than unrelated skills.
+   * Only close matches, for suggesting skills from a free-text task or goal.
+   * A skill qualifies when its metadata covers enough of the task's meaning
+   * (rare words weigh more) and it scores close to the best match. Returns []
+   * for fields the library does not cover, rather than unrelated skills.
+   * With `withScores: true`, entries include `reasons` (see explainMatch).
    */
   async findRelevant(query, options = {}) {
     const limit = options.limit || 5;
-    const entries = await this.search(query, { ...options, limit: 0, withScores: true });
-    return entries
-      .filter(e => (e.matchedTokens >= 2 && e.strongScore >= 25) || e.strongScore >= 40)
-      .slice(0, limit)
-      .map(e => e.skill);
+    const whole = await this.search(query, { ...options, limit: 0, withScores: true });
+    const qualified = new Set(this.closeMatches(whole).map(e => e.skill.id));
+
+    // Multi-part tasks ("dashboard with a sidebar, data table, and smooth animations"):
+    // a skill that covers one part qualifies too, but only through its ID, name,
+    // tags or category, so a passing phrase in a description is not enough.
+    for (const part of splitTaskParts(query)) {
+      const entries = await this.search(part, { ...options, limit: 0, withScores: true });
+      const structural = entries.filter(e => e.reasons.some(r => r.fields.some(f => f !== 'description')));
+      for (const e of this.closeMatches(structural, MIN_PART_COVERAGE)) qualified.add(e.skill.id);
+    }
+
+    // Rank by relevance to the whole task
+    const relevant = whole.filter(e => qualified.has(e.skill.id)).slice(0, limit);
+    return options.withScores ? relevant : relevant.map(e => e.skill);
+  }
+
+  /** Entries that cover enough of the query and score near the best one. */
+  closeMatches(entries, minCoverage = MIN_COVERAGE) {
+    const strong = entries.filter(e => e.namesSkill || (e.matchedTokens > 0 && e.coverage >= minCoverage));
+    if (strong.length === 0) return [];
+    const best = strong[0].score;
+    return strong.filter(e => e.namesSkill || e.score >= best * MIN_SHARE_OF_BEST);
   }
 
   filter(skills, options = {}) {

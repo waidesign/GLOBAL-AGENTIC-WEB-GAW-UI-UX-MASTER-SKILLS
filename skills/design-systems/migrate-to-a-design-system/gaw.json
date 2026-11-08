@@ -1,0 +1,18 @@
+{
+  "gss": 1,
+  "dependsOn": [
+    "build-design-system"
+  ],
+  "related": [
+    "build-design-system",
+    "design-system-boss",
+    "improve-ui"
+  ],
+  "frameworks": [
+    "react",
+    "nextjs",
+    "vue",
+    "svelte"
+  ],
+  "lastVerified": "2026-11-06"
+}

@@ -8,7 +8,7 @@
 ## Module Structure
 ```text
 core/
-├── skill-registry/      # Frontmatter parser & catalog indexer
+├── skill-registry/      # GSS skill loading, metadata index, linter, frontmatter reader
 ├── skill-discovery/     # Full-text & token relevance search engine
 ├── orchestrator/        # Task analyzer, dependency resolver, progressive loader
 ├── memory-engine/       # Global & Project Brain memory manager

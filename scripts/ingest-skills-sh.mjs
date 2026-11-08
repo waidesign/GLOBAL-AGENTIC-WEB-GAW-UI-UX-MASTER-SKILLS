@@ -1,14 +1,32 @@
+#!/usr/bin/env node
+/**
+ * Import Agent Skills from GitHub repositories into the GAW library as
+ * GAW Skill Standard (GSS) folders (see docs/gss/spec.md).
+ *
+ *   node scripts/ingest-skills-sh.mjs                      # all target repos
+ *   node scripts/ingest-skills-sh.mjs --repo owner/name    # one repo
+ *   node scripts/ingest-skills-sh.mjs --out ./tmp-skills   # write somewhere else (for testing)
+ *   node scripts/ingest-skills-sh.mjs --no-files           # SKILL.md and gaw.json only
+ *
+ * Keeps each skill's original description and license, copies its supporting
+ * files (references/, scripts/, assets/), and records the source in gaw.json.
+ * Afterwards run: gaw skills lint && gaw skills index
+ */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { parseFrontmatter, stringifyFrontmatter } from '../core/skill-registry/frontmatter.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '../');
-const SKILLS_DIR = path.join(REPO_ROOT, 'skills');
 
-// Target repositories for Option A (Official, Curated & Trending)
-const TARGET_REPOSITORIES = [
+const args = process.argv.slice(2);
+const argValue = (flag) => (args.includes(flag) ? args[args.indexOf(flag) + 1] : null);
+const SKILLS_DIR = path.resolve(argValue('--out') || path.join(REPO_ROOT, 'skills'));
+
+// Target repositories (official, curated and trending)
+const TARGET_REPOSITORIES = argValue('--repo') ? [argValue('--repo')] : [
   'vercel-labs/agent-skills',
   'anthropics/skills',
   'mattpocock/skills',
@@ -22,119 +40,51 @@ const TARGET_REPOSITORIES = [
   'leonxlnx/taste-skill'
 ];
 
+// Supporting files: some skills ship hundreds of assets, so cap what one import copies
+const COPY_FILES = !args.includes('--no-files');
+const MAX_SUPPORT_FILE_BYTES = 512 * 1024;
+const MAX_SUPPORT_FILES = 300;
+const MAX_SUPPORT_TOTAL_BYTES = 10 * 1024 * 1024;
+const DOWNLOAD_CONCURRENCY = 8;
+
+/** Run async jobs with a fixed number in flight. */
+async function runPool(items, worker, size) {
+  let next = 0;
+  const lanes = Array.from({ length: Math.min(size, items.length) }, async () => {
+    while (next < items.length) {
+      const item = items[next++];
+      await worker(item);
+    }
+  });
+  await Promise.all(lanes);
+}
+const PLACEHOLDERS = new Set(['>', '>-', '>+', '|', '|-', '|+']);
+
 /**
- * Determine best GAW category based on repo, path, skill name, and description.
+ * Pick a GAW category from whole words in the repo, path, name and description.
+ * Whole-word matching avoids the old substring mistakes ("aria" in "variables").
  */
 function determineCategory(repo, skillPath, skillName, desc = '') {
-  const text = `${repo} ${skillPath} ${skillName} ${desc}`.toLowerCase();
+  const words = new Set(`${repo} ${skillPath} ${skillName} ${desc}`.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean));
+  const has = (...terms) => terms.some(t => (t.endsWith('*')
+    ? [...words].some(w => w.startsWith(t.slice(0, -1)))
+    : words.has(t)));
 
-  if (text.includes('design-system') || text.includes('tokens') || text.includes('radix') || text.includes('shadcn')) {
-    return 'design-systems';
-  }
-  if (text.includes('animation') || text.includes('motion') || text.includes('framer') || text.includes('animejs')) {
-    return 'animation-motion';
-  }
-  if (text.includes('accessib') || text.includes('wcag') || text.includes('aria')) {
-    return 'accessibility';
-  }
-  if (text.includes('performance') || text.includes('optimization') || text.includes('optimize') || text.includes('memory-leak')) {
-    return 'performance';
-  }
-  if (text.includes('video') || text.includes('remotion') || text.includes('hyperframe') || text.includes('audio') || text.includes('music')) {
-    return 'media-creative';
-  }
-  if (text.includes('azure') || text.includes('cloud') || text.includes('kubernetes') || text.includes('deploy') || text.includes('docker') || text.includes('infra')) {
-    return 'cloud-infra';
-  }
-  if (text.includes('postgres') || text.includes('database') || text.includes('supabase') || text.includes('sql') || text.includes('prisma')) {
-    return 'database';
-  }
-  if (text.includes('test') || text.includes('tdd') || text.includes('vitest') || text.includes('jest') || text.includes('cypress')) {
-    return 'testing';
-  }
-  if (text.includes('debug') || text.includes('bug') || text.includes('diagnos') || text.includes('troubleshoot') || text.includes('error')) {
-    return 'debugging';
-  }
-  if (text.includes('review') || text.includes('lint') || text.includes('quality') || text.includes('guardrail') || text.includes('pre-commit')) {
-    return 'code-quality';
-  }
-  if (text.includes('architect') || text.includes('deep-module') || text.includes('domain-model') || text.includes('spec') || text.includes('ticket') || text.includes('wayfinder')) {
-    return 'architecture';
-  }
-  if (text.includes('react') || text.includes('nextjs') || text.includes('vue') || text.includes('svelte') || text.includes('tailwind') || text.includes('css')) {
-    return 'frontend';
-  }
-  if (text.includes('ui') || text.includes('ux') || text.includes('taste') || text.includes('mobile-app') || text.includes('landing') || text.includes('layout')) {
-    return 'ui-ux';
-  }
-  if (text.includes('agent') || text.includes('grill') || text.includes('handoff') || text.includes('prompt') || text.includes('workflow') || text.includes('triage')) {
-    return 'workflow';
-  }
-
+  if (has('docx', 'pptx', 'xlsx', 'pdf', 'spreadsheet', 'powerpoint')) return 'documents';
+  if (has('video', 'remotion', 'hyperframes', 'audio', 'music', 'image', 'images')) return 'media-creative';
+  if (has('azure', 'aks', 'kubernetes', 'cloud', 'deploy*', 'docker', 'infra*', 'vercel')) return 'cloud-infra';
+  if (has('postgres', 'database', 'supabase', 'sql', 'prisma')) return 'database';
+  if (has('accessibility', 'accessible', 'wcag', 'aria', 'a11y')) return 'accessibility';
+  if (has('design-system', 'tokens', 'shadcn', 'radix')) return 'design-systems';
+  if (has('animation*', 'motion', 'framer', 'animejs')) return 'animation-motion';
+  if (has('test', 'tests', 'testing', 'tdd', 'vitest', 'jest', 'playwright', 'cypress')) return 'testing';
+  if (has('debug*', 'bug', 'bugs', 'diagnos*', 'troubleshoot*')) return 'debugging';
+  if (has('review', 'lint', 'linting', 'guardrail*', 'pre-commit')) return 'code-quality';
+  if (has('architecture', 'architect', 'spec', 'tickets', 'domain')) return 'architecture';
+  if (has('react', 'nextjs', 'vue', 'svelte', 'tailwind', 'css', 'frontend')) return 'frontend';
+  if (has('ui', 'ux', 'landing', 'layout', 'mobile')) return 'ui-ux';
+  if (has('agent', 'agents', 'handoff', 'workflow', 'triage', 'prompt')) return 'workflow';
   return 'general';
-}
-
-/**
- * Extract frontmatter and content from raw SKILL.md.
- */
-function parseRawSkillMd(content) {
-  if (!content.startsWith('---')) {
-    return { metadata: {}, body: content };
-  }
-  const endIdx = content.indexOf('\n---', 3);
-  if (endIdx === -1) {
-    return { metadata: {}, body: content };
-  }
-  const header = content.slice(3, endIdx).trim();
-  const body = content.slice(endIdx + 4).trim();
-  
-  // Extract simple YAML fields
-  const metadata = {};
-  for (const line of header.split('\n')) {
-    const colon = line.indexOf(':');
-    if (colon === -1) continue;
-    const key = line.slice(0, colon).trim();
-    let val = line.slice(colon + 1).trim();
-    if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
-      val = val.slice(1, -1);
-    }
-    metadata[key] = val;
-  }
-  return { metadata, body };
-}
-
-/**
- * Generate GAW standard frontmatter.
- */
-function formatGawSkill(id, name, category, description, author, body) {
-  // Clean description string to be single line, escaped quotes
-  const cleanDesc = (description || `${name} skill for AI coding agents.`)
-    .replace(/[\r\n]+/g, ' ')
-    .replace(/"/g, '\\"')
-    .trim();
-
-  const cleanName = (name || id).replace(/"/g, '\\"');
-  const cleanAuthor = (author || 'skills.sh-community').replace(/"/g, '\\"');
-  const tags = JSON.stringify([id, category, 'skills.sh']);
-  const frameworks = JSON.stringify(['any']);
-
-  return `---
-id: "${id}"
-name: "${cleanName}"
-category: "${category}"
-description: "${cleanDesc}"
-author: "${cleanAuthor}"
-license: "MIT"
-version: "1.0.0"
-tags: ${tags}
-frameworks: ${frameworks}
-dependencies: []
-relatedSkills: []
-lastVerified: "2026-11-08"
----
-
-${body}
-`;
 }
 
 async function fetchRepoTree(owner, repo) {
@@ -144,22 +94,28 @@ async function fetchRepoTree(owner, repo) {
       const res = await fetch(url, { headers: { 'User-Agent': 'GAW-Skill-Ingester' } });
       if (res.ok) {
         const data = await res.json();
-        const skillBlobs = (data.tree || []).filter(item => 
-          item.type === 'blob' && 
-          item.path.endsWith('SKILL.md')
-        );
-        return { branch, skillBlobs };
+        const blobs = (data.tree || []).filter(item => item.type === 'blob');
+        return { branch, blobs, skillBlobs: blobs.filter(item => item.path.endsWith('SKILL.md')) };
       }
-    } catch (e) {
-      // ignore
+    } catch {
+      // try the next branch
     }
   }
   return null;
 }
 
+function skillExists(skillId) {
+  if (!fs.existsSync(SKILLS_DIR)) return false;
+  for (const category of fs.readdirSync(SKILLS_DIR)) {
+    if (fs.existsSync(path.join(SKILLS_DIR, category, skillId, 'SKILL.md'))) return true;
+    if (fs.existsSync(path.join(SKILLS_DIR, category, `${skillId}.md`))) return true;
+  }
+  return false;
+}
+
 async function run() {
-  console.log(`🚀 Starting Global Agentic Web (GAW) Skills Ingestion (Option A)...`);
-  console.log(`Target Repositories: ${TARGET_REPOSITORIES.length}\n`);
+  console.log(`🚀 GAW skill import (GSS) into ${SKILLS_DIR}`);
+  console.log(`Target repositories: ${TARGET_REPOSITORIES.length}\n`);
 
   let addedCount = 0;
   let skippedCount = 0;
@@ -174,62 +130,97 @@ async function run() {
       console.log(`  ⚠️ No SKILL.md found or rate limited for ${fullRepo}`);
       continue;
     }
-
     console.log(`  ✓ Found ${treeData.skillBlobs.length} skill files (branch: ${treeData.branch})`);
 
     for (const blob of treeData.skillBlobs) {
-      // Determine skill ID from directory or file
       const parts = blob.path.split('/');
       let skillName = parts.length > 1 ? parts[parts.length - 2] : repo;
-      if (skillName === 'skills' || skillName === 'src' || skillName === '.') {
-        skillName = repo;
-      }
-      
-      const skillId = skillName.toLowerCase().replace(/[^a-z0-9_-]/g, '-');
-      
-      // Check if this skill already exists anywhere in GAW skills/
-      let alreadyExists = false;
-      const categories = fs.readdirSync(SKILLS_DIR);
-      for (const cat of categories) {
-        const p = path.join(SKILLS_DIR, cat, `${skillId}.md`);
-        if (fs.existsSync(p)) {
-          alreadyExists = true;
-          break;
-        }
-      }
+      if (['skills', 'src', '.'].includes(skillName)) skillName = repo;
+      const skillId = skillName.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
 
-      if (alreadyExists) {
+      if (skillExists(skillId)) {
         console.log(`  ⏭️ Skipped (already exists): ${skillId}`);
         skippedCount++;
         continue;
       }
 
-      // Fetch raw content
-      const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${treeData.branch}/${blob.path}`;
+      const rawBase = `https://raw.githubusercontent.com/${owner}/${repo}/${treeData.branch}/`;
       try {
-        const res = await fetch(rawUrl);
+        const res = await fetch(rawBase + blob.path);
         if (!res.ok) {
           errorCount++;
           continue;
         }
-        const rawContent = await res.text();
-        const { metadata, body } = parseRawSkillMd(rawContent);
-
-        const category = determineCategory(repo, blob.path, skillId, metadata.description || '');
-        const targetDir = path.join(SKILLS_DIR, category);
-        if (!fs.existsSync(targetDir)) {
-          fs.mkdirSync(targetDir, { recursive: true });
+        const { data, content } = parseFrontmatter(await res.text());
+        const description = typeof data.description === 'string' && !PLACEHOLDERS.has(data.description.trim())
+          ? data.description.replace(/\s+/g, ' ').trim()
+          : '';
+        if (!description) {
+          console.log(`  ⚠️ ${skillId}: no description upstream; add one before publishing`);
         }
 
-        const displayName = metadata.name || skillName;
-        const author = metadata.author || owner;
-        const description = metadata.description || '';
+        const category = determineCategory(repo, blob.path, skillId, description);
+        const targetDir = path.join(SKILLS_DIR, category, skillId);
+        fs.mkdirSync(targetDir, { recursive: true });
 
-        const formatted = formatGawSkill(skillId, displayName, category, description, author, body);
-        const targetFile = path.join(targetDir, `${skillId}.md`);
-        fs.writeFileSync(targetFile, formatted, 'utf8');
+        const upstreamMeta = (data.metadata && typeof data.metadata === 'object') ? data.metadata : {};
+        const frontmatter = {
+          name: skillId,
+          description: description || `${skillId} skill.`,
+          license: data.license || 'UNKNOWN',
+          compatibility: data.compatibility,
+          'allowed-tools': data['allowed-tools'],
+          metadata: {
+            ...Object.fromEntries(Object.entries(upstreamMeta).map(([k, v]) => [k, String(v)])),
+            'gaw-title': data.name && data.name !== skillId ? String(data.name) : undefined,
+            'gaw-category': category,
+            'gaw-author': String(data.author || upstreamMeta.author || owner),
+            'gaw-version': String(upstreamMeta.version || data.version || '1.0.0')
+          }
+        };
+        fs.writeFileSync(path.join(targetDir, 'SKILL.md'), stringifyFrontmatter(frontmatter, content), 'utf8');
 
-        console.log(`  ★ Added [${category}] ${skillId} (from ${owner}/${repo})`);
+        // Copy the skill's supporting files (references/, scripts/, assets/, ...), within limits
+        const skillDirPath = parts.slice(0, -1).join('/');
+        const candidates = COPY_FILES && skillDirPath
+          ? treeData.blobs.filter(b => b.path.startsWith(`${skillDirPath}/`) && b.path !== blob.path)
+          : [];
+        const supportFiles = [];
+        let totalBytes = 0;
+        for (const file of candidates) {
+          const rel = file.path.slice(skillDirPath.length + 1);
+          if (rel.split('/').some(seg => seg === '..' || seg.startsWith('.'))) continue;
+          if ((file.size || 0) > MAX_SUPPORT_FILE_BYTES) continue;
+          if (supportFiles.length >= MAX_SUPPORT_FILES || totalBytes + (file.size || 0) > MAX_SUPPORT_TOTAL_BYTES) break;
+          totalBytes += file.size || 0;
+          supportFiles.push({ ...file, rel });
+        }
+        if (supportFiles.length < candidates.length) {
+          console.log(`  ⚠️ ${skillId}: copied ${supportFiles.length} of ${candidates.length} supporting files (size/count limits). See ${fullRepo}/${skillDirPath} for the rest.`);
+        }
+
+        let copied = 0;
+        await runPool(supportFiles, async (file) => {
+          const fileRes = await fetch(rawBase + file.path);
+          if (!fileRes.ok) return;
+          const dest = path.join(targetDir, file.rel);
+          fs.mkdirSync(path.dirname(dest), { recursive: true });
+          fs.writeFileSync(dest, Buffer.from(await fileRes.arrayBuffer()));
+          copied++;
+        }, DOWNLOAD_CONCURRENCY);
+
+        const contract = {
+          gss: 1,
+          lastVerified: new Date().toISOString().split('T')[0],
+          source: {
+            repo: fullRepo,
+            path: blob.path,
+            licenseVerified: false
+          }
+        };
+        fs.writeFileSync(path.join(targetDir, 'gaw.json'), `${JSON.stringify(contract, null, 2)}\n`, 'utf8');
+
+        console.log(`  ★ Added [${category}] ${skillId} (license: ${frontmatter.license}, ${copied} supporting file(s))`);
         addedCount++;
       } catch (err) {
         console.error(`  ❌ Error processing ${blob.path}:`, err.message);
@@ -239,12 +230,12 @@ async function run() {
   }
 
   console.log(`\n========================================`);
-  console.log(`✅ Ingestion Summary:`);
-  console.log(`  - Added Skills:     ${addedCount}`);
-  console.log(`  - Preserved/Skipped: ${skippedCount}`);
-  console.log(`  - Errors:           ${errorCount}`);
-  console.log(`========================================\n`);
+  console.log(`✅ Import summary:`);
+  console.log(`  - Added skills:      ${addedCount}`);
+  console.log(`  - Skipped (exists):  ${skippedCount}`);
+  console.log(`  - Errors:            ${errorCount}`);
+  console.log(`========================================`);
+  console.log(`Next: review licenses, then run 'gaw skills lint' and 'gaw skills index'.\n`);
 }
 
 run().catch(console.error);
-

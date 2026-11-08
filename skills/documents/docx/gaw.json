@@ -1,0 +1,14 @@
+{
+  "gss": 1,
+  "keywords": [
+    "word",
+    "word document",
+    "microsoft word"
+  ],
+  "lastVerified": "2026-11-08",
+  "source": {
+    "repo": "anthropics/skills",
+    "path": "skills/docx/SKILL.md",
+    "licenseVerified": false
+  }
+}

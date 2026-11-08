@@ -1,0 +1,14 @@
+{
+  "gss": 1,
+  "keywords": [
+    "pull request",
+    "pr description",
+    "merge request"
+  ],
+  "lastVerified": "2026-11-08",
+  "source": {
+    "repo": "mattpocock/skills",
+    "path": "skills/engineering/pr/SKILL.md",
+    "licenseVerified": false
+  }
+}

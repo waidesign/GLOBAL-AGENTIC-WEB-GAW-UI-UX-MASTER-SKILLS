@@ -1,0 +1,9 @@
+{
+  "gss": 1,
+  "lastVerified": "2026-11-08",
+  "source": {
+    "repo": "microsoft/azure-skills",
+    "path": ".github/plugins/aks-skills/skills/aks-cost-optimization/SKILL.md",
+    "licenseVerified": false
+  }
+}

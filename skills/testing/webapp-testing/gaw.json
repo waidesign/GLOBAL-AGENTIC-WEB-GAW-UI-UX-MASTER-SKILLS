@@ -1,0 +1,14 @@
+{
+  "gss": 1,
+  "keywords": [
+    "end-to-end",
+    "e2e",
+    "browser testing"
+  ],
+  "lastVerified": "2026-11-08",
+  "source": {
+    "repo": "anthropics/skills",
+    "path": "skills/webapp-testing/SKILL.md",
+    "licenseVerified": false
+  }
+}
