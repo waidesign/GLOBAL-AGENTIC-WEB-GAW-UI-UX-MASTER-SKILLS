@@ -8,5 +8,30 @@
     "nextjs",
     "tailwind"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Use when designing or rewriting a high-converting SaaS pricing page (structure, plan design, copywriting, SEO/AEO, FAQs, layout patterns, experiments). Includes checklists, templates, and common pitfalls.",
+  "whenToUse": [
+    "Use when designing or rewriting a high-converting SaaS pricing page (structure, plan design, copywriting, SEO/AEO, FAQs, layout patterns, experiments)."
+  ],
+  "verification": [
+    "Visible monthly/annual toggle",
+    "“Save X%” callout on annual",
+    "Recommended plan styling (subtle)",
+    "Key limits visible (3–6 max)",
+    "Included items visible (3–6 max)",
+    "Clear next step under each plan (trial/buy/contact)",
+    "Link: “Compare plans” (scrolls to matrix)",
+    "Mobile: table becomes stacked cards (not a horizontal scroll nightmare)"
+  ],
+  "domains": [
+    "design",
+    "web",
+    "writing"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenToUse"
+  ]
 }

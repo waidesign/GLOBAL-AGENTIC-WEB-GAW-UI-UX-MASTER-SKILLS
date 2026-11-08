@@ -9,5 +9,20 @@
     "licenseEvidence": "skill license file",
     "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/brand-guidelines/LICENSE.txt",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.",
+  "whenToUse": [
+    "Use it when brand colors or style guidelines, visual formatting, or company design standards apply."
+  ],
+  "domains": [
+    "design",
+    "web",
+    "ai",
+    "business"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

@@ -9,5 +9,13 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/image-to-video/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Animate any still image on RunComfy — this skill is a smart router that matches the user's intent to the right i2v model in the RunComfy catalog. Picks HappyHorse 1.0 I2V (Arena #1, native audio, identity preservation) for general animations, Wan 2.7 with `audio_url` for custom-voiceover…",
+  "domains": [
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

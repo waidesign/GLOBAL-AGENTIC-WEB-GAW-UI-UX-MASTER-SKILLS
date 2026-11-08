@@ -9,5 +9,14 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/designed-by-ai/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Design mobile app screens with Sleek, edit Sleek projects, and implement their designs in React Native or HTML.",
+  "domains": [
+    "web",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

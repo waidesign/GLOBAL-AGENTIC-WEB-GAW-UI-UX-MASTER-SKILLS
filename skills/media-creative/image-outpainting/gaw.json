@@ -9,5 +9,16 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/image-outpainting/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Image outpainting on RunComfy via the `runcomfy` CLI — extend a still beyond its original canvas, fill in what the camera didn't capture, change aspect ratio (square → 16:9, portrait → landscape) while preserving the original content. Routes across Nano Banana 2 Edit (default, spatial-language…",
+  "domains": [
+    "media",
+    "ai",
+    "writing",
+    "business"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

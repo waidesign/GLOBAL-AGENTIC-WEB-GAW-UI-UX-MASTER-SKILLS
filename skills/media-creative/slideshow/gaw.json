@@ -9,5 +9,17 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Build a HyperFrames slideshow to present live - slides, fragment reveals, branching hotspots and presenter mode with speaker notes, served by `hyperframes present` - or turn an existing page into one. Use when the person wants a deck or presentation rather than a rendered video.",
+  "whenToUse": [
+    "Use when the person wants a deck or presentation rather than a rendered video."
+  ],
+  "domains": [
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

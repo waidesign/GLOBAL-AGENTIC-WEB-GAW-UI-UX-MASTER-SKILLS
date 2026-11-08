@@ -9,5 +9,15 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/runcomfy-cli/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Run any model on RunComfy from the command line. The `runcomfy` CLI is one binary, one auth, hundreds of model endpoints — image generation, image edit, video generation, image-to-video, lip-sync, face swap, video edit, inpainting, outpainting, extend, ControlNet, relight, upscale, LoRA training…",
+  "domains": [
+    "ai",
+    "media",
+    "security"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

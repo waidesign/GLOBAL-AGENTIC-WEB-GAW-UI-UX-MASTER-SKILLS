@@ -9,5 +9,13 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.",
+  "domains": [
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

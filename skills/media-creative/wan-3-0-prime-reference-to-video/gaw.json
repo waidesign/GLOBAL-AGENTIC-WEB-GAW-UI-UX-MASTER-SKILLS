@@ -9,5 +9,14 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/wan-3-0-prime-reference-to-video/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Build video clips from reference images, reference videos, and reference audio with Wan-AI Wan 3.0 Prime Reference to Video on RunComfy. Up to 10 reference images, 5 reference videos and 5 reference audio clips are bound to a prompt that names them as \"Image 1\", \"Video 1\", \"Audio 1\", giving…",
+  "domains": [
+    "media",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

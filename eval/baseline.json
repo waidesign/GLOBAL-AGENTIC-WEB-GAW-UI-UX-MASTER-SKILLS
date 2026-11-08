@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T15:27:42.051Z",
+  "generatedAt": "2026-11-08T15:49:18.817Z",
   "sets": {
     "tuning": {
       "cases": 36,
@@ -34,16 +34,16 @@
           "precision": 0.782,
           "noMatchAccuracy": 1,
           "avgSkills": 1.82,
-          "avgTokens": 2539,
+          "avgTokens": 2582,
           "score": 0.927
         },
         "use": {
           "hitRate": 1,
-          "precision": 0.794,
+          "precision": 0.779,
           "noMatchAccuracy": 1,
           "avgSkills": 1.55,
-          "avgTokens": 2328,
-          "score": 0.931
+          "avgTokens": 2353,
+          "score": 0.926
         }
       }
     }

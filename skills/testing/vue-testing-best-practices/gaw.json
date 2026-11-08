@@ -5,5 +5,17 @@
     "react",
     "any"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Use for Vue.js testing. Covers Vitest, Vue Test Utils, component testing, mocking, testing patterns, and Playwright for E2E testing.",
+  "whenToUse": [
+    "Use for Vue.js testing."
+  ],
+  "domains": [
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

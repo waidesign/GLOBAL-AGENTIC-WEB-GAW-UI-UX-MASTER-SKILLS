@@ -8,5 +8,30 @@
     "nextjs",
     "tailwind"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Use when designing or rewriting a high-converting landing page (single-offer page) for SaaS/apps/services. Covers structure, layout patterns, conversion strategies, copywriting, SEO/AEO, and common pitfalls.",
+  "whenToUse": [
+    "Use when designing or rewriting a high-converting landing page (single-offer page) for SaaS/apps/services."
+  ],
+  "verification": [
+    "ad-only campaigns",
+    "highly time-bound offers",
+    "noindex (or keep it behind a non-indexed path)",
+    "evergreen offers",
+    "search intent matches the promise",
+    "clear title + meta",
+    "internal links from homepage/feature pages",
+    "FAQ in plain Q/A for AEO"
+  ],
+  "domains": [
+    "design",
+    "web",
+    "writing"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenToUse"
+  ]
 }

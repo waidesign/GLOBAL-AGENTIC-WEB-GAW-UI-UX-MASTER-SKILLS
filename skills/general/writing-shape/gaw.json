@@ -9,5 +9,13 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Writing, exploit: shape raw material into an article, paragraph by paragraph.",
+  "domains": [
+    "writing"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

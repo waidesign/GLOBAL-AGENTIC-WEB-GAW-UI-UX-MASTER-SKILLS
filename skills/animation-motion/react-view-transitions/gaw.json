@@ -9,5 +9,19 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/vercel-labs/agent-skills/blob/main/skills/react-view-transitions/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element…",
+  "whenToUse": [
+    "Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or ",
+    "Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries."
+  ],
+  "domains": [
+    "web",
+    "design"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

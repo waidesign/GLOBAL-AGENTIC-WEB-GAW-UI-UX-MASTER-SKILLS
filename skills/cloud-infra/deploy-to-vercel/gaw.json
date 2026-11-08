@@ -9,5 +9,18 @@
     "licenseEvidence": "no license found",
     "licenseUrl": "https://github.com/vercel-labs/agent-skills",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\".",
+  "whenToUse": [
+    "Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\"."
+  ],
+  "domains": [
+    "cloud",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

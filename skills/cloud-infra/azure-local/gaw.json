@@ -9,5 +9,21 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-local-skills/skills/azure-local/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Plan, deploy, operate, and troubleshoot Azure Local (formerly Azure Stack HCI): sizing and prerequisites, Arc registration, lifecycle updates, workloads (Azure Local VMs, AKS on Azure Local, images, disks, logical networks), SDN and network security, and failure triage — starting read-only and…",
+  "whenToUse": [
+    "Use for Azure Local, Azure Stack HCI, Azure Local VMs, AKS on Azure Local, AKS hybrid, SDN, lifecycle updates, disconnected sites, or troubleshooting.",
+    "Covers standard deployments (1-16 node hyperconverged, up to 64 disaggregated) and rack-aware clusters."
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "media",
+    "security"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

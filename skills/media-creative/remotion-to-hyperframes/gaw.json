@@ -9,5 +9,17 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Bring existing video code or footage into HyperFrames and verify it frame by frame against the original - Remotion first, also Motion Canvas, Lottie, Three.js, p5.js, canvas or plain HTML/CSS animation, or renders from Manim, After Effects or Blender. Use to port, convert, migrate or reuse work…",
+  "verification": [
+    "Write what didn't translate cleanly (dropped volume ramps, approximated presentations, substituted fonts) to TRANSLATION_NOTES.md."
+  ],
+  "domains": [
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

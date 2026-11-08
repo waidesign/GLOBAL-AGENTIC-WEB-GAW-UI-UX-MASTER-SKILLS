@@ -9,5 +9,24 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/airunway-aks-setup/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Set up AI Runway on AKS — from bare cluster to running model. Covers cluster verification, controller install, GPU assessment, provider setup, and first deployment.",
+  "whenToUse": [
+    "Set up AI Runway on an existing AKS cluster from scratch",
+    "Install the AI Runway controller and CRDs",
+    "Assess GPU hardware compatibility for model deployment",
+    "Choose and install an inference provider (KAITO, Dynamo, KubeRay)",
+    "Deploy their first AI model to AKS via AI Runway",
+    "Resume a partially-complete AI Runway setup from a specific step"
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

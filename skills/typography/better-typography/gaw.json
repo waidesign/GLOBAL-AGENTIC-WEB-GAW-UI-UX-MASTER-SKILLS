@@ -5,5 +5,13 @@
     "css",
     "tailwind"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Sets and reviews how text renders, from the type scale and spacing to font features, wrapping, truncation and punctuation.",
+  "domains": [
+    "design"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

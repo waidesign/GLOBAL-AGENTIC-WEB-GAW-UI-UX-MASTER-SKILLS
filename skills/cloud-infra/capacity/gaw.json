@@ -9,5 +9,24 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/capacity/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Discovers available Azure OpenAI model capacity across regions and projects. Analyzes quota limits, compares availability, and recommends optimal deployment locations based on capacity requirements.",
+  "whenToUse": [
+    "USE FOR: find capacity, check quota, where can I deploy, capacity discovery, best region for capacity, multi-project capacity search, quota analysis, model availability, region comparison, check TPM availability.",
+    "DO NOT USE FOR: actual deployment (hand off to preset or customize after discovery), quota increase requests (direct user to Azure Portal), listing existing deployments.",
+    "✅ User asks \"where can I deploy gpt-4o?\"",
+    "✅ User specifies a capacity target: \"find a region with 10K TPM for gpt-4o\"",
+    "✅ User wants to compare availability: \"which regions have gpt-4o available?\"",
+    "✅ User got a quota error and needs to find an alternative location"
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

@@ -9,5 +9,13 @@
     "licenseEvidence": "no license found",
     "licenseUrl": "https://github.com/anthropics/skills",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Replace with description of the skill and when Claude should use it.",
+  "domains": [
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

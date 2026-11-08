@@ -12,6 +12,7 @@ import { parseFrontmatter } from './frontmatter.js';
 import { parseGitHubUrl } from './github.js';
 import { resolveSkillLicense, normalizeLicense, licenseCategory } from './licenses.js';
 import { convertToGss, planSplit, applySplit, canModify, writeSkillFolder, toSkillName } from './gss.js';
+import { enrichContract, rankabilityLevel } from './rankability.js';
 
 export const SUPPORT_LIMITS = { maxFileBytes: 512 * 1024, maxFiles: 300, maxTotalBytes: 10 * 1024 * 1024 };
 const DOWNLOAD_CONCURRENCY = 8;
@@ -149,7 +150,10 @@ function readFromLocal(target) {
     raw,
     content,
     existingContract,
-    nameHint: dir ? path.basename(dir) : path.basename(full, '.md'),
+    // A folder's name is the skill name (Agent Skills rule); a lone file uses its declared name
+    nameHint: dir
+      ? path.basename(dir)
+      : (typeof data.name === 'string' && /^[a-z0-9]+(-[a-z0-9]+)*$/.test(data.name) ? data.name : path.basename(full, '.md')),
     source: null,
     license: { spdx, category: licenseCategory(spdx), evidence: spdx ? 'declared in the skill' : 'no license declared', url: null },
     files,
@@ -204,6 +208,22 @@ export function previewSkill(prepared, options = {}) {
   const permissions = detectPermissions(prepared);
   if (permissions.length) converted.contract.permissions = permissions;
 
+  // Author-supplied when-to-use (gaw skills add --when) counts as written by the author
+  if (options.when) converted.contract.whenToUse = [String(options.when)];
+
+  // GSS Ranking v1: fill ranking fields from the skill's own text, then grade it
+  const asSkill = {
+    id: converted.data.name,
+    name: converted.data.metadata['gaw-title'] || converted.data.name,
+    description: converted.data.description,
+    category,
+    tags: String(converted.data.metadata['gaw-tags'] || '').split(',').map(t => t.trim()).filter(Boolean),
+    content: prepared.content,
+    contract: converted.contract
+  };
+  converted.contract = enrichContract(asSkill).contract;
+  const rank = rankabilityLevel({ ...asSkill, contract: converted.contract });
+
   const name = converted.data.name;
   const dir = options.flat ? path.join(options.root, name) : path.join(options.root, category, name);
   const support = selectSupportFiles(prepared.files);
@@ -222,6 +242,9 @@ export function previewSkill(prepared, options = {}) {
     name,
     category,
     categorySource,
+    level: rank.level,
+    levelName: rank.name,
+    levelMissing: rank.missing,
     dir,
     data: converted.data,
     contract: converted.contract,

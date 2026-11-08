@@ -9,5 +9,18 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to replace `as` in tests, or needs partial test data.",
+  "whenToUse": [
+    "Use when user mentions shoehorn, wants to replace `as` in tests, or needs partial test data."
+  ],
+  "domains": [
+    "software",
+    "data"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

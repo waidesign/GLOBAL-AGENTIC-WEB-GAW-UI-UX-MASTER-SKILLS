@@ -9,5 +9,13 @@
     "licenseEvidence": "no license found",
     "licenseUrl": "https://github.com/remotion-dev/skills",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Find Remotion license information, FAQs, terms, and where to buy a license.",
+  "domains": [
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

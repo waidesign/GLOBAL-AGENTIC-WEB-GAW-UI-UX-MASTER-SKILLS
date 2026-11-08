@@ -9,5 +9,18 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Use when working in this project — adding tools, editing the agent, running, evaluating, serving or deploying it — or when guidance mentions ADK, LlmAgent, google.adk, adk web, or an ADK runner. This project is a Claude Agent SDK agent scaffolded by agents-cli, so ADK-specific instructions do…",
+  "whenToUse": [
+    "Use when working in this project — adding tools, editing the agent, running, evaluating, serving or deploying it — or when guidance mentions ADK, LlmAgent, google.adk, adk web, or an ADK runner."
+  ],
+  "domains": [
+    "software",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

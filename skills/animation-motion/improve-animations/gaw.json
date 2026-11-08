@@ -10,5 +10,14 @@
     "framer-motion",
     "tailwind"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Expert motion design principles, fluid physics-based transitions, micro-interactions, and 60fps compositor optimization.",
+  "domains": [
+    "web",
+    "design"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

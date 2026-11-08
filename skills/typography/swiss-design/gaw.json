@@ -1,4 +1,16 @@
 {
   "gss": 1,
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Apply a Swiss International Style design system using Tailwind CSS. Use when asked to style a webpage, clean up a UI, apply a design system, make something look great, or when the user references Swiss design, grotesque fonts, Helvetica, grid systems, modernist typography, or 1960s/1950s design…",
+  "whenToUse": [
+    "Use when asked to style a webpage, clean up a UI, apply a design system, make something look great, or when the user references Swiss design, grotesque fonts, Helvetica, grid systems, modernist typography, or 1960s/1950s design aesthetics."
+  ],
+  "domains": [
+    "design"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

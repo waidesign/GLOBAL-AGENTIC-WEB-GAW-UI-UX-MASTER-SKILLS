@@ -9,5 +9,25 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing.",
+  "whenToUse": [
+    "Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing."
+  ],
+  "verification": [
+    ".husky/pre-commit exists and is executable",
+    ".lintstagedrc exists",
+    "prepare script in package.json is \"husky\"",
+    "prettier config exists",
+    "Run npx lint-staged to verify it works"
+  ],
+  "domains": [
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenToUse"
+  ]
 }

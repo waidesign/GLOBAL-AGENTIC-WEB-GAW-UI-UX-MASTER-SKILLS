@@ -9,5 +9,18 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like.",
+  "whenToUse": [
+    "Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like."
+  ],
+  "domains": [
+    "design",
+    "web"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

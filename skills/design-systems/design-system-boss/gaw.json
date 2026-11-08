@@ -12,5 +12,14 @@
     "svelte",
     "any"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Executive governance, token contracts, and zero-tolerance design system compliance audits for frontend surfaces.",
+  "domains": [
+    "design",
+    "web"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

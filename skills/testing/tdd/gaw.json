@@ -13,5 +13,17 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests.",
+  "whenToUse": [
+    "Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests."
+  ],
+  "domains": [
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

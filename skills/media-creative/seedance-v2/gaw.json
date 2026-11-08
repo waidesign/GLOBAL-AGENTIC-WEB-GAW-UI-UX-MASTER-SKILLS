@@ -9,5 +9,17 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/seedance-v2/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Generate cinematic short-form video with ByteDance Seedance 2.0 Pro on RunComfy. Documents Seedance 2.0 Pro's strengths (multi-modal references — up to 9 images, 3 videos, 3 audio — synchronized in-pass audio with natural lip-sync, cinematic motion refinement), the 4–15s duration schema, and…",
+  "verification": [
+    "Default playground example: Multi-modal lip-sync (text + image):"
+  ],
+  "domains": [
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

@@ -139,7 +139,8 @@ gaw use "Build a responsive SaaS dashboard with a sidebar, data table, and smoot
 | `gaw skills [category]` | List all registered skills or filter by category. |
 | `gaw skills add <link\|folder\|file>` | Add any skill: converted to GSS, license checked at the source, supporting files copied, split if oversized, indexed. `--project` adds it to `ai-brain/skills/`. |
 | `gaw skills new "<title>"` | Create a new GSS skill from a template. |
-| `gaw skills lint [folder]` | Check skills against the GAW Skill Standard. |
+| `gaw skills lint [folder] [--levels]` | Check skills against the GAW Skill Standard and show their ranking levels. |
+| `gaw skills enrich [--apply]` | Fill ranking fields (summary, whenToUse, verification, domains…) from each skill's own text. |
 | `gaw skills licenses [--apply]` | Find each imported skill's real license at its source. |
 | `gaw skills split <name\|--all> [--apply]` | Move the long parts of oversized skills into `references/` (lossless). |
 | `gaw skills repair <name\|--all> [--apply]` | Restore supporting files imported skills are missing (text files; `--include-binary` for all). |
@@ -199,6 +200,8 @@ metadata:
 You never write GSS by hand: `gaw skills add` converts any skill (from GitHub, a folder or a markdown file) and `gaw skills new` creates one from a template. Both check the license, flag skills that can run commands, split oversized skills into `references/`, and update the skill index automatically. See the [GSS spec](docs/gss/spec.md) and the [authoring guide](docs/skills/authoring-guide.md).
 
 ### How GAW picks skills
+Ranking is part of the standard: **GSS Ranking v1** ([spec](docs/gss/spec.md#8-ranking-gss-ranking-v1)) publishes which fields count and how, and grades every skill as Findable, Rankable or Precise. A skill must at least say what it does and when to use it to be added.
+
 `gaw use`, `gaw recommend` and onboarding load only skills that **closely match** the task. Rare, specific words count more than common ones, and every pick comes with a reason (*Matched "pricing", "page" (name); "SaaS" (description)*). When nothing fits, GAW loads nothing instead of unrelated skills. Full skill instructions are loaded within a token budget (default 8,000, `--budget` to change). Skills that don't fit are listed in short form with a path the agent can open if needed. Selection quality is measured with `npm run eval`.
 
 ---

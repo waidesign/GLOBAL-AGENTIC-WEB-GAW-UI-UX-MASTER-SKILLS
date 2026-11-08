@@ -9,5 +9,18 @@
     "licenseEvidence": "skill license file",
     "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/mcp-builder/LICENSE.txt",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
+  "whenToUse": [
+    "Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK)."
+  ],
+  "domains": [
+    "software",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

@@ -9,5 +9,15 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-compliance/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Run Azure compliance and security audits with azqr plus Key Vault expiration checks. Covers best-practice assessment, resource review, policy/compliance validation, and security posture checks.",
+  "domains": [
+    "cloud",
+    "software",
+    "security"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

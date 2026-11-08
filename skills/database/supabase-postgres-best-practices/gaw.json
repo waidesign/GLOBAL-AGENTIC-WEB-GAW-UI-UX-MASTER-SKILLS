@@ -9,5 +9,16 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/supabase/agent-skills/blob/main/skills/supabase-postgres-best-practices/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Postgres best practices maintained by Supabase, for Postgres running anywhere. Load this skill BEFORE writing or changing anything that lives in a Postgres database: creating or altering tables and columns (including choosing column types), schema design, migrations and declarative schema files,…",
+  "domains": [
+    "data",
+    "software",
+    "writing",
+    "security"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

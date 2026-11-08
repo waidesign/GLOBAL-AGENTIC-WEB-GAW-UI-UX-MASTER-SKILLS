@@ -9,5 +9,20 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-local-skills/skills/azure-local-multi-rack/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Plan, deploy, operate, and troubleshoot multi-rack (rack scale) deployments of Azure Local — preintegrated racks scaling to hundreds of machines, built on Network Fabric Controller, Cluster Manager, SAN storage, and managed network fabric. Use for the Microsoft.NetworkCloud and…",
+  "whenToUse": [
+    "Use for the Microsoft.NetworkCloud and Microsoft.ManagedNetworkFabric control plane.",
+    "Use when the deployment is multi-rack / rack scale: preintegrated racks, an aggregation rack, a Network Fabric Controller, a Cluster Manager, SAN storage, or the networkcloud / managednetworkfabric CLI extensions.",
+    "Do not use for standard Azure Local (1-16 node hyperconverged, up to 64 disaggregated) or rack-aware clusters — hand off to the azure-local skill."
+  ],
+  "domains": [
+    "cloud",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

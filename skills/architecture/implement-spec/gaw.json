@@ -9,5 +9,13 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Implement the result of /to-spec and /to-tickets in code.",
+  "domains": [
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

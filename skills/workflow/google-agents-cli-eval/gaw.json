@@ -9,5 +9,21 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "This skill should be used when the user wants to \"run an evaluation\", \"evaluate my agent\", \"evaluate my ADK agent\", \"write an eval dataset\", \"analyze eval failures\", \"compare eval results\", \"optimize agent\", or needs guidance on the Gemini platform eval methodology and the Quality Flywheel.…",
+  "whenToUse": [
+    "This skill should be used when the user wants to \"run an evaluation\", \"evaluate my agent\", \"evaluate my ADK agent\", \"write an eval dataset\", \"analyze eval failures\", \"compare eval results\", \"optimize agent\", or needs guidance on the Gemini ",
+    "Do NOT use for agent API code patterns (ADK: use google-agents-cli-adk-code), deployment (use google-agents-cli-deploy), or project scaffolding (use google-agents-cli-scaffold)."
+  ],
+  "domains": [
+    "software",
+    "ai",
+    "writing",
+    "data"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

@@ -9,5 +9,27 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover.",
+  "whenToUse": [
+    "Use when provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover.",
+    "Don't invoke this for steps the agent can perform itself."
+  ],
+  "verification": [
+    "bash -n <script>; run shellcheck if available.",
+    "chmod +x <script>.",
+    "Tell the user how to run it. If it's a repeatable setup path, commit it and link it from the README so the next person runs the script instead of asking an AI."
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "ai",
+    "security"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenToUse"
+  ]
 }

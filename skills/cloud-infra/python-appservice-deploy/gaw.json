@@ -9,5 +9,18 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/python-appservice-deploy/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Deploy Python (Flask/Django/FastAPI) code to Azure App Service Linux. WHEN: \\\"Flask App Service\\\", \\\"Django App Service\\\", \\\"FastAPI App Service\\\", \\\"deploy Python to App Service\\\".",
+  "whenToUse": [
+    "DO NOT USE FOR: Container Apps, Functions, non-Python, Terraform/Bicep/IaC, full infra — use azure-prepare."
+  ],
+  "domains": [
+    "cloud",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

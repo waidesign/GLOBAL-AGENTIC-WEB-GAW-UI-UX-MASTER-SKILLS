@@ -9,5 +9,15 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/video-inpainting/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Region edits across video frames on RunComfy via the `runcomfy` CLI — remove an object that appears across many frames, clean up wires or watermarks, replace a region with matching motion. Routes across Wan 2-7 edit-video (default, prompt-driven region edits with spatial language), Lucy Edit…",
+  "domains": [
+    "media",
+    "ai",
+    "writing"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

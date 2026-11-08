@@ -9,5 +9,16 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/discover-azure-skills/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Searches the Azure skills catalog and recommends installable agent skills by matching an Azure task to skill metadata and plugin installation guidance. WHEN: before starting any task that involves an Azure or Microsoft-cloud service, product, or data source, when no currently loaded skill or…",
+  "domains": [
+    "cloud",
+    "software",
+    "ai",
+    "data"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

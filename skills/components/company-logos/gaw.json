@@ -4,5 +4,19 @@
     "react",
     "tailwind"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "\"Use Iconify Simple Icons logos (64x64) instead of text logos.\"",
+  "whenToUse": [
+    "A design needs recognizable brand marks without embedding custom SVG files or rendering company names as plain text.",
+    "Logo rows, integrations grids, customer proof, partner lists, and tool badges need consistent icon treatment."
+  ],
+  "domains": [
+    "web",
+    "design"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

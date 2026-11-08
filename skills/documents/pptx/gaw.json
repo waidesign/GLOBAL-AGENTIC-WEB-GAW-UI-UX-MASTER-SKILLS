@@ -15,5 +15,17 @@
     "licenseEvidence": "skill license file",
     "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/pptx/LICENSE.txt",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Use this skill any time a .pptx or .potx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx or .potx file (even if the extracted content will be used elsewhere, like in…",
+  "whenToUse": [
+    "Trigger whenever the user mentions \\\"deck,\\\" \\\"slides,\\\" \\\"presentation,\\\" or references a .pptx or .potx filename, regardless of what they plan to do with the content afterward."
+  ],
+  "domains": [
+    "documents"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

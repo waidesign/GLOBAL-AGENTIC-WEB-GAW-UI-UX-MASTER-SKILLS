@@ -9,5 +9,20 @@
     "licenseEvidence": "skill license file",
     "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/academy-guide/LICENSE.txt",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Stop and check this skill before finishing any reply to a question about how to use Claude or a Claude product — it recommends matching courses, tutorials, and use cases from Claude Academy (academy.claude.com), Anthropic's learning hub. Trigger on: \"how do I\", \"how can I\", \"getting started…",
+  "whenToUse": [
+    "Use it when the user is learning how to use a feature or product — not when they are mid-task and just want the task done."
+  ],
+  "domains": [
+    "design",
+    "web",
+    "ai",
+    "writing"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

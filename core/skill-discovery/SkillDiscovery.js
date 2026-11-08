@@ -1,3 +1,12 @@
+import { MAX_KEYWORDS, MAX_TAGS, RANKING_VERSION } from '../skill-registry/rankability.js';
+
+export { RANKING_VERSION };
+
+// GSS Ranking v1 (docs/gss/spec.md, "Ranking"): exclusion and context rules
+const NOT_FOR_MIN_MATCHED = 2;     // a whenNotToUse item needs at least this many task words matched...
+const NOT_FOR_MIN_SHARE = 0.5;     // ...covering at least half of the item's words
+const DOMAIN_BOOST = 1.1;          // small boost when a skill's domains match the project's
+
 // Filler words that carry no topic. Without this, words like "a" or "on"
 // matched inside unrelated skill IDs (e.g. "on" inside "animation").
 const STOP_WORDS = new Set([
@@ -13,6 +22,9 @@ const STOP_WORDS = new Set([
 
 // How much a match in each skill field counts. A word in the skill's ID or
 // name says more about what the skill is for than a word in its description.
+// GSS Ranking v1 scores these fields. summary and whenToUse are not scored: measured with
+// npm run eval, adding them gave no gain (summary repeats the description; whenToUse copied
+// from skill bodies is often a broad trigger list). Revisit when authors write their own.
 const FIELD_WEIGHTS = { id: 3, name: 2, tags: 2, keywords: 2, category: 1, description: 1.5 };
 const FIELD_ORDER = ['id', 'name', 'tags', 'keywords', 'category', 'description'];
 // Matching inside skill bodies (weak signal). Off by default so search reads only
@@ -52,6 +64,17 @@ function tokenMatchesWord(token, word) {
   if (token.length >= 4 && word.startsWith(token)) return true;
   if (word.length >= 5 && token.startsWith(word)) return true;
   return false;
+}
+
+/**
+ * Tie-breaker only: verified open license and a recent check rank a skill above an
+ * otherwise equally relevant one. Never changes relevance itself.
+ */
+function trustRank(skill) {
+  const status = skill.contract?.source?.licenseStatus;
+  const license = status === 'open' || status === 'copyleft' ? 2 : status ? 0 : 1;
+  const verified = Date.parse(skill.lastVerified || skill.contract?.lastVerified || '') || 0;
+  return license * 1e13 + verified;
 }
 
 const matchesAny = (token, words) => {
@@ -117,22 +140,35 @@ export class SkillDiscovery {
     const skills = await this.registry.getAllSkills();
     if (this.index && this.index.skills === skills.length) return this.index;
 
-    const entries = skills.map(skill => ({
-      skill,
-      fields: {
-        id: new Set(tokenizeQuery((skill.id || '').replace(/-/g, ' '))),
-        name: new Set(tokenizeQuery(skill.name)),
-        // Imported skills repeat their ID and category as tags; skip those so they don't count twice
-        tags: new Set((skill.tags || [])
-          .map(String)
-          .filter(t => t !== skill.id && t !== skill.category && t !== 'skills.sh')
-          .flatMap(t => tokenizeQuery(t))),
-        keywords: new Set((skill.keywords || []).flatMap(k => tokenizeQuery(String(k)))),
-        category: new Set(tokenizeQuery((skill.category || '').replace(/-/g, ' '))),
-        description: new Set(tokenizeQuery(skill.description))
-      },
-      content: CONTENT_WEIGHT > 0 ? new Set(tokenizeQuery(skill.content)) : new Set()
-    }));
+    const entries = skills.map(skill => {
+      // Unreviewed AI drafts don't count for ranking (GSS Ranking v1)
+      const drafts = new Set(skill.contract?.drafts || []);
+      const contract = Object.fromEntries(Object.entries(skill.contract || {}).filter(([k]) => !drafts.has(k)));
+      if (drafts.has('keywords')) skill = { ...skill, keywords: [] };
+      return {
+        skill,
+        fields: {
+          id: new Set(tokenizeQuery((skill.id || '').replace(/-/g, ' '))),
+          name: new Set(tokenizeQuery(skill.name)),
+          // Imported skills repeat their ID and category as tags; skip those so they don't count twice.
+          // Caps stop keyword stuffing from buying a higher rank.
+          tags: new Set((skill.tags || [])
+            .map(String)
+            .filter(t => t !== skill.id && t !== skill.category && t !== 'skills.sh')
+            .slice(0, MAX_TAGS)
+            .flatMap(t => tokenizeQuery(t))),
+          keywords: new Set((skill.keywords || []).slice(0, MAX_KEYWORDS).flatMap(k => tokenizeQuery(String(k)))),
+          category: new Set(tokenizeQuery((skill.category || '').replace(/-/g, ' '))),
+          description: new Set(tokenizeQuery(skill.description))
+        },
+        notFor: (contract.whenNotToUse || [])
+          .map(item => ({ item, tokens: tokenizeQuery(item) }))
+          .filter(n => n.tokens.length >= NOT_FOR_MIN_MATCHED),
+        domains: new Set((contract.domains || []).map(d => String(d).toLowerCase())),
+        trust: trustRank(skill),
+        content: CONTENT_WEIGHT > 0 ? new Set(tokenizeQuery(skill.content)) : new Set()
+      };
+    });
 
     this.index = { skills: skills.length, entries, df: new Map() };
     return this.index;
@@ -207,17 +243,30 @@ export class SkillDiscovery {
     const totalWeight = [...weights.values()].reduce((a, b) => a + b, 0);
     const words = originalWords(query);
 
+    const projectDomains = new Set((options.domains || []).map(d => String(d).toLowerCase()));
+
     const scored = [];
     for (const entry of index.entries) {
       if (!this.matchesFilter(entry.skill, options)) continue;
       const result = this.scoreEntry(entry, tokens, weights, totalWeight);
-      if (result.score > 0) {
-        for (const r of result.reasons) r.word = words.get(r.token) || r.token;
-        scored.push({ skill: entry.skill, ...result });
-      }
+      if (result.score <= 0) continue;
+      for (const r of result.reasons) r.word = words.get(r.token) || r.token;
+
+      // Exclusion: the author said the skill is not for tasks like this one
+      const notFor = entry.notFor.find(n => {
+        const matched = n.tokens.filter(t => tokens.some(q => tokenMatchesWord(q, t)));
+        return matched.length >= NOT_FOR_MIN_MATCHED && matched.length / n.tokens.length >= NOT_FOR_MIN_SHARE;
+      });
+      if (notFor) result.notFor = notFor.item;
+
+      // Context: small boost when the skill's domains match the project's
+      if (projectDomains.size && [...entry.domains].some(d => projectDomains.has(d))) result.score *= DOMAIN_BOOST;
+
+      scored.push({ skill: entry.skill, trust: entry.trust, ...result });
     }
 
-    scored.sort((a, b) => b.score - a.score);
+    // Relevance first; trust only breaks exact ties
+    scored.sort((a, b) => b.score - a.score || b.trust - a.trust);
 
     const limited = options.limit && options.limit > 0 ? scored.slice(0, options.limit) : scored;
     return options.withScores ? limited : limited.map(entry => entry.skill);
@@ -251,7 +300,8 @@ export class SkillDiscovery {
 
   /** Entries that cover enough of the query and score near the best one. */
   closeMatches(entries, minCoverage = MIN_COVERAGE) {
-    const strong = entries.filter(e => e.namesSkill || (e.matchedTokens > 0 && e.coverage >= minCoverage));
+    // Skills whose whenNotToUse matches the task are never suggested
+    const strong = entries.filter(e => !e.notFor && (e.namesSkill || (e.matchedTokens > 0 && e.coverage >= minCoverage)));
     if (strong.length === 0) return [];
     const best = strong[0].score;
     return strong.filter(e => e.namesSkill || e.score >= best * MIN_SHARE_OF_BEST);

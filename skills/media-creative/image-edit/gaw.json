@@ -9,5 +9,14 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/image-edit/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Edit images on RunComfy — this skill is a smart router that matches the user's intent to the right edit model in the RunComfy catalog. Picks Nano Banana Edit (batch up to 20, identity-preserving default), OpenAI GPT Image 2 Edit (multilingual in-image text rewrite, multi-ref composition, layout…",
+  "domains": [
+    "media",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

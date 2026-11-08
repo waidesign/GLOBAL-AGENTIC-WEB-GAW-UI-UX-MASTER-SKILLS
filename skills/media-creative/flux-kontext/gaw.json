@@ -9,5 +9,18 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/flux-kontext/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Edit images with Flux 1 Kontext Pro (Black Forest Labs' precise local image-edit model) on RunComfy — bundled with the model's documented prompting patterns so the skill gets sharper output than naive prompting against the same model. Documents Flux Kontext's strengths (single-reference precise…",
+  "verification": [
+    "Page example: Preservation-led brand edit: Compositional micro-edit:"
+  ],
+  "domains": [
+    "media",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

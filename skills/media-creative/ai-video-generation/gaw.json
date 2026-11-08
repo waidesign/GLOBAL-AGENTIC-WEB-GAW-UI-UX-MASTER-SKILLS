@@ -9,5 +9,14 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/ai-video-generation/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Generate AI videos on RunComfy via the `runcomfy` CLI — a smart router across the full video-model catalog: HappyHorse 1.0 (Arena #1, native in-pass audio), Wan-AI Wan 2-7 (open weights, audio-driven lip-sync), ByteDance Seedance v2 / 1-5 / 1-0 (multi-modal cinematic), Kling 3.0 / 2-6, Google…",
+  "domains": [
+    "media",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

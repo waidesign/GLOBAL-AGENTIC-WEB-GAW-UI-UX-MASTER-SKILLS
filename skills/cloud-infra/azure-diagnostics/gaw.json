@@ -9,5 +9,24 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-diagnostics/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Debug Azure production issues using AppLens, Azure Monitor, resource health, and safe triage, including evidence-only diagnosis without live access. WHEN: debug production issues, troubleshoot app service, app service high CPU, app service deployment failure, troubleshoot container apps,…",
+  "whenToUse": [
+    "Debug or troubleshoot production issues",
+    "Diagnose errors in Azure services",
+    "Analyze application logs or metrics",
+    "Fix image pull, cold start, or health probe issues",
+    "Investigate why Azure resources are failing",
+    "Find root cause of application errors"
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

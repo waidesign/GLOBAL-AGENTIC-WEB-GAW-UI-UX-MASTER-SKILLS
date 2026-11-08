@@ -10,5 +10,14 @@
     "nextjs",
     "vite"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Best practices for installing, configuring, theming, and extending shadcn/ui and Radix UI primitives in modern web applications.",
+  "domains": [
+    "web",
+    "design"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

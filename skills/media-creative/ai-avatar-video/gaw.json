@@ -9,5 +9,14 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/ai-avatar-video/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Create AI avatar, talking-head, and lip-sync videos on RunComfy via the `runcomfy` CLI. Routes across ByteDance OmniHuman (audio-driven full-body avatar), Wan-AI Wan 2-7 (audio-driven mouth sync via `audio_url` on a portrait), HappyHorse 1.0 (Arena #1 t2v / i2v with in-pass audio), and Seedance…",
+  "domains": [
+    "media",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

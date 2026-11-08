@@ -9,5 +9,13 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "A tiled headline surface flips cell by cell under a sweeping depth field to reveal the rear headline. HyperFrames block, 1920×1080, 8s, 18 variables.",
+  "domains": [
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

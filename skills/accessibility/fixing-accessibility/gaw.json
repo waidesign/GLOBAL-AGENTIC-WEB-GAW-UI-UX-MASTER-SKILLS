@@ -12,5 +12,18 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/ibelick/ui-skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Audit and fix HTML accessibility issues including ARIA labels, keyboard navigation, focus management, color contrast, and form errors. Use when adding interactive controls, forms, dialogs, or reviewing WCAG compliance.",
+  "whenToUse": [
+    "Use when adding interactive controls, forms, dialogs, or reviewing WCAG compliance."
+  ],
+  "domains": [
+    "web",
+    "design"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

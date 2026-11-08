@@ -12,5 +12,14 @@
     "svelte",
     "tailwind"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Build distinctive, production-grade frontend interfaces with high aesthetic fidelity, unique visual voice, and anti-slop principles.",
+  "domains": [
+    "web",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

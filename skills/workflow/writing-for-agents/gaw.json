@@ -9,5 +9,19 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Writing documents for agents. Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md.",
+  "whenToUse": [
+    "Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md."
+  ],
+  "domains": [
+    "software",
+    "ai",
+    "writing"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

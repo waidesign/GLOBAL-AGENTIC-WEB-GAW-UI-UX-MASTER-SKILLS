@@ -9,5 +9,19 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/flux-2-klein/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Generate images with Flux 2 Klein (Black Forest Labs' distilled fast variant of Flux 2) on RunComfy — bundled with the model's documented prompting patterns so the skill gets sharper output than naive prompting against the same model. Documents Flux 2 Klein's strengths (sub-second latency,…",
+  "verification": [
+    "From the model page (BFL example): Product-photo pattern: Brand-consistent pair (multi-ref):"
+  ],
+  "domains": [
+    "media",
+    "ai",
+    "business"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

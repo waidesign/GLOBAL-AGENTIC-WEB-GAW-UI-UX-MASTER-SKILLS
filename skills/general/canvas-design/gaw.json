@@ -9,5 +9,13 @@
     "licenseEvidence": "skill license file",
     "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/canvas-design/LICENSE.txt",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece.",
+  "whenToUse": [
+    "You should use this skill when the user asks to create a poster, piece of art, design, or other static piece."
+  ],
+  "derived": [
+    "summary",
+    "whenToUse"
+  ]
 }

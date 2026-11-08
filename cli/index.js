@@ -8,7 +8,8 @@ import { lintLibrary, lintSkillFolder, NEW_SKILL_TODO } from '../core/skill-regi
 import { prepareSkill, previewSkill, installSkill, findMissingSupportFiles, restoreSupportFiles } from '../core/skill-registry/skillImport.js';
 import { GitHubClient } from '../core/skill-registry/github.js';
 import { resolveSkillLicense } from '../core/skill-registry/licenses.js';
-import { applyLicense, planSplit, applySplit, canModify, writeSkillFolder, toSkillName } from '../core/skill-registry/gss.js';
+import { applyLicense, planSplit, applySplit, canModify, writeSkillFolder, readSkillFolder, toSkillName } from '../core/skill-registry/gss.js';
+import { enrichContract, rankabilityLevel, LEVEL_NAMES } from '../core/skill-registry/rankability.js';
 import { SkillDiscovery } from '../core/skill-discovery/SkillDiscovery.js';
 import { SkillOrchestrator } from '../core/orchestrator/SkillOrchestrator.js';
 import { PresetRegistry } from '../core/preset-registry/PresetRegistry.js';
@@ -252,6 +253,7 @@ export class GawCli {
     if (args[0] === 'add') return this.cmdSkillsAdd(args.slice(1));
     if (args[0] === 'new') return this.cmdSkillsNew(args.slice(1));
     if (args[0] === 'repair') return this.cmdSkillsRepair(args.slice(1));
+    if (args[0] === 'enrich') return this.cmdSkillsEnrich(args.slice(1));
 
     this.printHeader();
     const category = args[0];
@@ -276,7 +278,8 @@ export class GawCli {
     const quiet = args.includes('--quiet');
     const target = args.find(a => !a.startsWith('--'));
     const root = target ? path.resolve(target) : this.registry.skillsDir;
-    const { results, errorCount, warningCount } = lintLibrary(root);
+    const showLevels = args.includes('--levels');
+    const { results, levels, errorCount, warningCount } = lintLibrary(root);
 
     for (const r of results) {
       if (r.errors.length === 0 && (quiet || r.warnings.length === 0)) continue;
@@ -285,7 +288,16 @@ export class GawCli {
       if (!quiet) for (const w of r.warnings) console.log(`    warning: ${w}`);
     }
 
+    if (showLevels) {
+      console.log(`\nRankability (GSS Ranking v1):`);
+      for (const r of [...results].sort((a, b) => a.level - b.level || a.name.localeCompare(b.name))) {
+        const next = r.missing.length ? `  → needs ${r.missing.join(', ')}` : '';
+        console.log(`  ${String(r.level)} ${r.levelName.padEnd(10)} ${r.name}${next}`);
+      }
+    }
+
     console.log(`\n${results.length} skill(s) checked: ${errorCount} error(s), ${warningCount} warning(s).`);
+    console.log(`Rankability: ${levels.map(l => `${l.name} ${l.count}`).join(' · ')}${showLevels ? '' : '   (details: --levels)'}`);
     if (errorCount > 0) process.exitCode = 1;
   }
 
@@ -421,10 +433,11 @@ export class GawCli {
    */
   async cmdSkillsAdd(args) {
     this.printHeader();
-    const { values, positional } = this.parseOptions(args, ['--category', '--name']);
+    const { values, positional } = this.parseOptions(args, ['--category', '--name', '--description', '--when']);
     const target = positional[0];
     if (!target) {
-      console.log(`Usage: gaw skills add <github-link | skill-folder | file.md> [--category <c>] [--name <n>] [--project] [--yes]`);
+      console.log(`Usage: gaw skills add <github-link | skill-folder | file.md> [--category <c>] [--name <n>]`);
+      console.log(`         [--description "<what it does>"] [--when "<when to use it>"] [--project] [--yes]`);
       return;
     }
     const { project, root, flat } = this.skillTarget(args);
@@ -439,7 +452,8 @@ export class GawCli {
       return;
     }
 
-    const preview = previewSkill(prepared, { root, category: values.category, name: values.name, flat });
+    if (values.description) prepared.data = { ...prepared.data, description: values.description };
+    const preview = previewSkill(prepared, { root, category: values.category, name: values.name, flat, when: values.when });
     if (args.includes('--allow-changes') && preview.oversizedNotSplit) {
       // The user confirms they own the skill or may change it
       preview.split = planSplit(prepared.content, { skillName: preview.name });
@@ -461,8 +475,18 @@ export class GawCli {
     console.log(`Size:         ~${Math.round(prepared.content.length / 4)} tokens${preview.split ? ` → split into SKILL.md (~${preview.split.after}) + ${preview.split.references.length} reference file(s)` : ''}`);
     if (preview.support.selected.length) console.log(`Files:        ${preview.support.selected.length} supporting file(s)`);
     console.log(`Permissions:  ${preview.contract.permissions?.length ? preview.contract.permissions.join(', ') : 'instructions only'}`);
+    console.log(`Ranking:      Level ${preview.level} ${preview.levelName}${preview.levelMissing.length ? ` (next level needs: ${preview.levelMissing.join(', ')})` : ''}`);
     console.log(`Saves to:     ${path.relative(process.cwd(), preview.dir) || preview.dir}`);
     for (const w of preview.warnings) console.log(`⚠ ${w}`);
+
+    // GSS Ranking v1: skills must be at least Findable (Level 1) to be added
+    if (preview.level < 1) {
+      console.log(`\nNot added: GAW can only rank a skill that says what it does and when to use it.`);
+      console.log(`Missing: ${preview.levelMissing.join('; ')}.`);
+      console.log(`Fix it in the skill, or add it here: --when "<when to use it>"  /  --description "<what it does and when>"`);
+      process.exitCode = 1;
+      return;
+    }
 
     if (!args.includes('--yes')) {
       if (!process.stdin.isTTY) {
@@ -592,6 +616,45 @@ export class GawCli {
 
     console.log(`\n${apply ? `Restored ${written}` : `Would restore ${files}`} file(s), ${(bytes / 1024 / 1024).toFixed(1)} MB.`);
     if (!apply && files) console.log(`Add --apply to download them.`);
+  }
+
+  /**
+   * gaw skills enrich [--apply]: fill empty gaw.json ranking fields (summary,
+   * whenToUse, whenNotToUse, verification, domains, permissions) from each skill's
+   * own text. Never overwrites author fields, never invents content.
+   */
+  async cmdSkillsEnrich(args) {
+    const apply = args.includes('--apply');
+    const skills = (await this.registry.getAllSkills()).filter(s => s.format === 'gss');
+    const fieldCounts = {};
+    const before = [0, 0, 0, 0];
+    const after = [0, 0, 0, 0];
+    let changed = 0;
+
+    for (const skill of skills) {
+      before[rankabilityLevel(skill).level]++;
+      const { contract, filled } = enrichContract(skill);
+      after[rankabilityLevel({ ...skill, contract }).level]++;
+      if (!filled.length) continue;
+      changed++;
+      for (const f of filled) fieldCounts[f] = (fieldCounts[f] || 0) + 1;
+      if (apply) {
+        const folder = readSkillFolder(skill.dir);
+        writeSkillFolder(skill.dir, { ...folder, contract });
+      }
+    }
+
+    console.log(`${apply ? 'Filled' : 'Would fill'} fields from the skills' own text in ${changed} of ${skills.length} skill(s):`);
+    for (const [field, n] of Object.entries(fieldCounts).sort((a, b) => b[1] - a[1])) console.log(`  ${field.padEnd(13)} ${n}`);
+    const fmt = (d) => LEVEL_NAMES.map((n, i) => `${n} ${d[i]}`).join(' · ');
+    console.log(`\nRankability before: ${fmt(before)}`);
+    console.log(`Rankability after:  ${fmt(after)}`);
+    if (apply) {
+      this.registry.writeIndex();
+      console.log(`\n✓ Updated gaw.json files and skills/index.json. Filled fields are listed in each contract's "derived".`);
+    } else {
+      console.log(`\nPreview only. Add --apply to write gaw.json files.`);
+    }
   }
 
   /** gaw skills index: rebuild skills/index.json after adding or editing skills. */
@@ -1050,7 +1113,8 @@ export class GawCli {
     console.log(`                        Add any skill; converted to GSS, license checked, split if oversized`);
     console.log(`  skills new "<title>" [--category c] [--project]`);
     console.log(`                        Create a new GSS skill from a template`);
-    console.log(`  skills lint [folder]  Check skills against the GAW Skill Standard (GSS)`);
+    console.log(`  skills lint [folder] [--levels]  Check skills against GSS and show ranking levels`);
+    console.log(`  skills enrich [--apply]  Fill ranking fields from each skill's own text`);
     console.log(`  skills licenses [--apply]  Check each skill's license at its source`);
     console.log(`  skills split <name|--all> [--apply]  Move long parts of oversized skills into references/`);
     console.log(`  skills index          Rebuild skills/index.json (also happens automatically)`);

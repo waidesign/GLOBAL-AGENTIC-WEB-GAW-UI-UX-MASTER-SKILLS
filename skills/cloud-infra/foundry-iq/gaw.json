@@ -9,5 +9,16 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/foundry-iq-skills/skills/foundry-iq/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Foundry IQ knowledge bases. WHEN: make local or Blob documents searchable; create/diagnose KBs; triage unsupported connectors or multi-source KB creation/reconfiguration (even with classic-search terms); connect existing KB to agents (including multi-source KBs); create/reuse a Search service;…",
+  "domains": [
+    "cloud",
+    "software",
+    "ai",
+    "research"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

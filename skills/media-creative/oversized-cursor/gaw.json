@@ -9,5 +9,23 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "House-style oversized macOS cursor technique for HyperFrames launch videos. Load whenever a scene involves cursors or a pointer-led action, when kicking off a UI scene, when igniting a morph/transition/typing run with a click, or when a scene reads as static, dead, or stale and needs a cheap…",
+  "verification": [
+    "≥ 7cqw full-frame (4.6–5.5cqw inside a mock) — when unsure, bigger",
+    "enters from off-screen on one continuous vector (no fade/mask reveal)",
+    "tip lands on the target center; press pivots on transformOrigin: '21% 14%'",
+    "every click causes something, same-frame",
+    "drifts aside during beats it doesn't own; zero idle wobble",
+    "exits physically (off-frame or cut-the-curve handoff) — no fade-in-place"
+  ],
+  "domains": [
+    "media",
+    "business"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

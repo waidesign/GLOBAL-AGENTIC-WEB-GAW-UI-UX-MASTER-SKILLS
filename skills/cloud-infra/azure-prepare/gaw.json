@@ -9,5 +9,28 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-prepare/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Prepare azd-based Azure projects for deployment: generates azure.yaml, infrastructure (Bicep/Terraform), and Dockerfiles for the Azure Developer CLI (azd) workflow. USE ONLY when the user explicitly wants to use azd as the deployment tool, or the project already has an azure.yaml file.",
+  "whenToUse": [
+    "USE ONLY when the user explicitly wants to use azd as the deployment tool, or the project already has an azure.yaml file.",
+    "DO NOT USE FOR: non-azd deployments, Python App Service code-only deploys (use python-appservice-deploy), or cross-cloud migration (use azure-cloud-migrate).",
+    "Create a new application",
+    "Add services or components to an existing app",
+    "Make updates or changes to existing application",
+    "Modernize or migrate an application"
+  ],
+  "verification": [
+    "BEFORE starting Phase 1, check if the user's prompt OR workspace codebase matches a specialized technology that has a dedicated skill with tested templates.",
+    "If matched, invoke that skill FIRST — then resume azure-prepare for validation and deployment. > ⚠️ Check the user's prompt text — not just existing code."
+  ],
+  "domains": [
+    "cloud",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenToUse"
+  ]
 }

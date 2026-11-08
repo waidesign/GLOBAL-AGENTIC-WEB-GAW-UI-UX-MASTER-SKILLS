@@ -10,5 +10,14 @@
     "vue",
     "svelte"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Interactive experimental design sandbox, creative UI/UX prototyping, and advanced layout exploration.",
+  "domains": [
+    "design",
+    "web"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

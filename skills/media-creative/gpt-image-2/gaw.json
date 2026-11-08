@@ -9,5 +9,18 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/gpt-image-2/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Generate and edit images with OpenAI GPT Image 2 (ChatGPT Images 2.0) on RunComfy. Documents GPT Image 2's strengths (embedded text, logos, multilingual typography, instruction precision), its 3 fixed sizes, edit-with-preservation language, and when to route to a sibling (Flux 2 / Nano Banana…",
+  "verification": [
+    "Text-to-image — product hero: Text-to-image — multilingual signage: Edit — background swap with preservation:"
+  ],
+  "domains": [
+    "media",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

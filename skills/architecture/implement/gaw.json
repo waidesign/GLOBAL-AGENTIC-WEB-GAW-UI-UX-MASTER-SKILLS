@@ -9,5 +9,13 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Implement a piece of work based on a spec or set of tickets.",
+  "domains": [
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

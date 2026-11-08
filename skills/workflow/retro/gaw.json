@@ -9,5 +9,14 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Conduct a retrospective on a coding session.",
+  "domains": [
+    "software",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

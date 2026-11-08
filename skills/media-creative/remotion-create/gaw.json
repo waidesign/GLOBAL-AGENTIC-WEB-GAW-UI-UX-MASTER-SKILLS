@@ -9,5 +9,13 @@
     "licenseEvidence": "no license found",
     "licenseUrl": "https://github.com/remotion-dev/skills",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Create a new Remotion video",
+  "domains": [
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

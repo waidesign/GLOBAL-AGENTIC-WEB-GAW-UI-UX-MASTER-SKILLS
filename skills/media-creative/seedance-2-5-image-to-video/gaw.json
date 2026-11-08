@@ -9,5 +9,14 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/seedance-2-5-image-to-video/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Animate a single still image into a 4-30 second 720p cinematic clip with optional synchronized native audio using ByteDance Seedance 2.5 Image to Video on RunComfy. Documents the four-field schema (prompt, image, duration, generate_audio), the $0.35/s pricing, the fact that output aspect ratio…",
+  "domains": [
+    "media",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

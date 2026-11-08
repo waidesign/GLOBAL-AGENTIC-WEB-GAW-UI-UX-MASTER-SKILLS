@@ -9,5 +9,20 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-cost/skills/cost-estimation/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Forecast Azure spend and price planned resources or workloads. WHEN: \\\"forecast Azure spending\\\", \\\"project next month cost\\\", \\\"compare forecast to my planning target\\\", \\\"how much will Azure cost\\\", \\\"estimate VM cost\\\", \\\"compare storage tiers\\\", \\\"compare Azure regions\\\", \\\"retail price\\\",…",
+  "whenToUse": [
+    "DO NOT USE FOR: configured budget health or alerts, bill analysis, cost spikes, rightsizing, or commitments.",
+    "Use for forecasts, pricing, and planning targets."
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "finance"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

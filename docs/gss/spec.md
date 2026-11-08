@@ -108,6 +108,9 @@ Structured data that helps GAW choose skills well and helps agents use them. Eve
 | `lastVerified` | string | Date (`YYYY-MM-DD`) the skill was last checked. |
 | `source` | object | Where an imported skill came from, and its license check: `licenseVerified`, `licenseStatus` (`open`, `copyleft`, `restricted`, `unknown`), `licenseEvidence`, `licenseUrl`, `licenseCheckedAt`. |
 | `extraFrontmatter` | object | Frontmatter fields from the original skill that Agent Skills doesn't allow at the top level, kept so nothing is lost. |
+| `domains` | string[] | Fields the skill serves (see Ranking → Domains). |
+| `derived` | string[] | Fields GAW filled from the skill's own text. |
+| `drafts` | string[] | Fields drafted by AI and not yet reviewed; they don't count for ranking until reviewed. |
 
 ## 5. Adding skills: GSS is created automatically
 
@@ -130,7 +133,74 @@ GAW never relabels someone else's work. For skills from GitHub, `gaw skills lice
 
 A body over ~5,000 tokens is split losslessly: the opening sections stay in `SKILL.md` (~3,500 tokens), and the rest moves into `references/*.md`, grouped into files of roughly 1,200–3,000 tokens. A "Detailed references" list in `SKILL.md` tells agents what each file covers so they open it only when needed. GAW only splits skills whose license allows changes (open or copyleft). `gaw skills split <name|--all> [--apply]` does this for existing skills; `gaw skills add` does it automatically.
 
-## 8. Validation
+## 8. Ranking (GSS Ranking v1)
+
+GSS defines how skills are ranked, so every skill is ranked by the same published rules and authors know what makes a skill findable. Version: `gss-ranking-1`.
+
+### 8.1 What counts
+
+| Signal | Fields | Effect |
+|---|---|---|
+| Identity | `name`, `gaw-title` | Strongest: the task names the skill |
+| Intent | `description`, `keywords`, `gaw-tags`, `gaw-category` | The main match. Weights: name ×3 (ID) / ×2 (title), tags and keywords ×2, description ×1.5, category ×1 |
+| Exclusion | `whenNotToUse` | A skill is not suggested when a task matches one of its items (2+ of the item's words, covering half of them) |
+| Context | `domains` | ×1.1 when they match the project's domains; never excludes |
+| Relations | `dependsOn`, `related` | Required skills load together; related ones may be suggested |
+| Trust | `source.licenseStatus`, `lastVerified` | Only breaks exact ties (verified open license, then most recently checked) |
+
+Rules:
+
+- Words that few skills use count more than common ones (inverse document frequency).
+- A skill must cover at least a third of the task's meaning, or half of one part of a multi-part task through its name, tags, keywords or category. It must also score at least 40% of the best match.
+- When nothing fits, nothing is suggested.
+- Every suggestion comes with a reason ("Matched "pricing", "page" (name)").
+- Matching reads metadata only, never skill bodies.
+
+`summary` and `whenToUse` are **not scored** in v1. Measured with the benchmark, scoring them gave no gain: the summary repeats the description, and `whenToUse` copied from skill bodies is often a broad trigger list. They count toward rankability levels and are shown to users and agents. v2 may score author-written `whenToUse`.
+
+### 8.2 Rankability levels
+
+| Level | Name | Requires |
+|---|---|---|
+| 0 | Incomplete | Lint errors, or the skill doesn't say when to use it |
+| 1 | **Findable** | Valid GSS, a description of 40+ characters, and a "when to use" (a "Use when…" sentence in the description, or `whenToUse`) |
+| 2 | **Rankable** | Level 1 + `summary`, `whenToUse`, `domains`, and 3+ search terms (`keywords`, `gaw-tags`, `frameworks`) |
+| 3 | **Precise** | Level 2 + `whenNotToUse` and `verification` |
+
+- `gaw skills add` **rejects skills below Level 1**. Authors can supply the missing part with `--when "<when to use it>"` or `--description`.
+- **Level 2 is the target** for every skill in the GAW library.
+- `gaw skills lint` shows the distribution, and `--levels` shows what each skill needs next.
+
+### 8.3 Filling the contract
+
+`gaw skills enrich` (and `gaw skills add`) fill empty contract fields **from the skill's own text only**, never overwriting what an author wrote:
+
+| Field | Taken from |
+|---|---|
+| `summary` | First sentences of the description |
+| `whenToUse` | "Use when…" sentences in the description, or a "When to use" section |
+| `whenNotToUse` | A "When not to use" section |
+| `verification` | A checklist / checks / verification section |
+| `domains` | The category, plus clear words in the description |
+| `permissions` | Bundled scripts or hooks (`shell`) |
+
+Filled fields are listed in `derived`. `keywords` are never derived, because synonyms must come from people. AI-drafted fields will be listed in `drafts` and only count once a person reviews them.
+
+### 8.4 Domains
+
+`domains` is a list of lowercase words describing the field a skill serves. Recommended: `software`, `web`, `design`, `cloud`, `data`, `ai`, `security`, `documents`, `writing`, `media`, `education`, `research`, `business`, `finance`, `health`, `science`, `legal`, `engineering`. Any other lowercase word is allowed.
+
+### 8.5 Anti-gaming
+
+- **Hard limits** (lint errors): at most 20 `keywords`, each at most 40 characters, and at most 15 `gaw-tags`. Search ignores anything beyond these limits.
+- Each word counts once per field, so repeating words never raises a rank. The linter flags a word used 6+ times that makes up 10%+ of a description.
+- The linter flags descriptions copied from another skill.
+
+### 8.6 Changing the rules
+
+A ranking change ships only if `npm run eval` does not get worse on the held-out set, which is never used for tuning. Each change bumps the ranking version.
+
+## 9. Validation
 
 ```bash
 gaw skills lint            # whole library
@@ -141,6 +211,6 @@ gaw skills lint <folder>   # one skill
 
 **Warnings** (should fix): body over ~5,000 tokens or 500 lines, placeholder descriptions, `source.licenseVerified: false`.
 
-## 9. Index
+## 10. Index
 
 `skills/index.json` holds every skill's metadata, `gaw.json` contract and a token estimate, so GAW can rank skills without reading every skill body. It updates itself: whenever GAW notices skills were added or changed, it rebuilds the index. `gaw skills index` rebuilds it on demand.

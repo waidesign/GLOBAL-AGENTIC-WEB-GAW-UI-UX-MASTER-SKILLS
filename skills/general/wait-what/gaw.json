@@ -9,5 +9,9 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Stop. That last message did not land: re-pitch it.",
+  "derived": [
+    "summary"
+  ]
 }

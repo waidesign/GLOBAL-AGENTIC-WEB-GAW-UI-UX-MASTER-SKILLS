@@ -9,5 +9,19 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/aks-skills/skills/aks-network-capture/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Collects bounded packet captures from AKS nodes and Azure network configuration for wire-level evidence. WHEN: \\\"capture packets on an AKS node\\\", \\\"take a pcap\\\", \\\"run tcpdump on AKS\\\", \\\"prove where packets drop\\\".",
+  "whenToUse": [
+    "Use for explicit packet-capture intent after read-only diagnostics, not general AKS connectivity or ingress troubleshooting.",
+    "Use for explicit packet capture after read-only checks, not generic connectivity failures."
+  ],
+  "domains": [
+    "cloud",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

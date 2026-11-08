@@ -9,5 +9,18 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/happyhorse-1-0/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Generate text-to-video with HappyHorse 1.0 on RunComfy. Documents HappyHorse 1.0's strengths (#1 on Artificial Analysis Video Arena, native 1080p with in-pass synchronized audio, multi-shot character consistency, 6-language prompt support), the duration / aspect-ratio / resolution schema, and…",
+  "verification": [
+    "From the model page (cinematic scope): Multi-shot consistency: Vertical platform-native:"
+  ],
+  "domains": [
+    "media",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

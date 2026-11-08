@@ -14,5 +14,17 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Use when writing a PR body.",
+  "whenToUse": [
+    "Use when writing a PR body."
+  ],
+  "domains": [
+    "writing"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

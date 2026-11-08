@@ -9,5 +9,14 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/codex-pet/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Codex Pet generator on RunComfy. Build a Codex-compatible Codex Pet spritesheet.webp + pet.json from a single reference image, drop it into `${CODEX_HOME:-$HOME/.codex}/pets/<name>/` and Codex picks it up as a custom Codex Pet next to the 8 built-ins.",
+  "domains": [
+    "ai",
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

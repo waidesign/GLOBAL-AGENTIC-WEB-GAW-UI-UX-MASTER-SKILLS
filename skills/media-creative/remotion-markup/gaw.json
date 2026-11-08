@@ -9,5 +9,18 @@
     "licenseEvidence": "no license found",
     "licenseUrl": "https://github.com/remotion-dev/skills",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Content, animation and effects best practices",
+  "verification": [
+    "Open the Remotion Studio to check visual changes.",
+    "When changing timeline structure, inspect the full composition as well as any connected components; verify the visible layers, cut timing, and synchronized content."
+  ],
+  "domains": [
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

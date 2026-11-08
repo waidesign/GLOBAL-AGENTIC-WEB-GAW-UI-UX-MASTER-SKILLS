@@ -9,5 +9,20 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-cost/skills/cost-governance/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Govern Azure costs with budgets, alerts, tags, and policy restrictions. WHEN: \\\"Azure budget health\\\", \\\"configured budget overrun\\\", \\\"list Azure budgets\\\", \\\"create Azure budget\\\", \\\"budget alerts\\\", \\\"budget coverage\\\", \\\"missing CostCenter tags\\\", \\\"allowed VM SKUs\\\", \\\"allowed Azure…",
+  "whenToUse": [
+    "DO NOT USE FOR: planning-target forecasts, bill investigations, pricing, rightsizing, or commitments.",
+    "Use for budgets, alerts, tags, and policy."
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "finance"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

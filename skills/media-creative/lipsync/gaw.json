@@ -9,5 +9,13 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/lipsync/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Lip-sync a face to a specific audio track on RunComfy via the `runcomfy` CLI. Routes across ByteDance OmniHuman (audio-driven full-body avatar from a portrait + audio), Sync Labs sync v2 / Pro (state-of-the-art mouth sync onto a video), Kling lipsync (audio-to- video and text-to-video with…",
+  "domains": [
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

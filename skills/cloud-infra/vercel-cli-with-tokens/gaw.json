@@ -9,5 +9,19 @@
     "licenseEvidence": "no license found",
     "licenseUrl": "https://github.com/vercel-labs/agent-skills",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g.",
+  "whenToUse": [
+    "Use when working with Vercel CLI using access tokens rather than interactive login — e.g."
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "security"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

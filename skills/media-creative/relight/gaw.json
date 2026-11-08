@@ -9,5 +9,19 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/relight/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Relight a still image — change the lighting setup, color temperature, direction, or mood — on RunComfy via the `runcomfy` CLI. Routes to Qwen Edit 2509's dedicated `relight` LoRA endpoint for purpose-built relighting, with fallback to identity-preserving edit endpoints (Nano Banana 2 Edit, GPT…",
+  "whenToUse": [
+    "Use for product relighting (studio softbox → window light), portrait mood shift (overcast → golden hour), or color-grade change."
+  ],
+  "domains": [
+    "media",
+    "ai",
+    "writing"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

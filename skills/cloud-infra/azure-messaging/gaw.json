@@ -9,5 +9,24 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-messaging/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Troubleshoot and resolve issues with Azure Messaging SDKs for Event Hubs and Service Bus. Covers connection failures, authentication errors, message processing issues, and SDK configuration problems.",
+  "whenToUse": [
+    "SDK connection failures, auth errors, or AMQP link errors",
+    "Idle timeout, connection inactivity, or slow reconnection after disconnect",
+    "AMQP link detach or detach-forced errors",
+    "Message lock lost, message lock expired, lock renewal failures, or batch lock timeouts",
+    "Session lock lost, session lock expired, or session receiver errors",
+    "Event processor or message handler stops processing"
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "security"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

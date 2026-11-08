@@ -9,5 +9,28 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-quotas/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Check/manage Azure quotas and usage across providers. For deployment planning, capacity validation, region selection.",
+  "whenToUse": [
+    "Planning a new deployment - Validate capacity before deployment",
+    "Selecting an Azure region - Compare quota availability across regions",
+    "Troubleshooting quota exceeded errors - Check current usage vs limits",
+    "Requesting quota increases - Submit increase requests via CLI or Portal",
+    "Comparing regional capacity - Find regions with available quota",
+    "Validating provisioning limits - Ensure deployment won't exceed quotas"
+  ],
+  "verification": [
+    "Scenario: Verify quota limits and current usage before deployment Run the script with the resource provider and region.",
+    "It returns a table of all quotas with their limit, current usage, and available capacity in a single call: To check a single resource, add the resource name: Example: Example Output: > 📖 See also: az quota show, az quota usage show"
+  ],
+  "domains": [
+    "cloud",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenToUse"
+  ]
 }

@@ -9,5 +9,18 @@
     "licenseEvidence": "no license found",
     "licenseUrl": "https://github.com/vercel-labs/agent-skills",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Review docs/prose for Writing Guidelines compliance. Use when asked to \"review my docs\", \"check writing style\", \"audit prose\", \"review docs voice and tone\", or \"check this page against the writing handbook\".",
+  "whenToUse": [
+    "Use when asked to \"review my docs\", \"check writing style\", \"audit prose\", \"review docs voice and tone\", or \"check this page against the writing handbook\"."
+  ],
+  "domains": [
+    "software",
+    "writing"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

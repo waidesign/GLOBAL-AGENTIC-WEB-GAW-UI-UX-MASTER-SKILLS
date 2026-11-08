@@ -9,5 +9,20 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "This skill should be used when the user wants to \"set up tracing\", \"monitor my agent\", \"configure logging\", \"add observability\", \"debug production traffic\", or needs guidance on monitoring deployed agents, including ADK (Agent Development Kit) agents. Covers Cloud Trace, prompt-response logging,…",
+  "whenToUse": [
+    "This skill should be used when the user wants to \"set up tracing\", \"monitor my agent\", \"configure logging\", \"add observability\", \"debug production traffic\", or needs guidance on monitoring deployed agents, including ADK (Agent Development K",
+    "Do NOT use for deployment setup (use google-agents-cli-deploy) or API code patterns (use google-agents-cli-adk-code)."
+  ],
+  "domains": [
+    "software",
+    "ai",
+    "data"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

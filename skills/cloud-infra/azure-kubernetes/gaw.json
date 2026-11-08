@@ -9,5 +9,25 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-kubernetes/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clusters. Covers Day-0 checklist, SKU selection (Automatic vs Standard), networking options (private API server, Azure CNI Overlay, egress configuration), security, and operations (autoscaling, upgrade strategy, cost…",
+  "whenToUse": [
+    "Create a new AKS cluster",
+    "Plan AKS cluster configuration for production workloads",
+    "Design AKS networking (API server access, pod IP model, egress)",
+    "Set up AKS identity and secrets management",
+    "Configure AKS governance (Azure Policy, Deployment Safeguards)",
+    "Enable AKS observability (Container Insights, Managed Prometheus, Grafana)"
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "security",
+    "finance"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

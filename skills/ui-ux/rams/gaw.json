@@ -5,5 +5,14 @@
     "vue",
     "svelte"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Run accessibility and visual design review",
+  "domains": [
+    "design",
+    "web"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

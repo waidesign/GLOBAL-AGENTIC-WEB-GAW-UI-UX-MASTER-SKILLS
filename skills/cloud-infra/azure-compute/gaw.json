@@ -9,5 +9,23 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-compute/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Azure VM/VMSS router. WHEN: create / provision / deploy / spin-up VM, recommend VM size, compare VM pricing, VMSS, scale set, autoscale, burstable, lightweight server, website, backend, GPU, machine learning, HPC simulation, dev/test, workload, family, load balancer, Flexible orchestration,…",
+  "whenToUse": [
+    "User wants to recommend, compare, or price a VM or VMSS",
+    "User wants to create, provision, or deploy a VM or VMSS",
+    "User asks about Capacity Reservation Groups (CRG) — reserve, guarantee capacity, pre-provision",
+    "User asks about Essential Machine Management (EMM) — machine enrollment, monitor"
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "media",
+    "education"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

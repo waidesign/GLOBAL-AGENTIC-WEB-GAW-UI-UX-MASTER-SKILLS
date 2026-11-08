@@ -9,5 +9,15 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-ai/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Build and troubleshoot Azure AI Search, Speech, OpenAI, and Document Intelligence apps. WHEN: AI Search, query search, vector search, hybrid search, semantic search, speech-to-text, text-to-speech, transcribe, Speech SDK logs, session ID, result ID, OCR, convert text to speech.",
+  "domains": [
+    "cloud",
+    "software",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

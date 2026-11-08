@@ -9,5 +9,21 @@
     "nextjs",
     "vue"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Use when designing/implementing UI with Tailwind CSS (layout, typography, responsive, theming, component patterns). Includes quick recipes and conventions for clean, consistent web design.",
+  "whenToUse": [
+    "Use when designing/implementing UI with Tailwind CSS (layout, typography, responsive, theming, component patterns).",
+    "Rapid UI building with consistent spacing/typography scales",
+    "Design systems where composition beats bespoke CSS",
+    "Component-driven apps (React/Vue/Svelte), marketing pages, prototypes → production"
+  ],
+  "domains": [
+    "web",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

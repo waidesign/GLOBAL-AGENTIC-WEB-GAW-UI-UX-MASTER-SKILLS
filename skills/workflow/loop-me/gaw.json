@@ -9,5 +9,19 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Grill me about specs for the workflows I want to build, within this workspace.",
+  "verification": [
+    "A workflow spec is done when an implementer agent could build it without asking a single question.",
+    "Grill until then; nothing is done while a question remains."
+  ],
+  "domains": [
+    "software",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

@@ -9,5 +9,15 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/vercel-labs/agent-skills/blob/main/skills/react-native-skills/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "vercel-react-native-skills skill for AI coding agents.",
+  "domains": [
+    "web",
+    "software",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

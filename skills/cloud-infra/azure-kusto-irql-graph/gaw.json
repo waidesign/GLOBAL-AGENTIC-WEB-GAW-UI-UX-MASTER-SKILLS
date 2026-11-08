@@ -9,5 +9,19 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-kusto-graph-skills/skills/azure-kusto-irql-graph/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Apply IRQL graph functions to KQL or IRQL query results for Kusto Explorer visualization. Generates Lift_To_Graph mappings and composes Graph_Render_View, Graph_Fold_By_Property, Extract_Node_*, Enrich_Node_*, and Enrich_Graph_* calls.",
+  "whenToUse": [
+    "Apply IRQL graph functions to KQL or IRQL query results for Kusto Explorer visualization.",
+    "Use azure-kusto-graph for native make-graph analysis, graph-match, shortest paths, components, or persistent graphs."
+  ],
+  "domains": [
+    "cloud",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

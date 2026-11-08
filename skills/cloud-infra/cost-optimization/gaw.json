@@ -9,5 +9,20 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-cost/skills/cost-optimization/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Optimize existing Azure resources and analyze Reservations or Savings Plans. WHEN: \\\"optimize Azure costs\\\", \\\"reduce cloud spending\\\", \\\"rightsize resources\\\", \\\"find idle resources\\\", \\\"orphaned disk\\\", \\\"deleted VM still charged\\\", \\\"public IP still charging\\\", \\\"reservation utilization\\\",…",
+  "whenToUse": [
+    "DO NOT USE FOR: cost spikes, forecasts, pricing estimates, budgets, or governance.",
+    "Use for waste, rightsizing, and commitments."
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "finance"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

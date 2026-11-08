@@ -9,5 +9,21 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-cost/skills/cost-analysis/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Analyze actual Azure spend, bill changes, and AKS or AI costs. WHEN: \\\"Azure cost breakdown\\\", \\\"most expensive resources\\\", \\\"why did my bill increase\\\", \\\"cost spike\\\", \\\"unexpected charge\\\", \\\"Cosmos DB charges\\\", \\\"Foundry model costs\\\", \\\"AKS cluster cost\\\", \\\"namespace cost\\\", \\\"enable AKS…",
+  "whenToUse": [
+    "DO NOT USE FOR: forecasts, pricing estimates, rightsizing, commitments, or budgets.",
+    "Use for spend, anomalies, and AKS or AI allocation."
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "ai",
+    "finance"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

@@ -9,5 +9,19 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Rebuild any video file as an editable HyperFrames project - motion graphics, talking heads, live action or AI-generated footage. Measure and watch it, rebuild every layer, then check the render against the original frame by frame.",
+  "verification": [
+    "While building, check a few moments without rendering: npx hyperframes diff <video> . --at t,t,….",
+    "Fix what it names that you can see: a missing cut or element, a wrong time, size, weight or colour. Render and diff once more, then stop."
+  ],
+  "domains": [
+    "media",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

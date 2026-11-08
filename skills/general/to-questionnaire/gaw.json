@@ -9,5 +9,9 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Turn a decision you can't fully answer into a questionnaire for someone else to fill in.",
+  "derived": [
+    "summary"
+  ]
 }

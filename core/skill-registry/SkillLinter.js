@@ -1,6 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { parseFrontmatter } from './frontmatter.js';
+import { rankabilityLevel, MAX_KEYWORDS, MAX_KEYWORD_LENGTH, MAX_TAGS, LEVEL_NAMES } from './rankability.js';
+
+// Keyword stuffing: one word used this many times AND making up this share of the description.
+// (Ranking already counts each word once per field, so this only flags extreme cases.)
+const STUFFING_REPEATS = 6;
+const STUFFING_SHARE = 0.1;
+const STUFFING_IGNORE = new Set(['with', 'that', 'this', 'from', 'your', 'when', 'what', 'into', 'their', 'them', 'they', 'will', 'such', 'also', 'skill', 'skills', 'used', 'using']);
 
 // GAW Skill Standard (GSS) v1 rules. See docs/gss/spec.md.
 const ALLOWED_FRONTMATTER = new Set(['name', 'description', 'license', 'compatibility', 'metadata', 'allowed-tools']);
@@ -27,7 +34,10 @@ const CONTRACT_FIELDS = {
   permissions: 'string[]',
   lastVerified: 'string',
   source: 'object',
-  extraFrontmatter: 'object'
+  extraFrontmatter: 'object',
+  domains: 'string[]',
+  derived: 'string[]',
+  drafts: 'string[]'
 };
 const PERMISSIONS = new Set(['shell', 'network', 'filesystem', 'secrets']);
 
@@ -72,6 +82,19 @@ export function lintSkillFolder(dir, knownSkills = null) {
   if (!description) errors.push('Missing "description"');
   else if (PLACEHOLDERS.has(description)) errors.push(`"description" is a placeholder ("${description}")`);
   else if (description.startsWith(NEW_SKILL_TODO)) errors.push('"description" is still the template text: say what the skill does and when to use it');
+
+  // Anti-gaming: repeated words in the description
+  if (description) {
+    const counts = new Map();
+    const allWords = description.toLowerCase().match(/[a-z][a-z0-9+#-]*/g) || [];
+    for (const w of allWords) {
+      if (w.length >= 4 && !STUFFING_IGNORE.has(w)) counts.set(w, (counts.get(w) || 0) + 1);
+    }
+    const stuffed = [...counts.entries()]
+      .filter(([, n]) => n >= STUFFING_REPEATS && n / allWords.length >= STUFFING_SHARE)
+      .map(([w]) => w);
+    if (stuffed.length) warnings.push(`Description repeats ${stuffed.map(w => `"${w}"`).join(', ')} unusually often. Repetition doesn't improve ranking; list trigger phrases in gaw.json keywords instead`);
+  }
   else if (description.length > 1024) errors.push('"description" is longer than 1024 characters');
   else if (description.length < 20) warnings.push('"description" is very short: say what the skill does and when to use it');
 
@@ -86,6 +109,8 @@ export function lintSkillFolder(dir, knownSkills = null) {
       for (const [k, v] of Object.entries(data.metadata)) {
         if (typeof v !== 'string') errors.push(`metadata "${k}" must be a string`);
       }
+      const tagCount = String(data.metadata['gaw-tags'] || '').split(',').map(t => t.trim()).filter(Boolean).length;
+      if (tagCount > MAX_TAGS) errors.push(`metadata gaw-tags has ${tagCount} tags (max ${MAX_TAGS})`);
       const category = data.metadata['gaw-category'];
       const parentFolder = path.basename(path.dirname(dir));
       // Library layout is skills/<category>/<name>; project skills sit directly in ai-brain/skills/
@@ -103,14 +128,21 @@ export function lintSkillFolder(dir, knownSkills = null) {
   if (lines > MAX_BODY_LINES) warnings.push(`Body is ${lines} lines (guideline: under ${MAX_BODY_LINES})`);
 
   const contractFile = path.join(dir, 'gaw.json');
+  let contract = {};
   if (fs.existsSync(contractFile)) {
-    let contract = null;
     try {
       contract = JSON.parse(fs.readFileSync(contractFile, 'utf8'));
     } catch (err) {
       errors.push(`gaw.json is not valid JSON: ${err.message}`);
+      contract = null;
     }
     if (contract) {
+      // Anti-gaming caps on search terms
+      if (Array.isArray(contract.keywords)) {
+        if (contract.keywords.length > MAX_KEYWORDS) errors.push(`gaw.json: ${contract.keywords.length} keywords (max ${MAX_KEYWORDS})`);
+        const long = contract.keywords.filter(k => String(k).length > MAX_KEYWORD_LENGTH);
+        if (long.length) errors.push(`gaw.json: keywords longer than ${MAX_KEYWORD_LENGTH} characters: ${long.map(k => `"${String(k).slice(0, 20)}…"`).join(', ')}`);
+      }
       for (const [key, value] of Object.entries(contract)) {
         const type = CONTRACT_FIELDS[key];
         if (!type) warnings.push(`gaw.json: unknown field "${key}"`);
@@ -131,7 +163,17 @@ export function lintSkillFolder(dir, knownSkills = null) {
     }
   }
 
-  return { name: name || folderName, errors, warnings };
+  // GSS Ranking v1 rankability level
+  const meta = (data.metadata && typeof data.metadata === 'object') ? data.metadata : {};
+  const rank = rankabilityLevel({
+    id: name || folderName,
+    name: meta['gaw-title'] || name,
+    description,
+    tags: String(meta['gaw-tags'] || '').split(',').map(t => t.trim()).filter(Boolean),
+    contract: contract || {}
+  }, errors.length);
+
+  return { name: name || folderName, errors, warnings, level: rank.level, levelName: rank.name, missing: rank.missing };
 }
 
 /** Find every GSS skill folder under a directory. */
@@ -177,8 +219,25 @@ export function lintLibrary(root) {
     }
   }
 
+  // Anti-gaming: the same description on several skills
+  const byDescription = new Map();
+  for (const dir of folders) {
+    const { data } = parseFrontmatter(fs.readFileSync(path.join(dir, 'SKILL.md'), 'utf8'));
+    const key = String(data.description || '').toLowerCase().replace(/\W+/g, ' ').trim();
+    if (key.length >= 40) byDescription.set(key, [...(byDescription.get(key) || []), dir]);
+  }
+  for (const dirs of byDescription.values()) {
+    if (dirs.length < 2) continue;
+    for (const r of results.filter(res => dirs.includes(res.dir))) {
+      r.warnings.push(`Same description as ${dirs.filter(d => d !== r.dir).map(d => path.basename(d)).join(', ')}`);
+    }
+  }
+
+  const levels = LEVEL_NAMES.map((levelName, level) => ({ level, name: levelName, count: results.filter(r => r.level === level).length }));
+
   return {
     results,
+    levels,
     errorCount: results.reduce((n, r) => n + r.errors.length, 0),
     warningCount: results.reduce((n, r) => n + r.warnings.length, 0)
   };

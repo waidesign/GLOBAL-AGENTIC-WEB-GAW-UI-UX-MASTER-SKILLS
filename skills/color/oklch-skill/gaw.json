@@ -4,5 +4,13 @@
     "any",
     "tailwind"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "OKLCH color space for web projects. Convert hex/rgb/hsl to oklch, generate palettes, check contrast, handle gamut boundaries, and theme with Tailwind v4.",
+  "domains": [
+    "design"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

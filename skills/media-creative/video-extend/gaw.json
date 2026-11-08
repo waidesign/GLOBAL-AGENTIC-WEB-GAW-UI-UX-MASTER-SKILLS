@@ -9,5 +9,18 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/video-extend/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Extend or continue an existing video clip on RunComfy via the `runcomfy` CLI. Routes to Google Veo 3-1's `extend-video` and `fast/extend-video` endpoints — pick the source video plus a prompt describing what should happen next, and the model produces a clip that continues the original with…",
+  "whenToUse": [
+    "Use when the user has a short Veo clip and wants it longer, or wants a chained narrative built shot-by-shot from a single seed clip."
+  ],
+  "domains": [
+    "media",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

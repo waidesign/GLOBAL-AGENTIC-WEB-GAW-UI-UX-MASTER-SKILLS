@@ -4,5 +4,29 @@
     "framer-motion",
     "tailwind"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Create masked staggered word reveals on scroll with GSAP ScrollTrigger. Use when headings, hero copy, section titles, or editorial text should reveal word-by-word through an overflow mask as they enter the viewport.",
+  "whenToUse": [
+    "Use when headings, hero copy, section titles, or editorial text should reveal word-by-word through an overflow mask as they enter the viewport.",
+    "A headline or short text block needs a premium reveal on scroll.",
+    "Words should rise through an invisible mask with a staggered sequence.",
+    "The project already uses GSAP or needs ScrollTrigger-based motion."
+  ],
+  "verification": [
+    "Text is hidden before GSAP initializes, then becomes visible with autoAlpha: 1.",
+    "Screen readers get the original full text through aria-label.",
+    "Spaces between words are preserved.",
+    "Reduced-motion users see static text.",
+    "ScrollTrigger is cleaned up in SPA routes."
+  ],
+  "domains": [
+    "web",
+    "design"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenToUse"
+  ]
 }

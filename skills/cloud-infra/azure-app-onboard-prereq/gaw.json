@@ -9,5 +9,19 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-app-onboard-prereq/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Assess whether source code is ready to deploy to Azure — the check BEFORE infrastructure work. Evaluates build health, app completeness, dependencies and local services, stack compatibility, and deployment feasibility.",
+  "verification": [
+    "Exists → ⛔ read session-protocol.md for resume/fresh gate. Do NOT proceed until user answers.",
+    "Missing → create session: generate UUID, New-Item -ItemType Directory -Path \".copilot-azure/sessions/{uuid}\" -Force, write context.json + active-session.json via create tool."
+  ],
+  "domains": [
+    "cloud",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

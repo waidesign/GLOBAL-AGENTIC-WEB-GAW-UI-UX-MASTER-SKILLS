@@ -9,5 +9,19 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "GATEWAY — load FIRST before composing any HyperFrames animation or video. The high-level motion law that makes a multi-scene video feel like ONE continuous camera move instead of a stack of independently-animated slides.",
+  "verification": [
+    "Edits re-open the seam. Any change to a scene's first/last ~1s (including",
+    "Audio is the clock. Re-time scenes to the VO's real word timestamps; never rush a",
+    "Clip-gating gotcha (the usual cause of a zero-overlap FAIL): a clip whose"
+  ],
+  "domains": [
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

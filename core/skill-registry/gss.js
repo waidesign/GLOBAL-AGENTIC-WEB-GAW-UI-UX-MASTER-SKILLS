@@ -73,12 +73,6 @@ export function deriveDescription(body, fallback) {
   return fallback;
 }
 
-/** Short summary for gaw.json: the first one or two sentences of the description. */
-export function deriveSummary(description) {
-  const sentences = String(description || '').match(/[^.!?]+[.!?]+/g) || [description];
-  return sentences.slice(0, 2).join(' ').trim().slice(0, 300);
-}
-
 const asList = (v) => (Array.isArray(v) ? v.map(String) : String(v || '').split(',').map(s => s.trim()).filter(Boolean));
 
 /**
@@ -130,8 +124,8 @@ export function convertToGss({ data = {}, content = '', nameHint = '', category 
     metadata
   };
 
+  // summary and other ranking fields are filled by enrichContract (rankability.js), which records them in `derived`
   const contract = { gss: 1, ...(existingContract || {}) };
-  if (!contract.summary) contract.summary = deriveSummary(description);
   const deps = asList(data.dependencies || data.dependsOn);
   if (deps.length && !contract.dependsOn) contract.dependsOn = deps;
   const related = asList(data.relatedSkills || data.related);

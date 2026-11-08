@@ -9,5 +9,15 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.",
+  "domains": [
+    "software",
+    "ai",
+    "writing"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

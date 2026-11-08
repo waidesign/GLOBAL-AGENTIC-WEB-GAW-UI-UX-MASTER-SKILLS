@@ -9,5 +9,21 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "This skill should be used when the user wants to \"deploy an agent\", \"deploy my ADK agent\", \"set up CI/CD\", \"configure secrets\", \"troubleshoot a deployment\", or needs guidance on Agent Runtime, Cloud Run, or GKE deployment targets, or binding an agent to an Agent Gateway. Covers deployment…",
+  "whenToUse": [
+    "This skill should be used when the user wants to \"deploy an agent\", \"deploy my ADK agent\", \"set up CI/CD\", \"configure secrets\", \"troubleshoot a deployment\", or needs guidance on Agent Runtime, Cloud Run, or GKE deployment targets, or bindin",
+    "Do NOT use for agent API code patterns (ADK: use google-agents-cli-adk-code), evaluation (use google-agents-cli-eval), or project scaffolding (use google-agents-cli-scaffold)."
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "ai",
+    "security"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

@@ -9,5 +9,23 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-kusto/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Query and analyze data in Azure Data Explorer (Kusto/ADX) using KQL for log analytics, telemetry, and time series analysis. WHEN: KQL queries, Kusto database queries, Azure Data Explorer, ADX clusters, log analytics, time series data, IoT telemetry, anomaly detection.",
+  "whenToUse": [
+    "Log Analytics: Application logs, system logs, audit logs",
+    "IoT Analytics: Sensor data, device telemetry, real-time monitoring",
+    "Security Analytics: SIEM data, threat detection, security event correlation",
+    "APM: Application performance metrics, user behavior, error tracking",
+    "Business Intelligence: Clickstream analysis, user analytics, operational KPIs"
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "data"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

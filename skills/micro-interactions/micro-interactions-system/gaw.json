@@ -12,5 +12,15 @@
     "html",
     "tailwind"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Tactile, physics-driven micro-interactions for buttons, toggles, forms, dialogs, and notifications with strict timing and feedback budgets.",
+  "domains": [
+    "web",
+    "design",
+    "finance"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

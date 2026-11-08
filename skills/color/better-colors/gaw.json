@@ -4,5 +4,13 @@
     "tailwind",
     "css"
   ],
-  "lastVerified": "2026-11-06"
+  "lastVerified": "2026-11-06",
+  "summary": "Builds and checks color systems by generating palettes, naming semantic tokens, converting between formats and measuring contrast.",
+  "domains": [
+    "design"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

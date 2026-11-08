@@ -9,5 +9,14 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/face-swap/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Swap a face / character into video or images on RunComfy via the `runcomfy` CLI. Routes across community Wan 2-2 Animate (audio-driven character animation + identity swap), GPT Image 2 Edit (single-shot precise face swap on still images via reference composition), Nano Banana Edit (batch…",
+  "domains": [
+    "media",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

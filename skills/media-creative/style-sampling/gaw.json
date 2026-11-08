@@ -9,5 +9,19 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Make a new episode in a proven video style - Collage Explainer, Finance Explainer, Animated Science Explainer, 3D Brand Explainer, 3D True Crime - on the person's topic. Use for \"an episode of\", \"in the style of\", \"sample this style\", 「用这个风格做一集」.",
+  "whenToUse": [
+    "Use for \"an episode of\", \"in the style of\", \"sample this style\", 「用这个风格做一集」."
+  ],
+  "domains": [
+    "media",
+    "finance",
+    "business"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

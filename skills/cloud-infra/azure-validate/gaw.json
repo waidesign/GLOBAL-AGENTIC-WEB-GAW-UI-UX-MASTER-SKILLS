@@ -9,5 +9,31 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-validate/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Pre-deployment validation for Azure readiness. Run deep checks on configuration, infrastructure (Bicep or Terraform), RBAC role assignments, managed identity permissions, and prerequisites before deploying.",
+  "whenToUse": [
+    "Check if app is ready to deploy",
+    "Validate azure.yaml or Bicep",
+    "Run preflight checks",
+    "Troubleshoot deployment errors"
+  ],
+  "verification": [
+    "Check if app is ready to deploy",
+    "Validate azure.yaml or Bicep",
+    "Run preflight checks",
+    "Troubleshoot deployment errors",
+    "Run after azure-prepare, before azure-deploy",
+    "All checks must pass—do not deploy with failures",
+    "⛔ Destructive actions require ask_user — global-rules"
+  ],
+  "domains": [
+    "cloud",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenToUse"
+  ]
 }

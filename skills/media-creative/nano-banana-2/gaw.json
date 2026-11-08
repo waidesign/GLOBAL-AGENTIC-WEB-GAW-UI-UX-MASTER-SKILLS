@@ -9,5 +9,18 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/nano-banana-2/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Generate images with Google Nano Banana 2 (Gemini-family flash-tier text-to-image) on RunComfy — bundled with the model's documented prompting patterns so the skill gets sharper output than naive prompting against the same model. Documents Nano Banana 2's strengths (rapid iteration, in-image…",
+  "verification": [
+    "Cinematic portrait (page example): Brand-asset card with quoted text: Vertical platform-native:"
+  ],
+  "domains": [
+    "media",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

@@ -9,5 +9,20 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "This skill should be used when the user wants to \"publish an agent\", \"publish my ADK agent\", \"register an agent with Gemini\", \"publish to Gemini\" (formerly Gemini Enterprise), or needs guidance on the agents-cli publish gemini command. Also use when the user wants to \"manage agents in Agent…",
+  "whenToUse": [
+    "This skill should be used when the user wants to \"publish an agent\", \"publish my ADK agent\", \"register an agent with Gemini\", \"publish to Gemini\" (formerly Gemini Enterprise), or needs guidance on the agents-cli publish gemini command.",
+    "Also use when the user wants to \"manage agents in Agent Registry\", \"list/update/delete registered agents\", or \"register an MCP server\".",
+    "Do NOT use for deployment (use google-agents-cli-deploy)."
+  ],
+  "domains": [
+    "software",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

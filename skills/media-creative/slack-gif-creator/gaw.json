@@ -9,5 +9,21 @@
     "licenseEvidence": "skill license file",
     "licenseUrl": "https://github.com/anthropics/skills/blob/main/skills/slack-gif-creator/LICENSE.txt",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts.",
+  "whenToUse": [
+    "Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for Slack.\""
+  ],
+  "verification": [
+    "Check if GIF meets Slack requirements:"
+  ],
+  "domains": [
+    "media"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenToUse"
+  ]
 }

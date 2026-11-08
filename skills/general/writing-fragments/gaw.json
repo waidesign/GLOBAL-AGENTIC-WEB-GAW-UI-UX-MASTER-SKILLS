@@ -9,5 +9,13 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Writing, explore: mine raw fragments, no structure yet.",
+  "domains": [
+    "writing"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

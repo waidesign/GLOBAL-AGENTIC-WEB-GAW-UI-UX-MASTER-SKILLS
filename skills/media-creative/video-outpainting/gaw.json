@@ -9,5 +9,14 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/video-outpainting/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Video outpainting on RunComfy via the `runcomfy` CLI — extend the spatial canvas of a video, change aspect ratio (9:16 vertical to 16:9 horizontal or vice versa), add environment beyond the original frame while preserving the central action. Routes prompt-shaped spatial extension through Wan 2-7…",
+  "domains": [
+    "media",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

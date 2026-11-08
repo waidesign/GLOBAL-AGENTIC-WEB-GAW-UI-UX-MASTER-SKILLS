@@ -33,6 +33,24 @@ This creates `skills/ui-ux/pricing-page/` with a template. Then:
 2. Write the instructions in the body.
 3. In `gaw.json`, add `keywords`: words people use that aren't in the description (for example "Excel" for a spreadsheet skill).
 
+## Make your skill rankable
+
+GAW ranks every skill with the same published rules ([GSS Ranking v1](../gss/spec.md#8-ranking-gss-ranking-v1)). Skills have a level:
+
+| Level | What it takes |
+|---|---|
+| 1 Findable (required to add a skill) | A description that says what the skill does **and when to use it** ("Use when…") |
+| 2 Rankable (library target) | + summary, whenToUse, domains, and 3+ search terms (keywords or tags) |
+| 3 Precise | + whenNotToUse and verification |
+
+GAW fills summary, whenToUse, whenNotToUse, verification and domains from your skill's text when it can (`gaw skills enrich`). The part only you can add is **keywords**: the words people use for your topic that aren't in your description. If GAW rejects a skill for missing "when to use", add it on the spot:
+
+```bash
+gaw skills add ./my-skill.md --when "Use when computing satellite orbits"
+```
+
+Repeating words, stuffing keywords, or copying another skill's description doesn't raise your rank: each word counts once, and keywords are capped at 20.
+
 ## Content rules
 
 - Begin with clear constraints and usage guidelines.

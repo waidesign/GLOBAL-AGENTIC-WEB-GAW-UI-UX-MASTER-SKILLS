@@ -9,5 +9,18 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker (edges as text in one file per ticket locally, or native blocking links on a real tracker).",
+  "verification": [
+    "Criterion 1",
+    "Criterion 2"
+  ],
+  "domains": [
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

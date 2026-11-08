@@ -9,5 +9,34 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-reliability/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Assess and improve the reliability posture of PaaS Applications (Azure Functions and Azure App Service). Scans deployed resources for zone redundancy, ZRS storage, health probes, and multi-region failover.",
+  "whenToUse": [
+    "\"Assess my Function app's reliability\"",
+    "\"Assess my Web app's reliability\"",
+    "\"Check the reliability of my resource group\" (App Service and Functions resources only)",
+    "\"Is my app zone redundant?\" (App Service and Functions resources only)",
+    "\"Is my app service plan zone redundant?\"",
+    "\"Make my app zone redundant\" (App Service and Functions resources only)"
+  ],
+  "verification": [
+    "Four feature rows, in this order: Zone redundancy — compute · Zone-redundant storage · Health probes · Multi-region failover. Omit a row entirely only if no resource in scope could ever apply to it.",
+    "Status column is one symbol + one short word, no other characters:",
+    "🟢 ON — feature is fully enabled across all relevant resources in scope",
+    "🟡 PARTIAL — some resources have it, some don't (or partial config like liveness-only)",
+    "🔴 OFF — feature is missing on all relevant resources",
+    "For storage, replace OFF with the current SKU when relevant (🔴 LRS, 🔴 GRS, 🟢 ZRS, 🟢 GZRS). When no SKU is set in IaC, label as 🔴 GRS (ARM/AVM default) and note that in the resource line.",
+    "Resources column lists only what's relevant to that feature, one bullet per resource:",
+    "For \"needs fixing\" resources, include a short inline reason ((FC1), (defaulted; no SKU set), liveness only, needs code change (FC1))."
+  ],
+  "domains": [
+    "cloud",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenToUse"
+  ]
 }

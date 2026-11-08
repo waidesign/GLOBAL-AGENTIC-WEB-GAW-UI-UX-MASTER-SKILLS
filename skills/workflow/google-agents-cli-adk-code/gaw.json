@@ -9,5 +9,20 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "This skill should be used when the user wants to \"write agent code\", \"build an agent with ADK\", \"add a tool\", \"create a callback\", \"define an agent\", \"use state management\" — in a project that needs ADK (Agent Development Kit) API patterns and code examples. It provides a quick reference for…",
+  "whenToUse": [
+    "This skill should be used when the user wants to \"write agent code\", \"build an agent with ADK\", \"add a tool\", \"create a callback\", \"define an agent\", \"use state management\" — in a project that needs ADK (Agent Development Kit) API patterns ",
+    "Do NOT use for scaffolding (use google-agents-cli-scaffold) or deployment (use google-agents-cli-deploy)."
+  ],
+  "domains": [
+    "software",
+    "ai",
+    "writing"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

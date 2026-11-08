@@ -9,5 +9,18 @@
     "licenseEvidence": "no license found",
     "licenseUrl": "https://github.com/vercel-labs/agent-skills",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\".",
+  "whenToUse": [
+    "Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\"."
+  ],
+  "domains": [
+    "web",
+    "design"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

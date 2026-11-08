@@ -9,5 +9,23 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Assess Kubernetes workloads and cluster configuration for AKS Automatic compatibility. Identifies incompatibilities, generates fixes, and guides migration from AKS Standard to AKS Automatic.",
+  "whenToUse": [
+    "\"Can I migrate to AKS Automatic?\"",
+    "\"Check my cluster readiness for Automatic\"",
+    "\"Validate manifests against AKS Automatic constraints\"",
+    "\"Fix my deployment for Automatic compatibility\"",
+    "\"Identify AKS Automatic migration blockers\"",
+    "Any mention of AKS Automatic + (migration | readiness | compatibility | assessment | validation)"
+  ],
+  "domains": [
+    "cloud",
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

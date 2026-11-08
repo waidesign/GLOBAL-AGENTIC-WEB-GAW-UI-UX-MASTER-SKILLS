@@ -9,5 +9,24 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-enterprise-infra-planner/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Architect and provision enterprise Azure infrastructure from workload descriptions. For cloud architects and platform engineers planning networking, identity, security, compliance, and multi-resource topologies with WAF alignment.",
+  "whenToUse": [
+    "Plan enterprise Azure infrastructure from a workload or architecture description",
+    "Architect a landing zone, hub-spoke network, or multi-region topology",
+    "Design networking infrastructure: VNets, subnets, firewalls, private endpoints, VPN gateways",
+    "Plan identity, RBAC, and compliance-driven infrastructure",
+    "Generate Bicep or Terraform for subscription-scope or multi-resource-group deployments",
+    "Plan disaster recovery, failover, or cross-region high-availability topologies"
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "security"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

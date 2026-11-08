@@ -21,5 +21,14 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/ibelick/ui-skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Evidence-based audit of a product surface against its governing design system, eliminating interface slop without breaking functionality.",
+  "domains": [
+    "design",
+    "web"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

@@ -9,5 +9,15 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-kusto-graph-skills/skills/azure-kusto-graph/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Build and query Kusto graphs from natural language. Covers transient graphs (make-graph), persistent graph models/snapshots, pattern matching (graph-match), shortest paths, connected components, and graph-to-table export.",
+  "domains": [
+    "cloud",
+    "software",
+    "data"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }

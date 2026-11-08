@@ -9,5 +9,22 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/gencraft-labs/skills/blob/main/elevenlabs-music-generation/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Generate full songs and instrumental tracks with ElevenLabs Music on RunComfy via the `runcomfy` CLI. ElevenLabs Music turns a style description plus structured lyrics into studio-quality 44.1 kHz stereo audio — 5 seconds to 5 minutes — with section-level control (Intro / Verse / Chorus /…",
+  "whenToUse": [
+    "Full vocal songs — verse/chorus structure, multilingual lyrics, consistent meter",
+    "Instrumental beds — force_instrumental: true for background music, podcast intros, game loops",
+    "Short brand assets — jingles, stingers, theme music (5–30 s)",
+    "Long-form tracks — up to 5 minutes in a single call",
+    "Commercial work — output is commercial-friendly"
+  ],
+  "domains": [
+    "media",
+    "ai"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

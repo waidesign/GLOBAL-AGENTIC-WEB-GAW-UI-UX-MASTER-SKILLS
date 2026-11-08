@@ -9,5 +9,25 @@
     "licenseEvidence": "declared in original SKILL.md",
     "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/finetuning/SKILL.md",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Fine-tune models on Microsoft Foundry using SFT (supervised), DPO (preference), or RFT (reinforcement with graders). Covers dataset preparation, training job submission, deployment, and evaluation.",
+  "whenToUse": [
+    "USE FOR: fine-tune, SFT, DPO, RFT, training data, grader, distillation, fine-tuned model, training job, large file upload, calibrate grader, deploy fine-tuned model, evaluate fine-tuned model.",
+    "DO NOT USE FOR: general model deployment without fine-tuning (use deploy-model), agent creation (use agents), prompt optimization without training (use prompt-optimizer).",
+    "Fine-tuning a model (SFT, DPO, or RFT)",
+    "Preparing, validating, or formatting training data",
+    "Submitting, monitoring, or diagnosing training jobs",
+    "Calibrating graders or pass thresholds for RFT"
+  ],
+  "domains": [
+    "cloud",
+    "software",
+    "ai",
+    "data"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
 }

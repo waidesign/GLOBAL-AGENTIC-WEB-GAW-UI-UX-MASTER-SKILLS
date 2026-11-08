@@ -9,5 +9,19 @@
     "licenseEvidence": "repository license",
     "licenseUrl": "https://github.com/mattpocock/skills/blob/main/LICENSE",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolders and reachable only through its entry-point files. User-invoked.",
+  "verification": [
+    "Add a lint:boundaries script: depcruise <packages-root> (or depcruise src).",
+    "Fold it into the repo's umbrella check command, the one that already runs typecheck (e.g. a check / ci / validate script). Do not touch tsconfig or add path aliases.",
+    "If there is no umbrella script, add lint:boundaries and tell the user to include it in CI."
+  ],
+  "domains": [
+    "software"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification"
+  ]
 }

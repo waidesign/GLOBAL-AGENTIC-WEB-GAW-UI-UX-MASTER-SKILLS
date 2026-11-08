@@ -9,5 +9,14 @@
     "licenseEvidence": "no license found",
     "licenseUrl": "https://github.com/remotion-dev/skills",
     "licenseCheckedAt": "2026-11-08"
-  }
+  },
+  "summary": "Search Remotion documentation",
+  "domains": [
+    "media",
+    "writing"
+  ],
+  "derived": [
+    "domains",
+    "summary"
+  ]
 }
