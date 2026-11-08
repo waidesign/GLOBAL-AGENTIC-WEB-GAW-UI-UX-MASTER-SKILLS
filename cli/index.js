@@ -9,9 +9,10 @@ import { PresetRegistry } from '../core/preset-registry/PresetRegistry.js';
 import { MemoryEngine } from '../core/memory-engine/MemoryEngine.js';
 import { ProjectDetector } from '../core/project-detector/ProjectDetector.js';
 import { ProjectBootstrapper } from '../core/bootstrapper/ProjectBootstrapper.js';
-import { GraphifyManager } from '../core/graphify-manager/GraphifyManager.js';
+import { GraphifyManager, GRAPHIFY_SETUP_HINT } from '../core/graphify-manager/GraphifyManager.js';
 
 import { runInteractiveOnboarding } from './interactive.js';
+import { ensureGraphify, askYesNo } from './graphify-setup.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -44,6 +45,9 @@ export class GawCli {
           break;
         case 'start':
           await this.cmdStart(args.slice(1));
+          break;
+        case 'setup':
+          await this.cmdSetup(args.slice(1));
           break;
         case 'skills':
           await this.cmdSkills(args.slice(1));
@@ -103,16 +107,18 @@ export class GawCli {
     const dryRun = args.includes('--dry-run');
     const force = args.includes('--force');
     const noAgentation = args.includes('--no-agentation');
-    const noGraphify = args.includes('--no-graphify');
+    const isInteractive = args.includes('-i') || args.includes('--interactive') || (process.stdin.isTTY && !args.includes('--yes') && !args.includes('--non-interactive'));
 
     console.log(`🚀 Initializing project at: ${process.cwd()}`);
     if (dryRun) console.log(`🔍 Mode: DRY RUN (no files will be written)`);
+
+    const graphifyReady = await this.prepareGraphifyForInit(args, { dryRun, isInteractive });
 
     const result = await this.bootstrapper.init(process.cwd(), {
       dryRun,
       force,
       noAgentation,
-      noGraphify
+      noGraphify: !graphifyReady
     });
 
     console.log(`\n📋 Project Inspection:`);
@@ -141,6 +147,13 @@ export class GawCli {
       }
     }
 
+    if (result.warnings.length > 0) {
+      console.log(`\n⚠️ Warnings:`);
+      for (const w of result.warnings) {
+        console.log(`  • ${w}`);
+      }
+    }
+
     if (result.skillsRecommended.length > 0) {
       console.log(`\n🎯 Recommended Initial Skills:`);
       for (const skill of result.skillsRecommended) {
@@ -151,11 +164,61 @@ export class GawCli {
     console.log(`\n✅ Project initialization complete!`);
 
     // Check if interactive onboarding should run
-    const isInteractive = args.includes('-i') || args.includes('--interactive') || (process.stdin.isTTY && !args.includes('--yes') && !args.includes('--non-interactive'));
     if (isInteractive && !dryRun) {
       await runInteractiveOnboarding(this.bootstrapper, result.projectInfo, result.skillsRecommended, this.repoRoot);
     } else {
       console.log(`👉 Next: Use 'gaw use "<your task>"' to load targeted skills for any task.\n`);
+    }
+  }
+
+  /**
+   * Decide whether init builds the Graphify code map. Graphify is optional:
+   * explain and ask in a terminal, never install without consent.
+   * Returns true when Graphify is available for this init.
+   */
+  async prepareGraphifyForInit(args, { dryRun, isInteractive }) {
+    if (args.includes('--no-graphify')) return false;
+
+    const manager = new GraphifyManager();
+    if (manager.isGraphifyCliAvailable()) return true;
+
+    if (dryRun) {
+      console.log(`ℹ Graphify is not installed. A normal run would ask whether to install it (optional).`);
+      return false;
+    }
+
+    if (args.includes('--install-graphify')) {
+      const res = await ensureGraphify({ manager, confirmGraphify: false, confirmUv: false });
+      return res.available;
+    }
+
+    if (isInteractive) {
+      const res = await ensureGraphify({ manager, ask: askYesNo });
+      return res.available;
+    }
+
+    console.log(`ℹ Graphify is not installed (optional): skipping the code map. Add it later with: gaw setup`);
+    return false;
+  }
+
+  async cmdSetup(args) {
+    this.printHeader();
+    const yes = args.includes('--yes');
+    const canAsk = Boolean(process.stdin.isTTY) && !args.includes('--non-interactive');
+
+    // Running `gaw setup` is consent to install Graphify. Installing uv (a remote
+    // script) is still confirmed, unless --yes was passed.
+    const res = await ensureGraphify({
+      confirmGraphify: false,
+      confirmUv: !yes,
+      ask: canAsk ? askYesNo : null
+    });
+
+    if (res.available) {
+      if (!res.installed) console.log(`✓ Graphify is already installed (${res.version}).`);
+      console.log(`👉 Next: run 'gaw graph' inside a project to build its code map.\n`);
+    } else {
+      process.exitCode = 1;
     }
   }
 
@@ -165,7 +228,7 @@ export class GawCli {
     console.log(`Project:           ${res.projectName}`);
     console.log(`Framework:         ${res.framework}`);
     console.log(`Project Brain:     ${res.hasProjectBrain ? 'Configured (ai-brain/)' : 'Missing'}`);
-    console.log(`Codebase Graph:    ${res.hasGraph ? 'Generated (graph.json)' : 'Not generated'}`);
+    console.log(`Codebase Graph:    ${res.hasGraph ? 'Generated (graphify-out/graph.json)' : res.graphStatus}`);
     console.log(`Status:            ${res.status}`);
     console.log(`\n${res.recommendedNextStep}\n`);
   }
@@ -411,6 +474,12 @@ export class GawCli {
     const manager = new GraphifyManager({ projectRoot: process.cwd() });
     console.log(`Generating/Inspecting codebase relationship graph...`);
     const res = await manager.generateGraph({ targetDir: process.cwd(), force });
+    if (res.skipped) {
+      console.log(`\nGraphify is not installed, so there is no code map yet.`);
+      console.log(`${GRAPHIFY_SETUP_HINT}\n`);
+      process.exitCode = 1;
+      return;
+    }
     console.log(`- Status:   ${res.summary}`);
     console.log(`- Output:   ${res.reportPath}`);
     console.log(`- Explorer: ${res.htmlPath}`);
@@ -435,7 +504,7 @@ export class GawCli {
       } else {
         console.log(`✓ All project brain files are up to date (${res.preservedBrainFiles.length} files preserved).`);
       }
-      console.log(`✓ Codebase Architecture Graph: ${res.graphSummary}`);
+      console.log(`${res.graphUpdated ? '✓' : 'ℹ'} Codebase Architecture Graph: ${res.graphSummary}`);
       if (res.agentationChecked) {
         console.log(`✓ Agentation visual inspection verified.`);
       }
@@ -579,11 +648,15 @@ export class GawCli {
     console.log(`[✓] Design Presets:     ${presets.length} presets active (with live inspiration links)`);
 
     const graphify = new GraphifyManager({ projectRoot: process.cwd() });
-    const hasGraphCli = graphify.isGraphifyCliAvailable();
-    console.log(`[${hasGraphCli ? '✓' : 'ℹ'}] Graphify CLI:      ${hasGraphCli ? 'Installed' : 'Built-in deterministic analyzer active'}`);
+    const graphifyVersion = graphify.getCliVersion();
+    console.log(`[${graphifyVersion ? '✓' : '⚠'}] Graphify CLI:       ${graphifyVersion || 'Not installed (optional, recommended)'}`);
 
     const project = ProjectDetector.detect(process.cwd());
     console.log(`[✓] Current Directory:  ${project.projectName} (${project.framework})\n`);
+
+    if (!graphifyVersion) {
+      console.log(`${GRAPHIFY_SETUP_HINT}\n`);
+    }
   }
 
   cmdVersion() {
@@ -595,8 +668,9 @@ export class GawCli {
     this.printHeader();
     console.log(`Usage: gaw <command> [options]\n`);
     console.log(`Core Commands:`);
-    console.log(`  init [--dry-run] [--force] [--no-agentation] [--no-graphify]`);
+    console.log(`  init [--dry-run] [--force] [--no-agentation] [--install-graphify | --no-graphify]`);
     console.log(`                        Initialize current project with GAW ecosystem`);
+    console.log(`  setup [--yes]         Install Graphify (optional code map for AI agents)`);
     console.log(`  start                 Resume an existing initialized project`);
     console.log(`  skills [category]     List all skills or filter by category`);
     console.log(`  designs [search <q>] [--theme <dark|light>]`);

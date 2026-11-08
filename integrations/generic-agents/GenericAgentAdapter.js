@@ -11,7 +11,7 @@ export class GenericAgentAdapter {
       `# Universal Agent Instructions`,
       `- Project Intelligence: ./ai-brain/`,
       `- Precedence: User > ai-brain/rules.md > Global Brain > Skills > Defaults`,
-      `- Code Graph: ./graph.json`,
+      `- Code Graph: ./graphify-out/graph.json (if present; build with \`gaw graph\`)`,
       `<!-- END GLOBAL AGENTIC WEB -->\n`
     ].join('\n');
 

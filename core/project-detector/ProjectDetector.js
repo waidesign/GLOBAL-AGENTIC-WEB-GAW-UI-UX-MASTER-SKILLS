@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
+import { GraphifyManager } from '../graphify-manager/GraphifyManager.js';
 
 export class ProjectDetector {
   static detect(targetDir = process.cwd()) {
@@ -103,7 +104,7 @@ export class ProjectDetector {
     // Integrations status
     const hasProjectBrain = fs.existsSync(path.join(dir, 'ai-brain'));
     const hasAgentation = Boolean(allDependencies['agentation']);
-    const hasGraphify = fs.existsSync(path.join(dir, 'graph.json')) || fs.existsSync(path.join(dir, 'graph.html'));
+    const hasGraphify = GraphifyManager.locateGraph(dir) !== null;
     const hasGit = fs.existsSync(path.join(dir, '.git'));
 
     return {

@@ -5,6 +5,27 @@ All notable changes to the **Global Agentic Web** project will be documented in 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- **Guided Graphify install**: when Graphify is missing, `gaw init` explains what it does and asks whether to install it. It installs with uv, and asks separately before running Astral's uv install script. Non-interactive runs and the MCP server never install anything.
+- **`gaw setup`**: install Graphify at any time (`--yes` also installs uv without asking).
+- **`gaw init --install-graphify`**: opt in to installing without questions.
+- GAW finds Graphify in uv's tool folder (`~/.local/bin`) as well as on `PATH`, so it works right after installing, without a new terminal.
+
+### Changed
+- **The code map now comes only from the official Graphify CLI**, which is optional and recommended. Without it, GAW skips the code map. `gaw doctor` shows its status.
+- **Graph location**: the graph now lives in `graphify-out/` (`graph.json`, `graph.html`, `GRAPH_REPORT.md`). Agent adapters (`CLAUDE.md`, `.cursorrules`, `GEMINI.md`, `AGENT_INSTRUCTIONS.md`) point there.
+- Graphify runs in code-only mode (`graphify extract . --code-only`, then `graphify cluster-only . --no-label`): local parsing, no LLM calls or API keys.
+- A failed Graphify run is reported as a warning and no longer stops `gaw init`.
+
+### Removed
+- The built-in regex-based graph generator. Its "God Nodes" counted raw import strings (such as `node:fs`), so it often pointed agents to the wrong hubs.
+
+### Fixed
+- GAW called `graphify .`, which fails when run non-interactively, and looked for output in the project root instead of `graphify-out/`, so the Graphify graph was never used.
+- `gaw start` always reported a graph as present.
+
 ## [1.0.0] - 2026-11-06
 
 ### Added

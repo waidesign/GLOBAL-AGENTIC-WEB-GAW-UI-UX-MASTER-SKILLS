@@ -12,7 +12,7 @@ export class GeminiCliAdapter {
       `- Project Intelligence: ./ai-brain/`,
       `- Active Task Skills: Prioritize ./ai-brain/active-skills.md when present.`,
       `- Rules: Follow ./ai-brain/rules.md.`,
-      `- Code Graph: ./graph.json`,
+      `- Code Graph: ./graphify-out/graph.json (if present; build with \`gaw graph\`)`,
       `<!-- END GLOBAL AGENTIC WEB -->\n`
     ].join('\n');
 

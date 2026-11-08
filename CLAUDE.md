@@ -3,7 +3,7 @@
 > **Project**: Global Agentic Web (GAW)  
 > **Repository**: `E:\global-agentic-web`  
 > **Remote**: `https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git` (`main`)  
-> **Runtime**: Node.js >= 18 (ESM modules: `"type": "module"`)  
+> **Runtime**: Node.js >= 18 (ESM modules: `"type": "module"`). Optional, recommended: the Graphify CLI (Python 3.10+; `gaw setup` or `uv tool install graphifyy`)  
 > **Role**: Centralized UI/UX Master Skills Ecosystem, Global Memory Engine, Real-World Design Presets Library & Universal Project Bootstrapper.
 
 ---
@@ -14,7 +14,7 @@ Do **NOT** read through the 235 skill files or 63 design files on startup. Use t
 
 ### Common Commands
 ```bash
-npm test                 # Run the test suite (7 test suites in scripts/run-tests.js)
+npm test                 # Run the test suite (8 test suites in scripts/run-tests.js)
 node bin/gaw.js doctor   # Verify runtime, 235 registered skills, and 63 design presets
 node bin/gaw.js recommend "<task prompt>"   # Test skill & design recommendations
 node bin/gaw.js use "<task>" --inject       # Test injection into ai-brain/
@@ -30,7 +30,8 @@ global-agentic-web/
 │   └── gaw.js                   # CLI binary entry point (wraps GawCli)
 ├── cli/
 │   ├── index.js                 # Central CLI controller (routes all gaw commands)
-│   └── interactive.js           # Interactive onboarding loop for gaw init
+│   ├── interactive.js           # Interactive onboarding loop for gaw init
+│   └── graphify-setup.js        # Explains Graphify and asks before installing it
 ├── core/
 │   ├── orchestrator/
 │   │   └── SkillOrchestrator.js # Recommendation engine & task analyzer
@@ -47,7 +48,9 @@ global-agentic-web/
 │   ├── project-detector/
 │   │   └── ProjectDetector.js   # Detects framework (Next, React, Vue, Svelte), lang, pkg mgr
 │   ├── graphify-manager/
-│   │   └── GraphifyManager.js   # Deterministic codebase relationship graph generator
+│   │   ├── GraphifyManager.js   # Runs the optional Graphify CLI, reads graphify-out/
+│   │   ├── GraphifyInstaller.js # Installs uv + Graphify (callers get consent first)
+│   │   └── toolLocator.js       # Finds tools on PATH or in ~/.local/bin
 │   ├── agentation-manager/
 │   │   └── AgentationManager.js # React dev-only visual feedback overlay manager
 │   └── agent-adapters/
@@ -114,7 +117,7 @@ When `gaw init` runs in any target project, it executes 7 steps:
 1. **Inspect & Identify**: Scans framework, languages, and package manager.
 2. **Connect Global Brain**: Binds cross-project rules.
 3. **Create Project Brain**: Generates local `ai-brain/` directory.
-4. **Configure Graphify**: Generates `graph.json`, `graph.html`, and `GRAPH_REPORT.md`.
+4. **Configure Graphify** (optional): If Graphify is missing, `gaw init` explains it and asks to install it (`cli/graphify-setup.js`). Non-interactive runs and MCP never install. When available, runs Graphify in code-only mode, writing `graphify-out/graph.json`, `graph.html`, and `GRAPH_REPORT.md`. Otherwise the step is skipped.
 5. **Configure Agentation**: Injects dev-only visual feedback overlay if React.
 6. **Configure AI Agent Adapters**: Updates `CLAUDE.md`, `.cursorrules`, `AGENTS.md`, `GEMINI.md`.
 7. **Recommend Starter Skills**: Identifies the top skills for the detected stack.
@@ -133,7 +136,7 @@ When writing UI code or reviewing designs:
 
 ## 🛠️ Testing & Development Guidelines
 
-- **Zero-Dependency Core**: GAW runs natively on modern Node.js using ESM. Only `@modelcontextprotocol/sdk` is an external dependency.
-- **Run tests before committing**: `npm test` executes the 7 native test suites in `tests/`.
+- **Dependencies**: GAW runs natively on modern Node.js using ESM. The only npm dependency is `@modelcontextprotocol/sdk`. The Graphify CLI (Python) is an optional external tool; the e2e test that uses real Graphify is skipped without it.
+- **Run tests before committing**: `npm test` executes the 8 native test suites in `tests/`.
 - **Git workflow**: Main branch is `main`. Remote is `origin` (`https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git`).
 - **Global Path Wiring**: On this machine, `C:\Users\ITUSER\.gemini\antigravity\bin\gaw.cmd` and `gaw.ps1` execute `node "E:\global-agentic-web\bin\gaw.js" %*`.

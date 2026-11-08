@@ -10,6 +10,13 @@ Thank you for your interest in contributing to the Global Agentic Web ecosystem!
 
 ## 2. Development Setup
 
+Prerequisites: Node.js >= 18. Graphify is optional: without it, the test that builds a real Graphify code map is skipped. To run every test, install it (with [uv](https://docs.astral.sh/uv/getting-started/installation/), which sets up Python 3.10+):
+
+```bash
+uv tool install graphifyy
+graphify --version
+```
+
 ```bash
 git clone https://github.com/<your-username>/global-agentic-web.git
 cd global-agentic-web

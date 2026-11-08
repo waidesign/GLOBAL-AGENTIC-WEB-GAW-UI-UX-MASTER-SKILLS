@@ -51,7 +51,7 @@ In traditional AI coding workflows, developers constantly repeat prompt constrai
 |  | `gaw init` / Universal Bootstrapper                              |  |
 |  +------------------------------------------------------------------+  |
 |  | • ai-brain/ (context.md, rules.md, identity.md, playbook.md)      |  |
-|  | • Graphify: graph.json, graph.html, GRAPH_REPORT.md              |  |
+|  | • Graphify: graphify-out/ (graph.json, graph.html, GRAPH_REPORT) |  |
 |  | • Agentation: Dev-only visual feedback (React/Next.js/Vite)     |  |
 |  | • Agent Adapters: CLAUDE.md, .cursorrules, AGENTS.md, GEMINI.md  |  |
 |  +------------------------------------------------------------------+  |
@@ -81,6 +81,7 @@ In traditional AI coding workflows, developers constantly repeat prompt constrai
 ### Prerequisites
 - Node.js >= 18.0.0
 - npm, pnpm, yarn, or bun
+- **Optional, recommended: [Graphify](https://github.com/safishamsi/graphify)** (needs Python >= 3.10). It builds a code map that AI agents query instead of reading whole files. `gaw init` explains it and offers to install it for you.
 
 ### 1. Install Globally or Link
 ```bash
@@ -92,7 +93,7 @@ npm link
 
 ### 2. Verify Installation
 ```bash
-gaw doctor
+gaw doctor   # also shows whether the optional Graphify CLI is installed
 ```
 
 ### 3. Initialize Any Project
@@ -123,7 +124,9 @@ gaw use "Build a responsive SaaS dashboard with a sidebar, data table, and smoot
 | `gaw init --dry-run` | Preview planned initialization changes without writing files. |
 | `gaw init --force` | Regenerate configuration files safely. |
 | `gaw init --no-agentation` | Skip Agentation installation. |
-| `gaw init --no-graphify` | Skip Graphify codebase graph generation. |
+| `gaw init --install-graphify` | Install Graphify (and uv if needed) without asking. |
+| `gaw init --no-graphify` | Skip the Graphify question and the code map. |
+| `gaw setup` | Install Graphify later (asks before installing uv). |
 | `gaw start` | Resume an already initialized project with verified contexts. |
 | `gaw skills [category]` | List all registered skills or filter by category. |
 | `gaw designs [search <q>]` | List or search real-world design presets from GradientDeck with live links. |
@@ -204,12 +207,27 @@ ai-brain/
 
 ## 📊 GRAPHIFY — CODEBASE INTELLIGENCE
 
-Graphify analyzes the project codebase and generates:
-1. `graph.json`: Machine-readable node and edge graph.
-2. `GRAPH_REPORT.md`: Architectural summary highlighting God Nodes, dependency hubs, and entry points.
-3. `graph.html`: Standalone interactive browser visualization.
+GAW uses the official [Graphify](https://github.com/safishamsi/graphify) CLI to build a code map. It is **optional but recommended**: AI agents look things up in the map instead of reading whole files, which usually saves tokens on questions about your code.
 
-*Graphify runs deterministically without requiring external API tokens.*
+**Installing it:** when Graphify is missing, `gaw init` explains what it is and asks whether to install it. You can also run `gaw setup` at any time. GAW installs it with [uv](https://docs.astral.sh/uv/), which also sets up Python 3.10+. If uv is missing too, GAW asks separately before running Astral's official uv install script. GAW never installs anything without asking, unless you pass `--install-graphify`. AI agents using the MCP server can't trigger an install.
+
+**Installing it yourself:**
+```bash
+# 1. Install uv
+curl -LsSf https://astral.sh/uv/install.sh | sh                          # macOS / Linux
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"   # Windows
+# 2. Install Graphify (note the double "y")
+uv tool install graphifyy        # or, with Python 3.10+: pip install graphifyy
+```
+
+**Without Graphify**, GAW works normally and skips the code map.
+
+GAW runs Graphify in code-only mode, which writes to `graphify-out/`:
+1. `graph.json`: Machine-readable graph of code symbols and their relationships.
+2. `GRAPH_REPORT.md`: Architectural summary highlighting God Nodes, communities, and entry points.
+3. `graph.html`: Interactive browser visualization.
+
+*Code-only mode parses code locally: no LLM calls and no API keys. Add `graphify-out/` to your `.gitignore`, and use a `.graphifyignore` file to exclude folders from the graph.*
 
 ---
 

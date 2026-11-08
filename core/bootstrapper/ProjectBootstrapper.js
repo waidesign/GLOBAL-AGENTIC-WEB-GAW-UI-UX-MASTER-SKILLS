@@ -19,6 +19,19 @@ export class ProjectBootstrapper {
     this.registry = new SkillRegistry({ skillsDir: path.join(this.repoRoot, 'skills') });
     this.orchestrator = new SkillOrchestrator(this.registry);
     this.memoryEngine = new MemoryEngine({ globalBrainDir: path.join(this.repoRoot, 'brain') });
+    this.createGraphifyManager = options.createGraphifyManager || ((dir) => new GraphifyManager({ projectRoot: dir }));
+  }
+
+  /**
+   * Build or reuse the Graphify code graph. Graphify is optional, so a missing
+   * install or a failed run never stops the caller: it is reported instead.
+   */
+  async buildGraph(dir, options = {}) {
+    try {
+      return await this.createGraphifyManager(dir).generateGraph({ targetDir: dir, force: options.force });
+    } catch (err) {
+      return { skipped: true, reason: 'error', error: err.message, summary: `Graphify could not build the code graph: ${err.message}` };
+    }
   }
 
   async init(targetDir = process.cwd(), options = {}) {
@@ -35,6 +48,7 @@ export class ProjectBootstrapper {
       created: [],
       updated: [],
       skipped: [],
+      warnings: [],
       skillsRecommended: [],
       integrations: {}
     };
@@ -134,18 +148,21 @@ export class ProjectBootstrapper {
 
     report.steps.push({ step: 3, name: 'Create Project Brain', status: 'Completed', path: 'ai-brain/' });
 
-    // Step 6: Configure Graphify
-    if (!noGraphify) {
-      const graphify = new GraphifyManager({ projectRoot: dir });
-      if (!dryRun) {
-        const graphRes = await graphify.generateGraph({ targetDir: dir, force });
-        report.integrations.graphify = graphRes;
-      } else {
-        report.integrations.graphify = { dryRun: true, planned: 'Generate graph.json, graph.html, GRAPH_REPORT.md' };
-      }
-      report.steps.push({ step: 4, name: 'Configure Graphify', status: 'Completed' });
+    // Step 6: Build the Graphify code graph in graphify-out/ (optional)
+    if (noGraphify) {
+      report.skipped.push('Graphify code map (not installed or --no-graphify; add it later with: gaw setup)');
+    } else if (dryRun) {
+      report.integrations.graphify = { dryRun: true, planned: 'Generate graphify-out/graph.json, graph.html, GRAPH_REPORT.md' };
     } else {
-      report.skipped.push('Graphify (--no-graphify)');
+      const graphRes = await this.buildGraph(dir, { force });
+      report.integrations.graphify = graphRes;
+      if (graphRes.reason === 'error') {
+        report.warnings.push(graphRes.summary);
+      } else if (graphRes.skipped) {
+        report.skipped.push('Graphify code map (not installed; add it later with: gaw setup)');
+      } else {
+        report.steps.push({ step: 4, name: 'Configure Graphify', status: 'Completed' });
+      }
     }
 
     // Step 7: Configure Agentation (if React)
@@ -188,9 +205,8 @@ export class ProjectBootstrapper {
     const projectInfo = ProjectDetector.detect(dir);
     const brain = await this.memoryEngine.getProjectBrain(dir);
 
-    // Auto-refresh Graphify graph if files were added or graph was empty
-    const graphify = new GraphifyManager({ projectRoot: dir });
-    const graphRes = await graphify.generateGraph({ targetDir: dir });
+    // Refresh the Graphify graph if it is missing or empty (skipped when Graphify is not installed)
+    const graphRes = await this.buildGraph(dir);
 
     // Auto-configure Agentation if React and not yet injected
     if (projectInfo.isReact) {
@@ -204,7 +220,7 @@ export class ProjectBootstrapper {
       framework: projectInfo.framework,
       hasProjectBrain: Boolean(brain),
       graphStatus: graphRes.summary,
-      hasGraph: true,
+      hasGraph: GraphifyManager.locateGraph(dir) !== null,
       status: brain ? 'Ready' : 'Not initialized (run `gaw init` first)',
       recommendedNextStep: brain ? 'Run `gaw use "<task description>"` to execute your task with loaded skills.' : 'Run `gaw init`'
     };
@@ -268,11 +284,10 @@ export class ProjectBootstrapper {
       }
     }
 
-    // Auto-rescan Graphify
-    const graphify = new GraphifyManager({ projectRoot: dir });
-    const graphRes = await graphify.generateGraph({ targetDir: dir, force: true });
-    result.graphUpdated = Boolean(graphRes);
-    result.graphSummary = graphRes ? graphRes.summary : 'Up to date';
+    // Rebuild the Graphify graph (skipped when Graphify is not installed)
+    const graphRes = await this.buildGraph(dir, { force: true });
+    result.graphUpdated = !graphRes.skipped;
+    result.graphSummary = graphRes.summary;
 
     // Auto-configure Agentation if React
     if (projectInfo.isReact) {

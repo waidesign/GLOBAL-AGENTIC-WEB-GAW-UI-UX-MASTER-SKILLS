@@ -67,9 +67,10 @@ ai-brain/
 *Do not overwrite existing user-authored brain files!*
 
 ### 4. CODEBASE INTELLIGENCE (GRAPHIFY)
-- Detect if Graphify is installed (`graphify --version`).
-- If present, run `graphify .`.
-- If not present, generate the codebase relationship graph (`graph.json`, `graph.html`, `GRAPH_REPORT.md`) mapping module dependencies, imports, and component hierarchies.
+- Graphify is optional but recommended. Check whether it is installed (`graphify --version`).
+- If it is missing, explain that it builds a code map agents can query instead of reading whole files (saves tokens; local, no API keys), and ask the user whether to install it. Never install it without consent. Install command: `uv tool install graphifyy` (uv sets up Python 3.10+), or `pip install graphifyy`. If the user declines, skip this section.
+- If installed, run `graphify extract . --code-only`, then `graphify cluster-only . --no-label`. This writes `graphify-out/graph.json`, `graphify-out/graph.html` and `graphify-out/GRAPH_REPORT.md` without LLM calls.
+- Add `graphify-out/` to `.gitignore`.
 - Record God Nodes and key architectural hubs in `ai-brain/context.md`.
 
 ### 5. VISUAL FEEDBACK INTEGRATION (AGENTATION — REACT ONLY)

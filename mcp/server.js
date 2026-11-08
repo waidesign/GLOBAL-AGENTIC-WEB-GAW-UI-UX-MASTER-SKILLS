@@ -132,14 +132,14 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       },
       {
         name: 'initialize_project',
-        description: 'Initialize a project directory with Global Agentic Web, creating ai-brain/, Graphify graph, and agent adapters.',
+        description: 'Initialize a project directory with Global Agentic Web, creating ai-brain/, the Graphify code graph (graphify-out/, only when the optional Graphify CLI is installed), and agent adapters.',
         inputSchema: {
           type: 'object',
           properties: {
             projectPath: { type: 'string', description: 'Target project directory' },
             dryRun: { type: 'boolean', description: 'Simulate initialization without modifying files' },
             noAgentation: { type: 'boolean', description: 'Skip Agentation installation' },
-            noGraphify: { type: 'boolean', description: 'Skip Graphify codebase graph generation' }
+            noGraphify: { type: 'boolean', description: 'Skip the Graphify code graph. It is also skipped when Graphify is not installed; this tool never installs it.' }
           }
         }
       },
@@ -155,7 +155,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       },
       {
         name: 'get_project_graph',
-        description: 'Retrieve the Graphify architectural relationship graph for the project.',
+        description: 'Retrieve the Graphify architectural relationship graph for the project. Returns skipped: true when the optional Graphify CLI is not installed (the user can run `gaw setup`).',
         inputSchema: {
           type: 'object',
           properties: {

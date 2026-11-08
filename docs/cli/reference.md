@@ -8,7 +8,17 @@ Options:
 - `--dry-run`: Inspect and simulate changes without writing files.
 - `--force`: Force recreation or overwrite of brain files.
 - `--no-agentation`: Skip visual feedback integration.
-- `--no-graphify`: Skip codebase architecture graph generation.
+- `--install-graphify`: Install the optional Graphify CLI (and uv if needed) without asking.
+- `--no-graphify`: Skip the Graphify question and the code map.
+
+When Graphify is not installed, `gaw init` explains it and asks whether to install it. Non-interactive runs (`--yes`) skip the code map instead.
+
+## Optional Graphify Code Map
+```bash
+gaw setup          # install Graphify; asks before installing uv
+gaw setup --yes    # also install uv without asking
+gaw graph          # build or refresh graphify-out/
+```
 
 ## Project Continuation
 ```bash

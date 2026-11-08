@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { ProjectDetector } from '../project-detector/ProjectDetector.js';
+import { GraphifyManager } from '../graphify-manager/GraphifyManager.js';
 
 /**
  * ProjectManager
@@ -19,7 +20,7 @@ export class ProjectManager {
   getStatus() {
     const info = ProjectDetector.detect(this.projectDir);
     const initialized = this.isInitialized();
-    const hasGraph = fs.existsSync(path.join(this.projectDir, 'graph.json'));
+    const hasGraph = GraphifyManager.locateGraph(this.projectDir) !== null;
 
     return {
       projectPath: this.projectDir,

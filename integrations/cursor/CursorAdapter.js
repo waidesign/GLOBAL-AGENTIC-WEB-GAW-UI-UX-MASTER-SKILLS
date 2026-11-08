@@ -11,7 +11,7 @@ export class CursorAdapter {
       `# Cursor Project Rules`,
       `- Project Intelligence: ./ai-brain/`,
       `- Active Task Skills: Prioritize ./ai-brain/active-skills.md when present.`,
-      `- Code Graph: ./graph.json`,
+      `- Code Graph: ./graphify-out/graph.json (if present; build with \`gaw graph\`)`,
       `- Rules: Respect ./ai-brain/rules.md before proposing code changes.`,
       `- Framework: ${projectInfo.framework}`,
       `<!-- END GLOBAL AGENTIC WEB -->\n`

@@ -42,7 +42,7 @@ Do not dump the entire skill catalog into the agent context.
 - **Component Hygiene**: Never mix incompatible primitive libraries within the same interaction surface.
 
 ## 5. Tool Integrations
-- **Graphify**: Codebase architecture & dependency graph in `graph.json`, `graph.html`, and `GRAPH_REPORT.md`.
+- **Graphify** (optional, recommended; `gaw setup` or `uv tool install graphifyy`): Codebase architecture & dependency graph in `graphify-out/` (`graph.json`, `graph.html`, `GRAPH_REPORT.md`).
 - **Agentation**: Visual dev-only feedback overlay mounted strictly under dev conditions (`DEV` / `NODE_ENV === 'development'`).
 - **CLI Commands**:
   - `gaw init`: Universal single-command project bootstrapper.
