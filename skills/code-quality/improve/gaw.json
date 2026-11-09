@@ -1,0 +1,27 @@
+{
+  "gss": 1,
+  "lastVerified": "2026-11-09",
+  "source": {
+    "repo": "shadcn/improve",
+    "path": "skills/improve/SKILL.md",
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "declared in original SKILL.md",
+    "licenseUrl": "https://github.com/shadcn/improve/blob/main/skills/improve/SKILL.md",
+    "licenseCheckedAt": "2026-11-09"
+  },
+  "summary": "Survey any codebase as a senior advisor and produce prioritized, self-contained implementation plans for OTHER models/agents to execute. Strictly read-only on source code — never implements, fixes, or refactors anything itself.",
+  "whenToUse": [
+    "Use when asked to audit a codebase, find improvement opportunities (bugs, security, performance, test coverage, tech debt, migrations, DX), suggest features or where to take the project next (roadmap, product direction), or generate handoff"
+  ],
+  "domains": [
+    "software",
+    "ai",
+    "security"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
+}

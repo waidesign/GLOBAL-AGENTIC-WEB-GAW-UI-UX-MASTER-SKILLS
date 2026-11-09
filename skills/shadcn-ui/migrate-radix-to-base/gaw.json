@@ -1,0 +1,33 @@
+{
+  "gss": 1,
+  "lastVerified": "2026-11-09",
+  "source": {
+    "repo": "shadcn-ui/ui",
+    "path": "skills/migrate-radix-to-base/SKILL.md",
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "repository license",
+    "licenseUrl": "https://github.com/shadcn-ui/ui/blob/main/LICENSE.md",
+    "licenseCheckedAt": "2026-11-09"
+  },
+  "summary": "Migrates React projects and components from Radix UI to Base UI. Use when asked to migrate from radix, move to base-ui, convert radix primitives, or switch a shadcn project's base library.",
+  "whenToUse": [
+    "Use when asked to migrate from radix, move to base-ui, convert radix primitives, or switch a shadcn project's base library."
+  ],
+  "verification": [
+    "Each run writes (or fully overwrites) the file for each component it",
+    "A multi-component run (\"migrate alert-dialog and dropdown-menu\") writes one",
+    "Whole-project mode writes the per-component files plus",
+    "There is NO index file. Migration status is derived from disk, not"
+  ],
+  "domains": [
+    "web",
+    "design"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenToUse"
+  ]
+}

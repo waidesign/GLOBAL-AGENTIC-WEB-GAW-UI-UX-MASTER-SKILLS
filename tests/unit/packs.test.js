@@ -39,6 +39,7 @@ test('shipped packs - valid, every skill exists and is complete (no missing file
   for (const pack of packs) {
     assert.deepEqual(validatePack(pack, known), [], pack.name);
     const ids = [...pack.skills, ...(pack.when || []).flatMap(w => w.skills)];
+    for (const w of pack.when || []) assert.ok((w.dependencies || []).length || (w.files || []).length, `${pack.name}: each "when" names dependencies or files`);
     for (const id of ids) {
       const skill = await registry.getSkill(id);
       const { errors, warnings } = lintSkillFolder(skill.dir);
@@ -89,6 +90,11 @@ test('pack skills - stack-specific extras and the installed animation library on
   const ui = (await packSkills(byName.get('ui'), ProjectDetector.detect(motionDir), registry)).skills.map(s => s.id);
   assert.ok(ui.includes('react-best-practices'), 'React project gets the React skill');
   assert.ok(!ui.includes('tailwindcss'), 'no Tailwind skill without Tailwind');
+  assert.ok(!ui.includes('shadcn'), 'no shadcn skill without components.json');
+
+  fs.writeFileSync(path.join(motionDir, 'components.json'), '{}', 'utf8');
+  const withShadcn = (await packSkills(byName.get('ui'), ProjectDetector.detect(motionDir), registry)).skills;
+  assert.ok(withShadcn.some(s => s.id === 'shadcn' && s.reason.includes('components.json found')), 'shadcn projects get the shadcn skill');
   cleanup(motionDir); cleanup(animeDir);
 });
 

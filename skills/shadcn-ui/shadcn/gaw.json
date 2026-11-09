@@ -1,0 +1,34 @@
+{
+  "gss": 1,
+  "lastVerified": "2026-11-09",
+  "extraFrontmatter": {
+    "user-invocable": "user-invocable: false"
+  },
+  "source": {
+    "repo": "shadcn-ui/ui",
+    "path": "skills/shadcn/SKILL.md",
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "repository license",
+    "licenseUrl": "https://github.com/shadcn-ui/ui/blob/main/LICENSE.md",
+    "licenseCheckedAt": "2026-11-09"
+  },
+  "permissions": [
+    "shell"
+  ],
+  "summary": "Manages shadcn components and projects — adding, searching, fixing, debugging, styling, and composing UI, including chat interfaces. Provides project context, component docs, and usage examples.",
+  "whenToUse": [
+    "Also triggers for \"shadcn init\", \"create an app with --preset\", \"switch to --preset\", and for building a design system or applying a DESIGN.md or brand spec to shadcn/ui."
+  ],
+  "domains": [
+    "web",
+    "design",
+    "writing",
+    "business"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
+}

@@ -10,7 +10,7 @@
 
 ## ⚡ Quick Start for Claude Code
 
-Do **NOT** read through the 209 skill files or 63 design files on startup. Use this architectural memory map:
+Do **NOT** read through the 212 skill files or 63 design files on startup. Use this architectural memory map:
 
 ### Common Commands
 ```bash
@@ -21,7 +21,7 @@ node bin/gaw.js skills lint   # Check all skills against the GAW Skill Standard 
 node bin/gaw.js skills review --all  # AI-drafted fields waiting for a person (--approve/--reject <name|all>)
 node bin/gaw.js skills licenses [--apply]  # Verify each skill's license at its source (GitHub API: set GITHUB_TOKEN)
 npm run eval             # Skill selection benchmark vs eval/baseline.json (run after any skill/search change)
-node bin/gaw.js doctor   # Verify runtime, 209 registered skills, and 63 design presets
+node bin/gaw.js doctor   # Verify runtime, 212 registered skills, and 63 design presets
 node bin/gaw.js recommend "<task prompt>"   # Test skill & design recommendations
 node bin/gaw.js use "<task>" --inject       # Test injection into ai-brain/
 ```
@@ -87,7 +87,7 @@ gaw-guided-agent-workflow/
 │   ├── coding-preferences.md    # TypeScript first, token architecture, modular patterns
 │   ├── decision-history.md      # Historical log of confirmed architectural decisions
 │   └── workflow-preferences.md  # Verification & safe update protocols
-├── skills/                      # 209 GSS skills: <category>/<name>/SKILL.md + gaw.json, plus index.json
+├── skills/                      # 212 GSS skills: <category>/<name>/SKILL.md + gaw.json, plus index.json
 ├── presets/
 │   └── designs/                 # 63 real-world design presets from ui.gradientdeck.com
 ├── templates/

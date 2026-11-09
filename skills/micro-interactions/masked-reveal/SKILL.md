@@ -15,7 +15,7 @@ metadata:
 - Words should rise through an invisible mask with a staggered sequence.
 - The project already uses GSAP. If it uses another animation library, build the same effect with that library instead of adding GSAP.
 
-This is **entrance motion**: it may run up to ~1s because it never blocks input. The 300ms limit applies to feedback on user input (see the `micro-interactions-system` skill).
+This is **entrance motion**: it may run up to ~1s because it never blocks input. The short 100–250ms band applies to feedback on user input (see the `micro-interaction` skill).
 
 ## Motion Defaults
 - Trigger: start when the text top reaches `82%` of the viewport.

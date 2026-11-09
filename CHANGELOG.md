@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed (micro-interactions and shadcn skills)
+- `micro-interactions-system` is replaced by `micro-interaction` from [iart-ai/web-animation-skills](https://github.com/iart-ai/web-animation-skills) (MIT; also listed on ui-skills.com): hover, press and focus feedback, toggles, toasts, drawers, list and shared-layout animation with Motion and modern CSS (`@starting-style`), reduced-motion guards and a screenshot verify loop. Its helper scripts (`seek-shot.sh`, `contact-sheet.sh`) live at that repo's root, so they were copied into the skill's `scripts/` (recorded in `gaw.json` → `source.supportFilesFrom`). The `motion` pack, related skills and eval cases now point to it; `motion-dev`, `animejs` and `masked-reveal` use its 100–250ms feedback band.
+- Added from shadcn: `shadcn` ([shadcn-ui/ui](https://github.com/shadcn-ui/ui), MIT; managing shadcn/ui components, registries and presets; pre-approves only the `shadcn` CLI), `migrate-radix-to-base` (same repo; Radix UI to Base UI migration) and `improve` ([shadcn/improve](https://github.com/shadcn/improve), MIT; read-only codebase advisor that writes implementation plans for other agents). No shadcn skill was installed before (the incomplete `improve-shadcn` had been removed).
+- The `ui` pack adds `shadcn` when the project has `components.json`; pack `when` rules can now match files as well as dependencies.
+- Eval: the shadcn theming case accepts `shadcn` and `migrate-radix-to-base`; the baseline is saved again for the 212-skill library (held-out 88%, up from 85%).
+
 ### Added (design system skills, complete)
 - Re-imported the design.how skill set from [arla6ka/design.how](https://github.com/arla6ka/design.how) (MIT, verified at the source) with all supporting files: `build-design-system` (5 references, 6 scripts), `design-system-boss` (4 playbooks), `migrate-design-system` (4 references, 4 scripts; replaces the incomplete `migrate-to-a-design-system`), and the instruction-only `token-mapping`, `component-docs` and `ui-review`. Their scripts were read before adding: they only delete temp folders they create, only contact the app's local dev server, install nothing, and the committing script never commits to the default branch or pushes.
 - New `design-system-build` pack (the three that run scripts), offered only when the goal asks to build or migrate a design system. The `design-system` pack now adds `token-mapping`, `component-docs` and `ui-review`.

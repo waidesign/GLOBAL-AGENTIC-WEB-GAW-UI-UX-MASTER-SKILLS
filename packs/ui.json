@@ -7,6 +7,7 @@
   "skills": ["accessibility-baseline", "fixing-accessibility", "baseline-ui"],
   "when": [
     { "dependencies": ["react", "next"], "skills": ["react-best-practices"] },
-    { "dependencies": ["tailwindcss"], "skills": ["tailwindcss"] }
+    { "dependencies": ["tailwindcss"], "skills": ["tailwindcss"] },
+    { "files": ["components.json"], "skills": ["shadcn"] }
   ]
 }

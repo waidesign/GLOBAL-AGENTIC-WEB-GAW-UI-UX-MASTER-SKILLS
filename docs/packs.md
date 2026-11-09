@@ -4,8 +4,8 @@ A pack is a small, curated set of library skills for one kind of work. `gaw init
 
 | Pack | Fits when | Adds |
 |---|---|---|
-| `ui` | The project has a user interface | `accessibility-baseline`, `fixing-accessibility`, `baseline-ui`; `react-best-practices` with React/Next.js; `tailwindcss` with Tailwind |
-| `motion` | `motion`, `framer-motion`, `animejs` or `gsap` is installed, or the goal mentions animation | `micro-interactions-system`, `fixing-motion-performance`, and the skill for the animation library that is installed (never a second one) |
+| `ui` | The project has a user interface | `accessibility-baseline`, `fixing-accessibility`, `baseline-ui`; `react-best-practices` with React/Next.js; `tailwindcss` with Tailwind; `shadcn` when `components.json` exists |
+| `motion` | `motion`, `framer-motion`, `animejs` or `gsap` is installed, or the goal mentions animation | `micro-interaction`, `fixing-motion-performance`, and the skill for the animation library that is installed (never a second one) |
 | `marketing` | The goal mentions landing, marketing, pricing, SEO…, or an SEO/sitemap package is installed | `landing-page`, `pricing-page`, `fixing-metadata` |
 | `design-system` | Radix, Storybook, vanilla-extract, Stitches, style-dictionary or `components.json` is found, or the goal mentions a design system | `create-design-md`, `token-mapping`, `component-docs`, `ui-review`, `baseline-ui`; `tailwindcss` with Tailwind. Instructions only. |
 | `design-system-build` | Only when the goal asks to build, start, migrate to or adopt a design system | `design-system-boss`, `build-design-system`, `migrate-design-system`. High impact: scripts run Playwright, create branches and worktrees, and commit each surface (never to the default branch, never pushed). |
@@ -41,7 +41,7 @@ One JSON file in `packs/`:
     "files": ["components.json"],
     "goalWords": ["animation"]
   },
-  "skills": ["micro-interactions-system"],
+  "skills": ["micro-interaction"],
   "when": [{ "dependencies": ["react"], "skills": ["react-best-practices"] }],
   "fromGroup": "animation-library"
 }
@@ -49,4 +49,4 @@ One JSON file in `packs/`:
 
 - `requires`: all must hold (currently `hasUi`).
 - `signals`: the pack fits when any one matches; `"always": true` makes it fit every project that meets `requires`. Goal words match whole words.
-- `skills`: always added. `when`: added only when one of the packages is installed. `fromGroup`: adds the skill from that gaw.json `exclusiveGroup` whose `packages` the project has.
+- `skills`: always added. `when`: added only when one of the packages is installed, or one of its `files` exists in the project. `fromGroup`: adds the skill from that gaw.json `exclusiveGroup` whose `packages` the project has.

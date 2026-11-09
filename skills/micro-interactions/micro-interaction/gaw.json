@@ -1,0 +1,52 @@
+{
+  "gss": 1,
+  "lastVerified": "2026-11-09",
+  "source": {
+    "repo": "iart-ai/web-animation-skills",
+    "path": "skills/micro-interaction/SKILL.md",
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "repository license",
+    "licenseUrl": "https://github.com/iart-ai/web-animation-skills/blob/main/LICENSE",
+    "licenseCheckedAt": "2026-11-09",
+    "supportFilesFrom": {
+      "path": "scripts/",
+      "files": [
+        "scripts/README.md",
+        "scripts/seek-shot.sh",
+        "scripts/contact-sheet.sh"
+      ],
+      "note": "Shared by the repo's skills at its root; copied into this skill so the scripts it mentions are included."
+    }
+  },
+  "summary": "This skill should be used when the user asks to \"add a hover/press effect\", \"animate a toggle or switch\", \"build an animated like button\", \"make a toast/snackbar slide in\", \"animate a drawer or modal\", \"animate list reordering or add/remove\", \"do a shared-element layout transition\", or \"polish…",
+  "whenToUse": [
+    "This skill should be used when the user asks to \"add a hover/press effect\", \"animate a toggle or switch\", \"build an animated like button\", \"make a toast/snackbar slide in\", \"animate a drawer or modal\", \"animate list reordering or add/remove",
+    "Hover/press/focus feedback; toggles, checkboxes, like/heart buttons",
+    "Toasts/snackbars, drawers, modals, tooltips, accordions (enter/exit)",
+    "List add/remove/reorder; shared-element (\"magic move\") layout transitions",
+    "Loading → success → error state transitions"
+  ],
+  "verification": [
+    "One .html file: your markup plus either CSS transitions/@starting-style or an inline <script type=\"module\"> importing motion from CDN.",
+    "A way to land on the resolved end state for a screenshot — interactions are state-driven, not time-driven, so freeze the state rather than a clock.",
+    "Opens standalone — no console errors, CDN React/motion (if used) resolves.",
+    "The ?state= (or controlled-prop) freeze lands a deterministic, settled state.",
+    "Screenshotted across states — idle / active / open — matches the brief, no artifacts.",
+    "prefers-reduced-motion honored — large movement dropped, opacity/feedback kept.",
+    "Easing is intentional — enter ease-out, exit ease-in, durations in the 100–250ms band."
+  ],
+  "domains": [
+    "web",
+    "design"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "verification",
+    "whenToUse"
+  ],
+  "permissions": [
+    "shell"
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "description": "Skill selection benchmark. Each case is a task; `relevant` lists skills that are acceptable picks (any of them counts as a hit). Cases with an empty `relevant` list should get no skills: the library does not cover that field, so suggesting anything adds noise and tokens.",
   "cases": [
-    { "id": "ui-pricing-toggle", "domain": "ui", "task": "Design a SaaS pricing page with a monthly and yearly billing toggle", "relevant": ["pricing-page", "landing-page", "micro-interactions-system", "frontend-design", "baseline-ui", "tailwindcss"] },
+    { "id": "ui-pricing-toggle", "domain": "ui", "task": "Design a SaaS pricing page with a monthly and yearly billing toggle", "relevant": ["pricing-page", "landing-page", "micro-interaction", "frontend-design", "baseline-ui", "tailwindcss"] },
     { "id": "ui-landing", "domain": "ui", "task": "High-converting landing page for a productivity app", "relevant": ["landing-page", "frontend-design", "baseline-ui", "improve-ui"] },
     { "id": "ui-design-system", "domain": "ui", "task": "Build a design system with tokens and primitives", "relevant": ["build-design-system", "design-system-boss", "migrate-design-system"] },
     { "id": "ui-a11y-fix", "domain": "ui", "task": "Fix accessibility issues: keyboard navigation and ARIA labels", "relevant": ["fixing-accessibility", "web-design-guidelines", "rams", "baseline-ui"] },
@@ -10,7 +10,7 @@
     { "id": "ui-react-rerenders", "domain": "ui", "task": "Reduce React re-renders in a slow dashboard", "relevant": ["react-best-practices"] },
     { "id": "ui-oklch-palette", "domain": "ui", "task": "Generate an accessible OKLCH color palette", "relevant": [] },
     { "id": "ui-typography", "domain": "ui", "task": "Set up a typography scale and font pairing", "relevant": [] },
-    { "id": "ui-shadcn-theme", "domain": "ui", "task": "Theme and extend shadcn/ui components with Radix", "relevant": ["tailwindcss"] },
+    { "id": "ui-shadcn-theme", "domain": "ui", "task": "Theme and extend shadcn/ui components with Radix", "relevant": ["shadcn", "migrate-radix-to-base", "tailwindcss"] },
     { "id": "ui-threejs", "domain": "ui", "task": "Interactive 3D product viewer with Three.js", "relevant": ["threejs"] },
     { "id": "ui-seo-metadata", "domain": "ui", "task": "Fix SEO metadata and Open Graph tags", "relevant": ["fixing-metadata"] },
     { "id": "ui-mobile-app", "domain": "ui", "task": "Mobile app screens for a fitness tracker", "relevant": ["design-mobile-apps", "react-native-skills"] },

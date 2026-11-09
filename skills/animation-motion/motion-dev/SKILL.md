@@ -29,7 +29,7 @@ import { motion, AnimatePresence, useScroll, useReducedMotion } from "motion/rea
 
 - **Prefer `transform` and `opacity`** (`x`, `y`, `scale`, `rotate`, `opacity`). They don't trigger layout.
 - **Size changes**: use the `layout` prop (FLIP, transform-based) for reordering and resizing. Animating `height: "auto"` is fine for a small accordion; avoid per-frame size animation on large or many elements.
-- **Timing** (see the `micro-interactions-system` skill for the full table): feedback to input starts immediately (`whileTap` applies on press) and settles within 300ms; user-triggered transitions 150–300ms; entrance reveals may take longer but never block input.
+- **Timing**: feedback to input starts immediately (`whileTap` applies on press) and settles in 100–250ms (see the `micro-interaction` skill); user-triggered transitions such as dialogs and toasts up to ~300ms; entrance reveals may take longer but never block input.
 - **Reduced motion**: wrap the app in `<MotionConfig reducedMotion="user">`, or check `useReducedMotion()` and drop movement (keep opacity).
 - **No infinite loops** outside a hero unless the user asked for one.
 

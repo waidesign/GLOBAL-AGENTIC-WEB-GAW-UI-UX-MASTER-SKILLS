@@ -9,7 +9,7 @@
     "Fix accessibility issues",
     "Fix ARIA or keyboard problems"
   ],
-  "related": ["fixing-accessibility", "baseline-ui", "micro-interactions-system"],
+  "related": ["fixing-accessibility", "baseline-ui", "micro-interaction"],
   "verification": [
     "Keyboard-only walkthrough of the change works.",
     "Contrast checked for new colors.",

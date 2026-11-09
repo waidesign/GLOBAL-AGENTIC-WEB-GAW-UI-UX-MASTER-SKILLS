@@ -28,7 +28,7 @@ import { animate, createTimeline, stagger, svg, waapi } from 'animejs';
 ## 2. Rules
 - Targets first, then parameters: `animate(targets, { ... })`. Easing uses `ease` (`'outQuad'`, `'inOutSine'`).
 - Prefer `x`, `y`, `scale`, `rotate`, `opacity`.
-- Timing: feedback to input settles within 300ms; entrance sequences may take longer but never block input; counters ~1–1.5s (see the `micro-interactions-system` skill).
+- Timing: feedback to input settles in 100–250ms (see the `micro-interaction` skill); entrance sequences may take longer but never block input; counters ~1–1.5s.
 - Reduced motion: check `window.matchMedia('(prefers-reduced-motion: reduce)').matches` and set the final state without animating.
 
 ## 3. Patterns

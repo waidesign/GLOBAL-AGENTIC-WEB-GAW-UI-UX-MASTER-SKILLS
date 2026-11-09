@@ -7,6 +7,6 @@
     "dependencies": ["motion", "framer-motion", "animejs", "gsap"],
     "goalWords": ["animation", "animations", "animated", "motion", "micro-interactions", "transitions"]
   },
-  "skills": ["micro-interactions-system", "fixing-motion-performance"],
+  "skills": ["micro-interaction", "fixing-motion-performance"],
   "fromGroup": "animation-library"
 }

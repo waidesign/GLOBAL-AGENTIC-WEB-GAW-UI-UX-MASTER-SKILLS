@@ -1,3 +1,23 @@
 # Skills and the skill index use LF line endings on every OS, so the size-based
 # freshness check in skills/index.json gives the same result everywhere.
 skills/** text eol=lf
+
+# Images, fonts, media and archives that skills ship are binary: never change their bytes
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.mp4 binary
+*.mp3 binary
+*.wav binary
+*.hdr binary
+*.zip binary
+*.gz binary
+*.wasm binary

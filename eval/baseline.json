@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-09T02:27:36.489Z",
+  "generatedAt": "2026-11-09T02:55:45.559Z",
   "sets": {
     "tuning": {
       "cases": 36,
@@ -7,20 +7,20 @@
       "noMatchCases": 7,
       "systems": {
         "onboarding": {
-          "hitRate": 0.931,
-          "precision": 0.734,
-          "noMatchAccuracy": 0.857,
-          "avgSkills": 1.78,
-          "avgTokens": 2473,
-          "score": 0.841
+          "hitRate": 0.966,
+          "precision": 0.757,
+          "noMatchAccuracy": 0.714,
+          "avgSkills": 1.83,
+          "avgTokens": 2698,
+          "score": 0.812
         },
         "use": {
-          "hitRate": 0.931,
-          "precision": 0.75,
-          "noMatchAccuracy": 0.857,
-          "avgSkills": 1.64,
-          "avgTokens": 1035,
-          "score": 0.846
+          "hitRate": 0.966,
+          "precision": 0.773,
+          "noMatchAccuracy": 0.714,
+          "avgSkills": 1.69,
+          "avgTokens": 1279,
+          "score": 0.818
         }
       }
     },
@@ -30,26 +30,26 @@
       "noMatchCases": 5,
       "systems": {
         "onboarding": {
-          "hitRate": 0.882,
-          "precision": 0.655,
+          "hitRate": 0.941,
+          "precision": 0.682,
           "noMatchAccuracy": 1,
-          "avgSkills": 1.77,
-          "avgTokens": 2502,
-          "score": 0.846
+          "avgSkills": 1.86,
+          "avgTokens": 2828,
+          "score": 0.874
         },
         "use": {
-          "hitRate": 0.882,
-          "precision": 0.652,
+          "hitRate": 0.941,
+          "precision": 0.691,
           "noMatchAccuracy": 1,
-          "avgSkills": 1.5,
-          "avgTokens": 630,
-          "score": 0.845
+          "avgSkills": 1.59,
+          "avgTokens": 889,
+          "score": 0.877
         }
       }
     }
   },
   "library": {
-    "skills": 209,
+    "skills": 212,
     "missingDescriptions": 0,
     "oversized": 0,
     "largestSkillTokens": 4955

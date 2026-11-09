@@ -10,9 +10,11 @@
  *   requires: { hasUi?: true }                         all must hold
  *   signals:  { always?, dependencies?, dependencyPrefixes?, files?, goalWords? }   any one fits
  *   skills:   [skill names]                            always added
- *   when:     [{ dependencies: [...], skills: [...] }] added when one of those packages is installed
+ *   when:     [{ dependencies?, files?, skills }]      added when one of those packages is installed or files exists
  *   fromGroup: "animation-library"                     add the group's skill whose package is installed
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import { readLock, writeLock, selectSkills } from '../project-context/ProjectContext.js';
 export { PACKS_DIR, validatePack, loadPacks, packReasons, detectPacks } from './detect.js';
 
@@ -34,8 +36,10 @@ export async function packSkills(pack, info, registry) {
 
   for (const id of pack.skills || []) await add(id, `Pack "${pack.name}"`);
   for (const rule of pack.when || []) {
-    const hit = (rule.dependencies || []).find(d => installed.has(d.toLowerCase()));
-    if (hit) for (const id of rule.skills || []) await add(id, `Pack "${pack.name}": ${hit} is installed`);
+    const dep = (rule.dependencies || []).find(d => installed.has(d.toLowerCase()));
+    const file = !dep && info.projectPath ? (rule.files || []).find(f => fs.existsSync(path.join(info.projectPath, f))) : null;
+    const why = dep ? `${dep} is installed` : file ? `${file} found` : null;
+    if (why) for (const id of rule.skills || []) await add(id, `Pack "${pack.name}": ${why}`);
   }
   if (pack.fromGroup) {
     const all = await registry.getAllSkills();
