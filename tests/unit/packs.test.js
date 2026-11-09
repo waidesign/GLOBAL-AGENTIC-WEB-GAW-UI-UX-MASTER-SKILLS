@@ -33,7 +33,7 @@ const cleanup = (dir) => fs.rmSync(dir, { recursive: true, force: true });
 test('shipped packs - valid, every skill exists and is complete (no missing files or broken links)', async () => {
   const files = fs.readdirSync(PACKS_DIR).filter(f => f.endsWith('.json'));
   assert.equal(packs.length, files.length, 'every pack file loads');
-  assert.deepEqual(packs.map(p => p.name).sort(), ['design-system', 'marketing', 'motion', 'ui']);
+  assert.deepEqual(packs.map(p => p.name).sort(), ['design-system', 'design-system-build', 'marketing', 'motion', 'ui']);
 
   const known = new Set((await registry.getAllSkills()).map(s => s.id));
   for (const pack of packs) {
@@ -66,6 +66,10 @@ test('detect - from dependencies, files and goal; nothing UI-only for an API', (
   const withGoal = detectPacks(packs, info, { projectDir: dir, goal: 'Landing page for a bakery' }).map(p => p.pack.name);
   assert.ok(withGoal.includes('marketing'), 'goal words count');
   assert.ok(!detectPacks(packs, info, { projectDir: dir, goal: 'islanding' }).some(p => p.pack.name === 'marketing'), 'whole words only');
+
+  // The high-impact pack is only offered when the goal asks for that work, never from dependencies
+  assert.ok(!detectPacks(packs, info, { projectDir: dir }).some(p => p.pack.name === 'design-system-build'));
+  assert.ok(detectPacks(packs, info, { projectDir: dir, goal: 'We want to build a design system for our app' }).some(p => p.pack.name === 'design-system-build'));
 
   const api = project({ dependencies: { express: '^4' } });
   assert.deepEqual(detectPacks(packs, ProjectDetector.detect(api), { projectDir: api, goal: 'pricing API' }), [], 'UI packs need a UI');

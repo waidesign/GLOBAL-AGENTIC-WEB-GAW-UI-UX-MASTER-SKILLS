@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "3d/threejs/SKILL.md:3575:912|accessibility/accessibility-baseline/SKILL.md:2450:953|accessibility/fixing-accessibility/SKILL.md:4829:1039|accessibility/web-design-guidelines/SKILL.md:1271:1022|animation-motion/animation-systems/SKILL.md:5350:649|animation-motion/animejs/SKILL.md:3088:1239|animation-motion/motion-dev/SKILL.md:3222:1157|animation-motion/react-view-transitions/SKILL.md:14591:1886|architecture/codebase-design/SKILL.md:6556:1176|architecture/doc-coauthoring/SKILL.md:15929:1310|architecture/domain-modeling/SKILL.md:3456:973|architecture/implement-spec/SKILL.md:2912:845|architecture/implement/SKILL.md:699:833|architecture/improve-codebase-architecture/SKILL.md:6107:1010|architecture/setup-ts-deep-modules/SKILL.md:7625:1377|architecture/to-spec/SKILL.md:3120:926|architecture/to-tickets/SKILL.md:5891:1093|architecture/wayfinder/SKILL.md:12487:1130|cloud-infra/airunway-aks-setup/SKILL.md:4555:1340|cloud-infra/aks-cost-optimization/SKILL.md:1943:1944|cloud-infra/aks-gpu-inference/SKILL.md:3085:1391|cloud-infra/aks-known-issues/SKILL.md:1974:1408|cloud-infra/aks-network-capture/SKILL.md:2999:1288|cloud-infra/aks-troubleshooting/SKILL.md:12806:1594|cloud-infra/azure-advisor-actionability/SKILL.md:2020:984|cloud-infra/azure-advisor/SKILL.md:2805:1234|cloud-infra/azure-ai/SKILL.md:3725:1732|cloud-infra/azure-aigateway/SKILL.md:5004:1695|cloud-infra/azure-app-onboard-prereq/SKILL.md:10352:1520|cloud-infra/azure-app-onboard/SKILL.md:6854:2012|cloud-infra/azure-cloud-migrate/SKILL.md:4399:1125|cloud-infra/azure-compliance/SKILL.md:4017:1617|cloud-infra/azure-compute/SKILL.md:2663:1653|cloud-infra/azure-deploy/SKILL.md:6740:2209|cloud-infra/azure-diagnostics/SKILL.md:7524:1377|cloud-infra/azure-enterprise-infra-planner/SKILL.md:6383:1703|cloud-infra/azure-kubernetes-app-deploy/SKILL.md:2056:1528|cloud-infra/azure-kubernetes/SKILL.md:13109:1526|cloud-infra/azure-kusto-graph/SKILL.md:19273:1227|cloud-infra/azure-kusto-irql-graph/SKILL.md:19156:1412|cloud-infra/azure-kusto-irql/SKILL.md:10533:1276|cloud-infra/azure-kusto/SKILL.md:8600:1436|cloud-infra/azure-local-multi-rack/SKILL.md:3858:1781|cloud-infra/azure-local/SKILL.md:3452:1392|cloud-infra/azure-messaging/SKILL.md:3327:1410|cloud-infra/azure-prepare/SKILL.md:12905:1996|cloud-infra/azure-quotas/SKILL.md:12148:1816|cloud-infra/azure-reliability/SKILL.md:10537:2374|cloud-infra/azure-resource-lookup/SKILL.md:5645:2257|cloud-infra/azure-resource-visualizer/SKILL.md:8572:1232|cloud-infra/azure-search-nav/SKILL.md:2441:1310|cloud-infra/azure-storage/SKILL.md:5068:1913|cloud-infra/azure-upgrade/SKILL.md:8878:1328|cloud-infra/azure-validate/SKILL.md:3579:1469|cloud-infra/cost-analysis/SKILL.md:2030:1568|cloud-infra/cost-estimation/SKILL.md:2015:1325|cloud-infra/cost-governance/SKILL.md:1977:1288|cloud-infra/cost-optimization/SKILL.md:2022:1590|cloud-infra/deploy-to-vercel/SKILL.md:9792:1028|cloud-infra/discover-azure-skills/SKILL.md:2361:1201|cloud-infra/entra-agent-id/SKILL.md:16080:1840|cloud-infra/finetuning/SKILL.md:5541:1889|cloud-infra/foundry-iq/SKILL.md:3808:1229|cloud-infra/microsoft-foundry/SKILL.md:15599:1814|cloud-infra/python-appservice-deploy/SKILL.md:3347:1484|cloud-infra/vercel-cli-with-tokens/SKILL.md:10545:948|cloud-infra/vercel-optimize/SKILL.md:17394:1561|cloud-infra/wizard/SKILL.md:4232:1491|code-quality/code-review/SKILL.md:6833:1104|code-quality/git-guardrails-claude-code/SKILL.md:2423:1236|code-quality/mcp-builder/SKILL.md:11207:1140|code-quality/scaffold-exercises/SKILL.md:3699:997|code-quality/writing-guidelines/SKILL.md:1272:1066|components/company-logos/SKILL.md:1175:689|components/container-lines/SKILL.md:3718:1453|database/supabase-postgres-best-practices/SKILL.md:2768:1622|database/supabase/SKILL.md:14361:1052|design-systems/create-design-md/SKILL.md:16319:1530|design-systems/design-system-boss/SKILL.md:4154:736|documents/docx/SKILL.md:6970:1850|documents/pdf/SKILL.md:8133:1000|documents/pptx/SKILL.md:20867:1149|documents/xlsx/SKILL.md:8661:1774|frontend-frameworks/react-best-practices/SKILL.md:7344:773|frontend/composition-patterns/SKILL.md:2700:952|frontend/design-mobile-apps/SKILL.md:8554:903|frontend/frontend-design/SKILL.md:9612:792|frontend/react-native-skills/SKILL.md:4268:933|frontend/tailwindcss/SKILL.md:2921:839|frontend/web-artifacts-builder/SKILL.md:3162:1400|general/algorithmic-art/SKILL.md:19843:958|general/ask-matt/SKILL.md:12668:807|general/canvas-design/SKILL.md:12013:980|general/claude-api/SKILL.md:15799:1419|general/codex-pet/SKILL.md:15295:1043|general/discernment-nudge/SKILL.md:10633:1330|general/internal-comms/SKILL.md:1584:1341|general/pr/SKILL.md:4082:644|general/runcomfy-cli/SKILL.md:14219:1123|general/software-factory/SKILL.md:6073:860|general/teach/SKILL.md:9754:830|general/template/SKILL.md:273:495|general/to-questionnaire/SKILL.md:2978:839|general/wait-what/SKILL.md:468:785|general/writing-beats/SKILL.md:4929:1006|general/writing-fragments/SKILL.md:3630:940|general/writing-shape/SKILL.md:5994:961|interaction/animation-on-scroll/SKILL.md:3657:871|media-creative/ace-step/SKILL.md:16366:1128|media-creative/ai-avatar-video/SKILL.md:16376:1056|media-creative/ai-image-generation/SKILL.md:14505:1090|media-creative/ai-music/SKILL.md:14348:1077|media-creative/ai-video-generation/SKILL.md:15580:1094|media-creative/changelog-video/SKILL.md:13541:1527|media-creative/controlnet-pose/SKILL.md:10952:1073|media-creative/cut-the-curve/SKILL.md:18949:1102|media-creative/elevenlabs-music-generation/SKILL.md:11243:1448|media-creative/face-swap/SKILL.md:17939:1215|media-creative/figma/SKILL.md:6435:1121|media-creative/flux-2-klein/SKILL.md:11605:1355|media-creative/flux-kontext/SKILL.md:8081:1332|media-creative/gpt-image-2/SKILL.md:10585:1391|media-creative/gpt-image-edit/SKILL.md:9502:1403|media-creative/happyhorse-1-0/SKILL.md:9545:1395|media-creative/hyperframes-cli/SKILL.md:7734:2814|media-creative/hyperframes-registry/SKILL.md:4619:1715|media-creative/hyperframes/SKILL.md:7467:1397|media-creative/image-edit/SKILL.md:13231:1130|media-creative/image-inpainting/SKILL.md:11475:1105|media-creative/image-outpainting/SKILL.md:11430:1246|media-creative/image-to-video/SKILL.md:11787:1107|media-creative/kling-3-0/SKILL.md:15829:947|media-creative/lipsync/SKILL.md:12709:1203|media-creative/media-use/SKILL.md:5370:1348|media-creative/motion-doctrine/SKILL.md:12026:1374|media-creative/nano-banana-2/SKILL.md:9562:1374|media-creative/nano-banana-edit/SKILL.md:9024:1428|media-creative/oversized-cursor/SKILL.md:6717:1593|media-creative/relight/SKILL.md:10166:1189|media-creative/remotion-captions/SKILL.md:1238:816|media-creative/remotion-create/SKILL.md:2812:794|media-creative/remotion-docs/SKILL.md:1441:774|media-creative/remotion-interactivity/SKILL.md:13804:807|media-creative/remotion-license/SKILL.md:585:790|media-creative/remotion-maps/SKILL.md:1131:814|media-creative/remotion-markup/SKILL.md:13446:1095|media-creative/remotion-multimedia/SKILL.md:806:777|media-creative/remotion-render/SKILL.md:1178:762|media-creative/remotion-saas/SKILL.md:1154:780|media-creative/remotion-studio/SKILL.md:1712:715|media-creative/remotion-to-hyperframes/SKILL.md:5307:1467|media-creative/remotion-upgrade/SKILL.md:2048:785|media-creative/reverse-any-video/SKILL.md:5394:1499|media-creative/seam-craft/SKILL.md:4957:1049|media-creative/seedance-2-5-image-to-video/SKILL.md:12117:1117|media-creative/seedance-2-5-reference-to-video/SKILL.md:17630:1419|media-creative/seedance-v2/SKILL.md:9044:1199|media-creative/slack-gif-creator/SKILL.md:7923:992|media-creative/slideshow/SKILL.md:5196:1032|media-creative/style-sampling/SKILL.md:4758:1784|media-creative/video-edit/SKILL.md:11233:1124|media-creative/video-extend/SKILL.md:9570:1098|media-creative/video-inpainting/SKILL.md:10164:1232|media-creative/video-outpainting/SKILL.md:8985:1236|media-creative/wan-2-7/SKILL.md:8411:1248|media-creative/wan-3-0-prime-reference-to-video/SKILL.md:15745:1166|micro-interactions/masked-reveal/SKILL.md:5251:1570|micro-interactions/micro-interactions-system/SKILL.md:3739:1092|performance/fixing-motion-performance/SKILL.md:5673:901|seo/fixing-metadata/SKILL.md:4501:1137|systems/baseline-ui/SKILL.md:3523:847|systems/ui-skills-root/SKILL.md:1492:990|testing/migrate-to-shoehorn/SKILL.md:2900:1001|testing/setup-pre-commit/SKILL.md:2363:1277|testing/tdd/SKILL.md:3736:856|testing/webapp-testing/SKILL.md:3987:1011|ui-ux/academy-guide/SKILL.md:7808:1206|ui-ux/brand-guidelines/SKILL.md:2306:1062|ui-ux/design-lab/SKILL.md:14741:734|ui-ux/improve-ui/SKILL.md:8053:1149|ui-ux/landing-page/SKILL.md:5377:966|ui-ux/pricing-page/SKILL.md:5960:1109|ui-ux/prototype/SKILL.md:3034:985|ui-ux/rams/SKILL.md:5164:540|ui-ux/theme-factory/SKILL.md:3194:941|workflow/agents-cli-claude/SKILL.md:5454:1633|workflow/agents-cli-langchain/SKILL.md:4068:1289|workflow/chief-of-staff/SKILL.md:4804:902|workflow/claude-handoff/SKILL.md:1442:867|workflow/google-agents-cli-adk-code/SKILL.md:4351:2067|workflow/google-agents-cli-eval/SKILL.md:11001:1879|workflow/google-agents-cli-observability/SKILL.md:12033:1758|workflow/google-agents-cli-publish/SKILL.md:11772:1456|workflow/grill-me/SKILL.md:232:857|workflow/grill-with-docs/SKILL.md:322:879|workflow/grilling/SKILL.md:2183:950|workflow/handoff/SKILL.md:958:889|workflow/loop-me/SKILL.md:2532:1099|workflow/research/SKILL.md:938:1045|workflow/retro/SKILL.md:4442:815|workflow/setup-matt-pocock-skills/SKILL.md:7599:1012|workflow/skill-creator/SKILL.md:9999:1289|workflow/triage/SKILL.md:6633:973|workflow/writing-for-agents/SKILL.md:10992:907",
+  "fingerprint": "3d/threejs/SKILL.md:3575:912|accessibility/accessibility-baseline/SKILL.md:2450:953|accessibility/fixing-accessibility/SKILL.md:4829:1039|accessibility/web-design-guidelines/SKILL.md:1271:1022|animation-motion/animation-systems/SKILL.md:5350:649|animation-motion/animejs/SKILL.md:3088:1239|animation-motion/motion-dev/SKILL.md:3222:1157|animation-motion/react-view-transitions/SKILL.md:14591:1886|architecture/codebase-design/SKILL.md:6556:1176|architecture/doc-coauthoring/SKILL.md:15929:1310|architecture/domain-modeling/SKILL.md:3456:973|architecture/implement-spec/SKILL.md:2912:845|architecture/implement/SKILL.md:699:833|architecture/improve-codebase-architecture/SKILL.md:6107:1010|architecture/setup-ts-deep-modules/SKILL.md:7625:1377|architecture/to-spec/SKILL.md:3120:926|architecture/to-tickets/SKILL.md:5891:1093|architecture/wayfinder/SKILL.md:12487:1130|cloud-infra/airunway-aks-setup/SKILL.md:4555:1340|cloud-infra/aks-cost-optimization/SKILL.md:1943:1944|cloud-infra/aks-gpu-inference/SKILL.md:3085:1391|cloud-infra/aks-known-issues/SKILL.md:1974:1408|cloud-infra/aks-network-capture/SKILL.md:2999:1288|cloud-infra/aks-troubleshooting/SKILL.md:12806:1594|cloud-infra/azure-advisor-actionability/SKILL.md:2020:984|cloud-infra/azure-advisor/SKILL.md:2805:1234|cloud-infra/azure-ai/SKILL.md:3725:1732|cloud-infra/azure-aigateway/SKILL.md:5004:1695|cloud-infra/azure-app-onboard-prereq/SKILL.md:10352:1520|cloud-infra/azure-app-onboard/SKILL.md:6854:2012|cloud-infra/azure-cloud-migrate/SKILL.md:4399:1125|cloud-infra/azure-compliance/SKILL.md:4017:1617|cloud-infra/azure-compute/SKILL.md:2663:1653|cloud-infra/azure-deploy/SKILL.md:6740:2209|cloud-infra/azure-diagnostics/SKILL.md:7524:1377|cloud-infra/azure-enterprise-infra-planner/SKILL.md:6383:1703|cloud-infra/azure-kubernetes-app-deploy/SKILL.md:2056:1528|cloud-infra/azure-kubernetes/SKILL.md:13109:1526|cloud-infra/azure-kusto-graph/SKILL.md:19273:1227|cloud-infra/azure-kusto-irql-graph/SKILL.md:19156:1412|cloud-infra/azure-kusto-irql/SKILL.md:10533:1276|cloud-infra/azure-kusto/SKILL.md:8600:1436|cloud-infra/azure-local-multi-rack/SKILL.md:3858:1781|cloud-infra/azure-local/SKILL.md:3452:1392|cloud-infra/azure-messaging/SKILL.md:3327:1410|cloud-infra/azure-prepare/SKILL.md:12905:1996|cloud-infra/azure-quotas/SKILL.md:12148:1816|cloud-infra/azure-reliability/SKILL.md:10537:2374|cloud-infra/azure-resource-lookup/SKILL.md:5645:2257|cloud-infra/azure-resource-visualizer/SKILL.md:8572:1232|cloud-infra/azure-search-nav/SKILL.md:2441:1310|cloud-infra/azure-storage/SKILL.md:5068:1913|cloud-infra/azure-upgrade/SKILL.md:8878:1328|cloud-infra/azure-validate/SKILL.md:3579:1469|cloud-infra/cost-analysis/SKILL.md:2030:1568|cloud-infra/cost-estimation/SKILL.md:2015:1325|cloud-infra/cost-governance/SKILL.md:1977:1288|cloud-infra/cost-optimization/SKILL.md:2022:1590|cloud-infra/deploy-to-vercel/SKILL.md:9792:1028|cloud-infra/discover-azure-skills/SKILL.md:2361:1201|cloud-infra/entra-agent-id/SKILL.md:16080:1840|cloud-infra/finetuning/SKILL.md:5541:1889|cloud-infra/foundry-iq/SKILL.md:3808:1229|cloud-infra/microsoft-foundry/SKILL.md:15599:1814|cloud-infra/python-appservice-deploy/SKILL.md:3347:1484|cloud-infra/vercel-cli-with-tokens/SKILL.md:10545:948|cloud-infra/vercel-optimize/SKILL.md:17394:1561|cloud-infra/wizard/SKILL.md:4232:1491|code-quality/code-review/SKILL.md:6833:1104|code-quality/git-guardrails-claude-code/SKILL.md:2423:1236|code-quality/mcp-builder/SKILL.md:11207:1140|code-quality/scaffold-exercises/SKILL.md:3699:997|code-quality/writing-guidelines/SKILL.md:1272:1066|components/company-logos/SKILL.md:1175:689|components/container-lines/SKILL.md:3718:1453|database/supabase-postgres-best-practices/SKILL.md:2768:1622|database/supabase/SKILL.md:14361:1052|design-systems/build-design-system/SKILL.md:9223:1106|design-systems/component-docs/SKILL.md:3781:1114|design-systems/create-design-md/SKILL.md:16319:1530|design-systems/design-system-boss/SKILL.md:4069:1253|design-systems/migrate-design-system/SKILL.md:8209:1203|design-systems/token-mapping/SKILL.md:3598:921|design-systems/ui-review/SKILL.md:5543:1018|documents/docx/SKILL.md:6970:1850|documents/pdf/SKILL.md:8133:1000|documents/pptx/SKILL.md:20867:1149|documents/xlsx/SKILL.md:8661:1774|frontend-frameworks/react-best-practices/SKILL.md:7344:773|frontend/composition-patterns/SKILL.md:2700:952|frontend/design-mobile-apps/SKILL.md:8554:903|frontend/frontend-design/SKILL.md:9612:792|frontend/react-native-skills/SKILL.md:4268:933|frontend/tailwindcss/SKILL.md:2921:839|frontend/web-artifacts-builder/SKILL.md:3162:1400|general/algorithmic-art/SKILL.md:19843:958|general/ask-matt/SKILL.md:12668:807|general/canvas-design/SKILL.md:12013:980|general/claude-api/SKILL.md:15799:1419|general/codex-pet/SKILL.md:15295:1043|general/discernment-nudge/SKILL.md:10633:1330|general/internal-comms/SKILL.md:1584:1341|general/pr/SKILL.md:4082:644|general/runcomfy-cli/SKILL.md:14219:1123|general/software-factory/SKILL.md:6073:860|general/teach/SKILL.md:9754:830|general/template/SKILL.md:273:495|general/to-questionnaire/SKILL.md:2978:839|general/wait-what/SKILL.md:468:785|general/writing-beats/SKILL.md:4929:1006|general/writing-fragments/SKILL.md:3630:940|general/writing-shape/SKILL.md:5994:961|interaction/animation-on-scroll/SKILL.md:3657:871|media-creative/ace-step/SKILL.md:16366:1128|media-creative/ai-avatar-video/SKILL.md:16376:1056|media-creative/ai-image-generation/SKILL.md:14505:1090|media-creative/ai-music/SKILL.md:14348:1077|media-creative/ai-video-generation/SKILL.md:15580:1094|media-creative/changelog-video/SKILL.md:13541:1527|media-creative/controlnet-pose/SKILL.md:10952:1073|media-creative/cut-the-curve/SKILL.md:18949:1102|media-creative/elevenlabs-music-generation/SKILL.md:11243:1448|media-creative/face-swap/SKILL.md:17939:1215|media-creative/figma/SKILL.md:6435:1121|media-creative/flux-2-klein/SKILL.md:11605:1355|media-creative/flux-kontext/SKILL.md:8081:1332|media-creative/gpt-image-2/SKILL.md:10585:1391|media-creative/gpt-image-edit/SKILL.md:9502:1403|media-creative/happyhorse-1-0/SKILL.md:9545:1395|media-creative/hyperframes-cli/SKILL.md:7734:2814|media-creative/hyperframes-registry/SKILL.md:4619:1715|media-creative/hyperframes/SKILL.md:7467:1397|media-creative/image-edit/SKILL.md:13231:1130|media-creative/image-inpainting/SKILL.md:11475:1105|media-creative/image-outpainting/SKILL.md:11430:1246|media-creative/image-to-video/SKILL.md:11787:1107|media-creative/kling-3-0/SKILL.md:15829:947|media-creative/lipsync/SKILL.md:12709:1203|media-creative/media-use/SKILL.md:5370:1348|media-creative/motion-doctrine/SKILL.md:12026:1374|media-creative/nano-banana-2/SKILL.md:9562:1374|media-creative/nano-banana-edit/SKILL.md:9024:1428|media-creative/oversized-cursor/SKILL.md:6717:1593|media-creative/relight/SKILL.md:10166:1189|media-creative/remotion-captions/SKILL.md:1238:816|media-creative/remotion-create/SKILL.md:2812:794|media-creative/remotion-docs/SKILL.md:1441:774|media-creative/remotion-interactivity/SKILL.md:13804:807|media-creative/remotion-license/SKILL.md:585:790|media-creative/remotion-maps/SKILL.md:1131:814|media-creative/remotion-markup/SKILL.md:13446:1095|media-creative/remotion-multimedia/SKILL.md:806:777|media-creative/remotion-render/SKILL.md:1178:762|media-creative/remotion-saas/SKILL.md:1154:780|media-creative/remotion-studio/SKILL.md:1712:715|media-creative/remotion-to-hyperframes/SKILL.md:5307:1467|media-creative/remotion-upgrade/SKILL.md:2048:785|media-creative/reverse-any-video/SKILL.md:5394:1499|media-creative/seam-craft/SKILL.md:4957:1049|media-creative/seedance-2-5-image-to-video/SKILL.md:12117:1117|media-creative/seedance-2-5-reference-to-video/SKILL.md:17630:1419|media-creative/seedance-v2/SKILL.md:9044:1199|media-creative/slack-gif-creator/SKILL.md:7923:992|media-creative/slideshow/SKILL.md:5196:1032|media-creative/style-sampling/SKILL.md:4758:1784|media-creative/video-edit/SKILL.md:11233:1124|media-creative/video-extend/SKILL.md:9570:1098|media-creative/video-inpainting/SKILL.md:10164:1232|media-creative/video-outpainting/SKILL.md:8985:1236|media-creative/wan-2-7/SKILL.md:8411:1248|media-creative/wan-3-0-prime-reference-to-video/SKILL.md:15745:1166|micro-interactions/masked-reveal/SKILL.md:5251:1570|micro-interactions/micro-interactions-system/SKILL.md:3739:1092|performance/fixing-motion-performance/SKILL.md:5673:901|seo/fixing-metadata/SKILL.md:4501:1137|systems/baseline-ui/SKILL.md:3523:847|systems/ui-skills-root/SKILL.md:1492:990|testing/migrate-to-shoehorn/SKILL.md:2900:1001|testing/setup-pre-commit/SKILL.md:2363:1277|testing/tdd/SKILL.md:3736:856|testing/webapp-testing/SKILL.md:3987:1011|ui-ux/academy-guide/SKILL.md:7808:1206|ui-ux/brand-guidelines/SKILL.md:2306:1062|ui-ux/design-lab/SKILL.md:14741:734|ui-ux/improve-ui/SKILL.md:8053:1149|ui-ux/landing-page/SKILL.md:5377:966|ui-ux/pricing-page/SKILL.md:5960:1109|ui-ux/prototype/SKILL.md:3034:985|ui-ux/rams/SKILL.md:5164:540|ui-ux/theme-factory/SKILL.md:3194:941|workflow/agents-cli-claude/SKILL.md:5454:1633|workflow/agents-cli-langchain/SKILL.md:4068:1289|workflow/chief-of-staff/SKILL.md:4804:902|workflow/claude-handoff/SKILL.md:1442:867|workflow/google-agents-cli-adk-code/SKILL.md:4351:2067|workflow/google-agents-cli-eval/SKILL.md:11001:1879|workflow/google-agents-cli-observability/SKILL.md:12033:1758|workflow/google-agents-cli-publish/SKILL.md:11772:1456|workflow/grill-me/SKILL.md:232:857|workflow/grill-with-docs/SKILL.md:322:879|workflow/grilling/SKILL.md:2183:950|workflow/handoff/SKILL.md:958:889|workflow/loop-me/SKILL.md:2532:1099|workflow/research/SKILL.md:938:1045|workflow/retro/SKILL.md:4442:815|workflow/setup-matt-pocock-skills/SKILL.md:7599:1012|workflow/skill-creator/SKILL.md:9999:1289|workflow/triage/SKILL.md:6633:973|workflow/writing-for-agents/SKILL.md:10992:907",
   "skills": [
     {
       "id": "threejs",
@@ -5255,6 +5255,107 @@
       "tokenEstimate": 3349
     },
     {
+      "id": "build-design-system",
+      "name": "build-design-system",
+      "category": "design-systems",
+      "description": "Use when someone wants a design system built from the UI an app already ships, or one phase of it, such as \"extract tokens from the app\", \"add states to our Button\", \"replace the hardcoded colors with tokens\" or \"start a design system\". Moving screens onto an existing system's components is migrate-design-system. A vague whole-app ask goes to design-system-boss.",
+      "author": "unknown",
+      "license": "MIT",
+      "version": "1.0.0",
+      "tags": [],
+      "keywords": [],
+      "frameworks": [
+        "any"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "lastVerified": "2026-11-09",
+      "summary": "Use when someone wants a design system built from the UI an app already ships, or one phase of it, such as \"extract tokens from the app\", \"add states to our Button\", \"replace the hardcoded colors with tokens\" or \"start a design system\". Moving screens onto an existing system's components is…",
+      "contract": {
+        "gss": 1,
+        "lastVerified": "2026-11-09",
+        "source": {
+          "repo": "arla6ka/design.how",
+          "path": "skills/build-design-system/SKILL.md",
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/arla6ka/design.how/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-09"
+        },
+        "permissions": [
+          "shell"
+        ],
+        "summary": "Use when someone wants a design system built from the UI an app already ships, or one phase of it, such as \"extract tokens from the app\", \"add states to our Button\", \"replace the hardcoded colors with tokens\" or \"start a design system\". Moving screens onto an existing system's components is…",
+        "whenToUse": [
+          "Use when someone wants a design system built from the UI an app already ships, or one phase of it, such as \"extract tokens from the app\", \"add states to our Button\", \"replace the hardcoded colors with tokens\" or \"start a design system\"."
+        ],
+        "domains": [
+          "design",
+          "web"
+        ],
+        "derived": [
+          "domains",
+          "summary",
+          "whenToUse"
+        ]
+      },
+      "format": "gss",
+      "path": "design-systems/build-design-system/SKILL.md",
+      "tokenEstimate": 2173
+    },
+    {
+      "id": "component-docs",
+      "name": "component-docs",
+      "category": "design-systems",
+      "description": "Use to write one component's documentation entry from its code, stories and real call sites, such as \"document the button\", \"write docs for Select\", \"what states does Toast have\", or usage rules for a new or changed component. Not for foundations or pages that span components, which no skill here writes, nor for changing the component, which is build-design-system.",
+      "author": "unknown",
+      "license": "MIT",
+      "version": "1.0.0",
+      "tags": [],
+      "keywords": [],
+      "frameworks": [
+        "any"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "lastVerified": "2026-11-09",
+      "summary": "Use to write one component's documentation entry from its code, stories and real call sites, such as \"document the button\", \"write docs for Select\", \"what states does Toast have\", or usage rules for a new or changed component. Not for foundations or pages that span components, which no skill…",
+      "contract": {
+        "gss": 1,
+        "lastVerified": "2026-11-09",
+        "source": {
+          "repo": "arla6ka/design.how",
+          "path": "skills/component-docs/SKILL.md",
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/arla6ka/design.how/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-09"
+        },
+        "whenToUse": [
+          "Writing one component's documentation entry from its code, stories and real call sites, such as document"
+        ],
+        "summary": "Use to write one component's documentation entry from its code, stories and real call sites, such as \"document the button\", \"write docs for Select\", \"what states does Toast have\", or usage rules for a new or changed component. Not for foundations or pages that span components, which no skill…",
+        "whenNotToUse": [
+          "Not for foundations or pages that span components, which no skill here writes, nor for changing the component, which is build-design-system."
+        ],
+        "domains": [
+          "design",
+          "web",
+          "writing"
+        ],
+        "derived": [
+          "domains",
+          "summary",
+          "whenNotToUse"
+        ]
+      },
+      "format": "gss",
+      "path": "design-systems/component-docs/SKILL.md",
+      "tokenEstimate": 814
+    },
+    {
       "id": "create-design-md",
       "name": "create-design-md",
       "category": "design-systems",
@@ -5325,53 +5426,141 @@
     },
     {
       "id": "design-system-boss",
-      "name": "Design System Boss",
+      "name": "design-system-boss",
       "category": "design-systems",
-      "description": "Executive governance, token contracts, and zero-tolerance design system compliance audits for frontend surfaces.",
-      "author": "arla6ka",
+      "description": "Use for vague whole-app design system asks on an app that already ships UI, such as \"our UI is a mess, fix it\", \"we need a design system\", \"we hardcode colors everywhere\", \"make the buttons consistent\" or \"check the app before I ship\". One named screen goes to ui-review, one component to component-docs, a token report to token-mapping. A repo with no UI yet is out of scope.",
+      "author": "unknown",
       "license": "MIT",
       "version": "1.0.0",
-      "tags": [
-        "design-system",
-        "governance",
-        "tokens",
-        "audit",
-        "compliance"
-      ],
-      "keywords": [
-        "ui review",
-        "token usage check",
-        "design drift",
-        "consistency audit",
-        "playbook router"
-      ],
+      "tags": [],
+      "keywords": [],
       "frameworks": [
-        "react",
-        "nextjs",
-        "vue",
-        "svelte",
         "any"
       ],
       "dependencies": [],
-      "relatedSkills": [
-        "baseline-ui"
-      ],
-      "lastVerified": "2026-11-06",
-      "summary": "Executive governance, token contracts, and zero-tolerance design system compliance audits for frontend surfaces.",
+      "relatedSkills": [],
+      "lastVerified": "2026-11-09",
+      "summary": "Use for vague whole-app design system asks on an app that already ships UI, such as \"our UI is a mess, fix it\", \"we need a design system\", \"we hardcode colors everywhere\", \"make the buttons consistent\" or \"check the app before I ship\". One named screen goes to ui-review, one component to…",
       "contract": {
         "gss": 1,
-        "related": [
-          "baseline-ui"
+        "lastVerified": "2026-11-09",
+        "source": {
+          "repo": "arla6ka/design.how",
+          "path": "skills/design-system-boss/SKILL.md",
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/arla6ka/design.how/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-09"
+        },
+        "summary": "Use for vague whole-app design system asks on an app that already ships UI, such as \"our UI is a mess, fix it\", \"we need a design system\", \"we hardcode colors everywhere\", \"make the buttons consistent\" or \"check the app before I ship\". One named screen goes to ui-review, one component to…",
+        "whenToUse": [
+          "Use for vague whole-app design system asks on an app that already ships UI, such as \"our UI is a mess, fix it\", \"we need a design system\", \"we hardcode colors everywhere\", \"make the buttons consistent\" or \"check the app before I ship\".",
+          "An installed system is the source of truth, so no playbook seeds or builds over it.",
+          "The state wins when it disagrees with the ask, and the report says so."
         ],
-        "frameworks": [
-          "react",
-          "nextjs",
-          "vue",
-          "svelte",
-          "any"
+        "domains": [
+          "design",
+          "web",
+          "writing"
         ],
-        "lastVerified": "2026-11-06",
-        "summary": "Executive governance, token contracts, and zero-tolerance design system compliance audits for frontend surfaces.",
+        "derived": [
+          "domains",
+          "summary",
+          "whenToUse"
+        ]
+      },
+      "format": "gss",
+      "path": "design-systems/design-system-boss/SKILL.md",
+      "tokenEstimate": 881
+    },
+    {
+      "id": "migrate-design-system",
+      "name": "migrate-design-system",
+      "category": "design-systems",
+      "description": "Use when an app has to move onto a design system that already exists, such as \"migrate the app to our design system\", \"move every screen onto the new components\", a rollout, or an adoption audit. Not for making the system or for swapping raw values for tokens, which are build-design-system.",
+      "author": "unknown",
+      "license": "MIT",
+      "version": "1.0.0",
+      "tags": [],
+      "keywords": [],
+      "frameworks": [
+        "any"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "lastVerified": "2026-11-09",
+      "summary": "Use when an app has to move onto a design system that already exists, such as \"migrate the app to our design system\", \"move every screen onto the new components\", a rollout, or an adoption audit. Not for making the system or for swapping raw values for tokens, which are build-design-system.",
+      "contract": {
+        "gss": 1,
+        "lastVerified": "2026-11-09",
+        "source": {
+          "repo": "arla6ka/design.how",
+          "path": "skills/migrate-design-system/SKILL.md",
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/arla6ka/design.how/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-09"
+        },
+        "permissions": [
+          "shell"
+        ],
+        "summary": "Use when an app has to move onto a design system that already exists, such as \"migrate the app to our design system\", \"move every screen onto the new components\", a rollout, or an adoption audit. Not for making the system or for swapping raw values for tokens, which are build-design-system.",
+        "whenToUse": [
+          "Use when an app has to move onto a design system that already exists, such as \"migrate the app to our design system\", \"move every screen onto the new components\", a rollout, or an adoption audit."
+        ],
+        "whenNotToUse": [
+          "Not for making the system or for swapping raw values for tokens, which are build-design-system."
+        ],
+        "domains": [
+          "design",
+          "web"
+        ],
+        "derived": [
+          "domains",
+          "summary",
+          "whenNotToUse",
+          "whenToUse"
+        ]
+      },
+      "format": "gss",
+      "path": "design-systems/migrate-design-system/SKILL.md",
+      "tokenEstimate": 1938
+    },
+    {
+      "id": "token-mapping",
+      "name": "token-mapping",
+      "category": "design-systems",
+      "description": "Use to report how hardcoded style values on a page, file or diff map onto a project's existing design tokens, such as \"are we using our tokens here\", \"which hardcoded colors map to which tokens\", a token audit or planning a token migration. It never edits. Replacing the values is build-design-system.",
+      "author": "unknown",
+      "license": "MIT",
+      "version": "1.0.0",
+      "tags": [],
+      "keywords": [],
+      "frameworks": [
+        "any"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "lastVerified": "2026-11-09",
+      "summary": "Use to report how hardcoded style values on a page, file or diff map onto a project's existing design tokens, such as \"are we using our tokens here\", \"which hardcoded colors map to which tokens\", a token audit or planning a token migration. It never edits.",
+      "contract": {
+        "gss": 1,
+        "lastVerified": "2026-11-09",
+        "source": {
+          "repo": "arla6ka/design.how",
+          "path": "skills/token-mapping/SKILL.md",
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/arla6ka/design.how/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-09"
+        },
+        "whenToUse": [
+          "Reporting how hardcoded style values on a page, file or diff map onto the project's existing design tokens, such as a token audit or planning a token migration."
+        ],
+        "summary": "Use to report how hardcoded style values on a page, file or diff map onto a project's existing design tokens, such as \"are we using our tokens here\", \"which hardcoded colors map to which tokens\", a token audit or planning a token migration. It never edits.",
         "domains": [
           "design",
           "web"
@@ -5379,24 +5568,61 @@
         "derived": [
           "domains",
           "summary"
-        ],
-        "whenToUse": [
-          "Use when reviewing a screen or component against a design system, checking token usage, or deciding whether to build, audit or migrate a design system."
-        ],
-        "keywords": [
-          "ui review",
-          "token usage check",
-          "design drift",
-          "consistency audit",
-          "playbook router"
-        ],
-        "drafts": [
-          "keywords"
         ]
       },
       "format": "gss",
-      "path": "design-systems/design-system-boss/SKILL.md",
-      "tokenEstimate": 946
+      "path": "design-systems/token-mapping/SKILL.md",
+      "tokenEstimate": 785
+    },
+    {
+      "id": "ui-review",
+      "name": "ui-review",
+      "category": "design-systems",
+      "description": "Use to critique a screen, flow, prototype or running build, accessibility included, and rank what is broken, such as \"check this page before I ship\", \"is this flow ready\", \"is it accessible\", keyboard or screen-reader checks, \"it feels off on my phone\" or \"it feels janky\". Not for token compliance, which is token-mapping.",
+      "author": "unknown",
+      "license": "MIT",
+      "version": "1.0.0",
+      "tags": [],
+      "keywords": [],
+      "frameworks": [
+        "any"
+      ],
+      "dependencies": [],
+      "relatedSkills": [],
+      "lastVerified": "2026-11-09",
+      "summary": "Use to critique a screen, flow, prototype or running build, accessibility included, and rank what is broken, such as \"check this page before I ship\", \"is this flow ready\", \"is it accessible\", keyboard or screen-reader checks, \"it feels off on my phone\" or \"it feels janky\". Not for token…",
+      "contract": {
+        "gss": 1,
+        "lastVerified": "2026-11-09",
+        "source": {
+          "repo": "arla6ka/design.how",
+          "path": "skills/ui-review/SKILL.md",
+          "licenseVerified": true,
+          "licenseStatus": "open",
+          "licenseEvidence": "repository license",
+          "licenseUrl": "https://github.com/arla6ka/design.how/blob/main/LICENSE",
+          "licenseCheckedAt": "2026-11-09"
+        },
+        "whenToUse": [
+          "Critiquing a screen, flow, prototype or running build, accessibility included, and ranking what is broken, such as check"
+        ],
+        "summary": "Use to critique a screen, flow, prototype or running build, accessibility included, and rank what is broken, such as \"check this page before I ship\", \"is this flow ready\", \"is it accessible\", keyboard or screen-reader checks, \"it feels off on my phone\" or \"it feels janky\". Not for token…",
+        "whenNotToUse": [
+          "Not for token compliance, which is token-mapping."
+        ],
+        "domains": [
+          "design",
+          "web"
+        ],
+        "derived": [
+          "domains",
+          "summary",
+          "whenNotToUse"
+        ]
+      },
+      "format": "gss",
+      "path": "design-systems/ui-review/SKILL.md",
+      "tokenEstimate": 1265
     },
     {
       "id": "docx",

@@ -1,0 +1,30 @@
+{
+  "gss": 1,
+  "lastVerified": "2026-11-09",
+  "source": {
+    "repo": "arla6ka/design.how",
+    "path": "skills/component-docs/SKILL.md",
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "repository license",
+    "licenseUrl": "https://github.com/arla6ka/design.how/blob/main/LICENSE",
+    "licenseCheckedAt": "2026-11-09"
+  },
+  "whenToUse": [
+    "Writing one component's documentation entry from its code, stories and real call sites, such as document"
+  ],
+  "summary": "Use to write one component's documentation entry from its code, stories and real call sites, such as \"document the button\", \"write docs for Select\", \"what states does Toast have\", or usage rules for a new or changed component. Not for foundations or pages that span components, which no skill…",
+  "whenNotToUse": [
+    "Not for foundations or pages that span components, which no skill here writes, nor for changing the component, which is build-design-system."
+  ],
+  "domains": [
+    "design",
+    "web",
+    "writing"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenNotToUse"
+  ]
+}

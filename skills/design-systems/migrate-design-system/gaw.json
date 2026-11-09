@@ -1,0 +1,33 @@
+{
+  "gss": 1,
+  "lastVerified": "2026-11-09",
+  "source": {
+    "repo": "arla6ka/design.how",
+    "path": "skills/migrate-design-system/SKILL.md",
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "repository license",
+    "licenseUrl": "https://github.com/arla6ka/design.how/blob/main/LICENSE",
+    "licenseCheckedAt": "2026-11-09"
+  },
+  "permissions": [
+    "shell"
+  ],
+  "summary": "Use when an app has to move onto a design system that already exists, such as \"migrate the app to our design system\", \"move every screen onto the new components\", a rollout, or an adoption audit. Not for making the system or for swapping raw values for tokens, which are build-design-system.",
+  "whenToUse": [
+    "Use when an app has to move onto a design system that already exists, such as \"migrate the app to our design system\", \"move every screen onto the new components\", a rollout, or an adoption audit."
+  ],
+  "whenNotToUse": [
+    "Not for making the system or for swapping raw values for tokens, which are build-design-system."
+  ],
+  "domains": [
+    "design",
+    "web"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenNotToUse",
+    "whenToUse"
+  ]
+}

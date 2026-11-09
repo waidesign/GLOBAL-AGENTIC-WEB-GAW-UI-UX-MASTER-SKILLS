@@ -86,8 +86,13 @@ function lintBody(dir, body) {
 
   // Supporting files the instructions tell the agent to open or run
   const missing = new Set();
-  // (an HTML attribute value like src="assets/x.mp4" is an example for the user's project, not a skill file)
+  // Not skill files: HTML attribute values (src="assets/x.mp4") and destinations in the
+  // user's repo ("copy it to `scripts/x.json`", "into the repo's `scripts/`")
   for (const m of prose.matchAll(/(?:^|[\s`(]|(?<!=)['"])(?:\.\/)?((?:references|scripts|assets)\/[\w./-]*\w\.[a-z0-9]+)/gim)) {
+    const before = prose.slice(Math.max(0, m.index - 16), m.index + 1);
+    if (/(\bto|\binto|repo's|project's)\s*`?$/i.test(before)) continue;
+    const sentence = prose.slice(0, m.index + 1).split(/[.!?]\s|\n/).pop();
+    if (/\bcopy\b.*\b(to|into)\b/i.test(sentence)) continue;
     if (!fs.existsSync(path.join(dir, m[1]))) missing.add(m[1]);
   }
   if (missing.size) warnings.push(`Mentions file${missing.size > 1 ? 's' : ''} that this skill doesn't include: ${[...missing].slice(0, 6).join(', ')}${missing.size > 6 ? ` (+${missing.size - 6} more)` : ''}`);

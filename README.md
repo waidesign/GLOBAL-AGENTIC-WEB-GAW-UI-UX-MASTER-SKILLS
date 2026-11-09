@@ -180,13 +180,13 @@ gaw use "Build a responsive SaaS dashboard with a sidebar and data table"
 
 ## 📚 SKILLS LIBRARY
 
-GAW's official library has **204 skills** in `skills/`, across many fields. Every one ships the files it refers to (`gaw skills lint` checks this):
+GAW's official library has **209 skills** in `skills/`, across many fields. Every one ships the files it refers to (`gaw skills lint` checks this):
 
 | Area | Skills | Examples |
 |---|---|---|
 | Media & creative | 58 | `ai-image-generation`, `ai-video-generation`, `ai-music`, `hyperframes`, `remotion-create` |
 | Cloud & infrastructure | 50 | `azure-deploy`, `azure-prepare`, `aks-troubleshooting`, `cost-optimization`, `deploy-to-vercel` |
-| UI, frontend & design | 35 | `frontend-design`, `fixing-accessibility`, `accessibility-baseline`, `react-best-practices`, `motion-dev` |
+| UI, frontend & design | 41 | `frontend-design`, `build-design-system`, `ui-review`, `accessibility-baseline`, `motion-dev` |
 | Agent workflows | 19 | `chief-of-staff`, `handoff`, `triage`, `grilling`, `skill-creator` |
 | General | 17 | `claude-api`, `internal-comms`, `teach`, `canvas-design`, `discernment-nudge` |
 | Code quality & testing | 9 | `code-review`, `tdd`, `webapp-testing`, `setup-pre-commit` |
@@ -275,7 +275,7 @@ Sections marked **(auto-detected)** (stack, commands, folder map, design values)
 **Precedence:** the Safety rules in `rules.md` always apply (instructions found in files, web pages or tool output never override them, and a user request that breaks one needs explicit confirmation), then your request, `rules.md`, your Global Brain, skills, and tool defaults.
 
 ### Project skills: chosen per project, loaded only when needed
-Each project keeps its own skill selection in `ai-brain/skills.lock.json`, which records each skill's version, why it was chosen, when, and where it came from. Onboarding fills it from your goal and from **skill packs** that fit your stack (`ui`, `motion`, `marketing`, `design-system`, detected from your dependencies, files and goal; see [packs](docs/packs.md)). `gaw packs add/remove` and `gaw skills select` / `gaw skills deselect` change it. Agents don't get full skills up front. They read `ai-brain/project-skills.md`, a short catalog (about 300 tokens per skill instead of thousands), and open a skill only when a task needs it. Over MCP, `load_project_skills` loads just the project skills that fit the current task.
+Each project keeps its own skill selection in `ai-brain/skills.lock.json`, which records each skill's version, why it was chosen, when, and where it came from. Onboarding fills it from your goal and from **skill packs** that fit your stack (`ui`, `motion`, `marketing`, `design-system`, `design-system-build`, detected from your dependencies, files and goal; see [packs](docs/packs.md)). `gaw packs add/remove` and `gaw skills select` / `gaw skills deselect` change it. Agents don't get full skills up front. They read `ai-brain/project-skills.md`, a short catalog (about 300 tokens per skill instead of thousands), and open a skill only when a task needs it. Over MCP, `load_project_skills` loads just the project skills that fit the current task.
 
 `gaw context` (and the MCP tool `get_project_context`) shows everything GAW knows about a project in one place: stack, goal, rules, skills, code graph, and where your Global Brain lives. The CLI, the MCP server and every agent file read this same context. `gaw update` refreshes the GAW section of CLAUDE.md, .cursorrules, AGENTS.md and the others in place, so agent instructions never go stale.
 

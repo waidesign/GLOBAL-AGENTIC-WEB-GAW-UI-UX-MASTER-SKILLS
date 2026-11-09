@@ -1,0 +1,29 @@
+{
+  "gss": 1,
+  "lastVerified": "2026-11-09",
+  "source": {
+    "repo": "arla6ka/design.how",
+    "path": "skills/ui-review/SKILL.md",
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "repository license",
+    "licenseUrl": "https://github.com/arla6ka/design.how/blob/main/LICENSE",
+    "licenseCheckedAt": "2026-11-09"
+  },
+  "whenToUse": [
+    "Critiquing a screen, flow, prototype or running build, accessibility included, and ranking what is broken, such as check"
+  ],
+  "summary": "Use to critique a screen, flow, prototype or running build, accessibility included, and rank what is broken, such as \"check this page before I ship\", \"is this flow ready\", \"is it accessible\", keyboard or screen-reader checks, \"it feels off on my phone\" or \"it feels janky\". Not for token…",
+  "whenNotToUse": [
+    "Not for token compliance, which is token-mapping."
+  ],
+  "domains": [
+    "design",
+    "web"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenNotToUse"
+  ]
+}

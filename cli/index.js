@@ -1587,7 +1587,8 @@ export class GawCli {
     console.log(`                        Load closely matching skills (--inject: write the task and skill files`);
     console.log(`                        to open into ai-brain/local/active-task.md; --full also embeds skill text)`);
     console.log(`  task [done]           Show the active task, or archive it when finished`);
-    console.log(`  packs [show|add|remove <name...>]  Curated skill sets (ui, motion, marketing, design-system)`);
+    console.log(`  packs [show|add|remove <name...>]  Curated skill sets (ui, motion, marketing, design-system,`);
+    console.log(`                        design-system-build)`);
     console.log(`                        that fit this project; add or remove them as a group`);
     console.log(`  brain [update <msg> | path]  Inspect or update your Global Brain (~/.gaw/brain)`);
     console.log(`  project               Display detailed project architecture analysis`);

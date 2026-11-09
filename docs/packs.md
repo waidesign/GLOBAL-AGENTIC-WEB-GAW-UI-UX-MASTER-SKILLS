@@ -7,7 +7,8 @@ A pack is a small, curated set of library skills for one kind of work. `gaw init
 | `ui` | The project has a user interface | `accessibility-baseline`, `fixing-accessibility`, `baseline-ui`; `react-best-practices` with React/Next.js; `tailwindcss` with Tailwind |
 | `motion` | `motion`, `framer-motion`, `animejs` or `gsap` is installed, or the goal mentions animation | `micro-interactions-system`, `fixing-motion-performance`, and the skill for the animation library that is installed (never a second one) |
 | `marketing` | The goal mentions landing, marketing, pricing, SEO…, or an SEO/sitemap package is installed | `landing-page`, `pricing-page`, `fixing-metadata` |
-| `design-system` | Radix, Storybook, vanilla-extract, Stitches, style-dictionary or `components.json` is found, or the goal mentions a design system | `create-design-md`, `baseline-ui`; `tailwindcss` with Tailwind |
+| `design-system` | Radix, Storybook, vanilla-extract, Stitches, style-dictionary or `components.json` is found, or the goal mentions a design system | `create-design-md`, `token-mapping`, `component-docs`, `ui-review`, `baseline-ui`; `tailwindcss` with Tailwind. Instructions only. |
+| `design-system-build` | Only when the goal asks to build, start, migrate to or adopt a design system | `design-system-boss`, `build-design-system`, `migrate-design-system`. High impact: scripts run Playwright, create branches and worktrees, and commit each surface (never to the default branch, never pushed). |
 
 Packs only contain skills that ship all their files (a test checks this), so incomplete imported skills stay out until they are repaired.
 

@@ -1,0 +1,10 @@
+{
+  "name": "design-system-build",
+  "title": "Build or migrate a design system",
+  "description": "Builds a token-based design system from the app's own UI, or moves an app onto an existing one, with screenshot pixel-diff checks. High impact: its scripts run Playwright, create branches and worktrees, and commit each surface separately (never to the default branch, never pushed). Add it only when you plan that work.",
+  "requires": { "hasUi": true },
+  "signals": {
+    "goalWords": ["build a design system", "start a design system", "migrate to a design system", "migrate to our design system", "design system migration", "adopt a design system"]
+  },
+  "skills": ["design-system-boss", "build-design-system", "migrate-design-system"]
+}

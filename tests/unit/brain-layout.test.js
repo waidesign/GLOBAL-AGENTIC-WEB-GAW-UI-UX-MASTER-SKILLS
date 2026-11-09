@@ -199,12 +199,17 @@ test('lint - broken links, missing supporting files, extra H1s and LaTeX are fla
   fs.writeFileSync(path.join(dir, 'SKILL.md'), [
     '---', 'name: demo-skill', 'description: "A demo skill that checks the new body rules of the linter."', 'license: MIT', '---', '',
     '# Skill: Demo', '# Demo', '', 'See [motion](../animation-motion/motion-dev.md) and run `scripts/check.mjs`.',
-    'Budget ($\\le$ 100ms).', '', '```bash', 'node scripts/in-a-code-block.mjs', '```', ''
+    'Budget ($\\le$ 100ms).',
+    'Copy `scripts/missing-source.mjs` into the repo, and the config to `scripts/dest.json` with a baseline (`scripts/out.json`).',
+    'Example: `<video src="assets/x.mp4">` and [Title](URL), and `[readme](./src/README.md)`.',
+    '', '```bash', 'node scripts/in-a-code-block.mjs', '```', ''
   ].join('\n'), 'utf8');
   const { warnings } = lintSkillFolder(dir);
   assert.ok(warnings.some(w => w.includes('Broken link') && w.includes('motion-dev.md')));
   assert.ok(warnings.some(w => w.includes("doesn't include") && w.includes('scripts/check.mjs')));
   assert.ok(!warnings.some(w => w.includes('in-a-code-block')), 'code examples are not checked');
+  assert.ok(warnings.some(w => w.includes('scripts/missing-source.mjs')), 'a missing source in a copy sentence is still flagged');
+  assert.ok(!warnings.some(w => /dest\.json|out\.json|x\.mp4|URL|README/.test(w)), `destinations and examples are not skill files: ${warnings.join(' | ')}`);
   assert.ok(warnings.some(w => w.includes('top-level (#) headings')));
   assert.ok(warnings.some(w => w.includes('LaTeX')));
   cleanup(path.dirname(dir));

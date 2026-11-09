@@ -1,7 +1,7 @@
 {
   "name": "design-system",
   "title": "Design system",
-  "description": "Write down the design system the code already uses (DESIGN.md) and keep new UI consistent with it.",
+  "description": "Write down the design system the code already uses (DESIGN.md), check which hardcoded values map to existing tokens, document components from their code, and review screens before shipping. Instructions only: nothing runs scripts.",
   "requires": { "hasUi": true },
   "signals": {
     "dependencyPrefixes": ["@radix-ui/", "@storybook/", "@vanilla-extract/", "@stitches/"],
@@ -9,7 +9,7 @@
     "files": ["components.json", ".storybook"],
     "goalWords": ["design system", "design tokens", "component library", "tokens"]
   },
-  "skills": ["create-design-md", "baseline-ui"],
+  "skills": ["create-design-md", "token-mapping", "component-docs", "ui-review", "baseline-ui"],
   "when": [
     { "dependencies": ["tailwindcss"], "skills": ["tailwindcss"] }
   ]

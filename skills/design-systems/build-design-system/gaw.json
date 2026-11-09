@@ -1,0 +1,29 @@
+{
+  "gss": 1,
+  "lastVerified": "2026-11-09",
+  "source": {
+    "repo": "arla6ka/design.how",
+    "path": "skills/build-design-system/SKILL.md",
+    "licenseVerified": true,
+    "licenseStatus": "open",
+    "licenseEvidence": "repository license",
+    "licenseUrl": "https://github.com/arla6ka/design.how/blob/main/LICENSE",
+    "licenseCheckedAt": "2026-11-09"
+  },
+  "permissions": [
+    "shell"
+  ],
+  "summary": "Use when someone wants a design system built from the UI an app already ships, or one phase of it, such as \"extract tokens from the app\", \"add states to our Button\", \"replace the hardcoded colors with tokens\" or \"start a design system\". Moving screens onto an existing system's components is…",
+  "whenToUse": [
+    "Use when someone wants a design system built from the UI an app already ships, or one phase of it, such as \"extract tokens from the app\", \"add states to our Button\", \"replace the hardcoded colors with tokens\" or \"start a design system\"."
+  ],
+  "domains": [
+    "design",
+    "web"
+  ],
+  "derived": [
+    "domains",
+    "summary",
+    "whenToUse"
+  ]
+}
