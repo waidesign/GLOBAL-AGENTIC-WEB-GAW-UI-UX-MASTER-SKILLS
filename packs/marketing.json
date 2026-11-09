@@ -1,0 +1,11 @@
+{
+  "name": "marketing",
+  "title": "Marketing pages",
+  "description": "Landing and pricing pages that convert, plus page titles, descriptions and social previews. Copy and structure guidance, not code style.",
+  "requires": { "hasUi": true },
+  "signals": {
+    "dependencies": ["next-seo", "next-sitemap", "@astrojs/sitemap", "gatsby-plugin-sitemap", "react-helmet", "react-helmet-async"],
+    "goalWords": ["landing", "marketing", "homepage", "pricing", "seo", "conversion", "waitlist"]
+  },
+  "skills": ["landing-page", "pricing-page", "fixing-metadata"]
+}

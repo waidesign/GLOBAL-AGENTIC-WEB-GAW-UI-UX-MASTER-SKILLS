@@ -16,6 +16,7 @@ import { updateSkillPreferences } from '../core/skill-registry/preferences.js';
 import { writeGlobalBrainSnapshot, SNAPSHOT_FILE } from '../core/project-context/globalBrainLink.js';
 import { writeActiveTask, readActiveTask, archiveActiveTask } from '../core/project-context/activeTask.js';
 import { ACTIVE_TASK_FILE } from '../core/project-context/brainLayout.js';
+import { loadPacks, packReasons, packSkills, addPack, removePack, addedPacks } from '../core/packs/packs.js';
 import { listDrafts, approveDrafts, rejectDrafts } from '../core/skill-registry/drafts.js';
 import { SkillDiscovery } from '../core/skill-discovery/SkillDiscovery.js';
 import { SkillOrchestrator } from '../core/orchestrator/SkillOrchestrator.js';
@@ -97,6 +98,10 @@ export class GawCli {
           break;
         case 'task':
           await this.cmdTask(args.slice(1));
+          break;
+        case 'packs':
+        case 'pack':
+          await this.cmdPacks(args.slice(1));
           break;
         case 'brain':
           await this.cmdBrain(args.slice(1));
@@ -192,12 +197,14 @@ export class GawCli {
       }
     }
 
-    // Onboarding suggests skills from the user's goal instead of the stack
-    if (!runOnboarding && result.skillsRecommended.length > 0) {
-      console.log(`\n🎯 Recommended Initial Skills:`);
-      for (const skill of result.skillsRecommended) {
-        console.log(`  ★ ${skill}`);
+    // Onboarding asks about packs itself (it also knows the goal)
+    if (!runOnboarding && result.packsSuggested?.length > 0) {
+      console.log(`\n📦 Skill packs that fit this project (nothing added yet):`);
+      for (const p of result.packsSuggested) {
+        console.log(`  ★ ${p.name}: ${p.title} (${p.skills.join(', ')})`);
+        console.log(`    Why: ${p.reasons.join('; ')}`);
       }
+      console.log(`  Add with: gaw packs add ${result.packsSuggested.map(p => p.name).join(' ')}`);
     }
 
     console.log(`\n✅ Project initialization complete!`);
@@ -800,6 +807,7 @@ export class GawCli {
     const commands = Object.entries(ctx.commands || {}).filter(([, c]) => c);
     console.log(`Commands:       ${commands.length ? commands.map(([k, c]) => `${k}: ${c}`).join(' · ') : '(none detected)'}`);
     console.log(`Active task:    ${ctx.activeTask ? `${ctx.activeTask.task} (${ctx.activeTask.file})` : '(none)'}`);
+    console.log(`Packs:          ${ctx.packs.added.length ? ctx.packs.added.join(', ') : '(none added)'}${ctx.packs.suggested.length ? `; also fit: ${ctx.packs.suggested.map(p => p.name).join(', ')} (gaw packs)` : ''}`);
     console.log(`Skills:         ${ctx.skills.selected.length} selected, ${ctx.skills.project.length} project skill(s)`);
     for (const s of [...ctx.skills.selected, ...ctx.skills.project]) console.log(`  • ${s.id}${s.tokens ? ` (~${s.tokens} tokens, loaded only when needed)` : ''}`);
     console.log(`Code graph:     ${ctx.graph.available ? ctx.graph.json : 'not built (gaw graph)'}`);
@@ -1143,6 +1151,94 @@ export class GawCli {
 
     console.log(loaded.formattedInstructions);
     console.log(`\n💡 Tip: --inject writes a short task file (${ACTIVE_TASK_LABEL}) that tells agents which skills to open, instead of pasting them.`);
+  }
+
+  /**
+   * gaw packs                      list packs; which fit this project and which are added
+   * gaw packs show <name>          the skills a pack would add here, and why
+   * gaw packs add <name...>        add packs' skills to ai-brain/skills.lock.json
+   * gaw packs remove <name...>     take out what a pack added (skills chosen by hand stay)
+   */
+  async cmdPacks(args) {
+    const projectDir = process.cwd();
+    const sub = args[0];
+    const names = args.slice(1).filter(a => !a.startsWith('--'));
+    const info = ProjectDetector.detect(projectDir);
+    const packs = loadPacks();
+    const byName = new Map(packs.map(p => [p.name, p]));
+    const unknown = names.filter(n => !byName.has(n));
+    const needsBrain = () => {
+      if (fs.existsSync(path.join(projectDir, 'ai-brain'))) return true;
+      console.log(`No ai-brain/ here. Run 'gaw init' first.`);
+      process.exitCode = 1;
+      return false;
+    };
+
+    if (['add', 'remove', 'show'].includes(sub)) {
+      if (!names.length) { console.log(`Usage: gaw packs ${sub} <name> [more names]   (list them with: gaw packs)`); return; }
+      if (unknown.length) {
+        console.log(`Unknown pack${unknown.length > 1 ? 's' : ''}: ${unknown.join(', ')}. Packs: ${packs.map(p => p.name).join(', ')}`);
+        process.exitCode = 1;
+        return;
+      }
+    }
+
+    if (sub === 'show') {
+      for (const name of names) {
+        const pack = byName.get(name);
+        const { skills, missing } = await packSkills(pack, info, this.registry);
+        console.log(`\n${pack.name}: ${pack.title}\n  ${pack.description}`);
+        const reasons = packReasons(pack, info, { projectDir });
+        console.log(`  Fits this project: ${reasons.length ? `yes (${reasons.join('; ')})` : 'not detected'}`);
+        console.log(`  Skills it adds here:`);
+        for (const s of skills) console.log(`    • ${s.id} — ${s.reason}`);
+        if (missing.length) console.log(`  Not in your library: ${missing.join(', ')}`);
+      }
+      console.log();
+      return;
+    }
+
+    if (sub === 'add') {
+      if (!needsBrain()) return;
+      for (const name of names) {
+        const res = await addPack(projectDir, this.registry, byName.get(name), info);
+        const parts = [];
+        if (res.added.length) parts.push(`added ${res.added.join(', ')}`);
+        if (res.tagged.length) parts.push(`also in this pack: ${res.tagged.join(', ')}`);
+        if (res.already.length) parts.push(`already selected: ${res.already.join(', ')}`);
+        console.log(`✓ ${name}: ${parts.join('; ') || 'nothing to add'}`);
+        if (res.missing.length) console.log(`  Not in your library, skipped: ${res.missing.join(', ')}`);
+      }
+      await writeCatalog(projectDir, this.registry);
+      console.log(`Refreshed ai-brain/project-skills.md. Agents open these skills only when a task needs them.`);
+      return;
+    }
+
+    if (sub === 'remove') {
+      if (!needsBrain()) return;
+      for (const name of names) {
+        const { removed, kept } = removePack(projectDir, name);
+        if (!removed.length && !kept.length) { console.log(`• ${name}: not added to this project`); continue; }
+        console.log(`✓ ${name}: removed ${removed.join(', ') || 'nothing'}${kept.length ? `; kept ${kept.join(', ')} (another pack uses ${kept.length > 1 ? 'them' : 'it'})` : ''}`);
+      }
+      await writeCatalog(projectDir, this.registry);
+      return;
+    }
+
+    // List
+    this.printHeader();
+    const added = new Set(fs.existsSync(path.join(projectDir, 'ai-brain')) ? addedPacks(projectDir) : []);
+    const goal = (await loadProjectContext(projectDir, { registry: this.registry })).goal || '';
+    console.log(`Skill packs (curated sets of library skills):\n`);
+    for (const pack of packs) {
+      const reasons = packReasons(pack, info, { projectDir, goal });
+      const status = added.has(pack.name) ? '\x1b[32m[added]\x1b[0m' : reasons.length ? '\x1b[36m[fits]\x1b[0m' : '';
+      console.log(`  ${pack.name.padEnd(14)} ${status ? `${status} ` : ''}${pack.title}`);
+      console.log(`  ${''.padEnd(14)} ${pack.description}`);
+      if (reasons.length && !added.has(pack.name)) console.log(`  ${''.padEnd(14)} Why it fits: ${reasons.join('; ')}`);
+      console.log();
+    }
+    console.log(`Details: gaw packs show <name>   Add: gaw packs add <name>   Remove: gaw packs remove <name>\n`);
   }
 
   /** gaw task [done]: show the active task, or archive it when finished. */
@@ -1491,6 +1587,8 @@ export class GawCli {
     console.log(`                        Load closely matching skills (--inject: write the task and skill files`);
     console.log(`                        to open into ai-brain/local/active-task.md; --full also embeds skill text)`);
     console.log(`  task [done]           Show the active task, or archive it when finished`);
+    console.log(`  packs [show|add|remove <name...>]  Curated skill sets (ui, motion, marketing, design-system)`);
+    console.log(`                        that fit this project; add or remove them as a group`);
     console.log(`  brain [update <msg> | path]  Inspect or update your Global Brain (~/.gaw/brain)`);
     console.log(`  project               Display detailed project architecture analysis`);
     console.log(`  graph [--force|--full] Build the code graph (--force: refresh changed files, --full: rebuild)`);

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added (skill packs)
+- **Skill packs** (`packs/*.json`): curated sets of library skills for one kind of work: `ui` (accessibility baseline and fixes, UI cleanup, plus React or Tailwind skills when installed), `motion` (micro-interactions, motion performance, and the skill for the animation library that's installed), `marketing` (landing and pricing pages, metadata) and `design-system` (DESIGN.md, UI cleanup, Tailwind). Packs fit a project from its dependencies, files and goal, and only contain skills that ship all their files.
+- `gaw init --yes` lists the packs that fit instead of keyword-matched starter skills (which suggested a React Native skill for web React projects). Interactive `gaw init` asks about them after the goal-matching skills.
+- `gaw packs`, `gaw packs show|add|remove <name...>`. Added skills are tagged with their pack in `skills.lock.json`; removing a pack takes out only skills no other pack uses, and never skills chosen by hand.
+- `gaw context` and MCP `get_project_context` show added packs and packs that also fit. Guide: `docs/packs.md`.
+
 ### Changed (Project Brain layout 2)
 - **New `ai-brain/` layout**: `README.md` (for people: what to commit, no secrets, how to update or remove) · `brain.json` (layout version, detected stack and commands, precedence) · `context.md` · `rules.md` · `playbook.md` · `design.md` (UI projects only) · `decisions/` · `memory/proposed/` · `skills/` · `local/` (ignored by its own `.gitignore`: active task, archive, Global Brain summary). `identity.md` and `project-history.md` are gone.
 - **`context.md`** now lists the project's real commands (dev, build, test, lint, type check, from package.json scripts, Python/Go/Rust tools or a Makefile), a folder map, architecture notes, conventions and a definition of done. Sections marked `(auto-detected)` are refreshed by `gaw update`; rename one to `(confirmed)` to keep your version. The stale "Status: Active development" line is gone.

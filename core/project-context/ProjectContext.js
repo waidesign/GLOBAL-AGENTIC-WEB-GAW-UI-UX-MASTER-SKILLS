@@ -18,6 +18,7 @@ import { userBrainDir } from '../memory-engine/paths.js';
 import { GLOBAL_PREFERENCE_FILES, SNAPSHOT_FILE, LEGACY_SNAPSHOT_FILE } from './globalBrainLink.js';
 import { BRAIN_JSON, DECISIONS_DIR, PROPOSED_MEMORY_DIR, PRECEDENCE, readBrainJson } from './brainLayout.js';
 import { readActiveTask } from './activeTask.js';
+import { loadPacks, detectPacks } from '../packs/detect.js';
 import { trustLevel, describeTrust, needsCaution } from '../skill-registry/trust.js';
 
 export const CONTEXT_VERSION = 1;
@@ -52,7 +53,7 @@ export function writeLock(projectDir, lock) {
  * Add library skills to the project. Records the version, why it was chosen,
  * and when. Returns { added, already, unknown }.
  */
-export async function selectSkills(projectDir, registry, ids, reason = '') {
+export async function selectSkills(projectDir, registry, ids, reason = '', options = {}) {
   const lock = readLock(projectDir);
   const result = { added: [], already: [], unknown: [] };
   for (const id of ids) {
@@ -64,6 +65,8 @@ export async function selectSkills(projectDir, registry, ids, reason = '') {
     // Where it came from, so a teammate without the skill gets a clear message
     if (skill.library && skill.library !== 'official') entry.library = skill.library;
     if (skill.contract?.source?.repo) entry.from = `https://github.com/${skill.contract.source.repo}`;
+    // Added by a pack: `gaw packs remove` may take it out again; skills chosen by hand have no tag
+    if (options.packs?.length) entry.packs = options.packs;
     lock.skills.push(entry);
     result.added.push(id);
   }
@@ -229,6 +232,15 @@ function readProjectGoal(projectDir) {
   return goal && !GOAL_PLACEHOLDERS.some(p => goal.startsWith(p.slice(0, 30))) ? goal : null;
 }
 
+/** Packs added to the project (from lockfile tags) and packs that fit it but aren't added yet. */
+function projectPacks(dir, info, lock, goal) {
+  const added = [...new Set(lock.skills.flatMap(s => s.packs || []))].sort();
+  const suggested = detectPacks(loadPacks(), info, { projectDir: dir, goal: goal || '' })
+    .filter(p => !added.includes(p.pack.name))
+    .map(p => ({ name: p.pack.name, title: p.pack.title, reasons: p.reasons }));
+  return { added, suggested };
+}
+
 /** The first of these project-relative paths that exists, or null. */
 function existing(dir, ...relPaths) {
   return relPaths.find(p => fs.existsSync(path.join(dir, p))) || null;
@@ -316,6 +328,7 @@ export async function loadProjectContext(projectDir, options = {}) {
       selected: set.selected.map(describe),
       project: set.own.map(describe)
     },
+    packs: projectPacks(dir, info, lock, initialized ? readProjectGoal(dir) : null),
     graph: graph ? { available: true, json: graph.jsonPath, report: graph.reportPath } : { available: false },
     globalBrain: options.globalBrainDir || userBrainDir(),
     warnings

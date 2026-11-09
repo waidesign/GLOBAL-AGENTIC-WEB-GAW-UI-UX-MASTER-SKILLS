@@ -1,0 +1,12 @@
+{
+  "name": "motion",
+  "title": "Motion & micro-interactions",
+  "description": "Feedback, transitions and reveals with consistent timing and reduced-motion support, using the animation library the project already has (never a second one).",
+  "requires": { "hasUi": true },
+  "signals": {
+    "dependencies": ["motion", "framer-motion", "animejs", "gsap"],
+    "goalWords": ["animation", "animations", "animated", "motion", "micro-interactions", "transitions"]
+  },
+  "skills": ["micro-interactions-system", "fixing-motion-performance"],
+  "fromGroup": "animation-library"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "ui",
+  "title": "UI basics",
+  "description": "Accessible, clean interfaces: the shared accessibility baseline, fixing accessibility issues, and tidying spacing, hierarchy and typography. Adds framework and styling skills that match the project.",
+  "requires": { "hasUi": true },
+  "signals": { "always": true },
+  "skills": ["accessibility-baseline", "fixing-accessibility", "baseline-ui"],
+  "when": [
+    { "dependencies": ["react", "next"], "skills": ["react-best-practices"] },
+    { "dependencies": ["tailwindcss"], "skills": ["tailwindcss"] }
+  ]
+}

@@ -17,6 +17,7 @@ Try it:
 ```bash
 cd examples/react-vite
 gaw context
+gaw packs                                                              # skill packs that fit (ui here)
 gaw use "add hover and press micro-interactions to buttons" --inject   # writes ai-brain/local/active-task.md
 gaw task done                                                          # archives it when finished
 ```

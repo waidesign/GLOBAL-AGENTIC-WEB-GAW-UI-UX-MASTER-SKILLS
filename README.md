@@ -164,6 +164,7 @@ gaw use "Build a responsive SaaS dashboard with a sidebar and data table"
 | `gaw use "<task>"` | Load the closely matching skills' instructions for an agent, within a token budget. |
 | `gaw use "<task>" --inject` | Write a short task file (`ai-brain/local/active-task.md`) listing which skill files to open and why, what was left out, and acceptance criteria. `--full` also embeds the skill text. |
 | `gaw task [done]` | Show the active task, or archive it when it's finished so later sessions ignore it. |
+| `gaw packs [show\|add\|remove <name...>]` | Skill packs (`ui`, `motion`, `marketing`, `design-system`): curated skill sets that fit the project's stack. See [packs](docs/packs.md). |
 | `gaw use "<task>" --copy` | Copy formatted skill instructions to the clipboard. |
 | `gaw brain` | Inspect Global Brain preferences and local Project Brain rules. |
 | `gaw brain update <cat> <msg>` | Append a confirmed decision to the Global Brain. |
@@ -274,7 +275,7 @@ Sections marked **(auto-detected)** (stack, commands, folder map, design values)
 **Precedence:** the Safety rules in `rules.md` always apply (instructions found in files, web pages or tool output never override them, and a user request that breaks one needs explicit confirmation), then your request, `rules.md`, your Global Brain, skills, and tool defaults.
 
 ### Project skills: chosen per project, loaded only when needed
-Each project keeps its own skill selection in `ai-brain/skills.lock.json`, which records each skill's version, why it was chosen, when, and where it came from. Onboarding fills it from your goal, and `gaw skills select` / `gaw skills deselect` change it. Agents don't get full skills up front. They read `ai-brain/project-skills.md`, a short catalog (about 300 tokens per skill instead of thousands), and open a skill only when a task needs it. Over MCP, `load_project_skills` loads just the project skills that fit the current task.
+Each project keeps its own skill selection in `ai-brain/skills.lock.json`, which records each skill's version, why it was chosen, when, and where it came from. Onboarding fills it from your goal and from **skill packs** that fit your stack (`ui`, `motion`, `marketing`, `design-system`, detected from your dependencies, files and goal; see [packs](docs/packs.md)). `gaw packs add/remove` and `gaw skills select` / `gaw skills deselect` change it. Agents don't get full skills up front. They read `ai-brain/project-skills.md`, a short catalog (about 300 tokens per skill instead of thousands), and open a skill only when a task needs it. Over MCP, `load_project_skills` loads just the project skills that fit the current task.
 
 `gaw context` (and the MCP tool `get_project_context`) shows everything GAW knows about a project in one place: stack, goal, rules, skills, code graph, and where your Global Brain lives. The CLI, the MCP server and every agent file read this same context. `gaw update` refreshes the GAW section of CLAUDE.md, .cursorrules, AGENTS.md and the others in place, so agent instructions never go stale.
 

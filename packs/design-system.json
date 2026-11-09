@@ -1,0 +1,16 @@
+{
+  "name": "design-system",
+  "title": "Design system",
+  "description": "Write down the design system the code already uses (DESIGN.md) and keep new UI consistent with it.",
+  "requires": { "hasUi": true },
+  "signals": {
+    "dependencyPrefixes": ["@radix-ui/", "@storybook/", "@vanilla-extract/", "@stitches/"],
+    "dependencies": ["style-dictionary", "class-variance-authority"],
+    "files": ["components.json", ".storybook"],
+    "goalWords": ["design system", "design tokens", "component library", "tokens"]
+  },
+  "skills": ["create-design-md", "baseline-ui"],
+  "when": [
+    { "dependencies": ["tailwindcss"], "skills": ["tailwindcss"] }
+  ]
+}

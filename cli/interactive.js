@@ -3,7 +3,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ensureGraphify } from './graphify-setup.js';
 import { explainMatch } from '../core/skill-discovery/SkillDiscovery.js';
-import { selectSkills, writeCatalog, GOAL_PLACEHOLDERS } from '../core/project-context/ProjectContext.js';
+import { selectSkills, writeCatalog, readLock, GOAL_PLACEHOLDERS } from '../core/project-context/ProjectContext.js';
+import { ProjectDetector } from '../core/project-detector/ProjectDetector.js';
+import { loadPacks, detectPacks, packSkills, addPack } from '../core/packs/packs.js';
 import { setSection, appendToSection } from '../core/utils/markdownSections.js';
 
 const MAX_RULES = 20;
@@ -54,9 +56,10 @@ function saveRules(brainDir, rules) {
  * Interactive onboarding after `gaw init`. Works for any kind of project:
  *   1. What are you building?     -> ai-brain/context.md
  *   2. Suggested skills (if any closely match the goal) -> ai-brain/skills.lock.json + project-skills.md
- *   3. Rules agents must follow   -> ai-brain/rules.md
- *   4. Graphify code map          (only when Graphify is missing)
- *   5. Summary
+ *   3. Skill packs that fit the stack and goal          -> ai-brain/skills.lock.json (tagged with the pack)
+ *   4. Rules agents must follow   -> ai-brain/rules.md
+ *   5. Graphify code map          (only when Graphify is missing)
+ *   6. Summary
  *
  * `ask(question)` returns the typed answer; pass a fake in tests.
  */
@@ -73,7 +76,7 @@ export async function runOnboarding(options) {
   const brainDir = path.join(projectDir, 'ai-brain');
   fs.mkdirSync(brainDir, { recursive: true });
   const written = [];
-  const totalSteps = offerGraphify ? 4 : 3;
+  const totalSteps = offerGraphify ? 5 : 4;
   const step = (n, title) => log(`\n[${n}/${totalSteps}] ${title}`);
 
   log(`\n======================================================`);
@@ -135,8 +138,43 @@ export async function runOnboarding(options) {
     }
   }
 
-  // 3. Rules
-  step(3, 'Any rules your AI agents must always follow?');
+  // 3. Skill packs that fit the stack and goal (curated sets; skills already chosen aren't offered again)
+  step(3, 'Skill packs for this project');
+  const info = ProjectDetector.detect(projectDir);
+  const chosenIds = new Set(readLock(projectDir).skills.map(s => s.id));
+  const offers = [];
+  for (const { pack, reasons } of detectPacks(loadPacks(path.join(bootstrapper.repoRoot, 'packs')), info, { projectDir, goal })) {
+    const { skills } = await packSkills(pack, info, bootstrapper.registry);
+    const fresh = skills.filter(s => !chosenIds.has(s.id));
+    if (fresh.length) offers.push({ pack, reasons, fresh });
+  }
+  if (offers.length === 0) {
+    log(`    No packs fit this project${info.hasUi ? ' beyond the skills already chosen' : ''}. Browse them later with: gaw packs`);
+  } else {
+    log(`    Curated skill sets that fit your stack${goal ? ' and goal' : ''}:`);
+    offers.forEach((o, i) => {
+      log(`      ${i + 1}. ${o.pack.name}: ${o.pack.title} (${o.fresh.map(s => s.id).join(', ')})`);
+      log(`         Why: ${o.reasons.join('; ')}`);
+    });
+    let picked = null;
+    for (let attempt = 0; attempt < 3 && picked === null; attempt++) {
+      picked = parseSelection(await ask('    Add these packs? (Enter = all, numbers e.g. "1,2", n = none) '), offers.length);
+      if (picked === null) log(`    Please press Enter, type n, or numbers between 1 and ${offers.length}.`);
+    }
+    const chosenPacks = (picked || []).map(i => offers[i]);
+    if (chosenPacks.length) {
+      let count = 0;
+      for (const o of chosenPacks) count += (await addPack(projectDir, bootstrapper.registry, o.pack, info)).added.length;
+      await writeCatalog(projectDir, bootstrapper.registry);
+      written.push(`ai-brain/skills.lock.json (packs: ${chosenPacks.map(o => o.pack.name).join(', ')}; ${count} skill${count === 1 ? '' : 's'})`);
+      log(`    ✓ Added: ${chosenPacks.map(o => o.pack.name).join(', ')}. Remove one any time with: gaw packs remove <name>`);
+    } else {
+      log(`    No packs added. Later: gaw packs`);
+    }
+  }
+
+  // 4. Rules
+  step(4, 'Any rules your AI agents must always follow?');
   log(`    e.g. "All API endpoints require auth", "Follow MISRA C", "Support Safari 15+".`);
   const rules = [];
   while (rules.length < MAX_RULES) {
@@ -152,9 +190,9 @@ export async function runOnboarding(options) {
     log(`    Skipped.`);
   }
 
-  // 4. Graphify (only when missing)
+  // 5. Graphify (only when missing)
   if (offerGraphify) {
-    step(4, 'Graphify code map');
+    step(5, 'Graphify code map');
     const askYesNo = async (question) => {
       const answer = (await ask(question)).trim().toLowerCase();
       return answer === '' || answer === 'y' || answer === 'yes';

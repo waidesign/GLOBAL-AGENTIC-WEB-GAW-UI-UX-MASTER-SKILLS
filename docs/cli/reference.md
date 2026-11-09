@@ -16,10 +16,20 @@ Options:
 In a terminal, `gaw init` then runs a short onboarding (Enter skips any question):
 1. What are you building? → `ai-brain/context.md` (Project Goal)
 2. Suggested skills that closely match the goal (all, some by number, or none) → `ai-brain/skills.lock.json` + `ai-brain/project-skills.md`
-3. Rules your AI agents must always follow → `ai-brain/rules.md` (Project-Specific Rules)
-4. Graphify code map (only when Graphify is not installed)
+3. Skill packs that fit the stack and goal (all, some by number, or none) → `ai-brain/skills.lock.json`
+4. Rules your AI agents must always follow → `ai-brain/rules.md` (Project-Specific Rules)
+5. Graphify code map (only when Graphify is not installed)
 
-`--yes` (or `--non-interactive`) skips onboarding; Graphify is then skipped unless you pass `--install-graphify`.
+`--yes` (or `--non-interactive`) skips onboarding and only lists the packs that fit; Graphify is then skipped unless you pass `--install-graphify`.
+
+## Skill packs
+```bash
+gaw packs                  # packs that fit this project, and which are added
+gaw packs show motion      # skills a pack would add here, and why
+gaw packs add ui motion    # add to ai-brain/skills.lock.json
+gaw packs remove ui        # remove what the pack added (hand-picked skills stay)
+```
+See [packs](../packs.md).
 
 ## Optional Graphify Code Map
 ```bash

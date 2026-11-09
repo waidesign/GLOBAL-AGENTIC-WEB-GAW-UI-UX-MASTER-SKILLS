@@ -20,6 +20,7 @@ import {
 import { buildDesignMd } from '../project-context/designExtractor.js';
 import { migrateLayout } from '../project-context/layoutMigration.js';
 import { refreshSections, sectionBody } from '../utils/markdownSections.js';
+import { loadPacks, detectPacks, packSkills, addedPacks } from '../packs/packs.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -123,21 +124,11 @@ export class ProjectBootstrapper {
       if (writeGlobalBrainSnapshot(dir, this.memoryEngine.globalBrainDir)) report.created.push(`ai-brain/${SNAPSHOT_FILE}`);
     }
 
-    // Step 9: Recommend Relevant Skills from the detected stack. Generic language names
-    // ("JavaScript", "Python") match skills of every field, so only specific signals count:
-    // a known framework and UI libraries. Without them, nothing is suggested (the goal-based
-    // onboarding, or `gaw recommend "<task>"`, gives better suggestions).
-    const stackTerms = [
-      ...(['unknown', 'node', 'plain-frontend'].includes(projectInfo.framework) ? [] : [projectInfo.framework]),
-      ...projectInfo.uiLibraries
-    ];
-    // A skill must be about the stack (name, tags, keywords), not just mention it in its description
-    const matches = stackTerms.length
-      ? await this.orchestrator.discovery.findRelevant(stackTerms.join(' '), { limit: 3, withScores: true })
-      : [];
-    const starters = matches.filter(e => e.reasons.some(r => r.fields.some(f => f !== 'description'))).map(e => e.skill);
-    report.skillsRecommended = starters.map(s => `${s.name} (${s.id})`);
-    report.steps.push({ step: 7, name: 'Skill Recommendations', status: 'Identified', count: starters.length });
+    // Step 9: Suggest skill packs that fit the detected stack (curated sets, judged from
+    // dependencies and files). Nothing is added here: onboarding asks, or `gaw packs add`.
+    report.packsSuggested = await this.suggestPacks(dir, projectInfo);
+    report.skillsRecommended = report.packsSuggested.flatMap(p => p.skills);
+    report.steps.push({ step: 7, name: 'Skill Pack Suggestions', status: 'Identified', count: report.packsSuggested.length });
 
     // Summary
     report.summary = {
@@ -220,6 +211,21 @@ export class ProjectBootstrapper {
       created.push(`ai-brain/skills/${sname}/`);
     }
     return { created, skipped };
+  }
+
+  /**
+   * Packs that fit the project and aren't added yet, each with why and the skills
+   * it would add here: [{ name, title, description, reasons, skills }].
+   */
+  async suggestPacks(dir, projectInfo, goal = '') {
+    const added = new Set(addedPacks(dir));
+    const out = [];
+    for (const { pack, reasons } of detectPacks(loadPacks(path.join(this.repoRoot, 'packs')), projectInfo, { projectDir: dir, goal })) {
+      if (added.has(pack.name)) continue;
+      const { skills } = await packSkills(pack, projectInfo, this.registry);
+      if (skills.length) out.push({ name: pack.name, title: pack.title, description: pack.description, reasons, skills: skills.map(s => s.id) });
+    }
+    return out;
   }
 
   /** GAW's version, from its package.json. */
