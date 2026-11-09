@@ -14,7 +14,7 @@ Do **NOT** read through the 235 skill files or 63 design files on startup. Use t
 
 ### Common Commands
 ```bash
-npm test                 # Run the test suite (21 test suites in scripts/run-tests.js)
+npm test                 # Run the test suite (22 test suites in scripts/run-tests.js)
 node bin/gaw.js context  # What GAW knows about the current project (same as MCP get_project_context)
 node bin/gaw.js skills add <link|folder|file>  # Add any skill as GSS to the personal library (~/.gaw/skills); --official for GAW's library
 node bin/gaw.js skills lint   # Check all skills against the GAW Skill Standard (docs/gss/spec.md)
@@ -142,7 +142,7 @@ gaw-guided-agent-workflow/
 
 ### 1c-1. Skill packs (`packs/*.json`, `core/packs/`)
 - Curated skill sets (`ui`, `motion`, `marketing`, `design-system`) detected from dependencies, files and the goal (`detect.js`); `packs.js` adds/removes them via `skills.lock.json` entries tagged `packs: [...]`. Hand-picked entries (no tag) are never claimed or removed by a pack.
-- `gaw init --yes` lists fitting packs (`report.packsSuggested`); onboarding step 3 asks; `gaw packs [show|add|remove]`. Spec: `docs/packs.md`.
+- `gaw init --yes` lists fitting packs (`report.packsSuggested`); onboarding step 3 asks; `gaw packs [show|add|remove]`; MCP `list_skill_packs`, `add_skill_packs`, `remove_skill_packs`. Spec: `docs/packs.md`.
 - Only complete skills go in packs: `tests/unit/packs.test.js` fails if a pack skill has lint errors, broken links or missing supporting files.
 
 ### 1c. Project Context & Project Skills (`core/project-context/`)
@@ -199,7 +199,7 @@ When writing UI code or reviewing designs:
 ## 🛠️ Testing & Development Guidelines
 
 - **Dependencies**: GAW runs natively on modern Node.js using ESM. The only npm dependency is `@modelcontextprotocol/sdk`. The Graphify CLI (Python) is an optional external tool; the e2e test that uses real Graphify is skipped without it.
-- **Run tests before committing**: `npm test` executes the 21 native test suites in `tests/`. The runner sets a throwaway `GAW_HOME`, so tests never touch the real `~/.gaw`.
+- **Run tests before committing**: `npm test` executes the 22 native test suites in `tests/`. The runner sets a throwaway `GAW_HOME`, so tests never touch the real `~/.gaw`.
 - **Measure skill selection changes**: `npm run eval` scores skill picks on the tuning set (`eval/cases/skill-selection.json`) and the held-out set (`skill-selection-holdout.json`), and compares with `eval/baseline.json`. Never adjust the engine to fix held-out cases: they are the honest check. Only update the baseline (`npm run eval -- --save-baseline`) when a change is an intended improvement.
 - **Licenses**: never relabel a skill's license. Imported skills keep their source's license, verified by `gaw skills licenses`. Only split/modify skills whose `source.licenseStatus` is `open` or `copyleft`.
 - **Git workflow**: Main branch is `main`. Remote is `origin` (`https://github.com/waidesign/gaw-guided-agent-workflow.git`).

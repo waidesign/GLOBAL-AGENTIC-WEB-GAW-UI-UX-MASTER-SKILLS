@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `gaw init --yes` lists the packs that fit instead of keyword-matched starter skills (which suggested a React Native skill for web React projects). Interactive `gaw init` asks about them after the goal-matching skills.
 - `gaw packs`, `gaw packs show|add|remove <name...>`. Added skills are tagged with their pack in `skills.lock.json`; removing a pack takes out only skills no other pack uses, and never skills chosen by hand.
 - `gaw context` and MCP `get_project_context` show added packs and packs that also fit. Guide: `docs/packs.md`.
+- MCP tools `list_skill_packs`, `add_skill_packs` and `remove_skill_packs` (add and remove only after the user agrees).
 
 ### Changed (Project Brain layout 2)
 - **New `ai-brain/` layout**: `README.md` (for people: what to commit, no secrets, how to update or remove) · `brain.json` (layout version, detected stack and commands, precedence) · `context.md` · `rules.md` · `playbook.md` · `design.md` (UI projects only) · `decisions/` · `memory/proposed/` · `skills/` · `local/` (ignored by its own `.gitignore`: active task, archive, Global Brain summary). `identity.md` and `project-history.md` are gone.

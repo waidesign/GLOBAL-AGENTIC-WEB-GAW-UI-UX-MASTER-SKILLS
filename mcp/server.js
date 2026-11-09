@@ -6,6 +6,7 @@ import {
   CallToolRequestSchema,
   ListToolsRequestSchema
 } from '@modelcontextprotocol/sdk/types.js';
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -18,6 +19,7 @@ import { ProjectBootstrapper } from '../core/bootstrapper/ProjectBootstrapper.js
 import { GraphifyManager } from '../core/graphify-manager/GraphifyManager.js';
 import { loadProjectContext, loadProjectSkillsForTask, selectSkills, writeCatalog } from '../core/project-context/ProjectContext.js';
 import { trustLevel, describeTrust } from '../core/skill-registry/trust.js';
+import { loadPacks, packReasons, packSkills, addPack, removePack } from '../core/packs/packs.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -155,6 +157,40 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
             projectPath: { type: 'string', description: 'Optional project directory path (defaults to current dir)' }
           },
           required: ['ids']
+        }
+      },
+      {
+        name: 'list_skill_packs',
+        description: 'List skill packs (curated skill sets such as ui, motion, marketing, design-system): which fit this project and why, which are added, and the skills each would add here. Read-only.',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            projectPath: { type: 'string', description: 'Optional project directory path (defaults to current dir)' }
+          }
+        }
+      },
+      {
+        name: 'add_skill_packs',
+        description: 'Add skill packs to the project (their skills go to ai-brain/skills.lock.json, tagged with the pack). Only call this after the user agrees to add these packs.',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            names: { type: 'array', items: { type: 'string' }, description: 'Pack names, from list_skill_packs' },
+            projectPath: { type: 'string', description: 'Optional project directory path (defaults to current dir)' }
+          },
+          required: ['names']
+        }
+      },
+      {
+        name: 'remove_skill_packs',
+        description: 'Remove skill packs from the project. Skills another pack still uses, and skills chosen by hand, stay. Only call this after the user agrees.',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            names: { type: 'array', items: { type: 'string' }, description: 'Pack names to remove' },
+            projectPath: { type: 'string', description: 'Optional project directory path (defaults to current dir)' }
+          },
+          required: ['names']
         }
       },
       {
@@ -341,6 +377,50 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         return {
           content: [{ type: 'text', text: JSON.stringify(res, null, 2) }]
         };
+      }
+
+      case 'list_skill_packs': {
+        const target = args.projectPath || process.cwd();
+        const info = ProjectDetector.detect(target);
+        const ctx = await loadProjectContext(target, { registry });
+        const added = new Set(ctx.packs.added);
+        const packs = [];
+        for (const pack of loadPacks()) {
+          const { skills, missing } = await packSkills(pack, info, registry);
+          packs.push({
+            name: pack.name,
+            title: pack.title,
+            description: pack.description,
+            added: added.has(pack.name),
+            fits: packReasons(pack, info, { projectDir: target, goal: ctx.goal || '' }),
+            skills,
+            missing
+          });
+        }
+        return { content: [{ type: 'text', text: JSON.stringify({ packs }, null, 2) }] };
+      }
+
+      case 'add_skill_packs':
+      case 'remove_skill_packs': {
+        const target = args.projectPath || process.cwd();
+        if (!fs.existsSync(path.join(target, 'ai-brain'))) {
+          return { content: [{ type: 'text', text: 'No ai-brain/ in this project. Initialize it first (initialize_project).' }], isError: true };
+        }
+        const byName = new Map(loadPacks().map(p => [p.name, p]));
+        const unknown = (args.names || []).filter(n => !byName.has(n));
+        if (unknown.length) {
+          return { content: [{ type: 'text', text: `Unknown pack(s): ${unknown.join(', ')}. Packs: ${[...byName.keys()].join(', ')}` }], isError: true };
+        }
+        const info = ProjectDetector.detect(target);
+        const adding = name === 'add_skill_packs';
+        const results = {};
+        for (const packName of args.names || []) {
+          results[packName] = adding
+            ? await addPack(target, registry, byName.get(packName), info)
+            : removePack(target, packName);
+        }
+        await writeCatalog(target, registry);
+        return { content: [{ type: 'text', text: JSON.stringify(results, null, 2) }] };
       }
 
       case 'update_project_memory': {

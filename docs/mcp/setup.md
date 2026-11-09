@@ -54,6 +54,8 @@ Replace `/path/to/gaw-guided-agent-workflow` with the folder where you cloned GA
 - `get_project_skills(projectPath?: string)`: the project's chosen skills as short entries
 - `load_project_skills(taskPrompt: string, projectPath?: string, tokenBudget?: number)`: only the project skills that fit the task
 - `select_project_skills(ids: string[], reason?: string, projectPath?: string)`: add skills to the project (after the user agrees)
+- `list_skill_packs(projectPath?: string)`: skill packs, which fit the project and why, which are added, and the skills each would add (read-only)
+- `add_skill_packs(names: string[], projectPath?: string)` / `remove_skill_packs(names: string[], projectPath?: string)`: add or remove packs (after the user agrees)
 - `update_project_memory(category: string, decision: string, context: string, projectPath?: string)`
 - `initialize_project(projectPath?: string, dryRun?: boolean)`
 - `analyze_project(projectPath?: string)`

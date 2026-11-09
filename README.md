@@ -349,6 +349,8 @@ Add to your MCP settings (`.mcp.json` for Claude Code, or Cursor's MCP settings)
 - `get_project_skills`: The project's chosen skills as short entries (no full text).
 - `load_project_skills`: Full instructions of only the project skills that fit the current task, within a token budget.
 - `select_project_skills`: Add library skills to the project (after the user agrees).
+- `list_skill_packs`: Which skill packs fit the project and why, which are added, and the skills each would add.
+- `add_skill_packs` / `remove_skill_packs`: Add or remove packs (after the user agrees).
 - `update_project_memory`: Append confirmed decisions to project memory.
 - `initialize_project`: Run the `gaw init` workflow (never installs Graphify).
 - `analyze_project`: Inspect the project's framework, dependencies and tools.

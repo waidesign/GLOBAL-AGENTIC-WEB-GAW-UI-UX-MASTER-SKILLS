@@ -22,7 +22,7 @@ gaw packs remove ui               # take out what the pack added
 
 Adding a pack records its skills in `ai-brain/skills.lock.json` with a `packs` tag. Removing a pack removes only skills that no other pack uses; skills someone selected by hand (`gaw skills select`) are never claimed or removed by a pack. Agents still open each skill only when a task needs it.
 
-`gaw init --yes` lists fitting packs without adding anything. Interactive `gaw init` asks after the goal-matching skills. `gaw context` and the MCP tool `get_project_context` show added packs and packs that also fit.
+`gaw init --yes` lists fitting packs without adding anything. Interactive `gaw init` asks after the goal-matching skills. `gaw context` and the MCP tool `get_project_context` show added packs and packs that also fit. Agents use the MCP tools `list_skill_packs`, and `add_skill_packs` / `remove_skill_packs` after the user agrees.
 
 ## Writing a pack
 
