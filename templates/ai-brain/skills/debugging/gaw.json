@@ -1,10 +1,8 @@
 {
   "gss": 1,
-  "keywords": [
-    "bug",
-    "diagnose",
-    "troubleshoot",
-    "regression"
-  ],
-  "lastVerified": "2026-11-08"
+  "summary": "Reproduce, read the full error, change one thing at a time, add a regression test, fix the cause.",
+  "keywords": ["bug", "error", "stack trace", "crash", "failing test", "regression"],
+  "whenToUse": ["Something is broken, failing or behaving unexpectedly."],
+  "verification": ["A test reproduces the bug and now passes.", "The full test suite passes.", "Temporary logging is removed."],
+  "lastVerified": "2026-11-09"
 }

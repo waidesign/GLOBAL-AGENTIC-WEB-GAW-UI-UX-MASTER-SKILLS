@@ -47,14 +47,18 @@ Ask the user, and let them skip any question:
 Then create `ai-brain/` if it does not exist:
 ```text
 ai-brain/
-├── README.md           # what this folder is
-├── context.md          # project goal + detected stack
-├── identity.md         # purpose, audience, voice; interface direction only if there is a UI
-├── playbook.md         # how agents should work here
-├── project-history.md  # initialization milestone with today's date
-├── rules.md            # the user's rules
-└── skills/             # the project's own skills, in GSS folders (SKILL.md + gaw.json)
+├── README.md           # for people: what this folder is, what to commit, never store secrets
+├── brain.json          # layout 2, detected stack and commands, precedence (safety rules first)
+├── context.md          # goal, stack, commands (dev/build/test/lint), folder map, definition of done
+├── rules.md            # under 60 lines: safety (secrets, protected paths), scope, stack, quality + the user's rules
+├── playbook.md         # recipes: feature, bug fix, refactor, UI change (each: read first, done when)
+├── design.md           # UI projects only: fonts, colors, spacing found in the stylesheets
+├── decisions/          # one short record per decision: what, why, alternatives, status
+├── memory/proposed/    # lessons agents suggest; a person approves them
+├── skills/             # the project's own skills, in GSS folders (SKILL.md + gaw.json), each under ~500 tokens
+└── local/              # with its own .gitignore ("*"): active-task.md, archive/
 ```
+Mark facts read from the project's files as `(auto-detected)` in section headings; a person changes them to `(confirmed)`.
 *Do not overwrite existing user-authored files.*
 
 ### 4. CHOOSE SKILLS THAT FIT THE GOAL

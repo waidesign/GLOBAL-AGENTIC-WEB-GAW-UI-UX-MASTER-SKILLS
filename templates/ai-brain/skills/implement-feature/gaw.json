@@ -1,0 +1,8 @@
+{
+  "gss": 1,
+  "summary": "Find the existing pattern, stay in scope, no new dependencies without asking, add tests, check the Definition of Done.",
+  "keywords": ["feature", "implement", "add", "build", "new endpoint", "new page"],
+  "whenToUse": ["Building a new feature or changing existing behavior."],
+  "verification": ["Follows an existing pattern in the codebase.", "No new dependency was added without approval.", "Tests cover the new behavior."],
+  "lastVerified": "2026-11-09"
+}

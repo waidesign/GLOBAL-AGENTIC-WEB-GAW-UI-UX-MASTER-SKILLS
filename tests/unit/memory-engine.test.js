@@ -23,9 +23,10 @@ test('MemoryEngine - global brain initialization and precedence', async () => {
 
   // Precedence test
   const context = await engine.getHierarchicalContext('Build a button component', tempDir);
-  assert.equal(context.precedence[0], '1. User Request (Highest)');
-  assert.equal(context.precedence[1], '2. Project Brain (ai-brain/)');
-  assert.equal(context.precedence[2], '3. Global Brain (~/.gaw/brain/)');
+  assert.ok(context.precedence[0].startsWith('1. Safety rules'), 'safety rules can not be overridden by a prompt');
+  assert.equal(context.precedence[1], '2. User Request');
+  assert.equal(context.precedence[2], '3. Project Brain (ai-brain/)');
+  assert.equal(context.precedence[3], '4. Global Brain (~/.gaw/brain/)');
 
   fs.rmSync(tempDir, { recursive: true, force: true });
 });

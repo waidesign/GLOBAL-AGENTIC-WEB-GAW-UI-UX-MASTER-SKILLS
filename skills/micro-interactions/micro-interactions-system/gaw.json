@@ -3,7 +3,8 @@
   "related": [
     "motion-dev",
     "animejs",
-    "baseline-ui"
+    "masked-reveal",
+    "accessibility-baseline"
   ],
   "frameworks": [
     "react",
@@ -12,7 +13,7 @@
     "html",
     "tailwind"
   ],
-  "lastVerified": "2026-11-06",
+  "lastVerified": "2026-11-09",
   "summary": "Tactile, physics-driven micro-interactions for buttons, toggles, forms, dialogs, and notifications with strict timing and feedback budgets.",
   "domains": [
     "web",
@@ -35,5 +36,10 @@
   ],
   "drafts": [
     "keywords"
+  ],
+  "verification": [
+    "Feedback to input starts within 100ms and settles within 300ms.",
+    "Destructive actions use a confirm step or Undo, never a long-press.",
+    "Under prefers-reduced-motion there is no movement; state is still clear."
   ]
 }

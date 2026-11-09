@@ -1,0 +1,21 @@
+{
+  "gss": 1,
+  "summary": "The minimum accessibility rules every new or changed UI meets while it is being built: keyboard, focus, accessible names, contrast, reduced motion, forms, targets and zoom.",
+  "keywords": ["building accessible components", "reduced motion"],
+  "whenToUse": ["Building or changing a user interface, including animation and micro-interaction work. GAW points to it automatically for UI tasks."],
+  "whenNotToUse": [
+    "Accessibility audit (use fixing-accessibility)",
+    "Audit contrast problems",
+    "Fix accessibility issues",
+    "Fix ARIA or keyboard problems"
+  ],
+  "related": ["fixing-accessibility", "baseline-ui", "micro-interactions-system"],
+  "verification": [
+    "Keyboard-only walkthrough of the change works.",
+    "Contrast checked for new colors.",
+    "Reduced-motion setting tested.",
+    "A screen reader names every new control."
+  ],
+  "domains": ["web", "design"],
+  "lastVerified": "2026-11-09"
+}

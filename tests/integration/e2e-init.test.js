@@ -50,10 +50,26 @@ test('E2E - gaw init and start on React project without Graphify (optional)', as
   assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', 'README.md')), true);
   assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', 'context.md')), true);
   assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', 'rules.md')), true);
-  // Starter project skills are GAW Skill Standard folders
-  assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', 'skills', 'code-generation', 'SKILL.md')), true);
-  assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', 'skills', 'code-generation', 'gaw.json')), true);
-  assert.equal(lintLibrary(path.join(tempDir, 'ai-brain', 'skills')).errorCount, 0);
+  // Layout 2: brain.json, playbook, design.md (UI project), decisions/, memory/proposed/, local/
+  for (const rel of ['brain.json', 'playbook.md', 'design.md', 'decisions/README.md', 'memory/proposed/README.md', 'local/.gitignore']) {
+    assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', rel)), true, `ai-brain/${rel}`);
+  }
+  for (const old of ['identity.md', 'project-history.md', 'global-brain.md']) {
+    assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', old)), false, `no ai-brain/${old} in the new layout`);
+  }
+  const brain = JSON.parse(fs.readFileSync(path.join(tempDir, 'ai-brain', 'brain.json'), 'utf8'));
+  assert.equal(brain.layout, 2);
+  assert.equal(brain.project.hasUi, true);
+  assert.deepEqual(brain.project.languages, ['TypeScript'], 'App.tsx means TypeScript even without tsconfig.json');
+
+  // Starter project skills are GAW Skill Standard folders, short and lint-clean
+  for (const name of ['debugging', 'code-review', 'implement-feature', 'testing', 'security-basics']) {
+    assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', 'skills', name, 'SKILL.md')), true, name);
+    assert.equal(fs.existsSync(path.join(tempDir, 'ai-brain', 'skills', name, 'gaw.json')), true, name);
+  }
+  const lint = lintLibrary(path.join(tempDir, 'ai-brain', 'skills'));
+  assert.equal(lint.errorCount, 0);
+  assert.equal(lint.warningCount, 0, 'starter skills stay under the project-skill size budget');
 
   // No graph without Graphify
   assert.equal(fs.existsSync(path.join(tempDir, GRAPHIFY_OUT_DIR)), false);

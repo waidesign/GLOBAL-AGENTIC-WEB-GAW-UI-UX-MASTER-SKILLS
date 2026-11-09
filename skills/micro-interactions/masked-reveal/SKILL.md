@@ -5,7 +5,7 @@ license: "MIT"
 metadata:
   gaw-category: "micro-interactions"
   gaw-author: "ui-skills"
-  gaw-version: "1.0.0"
+  gaw-version: "1.1.0"
 ---
 
 # Masked Reveal
@@ -13,7 +13,9 @@ metadata:
 ## Use When
 - A headline or short text block needs a premium reveal on scroll.
 - Words should rise through an invisible mask with a staggered sequence.
-- The project already uses GSAP or needs ScrollTrigger-based motion.
+- The project already uses GSAP. If it uses another animation library, build the same effect with that library instead of adding GSAP.
+
+This is **entrance motion**: it may run up to ~1s because it never blocks input. The 300ms limit applies to feedback on user input (see the `micro-interactions-system` skill).
 
 ## Motion Defaults
 - Trigger: start when the text top reaches `82%` of the viewport.
@@ -69,8 +71,35 @@ html.js .masked-reveal.is-split {
 }
 ```
 
-## GSAP ScrollTrigger
-This helper avoids the paid SplitText plugin and keeps spaces intact.
+## GSAP 3.13+: SplitText (preferred)
+Since GSAP 3.13 every plugin, including SplitText, is free and ships in the `gsap` package. SplitText handles masking, accessibility and re-splitting on resize:
+
+```js
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+gsap.registerPlugin(ScrollTrigger, SplitText);
+
+document.querySelectorAll("[data-masked-reveal]").forEach((element) => {
+  SplitText.create(element, {
+    type: "words",
+    mask: "words",
+    autoSplit: true,
+    onSplit: (self) => gsap.from(self.words, {
+      yPercent: 110,
+      duration: 0.8,
+      ease: "power3.out",
+      stagger: 0.035,
+      scrollTrigger: { trigger: element, start: "top 82%", once: true },
+    }),
+  });
+});
+```
+
+Wrap it in `gsap.matchMedia()` with `(prefers-reduced-motion: no-preference)` so reduced-motion users get static text.
+
+## Without SplitText
+For GSAP versions before 3.13, or to avoid the plugin, this helper splits words itself and keeps spaces intact.
 
 ```js
 document.documentElement.classList.add("js");

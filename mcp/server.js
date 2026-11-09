@@ -74,7 +74,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         inputSchema: {
           type: 'object',
           properties: {
-            id: { type: 'string', description: 'Unique skill ID (e.g. baseline-ui, build-design-system)' }
+            id: { type: 'string', description: 'Unique skill ID (e.g. baseline-ui, design-system-boss)' }
           },
           required: ['id']
         }
@@ -93,11 +93,12 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       },
       {
         name: 'load_skills',
-        description: 'Progressively load full skill instructions and conflict resolutions ready for task execution.',
+        description: 'Progressively load full skill instructions and conflict resolutions ready for task execution. Skills that do the same job (e.g. two animation libraries) are not loaded together: the one the project already depends on wins.',
         inputSchema: {
           type: 'object',
           properties: {
-            taskPrompt: { type: 'string', description: 'Detailed user task or design objective' }
+            taskPrompt: { type: 'string', description: 'Detailed user task or design objective' },
+            projectPath: { type: 'string', description: 'Optional project directory, used to prefer skills for libraries the project already has (defaults to current dir)' }
           },
           required: ['taskPrompt']
         }
@@ -293,9 +294,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       }
 
       case 'load_skills': {
-        const payload = await orchestrator.loadSkillsForTask(args.taskPrompt);
+        const projectInfo = ProjectDetector.detect(args.projectPath || process.cwd());
+        const payload = await orchestrator.loadSkillsForTask(args.taskPrompt, projectInfo);
+        const leftOut = payload.excludedSkills?.length
+          ? `\n## Left out\n${payload.excludedSkills.map(e => `- ${e.id}: ${e.reason}`).join('\n')}\n`
+          : '';
         return {
-          content: [{ type: 'text', text: payload.formattedInstructions }]
+          content: [{ type: 'text', text: payload.formattedInstructions + leftOut }]
         };
       }
 
@@ -339,9 +344,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       }
 
       case 'update_project_memory': {
-        await memoryEngine.recordDecision(args.category, args.decision, args.context, true, args.projectPath || process.cwd());
+        const written = await memoryEngine.recordDecision(args.category, args.decision, args.context, true, args.projectPath || process.cwd());
         return {
-          content: [{ type: 'text', text: `Successfully updated project decision history: [${args.category}] ${args.decision}` }]
+          content: [{ type: 'text', text: written ? `Recorded the decision in ${written}: [${args.category}] ${args.decision}` : `Recorded the decision: [${args.category}] ${args.decision}` }]
         };
       }
 

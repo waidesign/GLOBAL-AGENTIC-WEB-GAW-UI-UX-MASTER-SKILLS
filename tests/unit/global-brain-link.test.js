@@ -38,15 +38,16 @@ test('init - project brain gets project files only, plus a read-only Global Brai
   for (const file of GLOBAL_PREFERENCE_FILES) {
     assert.equal(fs.existsSync(path.join(project, 'ai-brain', file)), false, `${file} must not be copied into the project`);
   }
-  for (const file of ['context.md', 'rules.md', 'identity.md', 'playbook.md']) {
+  for (const file of ['context.md', 'rules.md', 'playbook.md']) {
     assert.ok(fs.existsSync(path.join(project, 'ai-brain', file)), `${file} is a project file`);
   }
 
-  const summary = fs.readFileSync(path.join(project, 'ai-brain', 'global-brain.md'), 'utf8');
+  const summary = fs.readFileSync(path.join(project, 'ai-brain', 'local', 'global-brain.md'), 'utf8');
   assert.ok(summary.includes('Do not edit'));
   assert.ok(summary.includes('Prefer clean typography'), 'contains the live Global Brain');
   assert.ok(summary.includes('Use 8px grid'), 'contains recent decisions');
-  assert.ok(fs.readFileSync(path.join(project, '.gitignore'), 'utf8').includes('ai-brain/global-brain.md'), 'personal summary kept out of git');
+  assert.ok(fs.readFileSync(path.join(project, 'ai-brain', 'local', '.gitignore'), 'utf8').includes('*'), 'personal summary kept out of git by local/.gitignore');
+  assert.equal(fs.readFileSync(path.join(project, '.gitignore'), 'utf8'), 'node_modules/\n', "the project's own .gitignore is not touched");
   cleanup(globalBrain, project);
 });
 
@@ -57,7 +58,7 @@ test('start - the summary follows changes to the Global Brain', async () => {
   fs.writeFileSync(path.join(globalBrain, 'design-principles.md'), '# Design\n\n- Prefer generous whitespace', 'utf8');
   await bootstrapper.start(project);
 
-  const summary = fs.readFileSync(path.join(project, 'ai-brain', 'global-brain.md'), 'utf8');
+  const summary = fs.readFileSync(path.join(project, 'ai-brain', 'local', 'global-brain.md'), 'utf8');
   assert.ok(summary.includes('Prefer generous whitespace'));
   assert.ok(!summary.includes('Prefer clean typography'));
   cleanup(globalBrain, project);

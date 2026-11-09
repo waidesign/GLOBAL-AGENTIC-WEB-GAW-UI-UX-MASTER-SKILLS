@@ -1,10 +1,13 @@
 {
   "gss": 1,
   "frameworks": [
-    "framer-motion",
-    "tailwind"
+    "any",
+    "html",
+    "react",
+    "vue",
+    "svelte"
   ],
-  "lastVerified": "2026-11-06",
+  "lastVerified": "2026-11-09",
   "summary": "Create masked staggered word reveals on scroll with GSAP ScrollTrigger. Use when headings, hero copy, section titles, or editorial text should reveal word-by-word through an overflow mask as they enter the viewport.",
   "whenToUse": [
     "Use when headings, hero copy, section titles, or editorial text should reveal word-by-word through an overflow mask as they enter the viewport.",
@@ -38,5 +41,16 @@
   ],
   "drafts": [
     "keywords"
+  ],
+  "packages": [
+    "gsap"
+  ],
+  "exclusiveGroup": "animation-library",
+  "verifiedAgainst": [
+    "gsap@3.15.1"
+  ],
+  "related": [
+    "micro-interactions-system",
+    "animation-on-scroll"
   ]
 }

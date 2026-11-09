@@ -1,0 +1,8 @@
+{
+  "gss": 1,
+  "summary": "Use the project's test setup, test behavior, cover main/edge/failure cases, keep tests deterministic, run the full suite.",
+  "keywords": ["test", "unit test", "integration test", "coverage", "flaky test", "mock"],
+  "whenToUse": ["Adding tests, fixing failing tests, or covering a change with tests."],
+  "verification": ["New tests fail without the change and pass with it.", "The full suite passes without retries."],
+  "lastVerified": "2026-11-09"
+}

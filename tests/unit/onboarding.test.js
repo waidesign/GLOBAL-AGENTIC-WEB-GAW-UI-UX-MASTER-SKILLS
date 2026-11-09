@@ -59,8 +59,8 @@ test('onboarding - UI goal: saves goal, activates matching skills, saves rules',
 
   const res = await runOnboarding({ bootstrapper, projectDir: dir, ask, log: silent });
 
-  assert.ok(read(dir, 'context.md').includes('A SaaS landing page with pricing for my startup'));
-  assert.ok(!read(dir, 'context.md').includes('Add an overview of what the application does'));
+  assert.ok(read(dir, 'context.md').includes('## Project Goal\nA SaaS landing page with pricing for my startup'));
+  assert.ok(!read(dir, 'context.md').includes('Not written yet: one or two sentences'), 'placeholder replaced');
 
   // Chosen skills are recorded in the lockfile and listed (not loaded) in the catalog
   const lock = JSON.parse(read(dir, 'skills.lock.json'));
@@ -69,14 +69,15 @@ test('onboarding - UI goal: saves goal, activates matching skills, saves rules',
   const catalog = read(dir, 'project-skills.md');
   assert.ok(catalog.includes('(`landing-page`)'));
   assert.ok(catalog.includes('Open a skill only when the current task needs it'));
-  assert.equal(exists(dir, 'active-skills.md'), false, 'no full skill bodies written up front');
+  assert.equal(exists(dir, 'local/active-task.md'), false, 'no task file written up front');
 
   const rules = read(dir, 'rules.md');
-  assert.ok(rules.includes('## Project-Specific Rules\n- Support Safari 15+'));
-  assert.ok(rules.includes('## 1. Memory Precedence'), 'keeps existing rules');
+  assert.ok(/## Project-Specific Rules\n(<!--.*-->\n)?- Support Safari 15\+/.test(rules));
+  assert.ok(rules.includes('## Safety'), 'keeps existing rules');
 
   assert.equal(res.written.length, 3);
   assert.equal(exists(dir, 'ACTIVE_TASK.md'), false);
+  assert.equal(exists(dir, 'active-skills.md'), false);
   fs.rmSync(dir, { recursive: true, force: true });
 });
 

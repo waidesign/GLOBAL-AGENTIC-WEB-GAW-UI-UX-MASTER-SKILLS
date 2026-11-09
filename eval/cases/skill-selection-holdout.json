@@ -1,7 +1,7 @@
 {
   "description": "Held-out skill selection cases. NEVER tune the Skill Engine on these: they exist to check that improvements on the tuning set (skill-selection.json) also hold for tasks nobody tuned for. Add real user tasks here. Same format: `relevant` lists acceptable skills; an empty list means no skill should be suggested.",
   "cases": [
-    { "id": "ho-dark-mode-tokens", "domain": "ui", "task": "Add dark mode theming with design tokens to my React app", "relevant": ["build-design-system", "design-system-boss", "migrate-to-a-design-system", "better-colors", "oklch-skill", "improve-shadcn", "tailwindcss", "theme-factory"] },
+    { "id": "ho-dark-mode-tokens", "domain": "ui", "task": "Add dark mode theming with design tokens to my React app", "relevant": ["design-system-boss", "migrate-to-a-design-system", "better-colors", "oklch-skill", "improve-shadcn", "tailwindcss", "theme-factory"] },
     { "id": "ho-tactile-buttons", "domain": "ui", "task": "Make the hover and press states of my buttons feel tactile", "relevant": ["micro-interactions-system", "improve-animations", "animation-systems", "baseline-ui"] },
     { "id": "ho-wcag-contrast", "domain": "ui", "task": "Audit my website for WCAG contrast problems", "relevant": ["fixing-accessibility", "web-design-guidelines", "rams", "better-colors"] },
     { "id": "ho-mobile-onboarding", "domain": "ui", "task": "Design a mobile onboarding screen in React Native", "relevant": ["react-native-skills", "design-mobile-apps"] },

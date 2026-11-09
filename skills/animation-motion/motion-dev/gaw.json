@@ -1,9 +1,9 @@
 {
   "gss": 1,
   "related": [
+    "micro-interactions-system",
     "animation-systems",
-    "improve-animations",
-    "animejs"
+    "improve-animations"
   ],
   "frameworks": [
     "react",
@@ -11,12 +11,12 @@
     "vite",
     "remix"
   ],
-  "lastVerified": "2026-11-06",
+  "lastVerified": "2026-11-09",
   "summary": "Production-grade animations, spring physics, layout transitions, and gesture feedback using Motion (formerly Framer Motion) at motion.dev.",
   "verification": [
-    "Are animations disabled or simplified when prefers-reduced-motion is active?",
-    "Are all animated elements keyboard focusable before and after transitions?",
-    "Does layout remain stable without Cumulative Layout Shift (CLS)?"
+    "Movement is removed or reduced under prefers-reduced-motion.",
+    "Animated controls stay focusable and usable during and after transitions.",
+    "No layout shift (CLS) from entering elements."
   ],
   "domains": [
     "web",
@@ -24,8 +24,7 @@
   ],
   "derived": [
     "domains",
-    "summary",
-    "verification"
+    "summary"
   ],
   "whenToUse": [
     "Use when adding animations to React apps with the motion library (formerly Framer Motion): springs, exit animations, shared layout transitions and gestures."
@@ -39,5 +38,13 @@
   ],
   "drafts": [
     "keywords"
+  ],
+  "packages": [
+    "motion",
+    "framer-motion"
+  ],
+  "exclusiveGroup": "animation-library",
+  "verifiedAgainst": [
+    "motion@14.10.1"
   ]
 }

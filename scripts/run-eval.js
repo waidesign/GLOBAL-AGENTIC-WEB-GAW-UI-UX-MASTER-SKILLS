@@ -97,7 +97,7 @@ async function main() {
 
   const systems = {
     onboarding: async (task) => {
-      // What onboarding writes to ai-brain/active-skills.md when the user accepts all suggestions
+      // What an agent loads when the user accepts all onboarding suggestions (full skill text)
       const skills = await orchestrator.discovery.findRelevant(task, { limit: 5 });
       const loaded = await orchestrator.loadSkillsByIds(skills.map(s => s.id), task);
       return { ids: skills.map(s => s.id), tokens: estimateTokens(loaded.formattedInstructions) };

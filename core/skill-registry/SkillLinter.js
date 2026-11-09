@@ -16,6 +16,9 @@ const NAME_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const PLACEHOLDERS = new Set(['>', '>-', '>+', '|', '|-', '|+']);
 const MAX_BODY_TOKENS = 5000;
 const MAX_BODY_LINES = 500;
+// Project skills (ai-brain/skills) load into every task that needs them, so they stay short:
+// details go in references/ and are opened on demand
+export const MAX_PROJECT_BODY_TOKENS = 500;
 // Placeholder written by `gaw skills new`; a skill can't be published until it's replaced
 export const NEW_SKILL_TODO = 'TODO:';
 
@@ -34,6 +37,9 @@ const CONTRACT_FIELDS = {
   verification: 'string[]',
   permissions: 'string[]',
   lastVerified: 'string',
+  verifiedAgainst: 'string[]',
+  packages: 'string[]',
+  exclusiveGroup: 'string',
   source: 'object',
   extraFrontmatter: 'object',
   domains: 'string[]',
@@ -48,11 +54,56 @@ function typeMatches(value, type) {
   return typeof value === type;
 }
 
+/** The body without fenced code blocks, so examples aren't checked as instructions. */
+function proseOnly(body) {
+  return body.replace(/^(```|~~~)[^\n]*\n[\s\S]*?^\1[^\n]*$/gm, '');
+}
+
+/** True when a skill folder sits in a project brain (ai-brain/skills/<name>). */
+export function isProjectSkillDir(dir) {
+  const parts = path.resolve(dir).split(path.sep);
+  return parts.length >= 3 && parts[parts.length - 2] === 'skills' && parts[parts.length - 3] === 'ai-brain';
+}
+
+/**
+ * Body problems agents trip over: links and supporting files that don't exist,
+ * a second top-level heading, LaTeX math that renders as raw text.
+ */
+function lintBody(dir, body) {
+  const warnings = [];
+  const prose = proseOnly(body);
+
+  // Relative links must point to files that exist (web links and anchors are not checked)
+  const broken = new Set();
+  for (const m of prose.matchAll(/\[[^\]]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g)) {
+    const target = m[1].split('#')[0];
+    if (!target || /^[a-z][a-z0-9+.-]*:/i.test(target) || target.startsWith('/')) continue;
+    if (!fs.existsSync(path.resolve(dir, decodeURIComponent(target)))) broken.add(m[1]);
+  }
+  if (broken.size) warnings.push(`Broken link${broken.size > 1 ? 's' : ''} (file not found): ${[...broken].join(', ')}`);
+
+  // Supporting files the instructions tell the agent to open or run
+  const missing = new Set();
+  for (const m of prose.matchAll(/(?:^|[\s`'"(])(?:\.\/)?((?:references|scripts|assets)\/[\w./-]*\w\.[a-z0-9]+)/gim)) {
+    if (!fs.existsSync(path.join(dir, m[1]))) missing.add(m[1]);
+  }
+  if (missing.size) warnings.push(`Mentions file${missing.size > 1 ? 's' : ''} that this skill doesn't include: ${[...missing].slice(0, 6).join(', ')}${missing.size > 6 ? ` (+${missing.size - 6} more)` : ''}`);
+
+  const h1s = prose.split('\n').filter(l => /^# \S/.test(l));
+  if (h1s.length > 1) warnings.push(`${h1s.length} top-level (#) headings: keep one title; use ## for sections`);
+
+  if (/\$\\(?:le|ge|leq|geq|times|approx|neq|pm|rightarrow|to)\$/.test(prose)) {
+    warnings.push('LaTeX math like $\\le$ shows as raw text in Markdown: use plain characters (≤, ≥, ×, ≈, →)');
+  }
+  return warnings;
+}
+
 /**
  * Validate one GSS skill folder. Returns { name, errors: [], warnings: [] }.
  * `knownSkills` (a Set of names) enables dependsOn checks.
+ * `options.maxBodyTokens` overrides the size guideline (project skills use a smaller one).
  */
-export function lintSkillFolder(dir, knownSkills = null) {
+export function lintSkillFolder(dir, knownSkills = null, options = {}) {
   const errors = [];
   const warnings = [];
   const folderName = path.basename(dir);
@@ -125,8 +176,10 @@ export function lintSkillFolder(dir, knownSkills = null) {
 
   const tokens = Math.round(content.length / 4);
   const lines = content.split('\n').length;
-  if (tokens > MAX_BODY_TOKENS) warnings.push(`Body is ~${tokens} tokens (guideline: under ${MAX_BODY_TOKENS}); move detail into references/`);
+  const maxTokens = options.maxBodyTokens || (isProjectSkillDir(dir) ? MAX_PROJECT_BODY_TOKENS : MAX_BODY_TOKENS);
+  if (tokens > maxTokens) warnings.push(`Body is ~${tokens} tokens (guideline: under ${maxTokens}); move detail into references/`);
   if (lines > MAX_BODY_LINES) warnings.push(`Body is ${lines} lines (guideline: under ${MAX_BODY_LINES})`);
+  warnings.push(...lintBody(dir, content));
 
   const contractFile = path.join(dir, 'gaw.json');
   let contract = {};

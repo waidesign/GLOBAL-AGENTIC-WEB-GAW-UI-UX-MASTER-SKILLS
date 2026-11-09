@@ -15,7 +15,9 @@ import { SkillRegistry } from '../skill-registry/SkillRegistry.js';
 import { SkillOrchestrator } from '../orchestrator/SkillOrchestrator.js';
 import { GraphifyManager } from '../graphify-manager/GraphifyManager.js';
 import { userBrainDir } from '../memory-engine/paths.js';
-import { GLOBAL_PREFERENCE_FILES } from './globalBrainLink.js';
+import { GLOBAL_PREFERENCE_FILES, SNAPSHOT_FILE, LEGACY_SNAPSHOT_FILE } from './globalBrainLink.js';
+import { BRAIN_JSON, DECISIONS_DIR, PROPOSED_MEMORY_DIR, PRECEDENCE, readBrainJson } from './brainLayout.js';
+import { readActiveTask } from './activeTask.js';
 import { trustLevel, describeTrust, needsCaution } from '../skill-registry/trust.js';
 
 export const CONTEXT_VERSION = 1;
@@ -213,14 +215,23 @@ function sectionText(markdown, headingRe) {
   return lines.slice(start + 1, end === -1 ? undefined : end).join('\n').trim();
 }
 
-const PLACEHOLDER_OVERVIEW = 'Add an overview of what the application does';
+/** Placeholder text of the goal section: layout 1 ("Product Overview") and layout 2 ("Project Goal"). */
+export const GOAL_PLACEHOLDERS = [
+  'Add an overview of what the application does, its target audience, and primary user flows.',
+  '_Not written yet: one or two sentences on what this project does and for whom._'
+];
 
 function readProjectGoal(projectDir) {
   const file = path.join(brainDir(projectDir), 'context.md');
   if (!fs.existsSync(file)) return null;
   const text = fs.readFileSync(file, 'utf8');
   const goal = sectionText(text, /project goal/i) || sectionText(text, /product overview/i);
-  return goal && !goal.startsWith(PLACEHOLDER_OVERVIEW) ? goal : null;
+  return goal && !GOAL_PLACEHOLDERS.some(p => goal.startsWith(p.slice(0, 30))) ? goal : null;
+}
+
+/** The first of these project-relative paths that exists, or null. */
+function existing(dir, ...relPaths) {
+  return relPaths.find(p => fs.existsSync(path.join(dir, p))) || null;
 }
 
 function readProjectRules(projectDir) {
@@ -252,6 +263,13 @@ export async function loadProjectContext(projectDir, options = {}) {
   if (overrides.length) {
     warnings.push(`These project files override your Global Brain here: ${overrides.map(f => `ai-brain/${f}`).join(', ')}. Run \`gaw update\` to remove unchanged copies.`);
   }
+  const brain = initialized ? readBrainJson(dir) : null;
+  if (initialized && !brain) warnings.push('ai-brain/ uses the old layout (no brain.json). Run `gaw update` to move to the current one; your edits are kept.');
+
+  // The current task counts only while active; a finished or stale one must not steer agents
+  const task = initialized ? readActiveTask(dir) : null;
+  const activeTask = task && task.status === 'active' ? task : null;
+  if (task && task.status !== 'active') warnings.push(`${task.file} has status "${task.status}": it is ignored. Run \`gaw task done\` to archive it.`);
 
   const graph = GraphifyManager.locateGraph(dir);
   const describe = (s) => ({
@@ -277,16 +295,23 @@ export async function loadProjectContext(projectDir, options = {}) {
       uiLibraries: info.uiLibraries
     },
     initialized,
+    layout: brain?.layout || (initialized ? 1 : null),
     goal: initialized ? readProjectGoal(dir) : null,
     rules: initialized ? readProjectRules(dir) : [],
+    commands: brain?.project?.commands || info.commands,
+    precedence: brain?.precedence || PRECEDENCE,
     files: {
+      brain: existing(dir, `ai-brain/${BRAIN_JSON}`),
       context: 'ai-brain/context.md',
       rules: 'ai-brain/rules.md',
-      skillCatalog: fs.existsSync(path.join(brainDir(dir), CATALOG_FILE)) ? `ai-brain/${CATALOG_FILE}` : null,
-      activeTaskSkills: fs.existsSync(path.join(brainDir(dir), 'active-skills.md')) ? 'ai-brain/active-skills.md' : null,
-      design: fs.existsSync(path.join(brainDir(dir), 'design.md')) ? 'ai-brain/design.md' : null,
-      globalBrainSummary: fs.existsSync(path.join(brainDir(dir), 'global-brain.md')) ? 'ai-brain/global-brain.md' : null
+      playbook: existing(dir, 'ai-brain/playbook.md'),
+      skillCatalog: existing(dir, `ai-brain/${CATALOG_FILE}`),
+      design: existing(dir, 'ai-brain/design.md'),
+      decisions: existing(dir, `ai-brain/${DECISIONS_DIR}`),
+      proposedMemory: existing(dir, `ai-brain/${PROPOSED_MEMORY_DIR}`),
+      globalBrainSummary: existing(dir, `ai-brain/${SNAPSHOT_FILE}`, `ai-brain/${LEGACY_SNAPSHOT_FILE}`)
     },
+    activeTask,
     skills: {
       selected: set.selected.map(describe),
       project: set.own.map(describe)

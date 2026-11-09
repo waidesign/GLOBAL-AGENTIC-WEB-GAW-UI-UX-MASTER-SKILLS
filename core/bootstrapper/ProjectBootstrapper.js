@@ -13,6 +13,13 @@ import {
   PROJECT_BRAIN_FILES, SNAPSHOT_FILE, writeGlobalBrainSnapshot, findLegacyPreferenceCopies
 } from '../project-context/globalBrainLink.js';
 import { DEFAULT_BRAIN_DIR } from '../memory-engine/paths.js';
+import {
+  BRAIN_JSON, TEMPLATE_DIRS, AUTO_DETECTED, projectFacts, autoSections, renderTemplateFile,
+  buildBrainJson, readBrainJson, ensureLocalDir
+} from '../project-context/brainLayout.js';
+import { buildDesignMd } from '../project-context/designExtractor.js';
+import { migrateLayout } from '../project-context/layoutMigration.js';
+import { refreshSections, sectionBody } from '../utils/markdownSections.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -67,81 +74,11 @@ export class ProjectBootstrapper {
     await this.memoryEngine.initGlobalBrain();
     report.steps.push({ step: 2, name: 'Connect Global Brain', status: 'Connected', path: this.memoryEngine.globalBrainDir });
 
-    // Step 4 & 5: Create Project Brain (`ai-brain/`)
-    const brainDir = path.join(dir, 'ai-brain');
-    const skillsDir = path.join(brainDir, 'skills');
-    const templatesDir = path.join(this.repoRoot, 'templates', 'ai-brain');
-
-    if (!dryRun) {
-      fs.mkdirSync(brainDir, { recursive: true });
-      fs.mkdirSync(skillsDir, { recursive: true });
-    }
-
-    const templateReplacements = {
-      '{{PROJECT_NAME}}': projectInfo.projectName,
-      '{{FRAMEWORK}}': projectInfo.framework,
-      '{{LANGUAGES}}': projectInfo.languages.join(', ') || 'not detected',
-      '{{PACKAGE_MANAGER}}': projectInfo.packageManager,
-      '{{UI_LIBRARIES}}': projectInfo.uiLibraries.join(', ') || 'none detected',
-      '{{BUILD_SYSTEM}}': projectInfo.buildSystem,
-      '{{DATE}}': new Date().toISOString().split('T')[0],
-      '{{REPO_ROOT}}': this.repoRoot
-    };
-
-    const renderTemplate = (content) => {
-      let result = content;
-      for (const [key, val] of Object.entries(templateReplacements)) {
-        result = result.replaceAll(key, String(val));
-      }
-      return result;
-    };
-
-    // Only project files: preferences stay in the user's Global Brain (~/.gaw/brain),
-    // so a stale copy can never override them
-    for (const filename of PROJECT_BRAIN_FILES) {
-      const p = path.join(brainDir, filename);
-      if (!fs.existsSync(p) || force) {
-        let content = '';
-        const templatePath = path.join(templatesDir, filename);
-        if (fs.existsSync(templatePath)) {
-          content = renderTemplate(fs.readFileSync(templatePath, 'utf8'));
-        } else {
-          content = `# ${filename}\nProject: ${projectInfo.projectName}\n`;
-        }
-        if (!dryRun) fs.writeFileSync(p, content, 'utf8');
-        report.created.push(`ai-brain/${filename}`);
-      } else {
-        report.skipped.push(`ai-brain/${filename} (exists)`);
-      }
-    }
-
-    // Starter project skills, in GAW Skill Standard folders: ai-brain/skills/<name>/SKILL.md + gaw.json
-    const templateSkillsDir = path.join(templatesDir, 'skills');
-    const starterSkills = fs.existsSync(templateSkillsDir)
-      ? fs.readdirSync(templateSkillsDir, { withFileTypes: true }).filter(e => e.isDirectory()).map(e => e.name)
-      : [];
-
-    for (const sname of starterSkills) {
-      const target = path.join(skillsDir, sname);
-      const legacyFile = path.join(skillsDir, `${sname}.md`); // created by older GAW versions
-      if (fs.existsSync(legacyFile) && !force) {
-        report.skipped.push(`ai-brain/skills/${sname}.md (exists)`);
-        continue;
-      }
-      if (fs.existsSync(path.join(target, 'SKILL.md')) && !force) {
-        report.skipped.push(`ai-brain/skills/${sname}/ (exists)`);
-        continue;
-      }
-      if (!dryRun) {
-        fs.mkdirSync(target, { recursive: true });
-        for (const file of fs.readdirSync(path.join(templateSkillsDir, sname))) {
-          const content = fs.readFileSync(path.join(templateSkillsDir, sname, file), 'utf8');
-          fs.writeFileSync(path.join(target, file), file.endsWith('.md') ? renderTemplate(content) : content, 'utf8');
-        }
-      }
-      report.created.push(`ai-brain/skills/${sname}/`);
-    }
-
+    // Step 4 & 5: Create Project Brain (`ai-brain/`). Only project files: preferences stay in
+    // the user's Global Brain (~/.gaw/brain), so a stale copy can never override them
+    const brainFiles = this.writeBrain(dir, projectInfo, { force, dryRun, starterSkills: true });
+    report.created.push(...brainFiles.created);
+    report.skipped.push(...brainFiles.skipped);
     report.steps.push({ step: 3, name: 'Create Project Brain', status: 'Completed', path: 'ai-brain/' });
 
     // Step 6: Build the Graphify code graph in graphify-out/ (optional)
@@ -214,6 +151,86 @@ export class ProjectBootstrapper {
     return report;
   }
 
+  /**
+   * Write the Project Brain (layout 2): template files, folder READMEs, design.md
+   * for UI projects, brain.json, local/ and, if asked, the starter skills.
+   * Existing files are kept unless `force`; brain.json is always refreshed.
+   * Returns { created: [], skipped: [] } as ai-brain/ relative paths.
+   */
+  writeBrain(dir, projectInfo, options = {}) {
+    const { force = false, dryRun = false, starterSkills = false } = options;
+    const brainDir = path.join(dir, 'ai-brain');
+    const skillsDir = path.join(brainDir, 'skills');
+    const templatesDir = path.join(this.repoRoot, 'templates', 'ai-brain');
+    const facts = projectFacts(projectInfo, dir);
+    const created = [];
+    const skipped = [];
+    const put = (rel, content) => {
+      rel = rel.replace(/\\/g, '/');
+      const target = path.join(brainDir, rel);
+      if (fs.existsSync(target) && !force) {
+        skipped.push(`ai-brain/${rel} (exists)`);
+        return;
+      }
+      if (!dryRun) {
+        fs.mkdirSync(path.dirname(target), { recursive: true });
+        fs.writeFileSync(target, content, 'utf8');
+      }
+      created.push(`ai-brain/${rel}`);
+    };
+
+    if (!dryRun) fs.mkdirSync(skillsDir, { recursive: true });
+
+    for (const file of PROJECT_BRAIN_FILES) put(file, renderTemplateFile(templatesDir, file, facts) ?? `# ${file}\n`);
+    for (const sub of TEMPLATE_DIRS) {
+      const readme = path.join(sub, 'README.md');
+      put(readme, renderTemplateFile(templatesDir, readme, facts) ?? `# ${sub}\n`);
+    }
+    if (facts.hasUi) put('design.md', buildDesignMd(dir, projectInfo.projectName));
+
+    // brain.json is GAW's own record: refreshed every time, keeping keys someone added
+    const existingBrain = readBrainJson(dir);
+    if (!dryRun) {
+      fs.writeFileSync(path.join(brainDir, BRAIN_JSON), `${JSON.stringify(buildBrainJson(facts, existingBrain || {}, this.version()), null, 2)}\n`, 'utf8');
+      ensureLocalDir(dir);
+    }
+    if (!existingBrain) created.push(`ai-brain/${BRAIN_JSON}`);
+
+    // Starter project skills, in GAW Skill Standard folders: ai-brain/skills/<name>/SKILL.md + gaw.json
+    const templateSkillsDir = path.join(templatesDir, 'skills');
+    const starters = starterSkills && fs.existsSync(templateSkillsDir)
+      ? fs.readdirSync(templateSkillsDir, { withFileTypes: true }).filter(e => e.isDirectory()).map(e => e.name)
+      : [];
+    for (const sname of starters) {
+      const target = path.join(skillsDir, sname);
+      if (fs.existsSync(path.join(skillsDir, `${sname}.md`)) && !force) { // single-file skill from older GAW versions
+        skipped.push(`ai-brain/skills/${sname}.md (exists)`);
+        continue;
+      }
+      if (fs.existsSync(path.join(target, 'SKILL.md')) && !force) {
+        skipped.push(`ai-brain/skills/${sname}/ (exists)`);
+        continue;
+      }
+      if (!dryRun) {
+        fs.mkdirSync(target, { recursive: true });
+        for (const file of fs.readdirSync(path.join(templateSkillsDir, sname))) {
+          fs.copyFileSync(path.join(templateSkillsDir, sname, file), path.join(target, file));
+        }
+      }
+      created.push(`ai-brain/skills/${sname}/`);
+    }
+    return { created, skipped };
+  }
+
+  /** GAW's version, from its package.json. */
+  version() {
+    try {
+      return JSON.parse(fs.readFileSync(path.join(this.repoRoot, 'package.json'), 'utf8')).version || '';
+    } catch {
+      return '';
+    }
+  }
+
   async start(targetDir = process.cwd()) {
     const dir = path.resolve(targetDir);
     const projectInfo = ProjectDetector.detect(dir);
@@ -263,36 +280,43 @@ export class ProjectBootstrapper {
     };
 
     if (fs.existsSync(brainDir)) {
-      const templateReplacements = {
-        '{{PROJECT_NAME}}': projectInfo.projectName,
-        '{{FRAMEWORK}}': projectInfo.framework,
-        '{{LANGUAGES}}': projectInfo.languages.join(', ') || 'not detected',
-        '{{PACKAGE_MANAGER}}': projectInfo.packageManager,
-        '{{UI_LIBRARIES}}': projectInfo.uiLibraries.join(', ') || 'none detected',
-        '{{BUILD_SYSTEM}}': projectInfo.buildSystem,
-        '{{DATE}}': new Date().toISOString().split('T')[0],
-        '{{REPO_ROOT}}': this.repoRoot
-      };
+      const facts = projectFacts(projectInfo, dir);
 
-      const renderTemplate = (content) => {
-        let res = content;
-        for (const [key, val] of Object.entries(templateReplacements)) {
-          res = res.replaceAll(key, String(val));
+      // Layout 1 → 2 (no brain.json yet): archive old task files, replace untouched templates
+      if (!readBrainJson(dir)) {
+        result.migration = migrateLayout(dir, {
+          templatesDir,
+          legacyDir: path.join(this.repoRoot, 'templates', 'legacy-project-brain', 'layout-v1'),
+          facts
+        });
+      }
+
+      // Missing files are added (and, when migrating, the new starter skills); existing ones are kept
+      const brainFiles = this.writeBrain(dir, projectInfo, { starterSkills: Boolean(result.migration) });
+      result.addedBrainFiles.push(...brainFiles.created);
+      result.preservedBrainFiles.push(...brainFiles.skipped.map(s => s.replace(/ \(exists\)$/, '')));
+
+      // Refresh the "(auto-detected)" sections; sections marked "(confirmed)" or renamed are left alone
+      result.refreshedSections = [];
+      const contextFile = path.join(brainDir, 'context.md');
+      if (fs.existsSync(contextFile)) {
+        const { content, changed } = refreshSections(fs.readFileSync(contextFile, 'utf8'), autoSections(facts));
+        if (changed.length) {
+          fs.writeFileSync(contextFile, content, 'utf8');
+          result.refreshedSections.push(...changed.map(h => `context.md ${h.replace(/^## /, '')}`));
         }
-        return res;
-      };
-
-      for (const filename of PROJECT_BRAIN_FILES) {
-        const dest = path.join(brainDir, filename);
-        if (!fs.existsSync(dest)) {
-          const tmplPath = path.join(templatesDir, filename);
-          if (fs.existsSync(tmplPath)) {
-            const content = renderTemplate(fs.readFileSync(tmplPath, 'utf8'));
-            fs.writeFileSync(dest, content, 'utf8');
-            result.addedBrainFiles.push(`ai-brain/${filename}`);
-          }
-        } else {
-          result.preservedBrainFiles.push(`ai-brain/${filename}`);
+      }
+      const designFile = path.join(brainDir, 'design.md');
+      if (fs.existsSync(designFile) && facts.hasUi) {
+        const generated = buildDesignMd(dir, projectInfo.projectName);
+        const sections = {};
+        for (const line of generated.split('\n').filter(l => l.startsWith('## ') && l.endsWith(AUTO_DETECTED))) {
+          sections[line] = sectionBody(generated, line);
+        }
+        const { content, changed } = refreshSections(fs.readFileSync(designFile, 'utf8'), sections);
+        if (changed.length) {
+          fs.writeFileSync(designFile, content, 'utf8');
+          result.refreshedSections.push(...changed.map(h => `design.md ${h.replace(/^## /, '')}`));
         }
       }
 

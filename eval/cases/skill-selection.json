@@ -3,7 +3,7 @@
   "cases": [
     { "id": "ui-pricing-toggle", "domain": "ui", "task": "Design a SaaS pricing page with a monthly and yearly billing toggle", "relevant": ["pricing-page", "landing-page", "micro-interactions-system", "frontend-design", "baseline-ui", "tailwindcss"] },
     { "id": "ui-landing", "domain": "ui", "task": "High-converting landing page for a productivity app", "relevant": ["landing-page", "frontend-design", "baseline-ui", "improve-ui", "taste-skill"] },
-    { "id": "ui-design-system", "domain": "ui", "task": "Build a design system with tokens and primitives", "relevant": ["build-design-system", "design-system-boss", "migrate-to-a-design-system", "better-colors", "better-typography", "oklch-skill"] },
+    { "id": "ui-design-system", "domain": "ui", "task": "Build a design system with tokens and primitives", "relevant": ["design-system-boss", "migrate-to-a-design-system", "better-colors", "better-typography", "oklch-skill"] },
     { "id": "ui-a11y-fix", "domain": "ui", "task": "Fix accessibility issues: keyboard navigation and ARIA labels", "relevant": ["fixing-accessibility", "web-design-guidelines", "rams", "baseline-ui"] },
     { "id": "ui-react-transitions", "domain": "ui", "task": "Smooth page transitions in a React app", "relevant": ["react-view-transitions", "motion-dev", "animation-systems", "improve-animations"] },
     { "id": "ui-scroll-reveal", "domain": "ui", "task": "Scroll-triggered text reveal animation for headings", "relevant": ["masked-reveal", "animation-on-scroll", "animation-systems", "improve-animations", "motion-dev"] },

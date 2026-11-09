@@ -62,6 +62,10 @@ metadata:
 
 - Plain Markdown instructions for the agent.
 - Keep it under **~5,000 tokens and 500 lines** (Agent Skills guidance). Move long reference material into `references/` and link it with a relative path, one level deep.
+- **Project skills** (`ai-brain/skills/`) stay under **~500 tokens**: they are opened often, so details go in `references/`.
+- One `#` title. Refer to other skills by name (`motion-dev` skill), not by relative path: skills move between libraries and projects.
+- Every file the body mentions (`references/…`, `scripts/…`, `assets/…`) ships in the skill's folder.
+- Plain characters, not LaTeX: write `≤`, not `$\le$`.
 - GAW loads the body only when a task needs the skill. When a body doesn't fit the user's token budget, agents get the description and the file path instead.
 
 ## 4. `gaw.json`: the skill contract (optional)
@@ -106,6 +110,9 @@ Structured data that helps GAW choose skills well and helps agents use them. Eve
 | `verification` | string[] | Checks that confirm the skill's output is correct. |
 | `permissions` | string[] | What the skill may do beyond writing text: `shell`, `network`, `filesystem`, `secrets`. Empty means instructions only. `gaw skills add` sets `shell` automatically for skills with hooks, pre-approved shell tools, or scripts. |
 | `lastVerified` | string | Date (`YYYY-MM-DD`) the skill was last checked. |
+| `verifiedAgainst` | string[] | Library versions the instructions were checked against, e.g. `["animejs@4.5.0"]`. Shows when version-specific advice may be stale. |
+| `packages` | string[] | Packages the skill is written for (npm, PyPI, crates…), e.g. `["motion", "framer-motion"]`. GAW checks them against the project's dependencies. |
+| `exclusiveGroup` | string | Skills in the same group do the same job (e.g. `animation-library`). GAW loads one per task: the one whose `packages` the project already has; the others are reported as left out, with the reason. Named explicitly, all are kept with a conflict note. |
 | `source` | object | Where an imported skill came from, and its license check: `licenseVerified`, `licenseStatus` (`open`, `copyleft`, `restricted`, `unknown`), `licenseEvidence`, `licenseUrl`, `licenseCheckedAt`. |
 | `extraFrontmatter` | object | Frontmatter fields from the original skill that Agent Skills doesn't allow at the top level, kept so nothing is lost. |
 | `domains` | string[] | Fields the skill serves (see Ranking → Domains). |
@@ -223,7 +230,7 @@ gaw skills lint <folder>   # one skill
 
 **Errors** (must fix): missing or invalid `name`/`description`, `name` not matching the folder, unknown top-level frontmatter fields, non-string `metadata` values, `compatibility` over 500 chars, invalid `gaw.json`, `dependsOn` pointing to unknown skills.
 
-**Warnings** (should fix): body over ~5,000 tokens or 500 lines, placeholder descriptions, `source.licenseVerified: false`.
+**Warnings** (should fix): body over ~5,000 tokens (~500 for project skills) or 500 lines, placeholder descriptions, `source.licenseVerified: false`, relative links to files that don't exist, mentions of `references/`, `scripts/` or `assets/` files the skill doesn't include, more than one `#` heading, LaTeX math such as `$\le$`. Code blocks are not checked, so examples can show any path.
 
 ## 10. Index
 

@@ -1,0 +1,8 @@
+{
+  "gss": 1,
+  "summary": "Everyday security: no secrets in code or logs, validate input, check auth server-side, ask before adding dependencies.",
+  "keywords": ["security", "secrets", "api key", "authentication", "authorization", "dependency", "injection"],
+  "whenToUse": ["Handling credentials, user input, authentication, file or network access, or adding a dependency."],
+  "verification": ["No secrets in the diff.", "New inputs are validated and new endpoints check auth."],
+  "lastVerified": "2026-11-09"
+}

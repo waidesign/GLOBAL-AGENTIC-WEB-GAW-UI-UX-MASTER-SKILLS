@@ -11,10 +11,12 @@ Options:
 - `--install-graphify`: Install the optional Graphify CLI (and uv if needed) without asking.
 - `--no-graphify`: Skip the Graphify question and the code map.
 
-In a terminal, `gaw init` runs a short onboarding (Enter skips any question):
-1. What are you building? → `ai-brain/context.md`
-2. Suggested skills that closely match the goal (all, some by number, or none) → `ai-brain/active-skills.md`
-3. Rules your AI agents must always follow → `ai-brain/rules.md`
+`gaw init` creates `ai-brain/` (README, brain.json, context, rules, playbook, design.md for UI projects, decisions/, memory/proposed/, five starter skills, and the git-ignored local/). Commands, stack, folder map and design values are filled in from the project's files.
+
+In a terminal, `gaw init` then runs a short onboarding (Enter skips any question):
+1. What are you building? → `ai-brain/context.md` (Project Goal)
+2. Suggested skills that closely match the goal (all, some by number, or none) → `ai-brain/skills.lock.json` + `ai-brain/project-skills.md`
+3. Rules your AI agents must always follow → `ai-brain/rules.md` (Project-Specific Rules)
 4. Graphify code map (only when Graphify is not installed)
 
 `--yes` (or `--non-interactive`) skips onboarding; Graphify is then skipped unless you pass `--install-graphify`.
@@ -49,12 +51,28 @@ gaw recommend "Build a checkout form with payment validation"
 # Progressively load full instructions for execution (stdout)
 gaw use "Build a checkout form with payment validation"
 
-# Automatically inject instructions into ai-brain/active-skills.md (no copy-pasting required!)
+# Write the task to ai-brain/local/active-task.md: which skill files to open and why,
+# what was left out and why, constraints and acceptance criteria (a few hundred tokens)
 gaw use "Build a checkout form with payment validation" --inject
+
+# Same, with the full skill text embedded (larger)
+gaw use "Build a checkout form with payment validation" --inject --full
 
 # Copy full instructions directly to OS clipboard
 gaw use "Build a checkout form with payment validation" --copy
+
+# Show the active task; archive it when finished (agents then ignore it)
+gaw task
+gaw task done
 ```
+
+Skills that do the same job (gaw.json `exclusiveGroup`, e.g. animation libraries) are not loaded together: the one whose package is in the project's dependencies is used, and the others are listed under "Left out" with the reason.
+
+## Keeping a project current
+```bash
+gaw update
+```
+Refreshes the `(auto-detected)` sections of `context.md` and `design.md`, `brain.json`, agent instruction files and the skill catalog. Moves projects from the old layout (identity.md, project-history.md, active-skills.md) to the current one, keeping everything a person edited.
 
 ## Real-World Design Presets (GradientDeck Integration)
 ```bash
@@ -68,7 +86,7 @@ gaw designs --theme dark
 # Inspect preset palette, typography & archetype
 gaw design railway
 
-# Apply design preset directly to ai-brain/design.md
+# Replace ai-brain/design.md with a preset (it otherwise holds the values found in your stylesheets)
 gaw design railway --apply
 
 # Open live inspiration website in browser

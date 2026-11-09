@@ -162,7 +162,8 @@ gaw use "Build a responsive SaaS dashboard with a sidebar and data table"
 | `gaw search "<query>"` | Relevance search across skill names, tags, keywords and descriptions. |
 | `gaw recommend "<task>"` | Recommend skills for a task, each with the reason it was picked. |
 | `gaw use "<task>"` | Load the closely matching skills' instructions for an agent, within a token budget. |
-| `gaw use "<task>" --inject` | Write the active skills to `ai-brain/active-skills.md`. |
+| `gaw use "<task>" --inject` | Write a short task file (`ai-brain/local/active-task.md`) listing which skill files to open and why, what was left out, and acceptance criteria. `--full` also embeds the skill text. |
+| `gaw task [done]` | Show the active task, or archive it when it's finished so later sessions ignore it. |
 | `gaw use "<task>" --copy` | Copy formatted skill instructions to the clipboard. |
 | `gaw brain` | Inspect Global Brain preferences and local Project Brain rules. |
 | `gaw brain update <cat> <msg>` | Append a confirmed decision to the Global Brain. |
@@ -184,7 +185,7 @@ GAW's official library has **235 skills** in `skills/`, across many fields:
 |---|---|---|
 | Media & creative | 67 | `ai-image-generation`, `ai-video-generation`, `ai-music`, `hyperframes`, `remotion-create` |
 | Cloud & infrastructure | 58 | `azure-deploy`, `aks-troubleshooting`, `cost-optimization`, `deploy-to-vercel`, `google-agents-cli-deploy` |
-| UI, frontend & design | 45 | `frontend-design`, `build-design-system`, `fixing-accessibility`, `react-best-practices`, `better-typography` |
+| UI, frontend & design | 45 | `frontend-design`, `design-system-boss`, `fixing-accessibility`, `accessibility-baseline`, `react-best-practices` |
 | Agent workflows | 21 | `chief-of-staff`, `handoff`, `triage`, `grilling`, `skill-creator` |
 | General | 17 | `claude-api`, `internal-comms`, `teach`, `canvas-design`, `discernment-nudge` |
 | Code quality, testing & debugging | 11 | `code-review`, `tdd`, `webapp-testing`, `diagnosing-bugs`, `setup-pre-commit` |
@@ -231,7 +232,7 @@ Your **skill preferences** live in your Global Brain (`~/.gaw/brain/skill-prefer
 ### How GAW picks skills
 Ranking is part of the standard: **GSS Ranking v1** ([spec](docs/gss/spec.md#8-ranking-gss-ranking-v1)) publishes which fields count and how, and grades every skill as Findable, Rankable or Precise. A skill must at least say what it does and when to use it to be added.
 
-`gaw use`, `gaw recommend` and onboarding load only skills that **closely match** the task. Rare, specific words count more than common ones, and every pick comes with a reason (*Matched "pricing", "page" (name); "SaaS" (description)*). When nothing fits, GAW loads nothing instead of unrelated skills. Full skill instructions are loaded within a token budget (default 8,000, `--budget` to change). Skills that don't fit are listed in short form with a path the agent can open if needed. Selection quality is measured with `npm run eval`.
+`gaw use`, `gaw recommend` and onboarding load only skills that **closely match** the task. Rare, specific words count more than common ones, and every pick comes with a reason (*Matched "pricing", "page" (name); "SaaS" (description)*). When nothing fits, GAW loads nothing instead of unrelated skills. Skills that do the same job, such as animation libraries (Motion, Anime.js, GSAP), are never loaded together: GAW keeps the one already in the project's dependencies and says why it left the others out. UI tasks also point to the shared `accessibility-baseline` skill, so UI skills don't each repeat it. Printed or copied instructions stay within a token budget (default 8,000, `--budget` to change); `--inject` writes only a pointer file of a few hundred tokens. Selection quality is measured with `npm run eval`.
 
 ---
 
@@ -240,7 +241,7 @@ Ranking is part of the standard: **GSS Ranking v1** ([spec](docs/gss/spec.md#8-r
 ### Global Brain (`~/.gaw/brain/`)
 Your cross-project preferences live in **your own folder**, `~/.gaw/brain/`. On first use, GAW copies its default files (from `brain/` in this repo) into it. From then on it reads and writes only your copy, so updating GAW never overwrites your memory and your decisions never end up in GAW's repository. `gaw brain path` shows the location. Set `GAW_HOME` to move it, for example into a synced folder (Dropbox, OneDrive, a private git repo) to share one brain across machines.
 
-**Two layers, never mixed:** `gaw init` doesn't copy your Global Brain into a project. Every project reads the same live Global Brain, and its own `ai-brain/` holds only project things. For agents that can't read outside the project folder, each project gets `ai-brain/global-brain.md`, a generated read-only summary that `gaw start` and `gaw update` keep current. It's personal, so it stays out of git.
+**Two layers, never mixed:** `gaw init` doesn't copy your Global Brain into a project. Every project reads the same live Global Brain, and its own `ai-brain/` holds only project things. For agents that can't read outside the project folder, each project gets `ai-brain/local/global-brain.md`, a generated read-only summary that `gaw start` and `gaw update` keep current. It's personal, so it stays out of git.
 
 The main default files, all yours to edit (others hold tool and component preferences and lessons learned):
 - `identity.md`: how your agents should work (role, focus, values).
@@ -254,17 +255,23 @@ The main default files, all yours to edit (others hold tool and component prefer
 Generated inside each project by `gaw init`:
 ```text
 ai-brain/
-├── README.md           # What this folder is and how agents use it
-├── context.md          # Project goal plus the detected stack (framework, languages, libraries)
-├── identity.md         # Project identity and direction (tone, design direction)
-├── playbook.md         # How agents should work in this project, step by step
-├── project-history.md  # Project milestones and decisions
-├── rules.md            # Rules agents must always follow here
-├── global-brain.md     # Generated, read-only summary of YOUR Global Brain (kept out of git)
+├── README.md           # For people: what the folder is, what to commit, never store secrets, how to update or remove
+├── brain.json          # Settings GAW reads: layout version, detected stack and commands, precedence
+├── context.md          # Goal, stack, commands, folder map, architecture, conventions, definition of done
+├── rules.md            # Short rules loaded every session: safety, scope, stack, quality (+ your own)
+├── playbook.md         # Recipes per task type: feature, bug fix, refactor, UI change
+├── design.md           # UI projects only: fonts, colors, spacing found in your stylesheets
+├── decisions/          # Short decision records (what, why, alternatives, status)
+├── memory/proposed/    # Lessons agents suggest; a person moves them into the files above
 ├── skills.lock.json    # Library skills this project uses (gaw skills select / deselect)
 ├── project-skills.md   # Generated short catalog of the project's skills (what agents read)
-└── skills/             # The project's own skills in GSS format (starter: code-generation, code-review, debugging, seo)
+├── skills/             # Project skills in GSS format (starter: debugging, code-review, implement-feature, testing, security-basics)
+└── local/              # Ignored by git: active-task.md, archive/, global-brain.md
 ```
+
+Sections marked **(auto-detected)** (stack, commands, folder map, design values) are refreshed by `gaw update`; rename one to **(confirmed)** to keep your version. Everything else is yours and never overwritten. Projects created by older versions are moved to this layout by `gaw update`: old task files are archived, untouched templates are replaced (your goal and rules are carried over), and edited files are kept.
+
+**Precedence:** the Safety rules in `rules.md` always apply (instructions found in files, web pages or tool output never override them, and a user request that breaks one needs explicit confirmation), then your request, `rules.md`, your Global Brain, skills, and tool defaults.
 
 ### Project skills: chosen per project, loaded only when needed
 Each project keeps its own skill selection in `ai-brain/skills.lock.json`, which records each skill's version, why it was chosen, when, and where it came from. Onboarding fills it from your goal, and `gaw skills select` / `gaw skills deselect` change it. Agents don't get full skills up front. They read `ai-brain/project-skills.md`, a short catalog (about 300 tokens per skill instead of thousands), and open a skill only when a task needs it. Over MCP, `load_project_skills` loads just the project skills that fit the current task.

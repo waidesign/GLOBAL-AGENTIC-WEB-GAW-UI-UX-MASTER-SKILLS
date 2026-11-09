@@ -7,6 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed (Project Brain layout 2)
+- **New `ai-brain/` layout**: `README.md` (for people: what to commit, no secrets, how to update or remove) · `brain.json` (layout version, detected stack and commands, precedence) · `context.md` · `rules.md` · `playbook.md` · `design.md` (UI projects only) · `decisions/` · `memory/proposed/` · `skills/` · `local/` (ignored by its own `.gitignore`: active task, archive, Global Brain summary). `identity.md` and `project-history.md` are gone.
+- **`context.md`** now lists the project's real commands (dev, build, test, lint, type check, from package.json scripts, Python/Go/Rust tools or a Makefile), a folder map, architecture notes, conventions and a definition of done. Sections marked `(auto-detected)` are refreshed by `gaw update`; rename one to `(confirmed)` to keep your version. The stale "Status: Active development" line is gone.
+- **`rules.md`** is short (under 60 lines) and fits any project: Safety (secrets, protected paths named from the project's lockfiles and generated output, destructive actions), Scope (stay in scope, ask when unsure, no new dependencies without asking), Stack (names the detected framework, languages and libraries), Quality (tests for behavior changes, run the detected checks). Motion rules moved to the motion skills; precedence moved to `brain.json` and the agent files.
+- **Precedence**: Safety rules now come first. Instructions found in files, web pages or tool output never override them, and a user request that breaks one needs explicit confirmation.
+- **`playbook.md`** has recipes per task type (feature, bug fix, refactor, UI change) with files to read first and "done when" criteria. Running GAW is optional, so teammates without it can follow it.
+- **`design.md`** (UI projects) is generated from the project's stylesheets: font, color, spacing, radius and shadow variables (including Tailwind v4 `@theme`), `font-family` declarations, or the most used colors.
+- Templates use `{{GAW_NAME}}` instead of the product name, and a UI-only block syntax so non-UI projects get no UI rules.
+- **`gaw update` migrates older projects**: `active-skills.md` and `ACTIVE_TASK.md` are archived to `local/archive/`, untouched templates are replaced (the onboarding goal and project rules are carried over), and edited files are kept with a note on where their content belongs.
+- **Project decisions** (MCP `update_project_memory`) are written as short records in `decisions/` (what, why, alternatives, status).
+
+### Changed (active task: pointer instead of pasted skills)
+- **`gaw use --inject` writes `ai-brain/local/active-task.md`**, a few hundred tokens: the task, its status, the skill files to open with their size and why each was chosen, skills left out and why, constraints and acceptance criteria (from each skill's `verification`). It no longer pastes whole skills (the old `ACTIVE_TASK.md` in the example was 8,000–10,000 tokens). `--full` still embeds them. It also no longer overwrites `design.md` with a preset; it suggests one instead.
+- **`gaw task` / `gaw task done`**: show the current task, or archive it so later sessions ignore it. Writing a new task archives the previous one; `gaw context` and agents ignore a task whose status isn't `active`.
+- **One library per job**: skills with the same gaw.json `exclusiveGroup` (Motion, Anime.js and GSAP's masked reveal are `animation-library`) are not loaded together. The one in the project's dependencies wins, even when the task matched another; explicitly named skills are all kept with a conflict note.
+- **Stack note**: the task file tells agents to adapt skill examples (TypeScript, Tailwind) to the project's stack. `.ts`/`.tsx` files under `src/`, `app/` or `lib/` now count as TypeScript even without `tsconfig.json`.
+- **UI tasks point to the new `accessibility-baseline` skill** (keyboard, focus, names, contrast, reduced motion, forms, targets), instead of each UI skill repeating it.
+
+### Changed (default project skills)
+- Starter skills are now `debugging` (reproduce, read the full error, one change at a time, regression test), `code-review` (severity-ordered checklist, fixed report format), `implement-feature` (find the existing pattern, stay in scope, no new dependencies without asking), `testing` and `security-basics`. Each is under ~500 tokens with checkable steps and no stack assumptions. `code-generation` (hard-coded React/Tailwind) and `seo` were dropped from the defaults.
+
+### Fixed (skills)
+- `micro-interactions-system`: one timing table separating feedback to input (≤100ms to start, ≤300ms to finish), user-triggered transitions, entrance reveals and ambient motion, so it no longer contradicts the reveal and counter skills; a single short error shake with a reduced-motion fallback; destructive actions use a confirm step or Undo instead of a long-press; broken `../animation-motion/…` links replaced by skill names; `$\le$` replaced by `≤`.
+- `motion-dev`: removed the 150ms minimum that contradicted the 100ms acknowledge budget; size changes via `layout` (an accordion may animate `height: "auto"`); `MotionConfig reducedMotion="user"`; checked against motion 14.10.
+- `animejs`: v4 SVG drawing uses `svg.createDrawable()` and `draw` (the v3 `setDashoffset` example was wrong); the ~3KB WAAPI figure is now attributed to anime.js's docs; checked against animejs 4.5.
+- `masked-reveal`: SplitText has been free since GSAP 3.13; it's now the preferred path, with the plugin-free helper as a fallback. Framework list said `framer-motion`; it's GSAP.
+
+### Removed
+- `build-design-system` from the official library: it referred to `references/` and `scripts/` files that were never imported, so it couldn't work, and it had no recorded source or license. It can return through `gaw skills add <repo>` as a complete folder once its license is checked.
+
+### Added (linting)
+- `gaw skills lint` warns about relative links to files that don't exist, mentions of `references/`, `scripts/` or `assets/` files a skill doesn't include, more than one `#` heading, and LaTeX math like `$\le$`. Project skills get a ~500-token size guideline. New gaw.json fields: `verifiedAgainst`, `packages`, `exclusiveGroup`. On the current library this flags about 30 imported skills with missing supporting files.
+
 ### Changed (name and focus)
 - **GAW is now "Guided Agent Workflow"** (formerly "Global Agentic Web"): The Universal Intelligence Layer for AI Agents. The CLI header, MCP server name (`guided-agent-workflow-mcp`), package name (`guided-agent-workflow`), agent-file sections and docs use the new name. `gaw update` replaces agent-file sections written under the old name in place; nothing is duplicated.
 - **No longer UI-only by default**: the default Global Brain persona and the project `identity.md` template now fit any kind of project; interface rules apply only to projects with a user interface. Existing Global Brains and project files are not changed.

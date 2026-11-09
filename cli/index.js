@@ -14,6 +14,8 @@ import { selectSkills, deselectSkills, writeCatalog, loadProjectContext, shareSk
 import { trustLevel, describeTrust, TRUST_LEVELS } from '../core/skill-registry/trust.js';
 import { updateSkillPreferences } from '../core/skill-registry/preferences.js';
 import { writeGlobalBrainSnapshot, SNAPSHOT_FILE } from '../core/project-context/globalBrainLink.js';
+import { writeActiveTask, readActiveTask, archiveActiveTask } from '../core/project-context/activeTask.js';
+import { ACTIVE_TASK_FILE } from '../core/project-context/brainLayout.js';
 import { listDrafts, approveDrafts, rejectDrafts } from '../core/skill-registry/drafts.js';
 import { SkillDiscovery } from '../core/skill-discovery/SkillDiscovery.js';
 import { SkillOrchestrator } from '../core/orchestrator/SkillOrchestrator.js';
@@ -28,6 +30,7 @@ import { ensureGraphify, askYesNo, askTyped } from './graphify-setup.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const ACTIVE_TASK_LABEL = `ai-brain/${ACTIVE_TASK_FILE}`;
 const REPO_ROOT = path.resolve(__dirname, '../');
 
 export class GawCli {
@@ -91,6 +94,9 @@ export class GawCli {
           break;
         case 'use':
           await this.cmdUse(args.slice(1));
+          break;
+        case 'task':
+          await this.cmdTask(args.slice(1));
           break;
         case 'brain':
           await this.cmdBrain(args.slice(1));
@@ -791,6 +797,9 @@ export class GawCli {
     console.log(`Goal:           ${ctx.goal || '(none yet)'}`);
     console.log(`Rules:          ${ctx.rules.length ? '' : '(none yet)'}`);
     for (const r of ctx.rules) console.log(`  - ${r}`);
+    const commands = Object.entries(ctx.commands || {}).filter(([, c]) => c);
+    console.log(`Commands:       ${commands.length ? commands.map(([k, c]) => `${k}: ${c}`).join(' · ') : '(none detected)'}`);
+    console.log(`Active task:    ${ctx.activeTask ? `${ctx.activeTask.task} (${ctx.activeTask.file})` : '(none)'}`);
     console.log(`Skills:         ${ctx.skills.selected.length} selected, ${ctx.skills.project.length} project skill(s)`);
     for (const s of [...ctx.skills.selected, ...ctx.skills.project]) console.log(`  • ${s.id}${s.tokens ? ` (~${s.tokens} tokens, loaded only when needed)` : ''}`);
     console.log(`Code graph:     ${ctx.graph.available ? ctx.graph.json : 'not built (gaw graph)'}`);
@@ -1053,6 +1062,7 @@ export class GawCli {
   async cmdUse(args) {
     const isInject = args.includes('--inject') || args.includes('--save') || args.includes('-i');
     const isCopy = args.includes('--copy') || args.includes('-c');
+    const isFull = args.includes('--full');
 
     // --budget <tokens>: how much skill content to load in full (default 8000)
     const budgetIdx = args.indexOf('--budget');
@@ -1063,63 +1073,60 @@ export class GawCli {
     }
 
     const cleanArgs = args.filter((a, i) =>
-      !['--inject', '--save', '-i', '--copy', '-c', '--budget'].includes(a) && !(budgetIdx !== -1 && i === budgetIdx + 1));
+      !['--inject', '--save', '-i', '--copy', '-c', '--budget', '--full'].includes(a) && !(budgetIdx !== -1 && i === budgetIdx + 1));
     const prompt = cleanArgs.join(' ').trim();
 
     if (!prompt) {
-      console.log(`Please provide a task prompt or skill list: gaw use "<task description>" [--inject] [--copy] [--budget <tokens>]`);
+      console.log(`Please provide a task prompt or skill list: gaw use "<task description>" [--inject [--full]] [--copy] [--budget <tokens>]`);
       return;
     }
 
-    const projectInfo = ProjectDetector.detect(process.cwd());
+    const projectDir = process.cwd();
+    const projectInfo = ProjectDetector.detect(projectDir);
     const loaded = await this.orchestrator.loadSkillsForTask(prompt, projectInfo, { tokenBudget });
 
     if (isInject && loaded.selectedSkillCount === 0) {
       this.printHeader();
-      console.log(`No skills in the library closely match this task, so ai-brain/active-skills.md was left unchanged.`);
+      console.log(`No skills in the library closely match this task, so ${ACTIVE_TASK_LABEL} was left unchanged.`);
       console.log(`Try different words, browse with 'gaw skills', or name skills directly: gaw use "<skill-id>, <skill-id>" --inject\n`);
       return;
     }
 
     if (isInject) {
       this.printHeader();
-      const brainDir = path.join(process.cwd(), 'ai-brain');
-      if (!fs.existsSync(brainDir)) {
-        fs.mkdirSync(brainDir, { recursive: true });
-      }
-      const activeSkillsPath = path.join(brainDir, 'active-skills.md');
-      fs.writeFileSync(activeSkillsPath, loaded.formattedInstructions, 'utf8');
+      // A small pointer (which skill files to open and why), not the skill text: agents open
+      // each skill only when they reach that part of the task. --full also embeds the bodies.
+      let content = this.orchestrator.formatTaskPointer(loaded, { projectInfo, projectDir });
+      if (isFull) content += `\n## Full skill instructions (--full)\n\n${loaded.formattedInstructions.replace(/^# .*\n+/, '')}`;
+      const { file, archived } = writeActiveTask(projectDir, content);
+      const tokens = Math.round(content.length / 4);
 
-      console.log(`✅ Injected ${loaded.selectedSkillCount} specialized skill(s) directly into:`);
-      console.log(`   📄 ${path.relative(process.cwd(), activeSkillsPath)}\n`);
+      console.log(`✅ Wrote the active task (~${tokens} tokens${isFull ? ', with full skill text' : ''}) to:`);
+      console.log(`   📄 ${file}`);
+      if (archived) console.log(`   (the previous task was archived to ${archived})`);
 
-      console.log(`🎯 Active Skills Loaded (budget ~${loaded.tokenBudget} tokens):`);
+      console.log(`\n🎯 Skills for this task (agents open each file only when needed):`);
       for (const s of loaded.skills) {
-        const mode = s.mode === 'summary' ? ` — short form (full skill ~${s.fullTokens} tokens, read on demand)` : '';
-        console.log(`  ★ \x1b[1m${s.name}\x1b[0m (${s.id}) — [${s.category}] ${this.skillTags(this.registry.skills.get(s.id) || s)}${mode}`);
+        console.log(`  ★ \x1b[1m${s.name}\x1b[0m (${s.id}) — ~${s.fullTokens} tokens — [${s.category}] ${this.skillTags(this.registry.skills.get(s.id) || s)}`);
         console.log(`    Why: ${s.reason}`);
         if (s.caution) console.log(`    ⚠ Can run commands and is not reviewed by GAW: check commands from it before running them.`);
       }
+      if (loaded.baseline) console.log(`  + ${loaded.baseline.name} (${loaded.baseline.id}) for every UI change`);
 
-      if (loaded.conflictResolutions && loaded.conflictResolutions.length > 0) {
-        console.log(`\n⚠️ Active Conflict Resolutions:`);
-        for (const conf of loaded.conflictResolutions) {
-          console.log(`  ! [${conf.skills.join(' ↔ ')}]: ${conf.resolution}`);
-        }
+      if (loaded.excludedSkills?.length) {
+        console.log(`\n↷ Left out:`);
+        for (const e of loaded.excludedSkills) console.log(`  - ${e.id}: ${e.reason}`);
       }
-
+      if (loaded.conflictResolutions?.length) {
+        console.log(`\n⚠️ Conflicts:`);
+        for (const conf of loaded.conflictResolutions) console.log(`  ! [${conf.skills.join(' ↔ ')}]: ${conf.resolution}`);
+      }
       if (loaded.recommendedDesignPreset) {
-        const designPath = path.join(brainDir, 'design.md');
-        fs.writeFileSync(designPath, loaded.recommendedDesignPreset.content, 'utf8');
-        console.log(`\n🎨 Injected Design Preset [${loaded.recommendedDesignPreset.name}] directly into:`);
-        console.log(`   📄 ${path.relative(process.cwd(), designPath)}`);
-        if (loaded.recommendedDesignPreset.liveUrl) {
-          console.log(`   🌐 Live Inspiration: ${loaded.recommendedDesignPreset.liveUrl} (Ctrl + Click)`);
-        }
+        const p = loaded.recommendedDesignPreset;
+        console.log(`\n🎨 Reference design (optional): ${p.name}. Inspect with 'gaw design ${p.id}'; 'gaw design ${p.id} --apply' replaces ai-brain/design.md.`);
       }
 
-      console.log(`\n👉 Your AI coding agent (Antigravity, Cursor, Claude Code, Codex)`);
-      console.log(`   will now automatically read and apply these constraints from ai-brain/active-skills.md!\n`);
+      console.log(`\n👉 Agents read ${file} while its Status is active. When the task is finished: gaw task done\n`);
       return;
     }
 
@@ -1135,7 +1142,28 @@ export class GawCli {
     }
 
     console.log(loaded.formattedInstructions);
-    console.log(`\n💡 Tip: Run with --inject (or --save) to write directly to ai-brain/active-skills.md without copy-pasting!`);
+    console.log(`\n💡 Tip: --inject writes a short task file (${ACTIVE_TASK_LABEL}) that tells agents which skills to open, instead of pasting them.`);
+  }
+
+  /** gaw task [done]: show the active task, or archive it when finished. */
+  async cmdTask(args) {
+    const projectDir = process.cwd();
+    const sub = args[0];
+    if (sub === 'done' || sub === 'archive') {
+      const archived = archiveActiveTask(projectDir, 'done');
+      console.log(archived ? `✅ Task archived to ${archived}. Agents no longer read it.` : `No active task (${ACTIVE_TASK_LABEL} doesn't exist).`);
+      return;
+    }
+    const task = readActiveTask(projectDir);
+    if (!task) {
+      console.log(`No active task. Start one with: gaw use "<task>" --inject`);
+      return;
+    }
+    console.log(`Task:    ${task.task}`);
+    console.log(`Status:  ${task.status}${task.status === 'active' ? '' : ' (agents ignore it)'}`);
+    console.log(`Started: ${task.started || 'unknown'}`);
+    console.log(`File:    ${task.file}`);
+    console.log(`\nWhen it's finished: gaw task done`);
   }
 
   async cmdBrain(args) {
@@ -1233,6 +1261,15 @@ export class GawCli {
     if (fs.existsSync(brainDir)) {
       console.log(`🔄 Syncing current project with latest GAW templates & architecture tools...`);
       const res = await this.bootstrapper.update(process.cwd());
+      if (res.migration) {
+        const m = res.migration;
+        console.log(`\n📦 Moved ai-brain/ to the current layout (brain.json, decisions/, memory/proposed/, local/):`);
+        for (const f of m.archived) console.log(`  ↷ archived ${f}`);
+        for (const f of m.removed) console.log(`  - removed ${f}`);
+        for (const f of m.replaced) console.log(`  ✓ updated ${f}`);
+        for (const f of m.kept) console.log(`  ℹ ${f}`);
+      }
+      if (res.refreshedSections?.length) console.log(`✓ Refreshed auto-detected sections: ${res.refreshedSections.join(', ')}`);
       if (res.addedBrainFiles.length > 0) {
         console.log(`\n📄 Added Missing Project Brain Files:`);
         for (const f of res.addedBrainFiles) {
@@ -1450,8 +1487,10 @@ export class GawCli {
     console.log(`                        Inspect preset with color palette & live website link`);
     console.log(`  search <query>        Search skills library with relevance ranking`);
     console.log(`  recommend <task>      Analyze task and recommend targeted skills`);
-    console.log(`  use <task> [--inject] [--copy] [--budget <tokens>]`);
-    console.log(`                        Load closely matching skills (use --inject to write to ai-brain/)`);
+    console.log(`  use <task> [--inject [--full]] [--copy] [--budget <tokens>]`);
+    console.log(`                        Load closely matching skills (--inject: write the task and skill files`);
+    console.log(`                        to open into ai-brain/local/active-task.md; --full also embeds skill text)`);
+    console.log(`  task [done]           Show the active task, or archive it when finished`);
     console.log(`  brain [update <msg> | path]  Inspect or update your Global Brain (~/.gaw/brain)`);
     console.log(`  project               Display detailed project architecture analysis`);
     console.log(`  graph [--force|--full] Build the code graph (--force: refresh changed files, --full: rebuild)`);

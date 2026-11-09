@@ -1,9 +1,8 @@
 {
   "gss": 1,
-  "keywords": [
-    "review",
-    "checklist",
-    "pull request"
-  ],
-  "lastVerified": "2026-11-08"
+  "summary": "Severity-ordered review checklist (blocking, important, minor) with a fixed report format.",
+  "keywords": ["review", "pull request", "PR", "diff", "feedback"],
+  "whenToUse": ["Reviewing a diff or pull request, or checking a change before calling it done."],
+  "verification": ["Every finding names a file and line.", "Findings are grouped as blocking, important, minor."],
+  "lastVerified": "2026-11-09"
 }

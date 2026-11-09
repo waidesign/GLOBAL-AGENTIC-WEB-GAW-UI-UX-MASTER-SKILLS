@@ -1,7 +1,6 @@
 {
   "gss": 1,
   "related": [
-    "build-design-system",
     "migrate-to-a-design-system",
     "baseline-ui"
   ],

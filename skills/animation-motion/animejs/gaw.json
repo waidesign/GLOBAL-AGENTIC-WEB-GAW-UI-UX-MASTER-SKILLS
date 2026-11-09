@@ -1,9 +1,8 @@
 {
   "gss": 1,
   "related": [
-    "motion-dev",
-    "animation-systems",
-    "masked-reveal"
+    "micro-interactions-system",
+    "animation-systems"
   ],
   "frameworks": [
     "any",
@@ -12,12 +11,12 @@
     "svelte",
     "html"
   ],
-  "lastVerified": "2026-11-06",
+  "lastVerified": "2026-11-09",
   "summary": "Lightweight, modular JavaScript animation engine for complex timelines, SVG morphing, staggered reveals, and high-performance micro-interactions.",
   "verification": [
-    "Are animations bounded under 300ms for user-triggered micro-interactions?",
-    "Are transforms hardware accelerated (x, y, scale)?",
-    "Is prefers-reduced-motion honored by checking window.matchMedia('(prefers-reduced-motion: reduce)').matches?"
+    "Feedback animations settle within 300ms; longer motion is entrance or ambient only.",
+    "Transforms and opacity only, unless a size change is deliberate.",
+    "prefers-reduced-motion skips movement and shows the final state."
   ],
   "domains": [
     "web",
@@ -25,8 +24,7 @@
   ],
   "derived": [
     "domains",
-    "summary",
-    "verification"
+    "summary"
   ],
   "whenToUse": [
     "Use when building JavaScript timeline animations, SVG morphing, or staggered list and grid reveals with Anime.js.",
@@ -40,5 +38,12 @@
   ],
   "drafts": [
     "keywords"
+  ],
+  "packages": [
+    "animejs"
+  ],
+  "exclusiveGroup": "animation-library",
+  "verifiedAgainst": [
+    "animejs@4.5.0"
   ]
 }

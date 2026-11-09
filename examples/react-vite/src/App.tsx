@@ -1,20 +1,19 @@
-import React from 'react';
+import './styles.css';
 
 export function App() {
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 p-8">
-      <header className="mb-8">
-        <h1 className="text-2xl font-bold tracking-tight">SaaS Metric Dashboard</h1>
-        <p className="text-slate-400">Initialized with Guided Agent Workflow</p>
+    <div className="app">
+      <header className="app-header">
+        <h1 className="app-title">SaaS Metric Dashboard</h1>
+        <p className="app-subtitle">Example project set up with GAW</p>
       </header>
       <main>
-        <div className="rounded-lg border border-slate-800 bg-slate-950 p-6">
+        <section className="panel">
           <p>Real-time analytics and component system.</p>
-        </div>
+        </section>
       </main>
     </div>
   );
 }
 
 export default App;
-

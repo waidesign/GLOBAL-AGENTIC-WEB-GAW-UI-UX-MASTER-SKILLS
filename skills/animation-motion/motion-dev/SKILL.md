@@ -6,141 +6,85 @@ metadata:
   gaw-title: "Motion (motion.dev) Engine"
   gaw-category: "animation-motion"
   gaw-author: "motion.dev"
-  gaw-version: "12.0.0"
+  gaw-version: "12.1.0"
   gaw-tags: "motion, animation, react, framer-motion, gestures, micro-interactions, spring-physics"
 ---
 
 # Motion (motion.dev) — React & Web Animation
 
-Modern web animation standard powered by `motion` (formerly Framer Motion).
+Use this skill when the project already depends on `motion` (or the older `framer-motion`). If it uses another animation library, use that library's skill instead; don't mix two libraries.
 
-## 1. Installation & Imports
+## 1. Install & imports
 
 ```bash
 npm install motion
-# or pnpm add motion / yarn add motion / bun add motion
 ```
 
-Always import from `"motion/react"` in React applications:
+React: import from `"motion/react"`. Projects still on `framer-motion` import from `"framer-motion"`; the API below is the same.
 ```tsx
-import { motion, AnimatePresence, useScroll, useTransform, useReducedMotion } from "motion/react";
+import { motion, AnimatePresence, useScroll, useReducedMotion } from "motion/react";
 ```
 
----
+## 2. Rules
 
-## 2. Anti-Slop Constraints & Performance Rules
+- **Prefer `transform` and `opacity`** (`x`, `y`, `scale`, `rotate`, `opacity`). They don't trigger layout.
+- **Size changes**: use the `layout` prop (FLIP, transform-based) for reordering and resizing. Animating `height: "auto"` is fine for a small accordion; avoid per-frame size animation on large or many elements.
+- **Timing** (see the `micro-interactions-system` skill for the full table): feedback to input starts immediately (`whileTap` applies on press) and settles within 300ms; user-triggered transitions 150–300ms; entrance reveals may take longer but never block input.
+- **Reduced motion**: wrap the app in `<MotionConfig reducedMotion="user">`, or check `useReducedMotion()` and drop movement (keep opacity).
+- **No infinite loops** outside a hero unless the user asked for one.
 
-- **Compositor Only**: Animate strictly `transform` (`x`, `y`, `scale`, `rotate`) and `opacity`. NEVER animate layout properties (`width`, `height`, `margin`, `padding`, `top`, `left`).
-- **Duration Budget**: Micro-interactions must complete within **150ms to 300ms**.
-- **Reduced Motion**: Always check `useReducedMotion()` or CSS `@media (prefers-reduced-motion)`.
-- **No Infinite Loops**: Never run looping animations on non-hero elements unless explicitly requested.
+## 3. Patterns
 
----
+Examples use TypeScript and utility classes; adapt them to the project's language and styling.
 
-## 3. Core Implementation Patterns
-
-### 3.1 Fluid Spring Micro-Interaction (Button & Card)
-
+### 3.1 Pressable button
 ```tsx
-import { motion } from "motion/react";
-
-export function InteractiveButton({ children, onClick }: { children: React.ReactNode; onClick?: () => void }) {
-  return (
-    <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.97 }}
-      transition={{ type: "spring", stiffness: 400, damping: 25 }}
-      onClick={onClick}
-      className="rounded-lg bg-primary px-4 py-2 text-primary-foreground font-medium shadow-sm"
-    >
-      {children}
-    </motion.button>
-  );
-}
+<motion.button
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.97 }}
+  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+>
+  Save
+</motion.button>
 ```
 
-### 3.2 Exit & Mount Animations (`AnimatePresence`)
-
-Always wrap conditionally rendered elements with `<AnimatePresence>`:
-
+### 3.2 Mount & exit (`AnimatePresence`)
 ```tsx
-import { motion, AnimatePresence } from "motion/react";
-
-export function NotificationToast({ isVisible, message }: { isVisible: boolean; message: string }) {
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, y: 12, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -8, scale: 0.95 }}
-          transition={{ duration: 0.2, ease: "easeOut" }}
-          className="fixed bottom-4 right-4 rounded-md bg-card p-4 shadow-lg border border-border"
-        >
-          {message}
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-}
-```
-
-### 3.3 Shared Layout Transitions (`layoutId`)
-
-Enable magical transitions between tabs, cards, or active states with zero math:
-
-```tsx
-import { useState } from "react";
-import { motion } from "motion/react";
-
-const TABS = ["Overview", "Metrics", "Settings"];
-
-export function TabNav() {
-  const [active, setActive] = useState(TABS[0]);
-
-  return (
-    <div className="flex gap-2 border-b border-border p-1">
-      {TABS.map((tab) => (
-        <button
-          key={tab}
-          onClick={() => setActive(tab)}
-          className="relative px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-        >
-          {active === tab && (
-            <motion.div
-              layoutId="active-tab-indicator"
-              className="absolute inset-0 rounded-md bg-accent"
-              transition={{ type: "spring", stiffness: 500, damping: 35 }}
-            />
-          )}
-          <span className="relative z-10">{tab}</span>
-        </button>
-      ))}
-    </div>
-  );
-}
-```
-
-### 3.4 Scroll-Linked Progress & Parallax
-
-```tsx
-import { motion, useScroll, useTransform } from "motion/react";
-
-export function ScrollProgressBar() {
-  const { scrollYProgress } = useScroll();
-
-  return (
+<AnimatePresence>
+  {isVisible && (
     <motion.div
-      style={{ scaleX: scrollYProgress, transformOrigin: "0%" }}
-      className="fixed top-0 left-0 right-0 h-1 bg-primary z-50"
-    />
-  );
-}
+      role="status"
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -8 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+    >
+      {message}
+    </motion.div>
+  )}
+</AnimatePresence>
 ```
 
----
+### 3.3 Shared layout (`layoutId`)
+```tsx
+{tabs.map((tab) => (
+  <button key={tab} onClick={() => setActive(tab)} style={{ position: "relative" }}>
+    {active === tab && (
+      <motion.span layoutId="tab-indicator" style={{ position: "absolute", inset: 0 }}
+        transition={{ type: "spring", stiffness: 500, damping: 35 }} />
+    )}
+    <span style={{ position: "relative" }}>{tab}</span>
+  </button>
+))}
+```
 
-## 4. Accessibility Checklist for Motion
-- [ ] Are animations disabled or simplified when `prefers-reduced-motion` is active?
-- [ ] Are all animated elements keyboard focusable before and after transitions?
-- [ ] Does layout remain stable without Cumulative Layout Shift (CLS)?
+### 3.4 Scroll progress
+```tsx
+const { scrollYProgress } = useScroll();
+return <motion.div style={{ scaleX: scrollYProgress, transformOrigin: "0%" }} />;
+```
+
+## 4. Checks
+- [ ] Movement is removed or reduced under `prefers-reduced-motion`.
+- [ ] Animated controls stay focusable and usable during and after transitions.
+- [ ] No layout shift (CLS) from entering elements.

@@ -3,7 +3,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ensureGraphify } from './graphify-setup.js';
 import { explainMatch } from '../core/skill-discovery/SkillDiscovery.js';
-import { selectSkills, writeCatalog } from '../core/project-context/ProjectContext.js';
+import { selectSkills, writeCatalog, GOAL_PLACEHOLDERS } from '../core/project-context/ProjectContext.js';
+import { setSection, appendToSection } from '../core/utils/markdownSections.js';
 
 const MAX_RULES = 20;
 
@@ -28,53 +29,21 @@ export function parseSelection(input, count) {
   return indexes;
 }
 
-/** Find the line range of a "## heading" section: [start, end) or null. */
-function findSection(lines, heading) {
-  const start = lines.findIndex(l => l.trim() === heading);
-  if (start === -1) return null;
-  let end = lines.findIndex((l, i) => i > start && l.startsWith('## '));
-  if (end === -1) end = lines.length;
-  return { start, end };
-}
-
-/** Replace the body of a "## heading" section, or append the section if it is missing. */
-export function setSection(content, heading, body) {
-  const lines = content.replace(/\s+$/, '').split('\n');
-  const section = findSection(lines, heading);
-  const block = [heading, ...body.split('\n'), ''];
-  if (!section) return `${lines.join('\n')}\n\n${block.join('\n')}`;
-  lines.splice(section.start, section.end - section.start, ...block);
-  return `${lines.join('\n').replace(/\s+$/, '')}\n`;
-}
-
-/** Add lines to the end of a "## heading" section, creating the section if it is missing. */
-export function appendToSection(content, heading, newLines) {
-  const lines = content.replace(/\s+$/, '').split('\n');
-  const section = findSection(lines, heading);
-  if (!section) return `${lines.join('\n')}\n\n${heading}\n${newLines.join('\n')}\n`;
-
-  let insertAt = section.end;
-  while (insertAt > section.start + 1 && lines[insertAt - 1].trim() === '') insertAt--;
-  lines.splice(insertAt, 0, ...newLines);
-  return `${lines.join('\n').replace(/\s+$/, '')}\n`;
-}
-
-const PRODUCT_OVERVIEW_PLACEHOLDER = 'Add an overview of what the application does, its target audience, and primary user flows.';
+export { setSection, appendToSection };
 
 /** Save the project goal in ai-brain/context.md without touching anything the user wrote. */
 function saveGoal(brainDir, goal) {
   const file = path.join(brainDir, 'context.md');
   const existing = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '# Project Context\n';
-  const updated = existing.includes(PRODUCT_OVERVIEW_PLACEHOLDER)
-    ? existing.replace(PRODUCT_OVERVIEW_PLACEHOLDER, goal)
-    : setSection(existing, '## Project Goal', goal);
+  const legacy = GOAL_PLACEHOLDERS.find(p => existing.includes(p) && !existing.includes('## Project Goal'));
+  const updated = legacy ? existing.replace(legacy, goal) : setSection(existing, '## Project Goal', goal);
   fs.writeFileSync(file, updated, 'utf8');
 }
 
 /** Append the user's rules to ai-brain/rules.md, skipping ones already there. */
 function saveRules(brainDir, rules) {
   const file = path.join(brainDir, 'rules.md');
-  const existing = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '# Project Rules & Architectural Constraints\n';
+  const existing = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '# Project Rules\n';
   const fresh = rules.filter(r => !existing.includes(`- ${r}`));
   if (fresh.length === 0) return 0;
   fs.writeFileSync(file, appendToSection(existing, '## Project-Specific Rules', fresh.map(r => `- ${r}`)), 'utf8');

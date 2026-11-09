@@ -37,7 +37,8 @@ export class ProjectDetector {
     const has = (file) => fs.existsSync(path.join(dir, file));
     let rootFiles = [];
     try { rootFiles = fs.readdirSync(dir); } catch { /* unreadable folder */ }
-    const hasTypeScript = has('tsconfig.json') || Object.keys(allDependencies).some(d => d.includes('typescript'));
+    const hasTypeScript = has('tsconfig.json') || Object.keys(allDependencies).some(d => d.includes('typescript'))
+      || ProjectDetector.hasSourceFiles(dir, /\.(ts|tsx|mts|cts)$/i);
     const languages = [];
     if (hasTypeScript) languages.push('TypeScript');
     else if (pkg || has('jsconfig.json')) languages.push('JavaScript');
@@ -112,6 +113,10 @@ export class ProjectDetector {
     if (allDependencies['@playwright/test']) testingFrameworks.push('playwright');
     if (allDependencies['cypress']) testingFrameworks.push('cypress');
 
+    const commands = ProjectDetector.detectCommands(dir, { pkg, packageManager, languages, pythonFiles, has });
+    const lockfiles = LOCKFILES.filter(has);
+    const hasUi = UI_FRAMEWORKS.has(framework) || uiLibraries.length > 0;
+
     // Existing AI configs
     const aiConfigs = [];
     if (fs.existsSync(path.join(dir, 'CLAUDE.md'))) aiConfigs.push('claude-code');
@@ -137,7 +142,10 @@ export class ProjectDetector {
       isReact,
       buildSystem,
       uiLibraries,
+      hasUi,
       testingFrameworks,
+      commands,
+      lockfiles,
       dependencies: Object.keys(allDependencies),
       aiConfigs,
       hasProjectBrain,
@@ -145,7 +153,78 @@ export class ProjectDetector {
       hasGraphify
     };
   }
+
+  /** True when src/, app/ or lib/ (two levels deep) has a file matching `pattern`. Type declarations don't count. */
+  static hasSourceFiles(dir, pattern) {
+    const look = (folder, depth) => {
+      let entries = [];
+      try { entries = fs.readdirSync(folder, { withFileTypes: true }); } catch { return false; }
+      for (const e of entries) {
+        if (e.isFile() && pattern.test(e.name) && !e.name.endsWith('.d.ts')) return true;
+        if (e.isDirectory() && depth < 2 && !e.name.startsWith('.') && e.name !== 'node_modules' && look(path.join(folder, e.name), depth + 1)) return true;
+      }
+      return false;
+    };
+    return ['src', 'app', 'lib'].some(f => look(path.join(dir, f), 0));
+  }
+
+  /**
+   * The project's own commands for dev, build, test, lint and typecheck, from
+   * package.json scripts or the usual tool for the language. Missing ones are null.
+   */
+  static detectCommands(dir, { pkg, packageManager, languages, pythonFiles, has }) {
+    const commands = { dev: null, build: null, test: null, lint: null, typecheck: null };
+    const scripts = pkg?.scripts || {};
+    const run = (name) => {
+      if (packageManager === 'npm') return name === 'test' ? 'npm test' : `npm run ${name}`;
+      return packageManager === 'bun' ? `bun run ${name}` : `${packageManager} ${name}`;
+    };
+    const pick = (names) => names.find(n => typeof scripts[n] === 'string' && !NPM_PLACEHOLDER_TEST.test(scripts[n]));
+    const scriptFor = {
+      dev: pick(['dev', 'start', 'serve']),
+      build: pick(['build']),
+      test: pick(['test', 'test:unit']),
+      lint: pick(['lint']),
+      typecheck: pick(['typecheck', 'type-check', 'check-types', 'tsc'])
+    };
+    for (const [key, name] of Object.entries(scriptFor)) if (name) commands[key] = run(name);
+
+    if (languages.includes('Python')) {
+      const text = pythonFiles.map(f => { try { return fs.readFileSync(path.join(dir, f), 'utf8').toLowerCase(); } catch { return ''; } }).join('\n');
+      if (!commands.test && (text.includes('pytest') || has('tests') || has('pytest.ini'))) commands.test = 'pytest';
+      if (!commands.lint && text.includes('ruff')) commands.lint = 'ruff check .';
+      if (!commands.typecheck && text.includes('mypy')) commands.typecheck = 'mypy .';
+    }
+    if (languages.includes('Go')) {
+      commands.build ??= 'go build ./...';
+      commands.test ??= 'go test ./...';
+      commands.lint ??= 'go vet ./...';
+    }
+    if (languages.includes('Rust')) {
+      commands.build ??= 'cargo build';
+      commands.test ??= 'cargo test';
+      commands.lint ??= 'cargo clippy';
+    }
+
+    // Makefile targets fill what is still missing
+    if (has('Makefile')) {
+      let makefile = '';
+      try { makefile = fs.readFileSync(path.join(dir, 'Makefile'), 'utf8'); } catch { /* unreadable */ }
+      for (const key of Object.keys(commands)) {
+        if (!commands[key] && new RegExp(`^${key}\\s*:`, 'm').test(makefile)) commands[key] = `make ${key}`;
+      }
+    }
+    return commands;
+  }
 }
+
+// `npm init` writes a test script that only fails; it is not a real test command
+const NPM_PLACEHOLDER_TEST = /no test specified/i;
+const LOCKFILES = [
+  'package-lock.json', 'pnpm-lock.yaml', 'yarn.lock', 'bun.lockb', 'bun.lock',
+  'poetry.lock', 'Pipfile.lock', 'uv.lock', 'Cargo.lock', 'go.sum', 'composer.lock', 'Gemfile.lock'
+];
+export const UI_FRAMEWORKS = new Set(['nextjs', 'remix', 'react-vite', 'react', 'vue', 'nuxt', 'svelte', 'angular', 'plain-frontend']);
 
 export default ProjectDetector;
 

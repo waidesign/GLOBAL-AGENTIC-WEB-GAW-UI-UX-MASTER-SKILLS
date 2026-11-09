@@ -7,14 +7,15 @@
  *
  * Projects never get their own copies of global preference files, so the live
  * Global Brain is never shadowed by a stale copy. Instead each project gets a
- * generated, read-only summary (ai-brain/global-brain.md) for agents that can't
- * read outside the project folder. It is personal, so it is kept out of git.
+ * generated, read-only summary (ai-brain/local/global-brain.md) for agents that
+ * can't read outside the project folder. It is personal, so local/ keeps it out of git.
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { TEMPLATE_FILES, LOCAL_DIR, ensureLocalDir } from './brainLayout.js';
 
-/** Files that belong to a project. */
-export const PROJECT_BRAIN_FILES = ['README.md', 'context.md', 'identity.md', 'rules.md', 'playbook.md', 'project-history.md'];
+/** Markdown files that belong to a project (from templates/ai-brain). */
+export const PROJECT_BRAIN_FILES = TEMPLATE_FILES;
 
 /** Files that belong to the Global Brain. Older GAW versions also copied these into projects. */
 export const GLOBAL_PREFERENCE_FILES = [
@@ -22,7 +23,9 @@ export const GLOBAL_PREFERENCE_FILES = [
   'tool-preferences.md', 'lessons-learned.md', 'confirmed-preferences.md', 'decision-history.md'
 ];
 
-export const SNAPSHOT_FILE = 'global-brain.md';
+export const SNAPSHOT_FILE = `${LOCAL_DIR}/global-brain.md`;
+/** Where layout 1 kept the summary (next to the project files, with a .gitignore entry). */
+export const LEGACY_SNAPSHOT_FILE = 'global-brain.md';
 const SNAPSHOT_ORDER = [
   'identity.md', 'design-principles.md', 'coding-preferences.md', 'component-preferences.md',
   'workflow-preferences.md', 'tool-preferences.md', 'lessons-learned.md', 'confirmed-preferences.md'
@@ -75,9 +78,12 @@ export function writeGlobalBrainSnapshot(projectDir, globalBrainDir) {
   }
 
   const content = `${parts.join('\n').replace(/\n{3,}/g, '\n\n').trim()}\n`;
+  ensureLocalDir(projectDir);
   const file = path.join(brainDir, SNAPSHOT_FILE);
   fs.writeFileSync(file, content, 'utf8');
-  ensureGitignored(projectDir, `ai-brain/${SNAPSHOT_FILE}`);
+  // Layout 1 kept a copy at ai-brain/global-brain.md; it is generated, so the stale copy goes
+  const legacy = path.join(brainDir, LEGACY_SNAPSHOT_FILE);
+  if (fs.existsSync(legacy) && fs.readFileSync(legacy, 'utf8').startsWith('# Global Brain (summary)')) fs.unlinkSync(legacy);
   return { file, tokens: Math.round(content.length / 4) };
 }
 

@@ -6,58 +6,58 @@ metadata:
   gaw-title: "Micro-Interactions Design System"
   gaw-category: "micro-interactions"
   gaw-author: "ui-skills"
-  gaw-version: "1.0.0"
+  gaw-version: "1.1.0"
   gaw-tags: "motion, ui-feedback, tactile, springs, gestures"
 ---
 
 # Micro-Interactions Design System
 
-Micro-interactions are contained product moments that acknowledge user input, convey system state, and create tangible tactile feedback.
+Micro-interactions are small product moments that acknowledge input, show system state, and make controls feel physical. They are library-agnostic: use whatever the project already has (CSS transitions, or the animation library in `package.json`). Never add a second animation library.
 
-## 1. Timing Budgets (The 100/200 Rule)
+## 1. Timing budgets
 
-- **Acknowledge Budget ($\le$ 100ms)**: Immediate visual response upon touch or click (pressed depth, color shift, scale tap down).
-- **Completion Budget (150ms – 250ms)**: Transient state animations (switches sliding, dropdowns expanding, chips dismissing).
-- **Notice Budget ($\le$ 300ms)**: Modal dialog reveals, toast notifications, slide-over sheets.
-- **Never exceed 300ms** for any interaction initiated by a user action.
+Pick the budget by **who started the motion**:
 
----
-
-## 2. Core Micro-Interaction Patterns
-
-### 2.1 The Tactile Button Press (Scale & Depth)
-Buttons should feel physically pressable:
-- **Hover**: Subtle lift (`scale: 1.02` or `y: -1px`) with enhanced shadow.
-- **Press (`:active`)**: Depressed depth (`scale: 0.97` or `y: 1px`).
-- **Release**: Quick spring return (`stiffness: 500, damping: 25`).
-
-### 2.2 Toggle Switch Inertia
-A toggle switch must not merely snap:
-- When flipped, the thumb pill stretches slightly along the axis of movement (`scaleX: 1.15`) before snapping into place with spring damping.
-
-### 2.3 Form Input Feedback & Error Shake
-- **Focus**: High-visibility focus ring expands outward by 2px in 150ms (`ease-out`).
-- **Validation Failure**: Horizontal damped shake (`x: [-6, 6, -4, 4, -2, 2, 0]` over 250ms).
-- **Validation Success**: Icon scale pop (`scale: [0.8, 1.15, 1]` in 200ms) with green accent.
-
-### 2.4 Destructive Action Confirmation
-- Destructive buttons require a 200ms long-press or explicit secondary popover before committing.
-- Deletion feedback fades item out with quick scale collapse (`scale: 0.95`, `opacity: 0`, height collapses smoothly).
-
----
-
-## 3. Technology Selection Guide
-
-| Use Case | Recommended Tool | Why |
+| Kind | Examples | Budget |
 |---|---|---|
-| **React Components & Gestures** | [`motion.dev`](../animation-motion/motion-dev.md) | Declarative `whileHover`, `whileTap`, `layoutId`, and React state sync. |
-| **Complex Multi-Stage Timelines** | [`animejs`](../animation-motion/animejs.md) | Precise timeline chaining (`createTimeline`) with millisecond offsets. |
-| **SVG Icons & Morphing** | [`animejs`](../animation-motion/animejs.md) | Path length calculation, dashoffset animations, shape morphing. |
-| **Simple CSS Hover/Focus** | Tailwind CSS / CSS Transitions | Zero JS runtime overhead for standard hover transitions (`duration-150`). |
+| Feedback to input | press, hover, toggle, focus ring, validation | Starts within **100ms**, done within **300ms** |
+| Transition the user triggered | open a dialog, expand, toast, sheet | **150–300ms** |
+| Entrance / scroll reveal | section or headline revealing as it enters | Up to **~1s** total; content is readable and usable immediately, never blocks input |
+| Ambient / data | number counters, progress, loading | Can run longer (counters ~1–1.5s); never loop forever outside a hero |
 
----
+"Never exceed 300ms" applies to the first two rows. Entrance and ambient motion follow their own rows.
 
-## 4. Anti-Slop Discipline
-- Never add motion for decoration alone. Every micro-interaction must answer the question: *"What physical state change does this explain?"*
-- Never bounce or oscillate more than once. Damped springs must settle rapidly.
-- Always provide immediate visual feedback while awaiting network requests.
+## 2. Patterns
+
+### 2.1 Button press
+- **Hover**: subtle lift (`scale: 1.02` or `y: -1px`).
+- **Press (`:active`)**: `scale: 0.97` or `y: 1px`, applied on press, not after release.
+- **Release**: quick spring back (e.g. stiffness 500, damping 25) that settles with at most one small overshoot.
+
+### 2.2 Toggle switch
+The thumb may stretch slightly along its path (`scaleX: 1.15`) then settle. State, color and `aria-checked` change immediately; motion only follows.
+
+### 2.3 Form feedback
+- **Focus**: visible focus ring, appears within 150ms (never animate it in slowly).
+- **Validation failure**: one short damped shake (`x: [0, -6, 6, -3, 3, 0]` within 250ms) **plus** the error message, color and icon. Under `prefers-reduced-motion`, skip the shake; the message, color and icon carry the meaning.
+- **Validation success**: icon scale pop (`scale: [0.8, 1.1, 1]` in 200ms) with a success color; reduced motion: no scale.
+
+### 2.4 Destructive actions
+- Use an explicit confirm step that names what will be deleted, or do the action and offer **Undo** (toast, 5–10s).
+- Never require a long-press: it is hard for keyboard, switch and motor-impaired users.
+- Removal: fade and scale out (`opacity: 0`, `scale: 0.95`). If the list must close the gap, animate the layout with the library's layout feature (or FLIP) rather than animating `height` per frame.
+
+## 3. Choosing a tool
+
+Use the first that fits **and is already in the project**:
+
+1. CSS transitions/`:active`/`:focus-visible` for hover, press and focus (no JS).
+2. The animation library already in `package.json` (see the `motion-dev`, `animejs` or `masked-reveal` skill for its API).
+3. Only if none is installed and CSS can't do it: ask before adding one library.
+
+## 4. Rules
+- Every micro-interaction explains a state change. No decoration-only motion.
+- Springs settle with at most one visible overshoot. The validation shake is the only multi-swing motion, and it is skipped under reduced motion.
+- Under `prefers-reduced-motion: reduce`, remove movement (translate, scale, shake); keep instant state changes and short opacity fades.
+- Show feedback immediately while waiting for the network (pressed or loading state), then the result.
+- Follow the shared accessibility baseline (`accessibility-baseline` skill).
