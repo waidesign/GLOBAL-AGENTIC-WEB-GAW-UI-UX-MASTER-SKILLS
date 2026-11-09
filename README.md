@@ -91,8 +91,8 @@ In everyday AI-assisted work, people repeat the same constraints in every prompt
 
 ### 1. Install Globally or Link
 ```bash
-git clone https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git guided-agent-workflow
-cd guided-agent-workflow
+git clone https://github.com/waidesign/gaw-guided-agent-workflow.git
+cd gaw-guided-agent-workflow
 npm install
 npm link
 ```
@@ -324,7 +324,7 @@ Add to your MCP settings (`.mcp.json` for Claude Code, or Cursor's MCP settings)
   "mcpServers": {
     "guided-agent-workflow": {
       "command": "node",
-      "args": ["/path/to/guided-agent-workflow/mcp/server.js"]
+      "args": ["/path/to/gaw-guided-agent-workflow/mcp/server.js"]
     }
   }
 }

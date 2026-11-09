@@ -2,9 +2,9 @@
 
 > **Project**: Guided Agent Workflow (GAW)  
 > **Repository**: `E:\global-agentic-web`  
-> **Remote**: `https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git` (`main`)  
+> **Remote**: `https://github.com/waidesign/gaw-guided-agent-workflow.git` (`main`)  
 > **Runtime**: Node.js >= 18 (ESM modules: `"type": "module"`). Optional, recommended: the Graphify CLI (Python 3.10+; `gaw setup` or `uv tool install graphifyy`)  
-> **Role**: The Universal Intelligence Layer for AI Agents ("One Brain. Any Agent. Every Project."): skill libraries for any field (GAW Skill Standard), Global Brain memory, project context, universal project bootstrapper, and design presets for UI projects. Formerly named "Global Agentic Web"; the repo folder and GitHub URL keep the old name.
+> **Role**: The Universal Intelligence Layer for AI Agents ("One Brain. Any Agent. Every Project."): skill libraries for any field (GAW Skill Standard), Global Brain memory, project context, universal project bootstrapper, and design presets for UI projects. Formerly named "Global Agentic Web"; the local folder `E:\global-agentic-web` keeps the old name.
 
 ---
 
@@ -180,7 +180,7 @@ When writing UI code or reviewing designs:
 - **Run tests before committing**: `npm test` executes the 19 native test suites in `tests/`. The runner sets a throwaway `GAW_HOME`, so tests never touch the real `~/.gaw`.
 - **Measure skill selection changes**: `npm run eval` scores skill picks on the tuning set (`eval/cases/skill-selection.json`) and the held-out set (`skill-selection-holdout.json`), and compares with `eval/baseline.json`. Never adjust the engine to fix held-out cases: they are the honest check. Only update the baseline (`npm run eval -- --save-baseline`) when a change is an intended improvement.
 - **Licenses**: never relabel a skill's license. Imported skills keep their source's license, verified by `gaw skills licenses`. Only split/modify skills whose `source.licenseStatus` is `open` or `copyleft`.
-- **Git workflow**: Main branch is `main`. Remote is `origin` (`https://github.com/waidesign/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git`).
+- **Git workflow**: Main branch is `main`. Remote is `origin` (`https://github.com/waidesign/gaw-guided-agent-workflow.git`).
 - **Global Path Wiring**: On this machine, `C:\Users\ITUSER\.gemini\antigravity\bin\gaw.cmd` and `gaw.ps1` execute `node "E:\global-agentic-web\bin\gaw.js" %*`.
 
 ## graphify

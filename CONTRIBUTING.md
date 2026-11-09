@@ -18,8 +18,8 @@ graphify --version
 ```
 
 ```bash
-git clone https://github.com/<your-username>/GLOBAL-AGENTIC-WEB-GAW-UI-UX-MASTER-SKILLS.git guided-agent-workflow
-cd guided-agent-workflow
+git clone https://github.com/<your-username>/gaw-guided-agent-workflow.git
+cd gaw-guided-agent-workflow
 npm install
 npm link
 ```
