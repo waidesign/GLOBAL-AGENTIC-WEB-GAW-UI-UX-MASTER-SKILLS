@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "3d/threejs/SKILL.md:3575:912|accessibility/accessibility-baseline/SKILL.md:2450:953|accessibility/fixing-accessibility/SKILL.md:4829:1039|accessibility/web-design-guidelines/SKILL.md:1271:1022|animation-motion/animation-systems/SKILL.md:5350:694|animation-motion/animejs/SKILL.md:3088:1239|animation-motion/improve-animations/SKILL.md:8547:971|animation-motion/motion-dev/SKILL.md:3222:1183|animation-motion/react-view-transitions/SKILL.md:14591:1886|architecture/codebase-design/SKILL.md:6556:1176|architecture/doc-coauthoring/SKILL.md:15929:1310|architecture/domain-modeling/SKILL.md:3456:973|architecture/implement-spec/SKILL.md:2912:845|architecture/implement/SKILL.md:699:833|architecture/improve-codebase-architecture/SKILL.md:6107:1010|architecture/setup-ts-deep-modules/SKILL.md:7625:1377|architecture/to-spec/SKILL.md:3120:926|architecture/to-tickets/SKILL.md:5891:1093|architecture/wayfinder/SKILL.md:12487:1130|cloud-infra/airunway-aks-setup/SKILL.md:4555:1340|cloud-infra/aks-cost-optimization/SKILL.md:1943:1944|cloud-infra/aks-gpu-inference/SKILL.md:3085:1391|cloud-infra/aks-known-issues/SKILL.md:1974:1408|cloud-infra/aks-network-capture/SKILL.md:2999:1288|cloud-infra/aks-troubleshooting/SKILL.md:12806:1594|cloud-infra/appinsights-instrumentation/SKILL.md:3838:1232|cloud-infra/azure-advisor-actionability/SKILL.md:2020:984|cloud-infra/azure-advisor/SKILL.md:2805:1234|cloud-infra/azure-ai/SKILL.md:3725:1732|cloud-infra/azure-aigateway/SKILL.md:5004:1695|cloud-infra/azure-app-onboard-prereq/SKILL.md:10352:1520|cloud-infra/azure-app-onboard/SKILL.md:6854:2012|cloud-infra/azure-cloud-migrate/SKILL.md:4399:1125|cloud-infra/azure-compliance/SKILL.md:4017:1617|cloud-infra/azure-compute/SKILL.md:2663:1653|cloud-infra/azure-deploy/SKILL.md:6740:2209|cloud-infra/azure-diagnostics/SKILL.md:7524:1377|cloud-infra/azure-enterprise-infra-planner/SKILL.md:6383:1703|cloud-infra/azure-kubernetes-app-deploy/SKILL.md:2056:1528|cloud-infra/azure-kubernetes-automatic-readiness/SKILL.md:17650:2255|cloud-infra/azure-kubernetes/SKILL.md:13109:1526|cloud-infra/azure-kusto-graph/SKILL.md:19273:1227|cloud-infra/azure-kusto-irql-graph/SKILL.md:19156:1412|cloud-infra/azure-kusto-irql/SKILL.md:10533:1276|cloud-infra/azure-kusto/SKILL.md:8600:1436|cloud-infra/azure-local-multi-rack/SKILL.md:3858:1781|cloud-infra/azure-local/SKILL.md:3452:1392|cloud-infra/azure-messaging/SKILL.md:3327:1410|cloud-infra/azure-prepare/SKILL.md:12905:1996|cloud-infra/azure-quotas/SKILL.md:12148:1816|cloud-infra/azure-reliability/SKILL.md:10537:2374|cloud-infra/azure-resource-lookup/SKILL.md:5645:2257|cloud-infra/azure-resource-visualizer/SKILL.md:8572:1232|cloud-infra/azure-search-nav/SKILL.md:2441:1310|cloud-infra/azure-storage/SKILL.md:5068:1913|cloud-infra/azure-upgrade/SKILL.md:8878:1328|cloud-infra/azure-validate/SKILL.md:3579:1469|cloud-infra/capacity/SKILL.md:7055:1918|cloud-infra/cost-analysis/SKILL.md:2030:1568|cloud-infra/cost-estimation/SKILL.md:2015:1325|cloud-infra/cost-governance/SKILL.md:1977:1288|cloud-infra/cost-optimization/SKILL.md:2022:1590|cloud-infra/customize/SKILL.md:9033:1919|cloud-infra/deploy-model/SKILL.md:7345:1885|cloud-infra/deploy-to-vercel/SKILL.md:9792:1028|cloud-infra/discover-azure-skills/SKILL.md:2361:1201|cloud-infra/entra-agent-id/SKILL.md:16080:1840|cloud-infra/entra-app-registration/SKILL.md:8267:1703|cloud-infra/finetuning/SKILL.md:5541:1889|cloud-infra/foundry-iq/SKILL.md:3808:1229|cloud-infra/google-agents-cli-deploy/SKILL.md:15075:1502|cloud-infra/microsoft-foundry/SKILL.md:15599:1814|cloud-infra/preset/SKILL.md:5004:1593|cloud-infra/python-appservice-deploy/SKILL.md:3347:1484|cloud-infra/vercel-cli-with-tokens/SKILL.md:10545:948|cloud-infra/vercel-optimize/SKILL.md:17394:1561|cloud-infra/wizard/SKILL.md:4232:1491|code-quality/code-review/SKILL.md:6833:1104|code-quality/git-guardrails-claude-code/SKILL.md:2423:1236|code-quality/mcp-builder/SKILL.md:11207:1140|code-quality/scaffold-exercises/SKILL.md:3699:997|code-quality/writing-guidelines/SKILL.md:1272:1066|color/better-colors/SKILL.md:7800:803|color/oklch-skill/SKILL.md:4918:662|components/company-logos/SKILL.md:1175:689|components/container-lines/SKILL.md:3718:1453|database/supabase-postgres-best-practices/SKILL.md:2768:1622|database/supabase/SKILL.md:14361:1052|debugging/diagnosing-bugs/SKILL.md:8774:609|design-systems/create-design-md/SKILL.md:16319:1530|design-systems/design-system-boss/SKILL.md:4154:770|design-systems/migrate-to-a-design-system/SKILL.md:8506:873|documents/docx/SKILL.md:6970:1850|documents/pdf/SKILL.md:8133:1000|documents/pptx/SKILL.md:20867:1149|documents/xlsx/SKILL.md:8661:1774|frontend-frameworks/react-best-practices/SKILL.md:7344:773|frontend/composition-patterns/SKILL.md:2700:952|frontend/design-mobile-apps/SKILL.md:8554:903|frontend/frontend-design/SKILL.md:9612:792|frontend/react-native-skills/SKILL.md:4268:933|frontend/react-router-framework-mode/SKILL.md:4682:906|frontend/tailwindcss/SKILL.md:2921:839|frontend/web-artifacts-builder/SKILL.md:3162:1400|general/algorithmic-art/SKILL.md:19843:958|general/ask-matt/SKILL.md:12668:807|general/canvas-design/SKILL.md:12013:980|general/claude-api/SKILL.md:15799:1419|general/codex-pet/SKILL.md:15295:1043|general/discernment-nudge/SKILL.md:10633:1330|general/internal-comms/SKILL.md:1584:1341|general/pr/SKILL.md:4082:644|general/runcomfy-cli/SKILL.md:14219:1123|general/software-factory/SKILL.md:6073:860|general/teach/SKILL.md:9754:830|general/template/SKILL.md:273:495|general/to-questionnaire/SKILL.md:2978:839|general/wait-what/SKILL.md:468:785|general/writing-beats/SKILL.md:4929:1006|general/writing-fragments/SKILL.md:3630:940|general/writing-shape/SKILL.md:5994:961|interaction/animation-on-scroll/SKILL.md:3657:871|media-creative/ace-step/SKILL.md:16366:1128|media-creative/ai-avatar-video/SKILL.md:16376:1056|media-creative/ai-image-generation/SKILL.md:14505:1090|media-creative/ai-music/SKILL.md:14348:1077|media-creative/ai-video-generation/SKILL.md:15580:1094|media-creative/canopy-part-title/SKILL.md:4138:927|media-creative/captions-overlay/SKILL.md:5893:1100|media-creative/changelog-video/SKILL.md:13541:1527|media-creative/code-slice-hero/SKILL.md:4927:942|media-creative/controlnet-pose/SKILL.md:10952:1073|media-creative/cuboid-carousel/SKILL.md:7316:912|media-creative/cut-the-curve/SKILL.md:18949:1102|media-creative/elevenlabs-music-generation/SKILL.md:11243:1448|media-creative/face-swap/SKILL.md:17939:1215|media-creative/figma/SKILL.md:6435:1121|media-creative/flux-2-klein/SKILL.md:11605:1355|media-creative/flux-kontext/SKILL.md:8081:1332|media-creative/frost-sequence-camera-orbit/SKILL.md:2589:985|media-creative/glass-shard-title/SKILL.md:5501:928|media-creative/gpt-image-2/SKILL.md:10585:1391|media-creative/gpt-image-edit/SKILL.md:9502:1403|media-creative/happyhorse-1-0/SKILL.md:9545:1395|media-creative/hyperframes-cli/SKILL.md:7734:2814|media-creative/hyperframes-registry/SKILL.md:4619:1715|media-creative/hyperframes/SKILL.md:7467:1397|media-creative/image-edit/SKILL.md:13231:1130|media-creative/image-inpainting/SKILL.md:11475:1105|media-creative/image-outpainting/SKILL.md:11430:1246|media-creative/image-to-video/SKILL.md:11787:1107|media-creative/kling-3-0/SKILL.md:15829:947|media-creative/lipsync/SKILL.md:12709:1203|media-creative/media-use/SKILL.md:5370:1348|media-creative/motion-doctrine/SKILL.md:12026:1374|media-creative/nano-banana-2/SKILL.md:9562:1374|media-creative/nano-banana-edit/SKILL.md:9024:1428|media-creative/orbit-card/SKILL.md:3674:926|media-creative/oversized-cursor/SKILL.md:6717:1593|media-creative/relight/SKILL.md:10166:1189|media-creative/remotion-best-practices/SKILL.md:4450:542|media-creative/remotion-captions/SKILL.md:1238:816|media-creative/remotion-create/SKILL.md:2812:794|media-creative/remotion-docs/SKILL.md:1441:774|media-creative/remotion-interactivity/SKILL.md:13804:807|media-creative/remotion-license/SKILL.md:585:790|media-creative/remotion-maps/SKILL.md:1131:814|media-creative/remotion-markup/SKILL.md:13446:1095|media-creative/remotion-multimedia/SKILL.md:806:777|media-creative/remotion-render/SKILL.md:1178:762|media-creative/remotion-saas/SKILL.md:1154:780|media-creative/remotion-studio/SKILL.md:1712:715|media-creative/remotion-to-hyperframes/SKILL.md:5307:1467|media-creative/remotion-upgrade/SKILL.md:2048:785|media-creative/reverse-any-video/SKILL.md:5394:1499|media-creative/seam-craft/SKILL.md:4957:1049|media-creative/seedance-2-5-image-to-video/SKILL.md:12117:1117|media-creative/seedance-2-5-reference-to-video/SKILL.md:17630:1419|media-creative/seedance-v2/SKILL.md:9044:1199|media-creative/slack-gif-creator/SKILL.md:7923:992|media-creative/slideshow/SKILL.md:5196:1032|media-creative/style-sampling/SKILL.md:4758:1784|media-creative/video-edit/SKILL.md:11233:1124|media-creative/video-extend/SKILL.md:9570:1098|media-creative/video-inpainting/SKILL.md:10164:1232|media-creative/video-outpainting/SKILL.md:8985:1236|media-creative/wan-2-7/SKILL.md:8411:1248|media-creative/wan-3-0-prime-reference-to-video/SKILL.md:15745:1166|media-creative/wireframe-portal-title/SKILL.md:4358:965|micro-interactions/masked-reveal/SKILL.md:5251:1570|micro-interactions/micro-interactions-system/SKILL.md:3739:1092|performance/fixing-motion-performance/SKILL.md:5673:946|react/improve-react/SKILL.md:12516:792|seo/fixing-metadata/SKILL.md:4501:1137|shadcn-ui/improve-shadcn/SKILL.md:15427:764|systems/baseline-ui/SKILL.md:3523:847|systems/ui-skills-root/SKILL.md:1492:990|testing/migrate-to-shoehorn/SKILL.md:2900:1001|testing/setup-pre-commit/SKILL.md:2363:1277|testing/tdd/SKILL.md:3736:856|testing/vue-testing-best-practices/SKILL.md:2177:521|testing/webapp-testing/SKILL.md:3987:1011|typography/better-typography/SKILL.md:12351:746|typography/swiss-design/SKILL.md:13050:895|ui-ux/academy-guide/SKILL.md:7808:1206|ui-ux/brand-guidelines/SKILL.md:2306:1062|ui-ux/design-lab/SKILL.md:14741:734|ui-ux/improve-ui/SKILL.md:8053:1149|ui-ux/landing-page/SKILL.md:5377:966|ui-ux/pricing-page/SKILL.md:5960:1109|ui-ux/prototype/SKILL.md:3034:985|ui-ux/rams/SKILL.md:5164:540|ui-ux/taste-skill/SKILL.md:11975:2040|ui-ux/theme-factory/SKILL.md:3194:941|workflow/agents-cli-claude/SKILL.md:5454:1633|workflow/agents-cli-langchain/SKILL.md:4068:1289|workflow/chief-of-staff/SKILL.md:4804:902|workflow/claude-handoff/SKILL.md:1442:867|workflow/google-agents-cli-adk-code/SKILL.md:4351:2067|workflow/google-agents-cli-eval/SKILL.md:11001:1879|workflow/google-agents-cli-observability/SKILL.md:12033:1758|workflow/google-agents-cli-publish/SKILL.md:11772:1456|workflow/google-agents-cli-scaffold/SKILL.md:13251:1406|workflow/google-agents-cli-workflow/SKILL.md:14787:1275|workflow/grill-me/SKILL.md:232:857|workflow/grill-with-docs/SKILL.md:322:879|workflow/grilling/SKILL.md:2183:950|workflow/handoff/SKILL.md:958:889|workflow/loop-me/SKILL.md:2532:1099|workflow/research/SKILL.md:938:1045|workflow/retro/SKILL.md:4442:815|workflow/setup-matt-pocock-skills/SKILL.md:7599:1012|workflow/skill-creator/SKILL.md:9999:1289|workflow/triage/SKILL.md:6633:973|workflow/writing-for-agents/SKILL.md:10992:907",
+  "fingerprint": "3d/threejs/SKILL.md:3575:912|accessibility/accessibility-baseline/SKILL.md:2450:953|accessibility/fixing-accessibility/SKILL.md:4829:1039|accessibility/web-design-guidelines/SKILL.md:1271:1022|animation-motion/animation-systems/SKILL.md:5350:649|animation-motion/animejs/SKILL.md:3088:1239|animation-motion/motion-dev/SKILL.md:3222:1157|animation-motion/react-view-transitions/SKILL.md:14591:1886|architecture/codebase-design/SKILL.md:6556:1176|architecture/doc-coauthoring/SKILL.md:15929:1310|architecture/domain-modeling/SKILL.md:3456:973|architecture/implement-spec/SKILL.md:2912:845|architecture/implement/SKILL.md:699:833|architecture/improve-codebase-architecture/SKILL.md:6107:1010|architecture/setup-ts-deep-modules/SKILL.md:7625:1377|architecture/to-spec/SKILL.md:3120:926|architecture/to-tickets/SKILL.md:5891:1093|architecture/wayfinder/SKILL.md:12487:1130|cloud-infra/airunway-aks-setup/SKILL.md:4555:1340|cloud-infra/aks-cost-optimization/SKILL.md:1943:1944|cloud-infra/aks-gpu-inference/SKILL.md:3085:1391|cloud-infra/aks-known-issues/SKILL.md:1974:1408|cloud-infra/aks-network-capture/SKILL.md:2999:1288|cloud-infra/aks-troubleshooting/SKILL.md:12806:1594|cloud-infra/azure-advisor-actionability/SKILL.md:2020:984|cloud-infra/azure-advisor/SKILL.md:2805:1234|cloud-infra/azure-ai/SKILL.md:3725:1732|cloud-infra/azure-aigateway/SKILL.md:5004:1695|cloud-infra/azure-app-onboard-prereq/SKILL.md:10352:1520|cloud-infra/azure-app-onboard/SKILL.md:6854:2012|cloud-infra/azure-cloud-migrate/SKILL.md:4399:1125|cloud-infra/azure-compliance/SKILL.md:4017:1617|cloud-infra/azure-compute/SKILL.md:2663:1653|cloud-infra/azure-deploy/SKILL.md:6740:2209|cloud-infra/azure-diagnostics/SKILL.md:7524:1377|cloud-infra/azure-enterprise-infra-planner/SKILL.md:6383:1703|cloud-infra/azure-kubernetes-app-deploy/SKILL.md:2056:1528|cloud-infra/azure-kubernetes/SKILL.md:13109:1526|cloud-infra/azure-kusto-graph/SKILL.md:19273:1227|cloud-infra/azure-kusto-irql-graph/SKILL.md:19156:1412|cloud-infra/azure-kusto-irql/SKILL.md:10533:1276|cloud-infra/azure-kusto/SKILL.md:8600:1436|cloud-infra/azure-local-multi-rack/SKILL.md:3858:1781|cloud-infra/azure-local/SKILL.md:3452:1392|cloud-infra/azure-messaging/SKILL.md:3327:1410|cloud-infra/azure-prepare/SKILL.md:12905:1996|cloud-infra/azure-quotas/SKILL.md:12148:1816|cloud-infra/azure-reliability/SKILL.md:10537:2374|cloud-infra/azure-resource-lookup/SKILL.md:5645:2257|cloud-infra/azure-resource-visualizer/SKILL.md:8572:1232|cloud-infra/azure-search-nav/SKILL.md:2441:1310|cloud-infra/azure-storage/SKILL.md:5068:1913|cloud-infra/azure-upgrade/SKILL.md:8878:1328|cloud-infra/azure-validate/SKILL.md:3579:1469|cloud-infra/cost-analysis/SKILL.md:2030:1568|cloud-infra/cost-estimation/SKILL.md:2015:1325|cloud-infra/cost-governance/SKILL.md:1977:1288|cloud-infra/cost-optimization/SKILL.md:2022:1590|cloud-infra/deploy-to-vercel/SKILL.md:9792:1028|cloud-infra/discover-azure-skills/SKILL.md:2361:1201|cloud-infra/entra-agent-id/SKILL.md:16080:1840|cloud-infra/finetuning/SKILL.md:5541:1889|cloud-infra/foundry-iq/SKILL.md:3808:1229|cloud-infra/microsoft-foundry/SKILL.md:15599:1814|cloud-infra/python-appservice-deploy/SKILL.md:3347:1484|cloud-infra/vercel-cli-with-tokens/SKILL.md:10545:948|cloud-infra/vercel-optimize/SKILL.md:17394:1561|cloud-infra/wizard/SKILL.md:4232:1491|code-quality/code-review/SKILL.md:6833:1104|code-quality/git-guardrails-claude-code/SKILL.md:2423:1236|code-quality/mcp-builder/SKILL.md:11207:1140|code-quality/scaffold-exercises/SKILL.md:3699:997|code-quality/writing-guidelines/SKILL.md:1272:1066|components/company-logos/SKILL.md:1175:689|components/container-lines/SKILL.md:3718:1453|database/supabase-postgres-best-practices/SKILL.md:2768:1622|database/supabase/SKILL.md:14361:1052|design-systems/create-design-md/SKILL.md:16319:1530|design-systems/design-system-boss/SKILL.md:4154:736|documents/docx/SKILL.md:6970:1850|documents/pdf/SKILL.md:8133:1000|documents/pptx/SKILL.md:20867:1149|documents/xlsx/SKILL.md:8661:1774|frontend-frameworks/react-best-practices/SKILL.md:7344:773|frontend/composition-patterns/SKILL.md:2700:952|frontend/design-mobile-apps/SKILL.md:8554:903|frontend/frontend-design/SKILL.md:9612:792|frontend/react-native-skills/SKILL.md:4268:933|frontend/tailwindcss/SKILL.md:2921:839|frontend/web-artifacts-builder/SKILL.md:3162:1400|general/algorithmic-art/SKILL.md:19843:958|general/ask-matt/SKILL.md:12668:807|general/canvas-design/SKILL.md:12013:980|general/claude-api/SKILL.md:15799:1419|general/codex-pet/SKILL.md:15295:1043|general/discernment-nudge/SKILL.md:10633:1330|general/internal-comms/SKILL.md:1584:1341|general/pr/SKILL.md:4082:644|general/runcomfy-cli/SKILL.md:14219:1123|general/software-factory/SKILL.md:6073:860|general/teach/SKILL.md:9754:830|general/template/SKILL.md:273:495|general/to-questionnaire/SKILL.md:2978:839|general/wait-what/SKILL.md:468:785|general/writing-beats/SKILL.md:4929:1006|general/writing-fragments/SKILL.md:3630:940|general/writing-shape/SKILL.md:5994:961|interaction/animation-on-scroll/SKILL.md:3657:871|media-creative/ace-step/SKILL.md:16366:1128|media-creative/ai-avatar-video/SKILL.md:16376:1056|media-creative/ai-image-generation/SKILL.md:14505:1090|media-creative/ai-music/SKILL.md:14348:1077|media-creative/ai-video-generation/SKILL.md:15580:1094|media-creative/changelog-video/SKILL.md:13541:1527|media-creative/controlnet-pose/SKILL.md:10952:1073|media-creative/cut-the-curve/SKILL.md:18949:1102|media-creative/elevenlabs-music-generation/SKILL.md:11243:1448|media-creative/face-swap/SKILL.md:17939:1215|media-creative/figma/SKILL.md:6435:1121|media-creative/flux-2-klein/SKILL.md:11605:1355|media-creative/flux-kontext/SKILL.md:8081:1332|media-creative/gpt-image-2/SKILL.md:10585:1391|media-creative/gpt-image-edit/SKILL.md:9502:1403|media-creative/happyhorse-1-0/SKILL.md:9545:1395|media-creative/hyperframes-cli/SKILL.md:7734:2814|media-creative/hyperframes-registry/SKILL.md:4619:1715|media-creative/hyperframes/SKILL.md:7467:1397|media-creative/image-edit/SKILL.md:13231:1130|media-creative/image-inpainting/SKILL.md:11475:1105|media-creative/image-outpainting/SKILL.md:11430:1246|media-creative/image-to-video/SKILL.md:11787:1107|media-creative/kling-3-0/SKILL.md:15829:947|media-creative/lipsync/SKILL.md:12709:1203|media-creative/media-use/SKILL.md:5370:1348|media-creative/motion-doctrine/SKILL.md:12026:1374|media-creative/nano-banana-2/SKILL.md:9562:1374|media-creative/nano-banana-edit/SKILL.md:9024:1428|media-creative/oversized-cursor/SKILL.md:6717:1593|media-creative/relight/SKILL.md:10166:1189|media-creative/remotion-captions/SKILL.md:1238:816|media-creative/remotion-create/SKILL.md:2812:794|media-creative/remotion-docs/SKILL.md:1441:774|media-creative/remotion-interactivity/SKILL.md:13804:807|media-creative/remotion-license/SKILL.md:585:790|media-creative/remotion-maps/SKILL.md:1131:814|media-creative/remotion-markup/SKILL.md:13446:1095|media-creative/remotion-multimedia/SKILL.md:806:777|media-creative/remotion-render/SKILL.md:1178:762|media-creative/remotion-saas/SKILL.md:1154:780|media-creative/remotion-studio/SKILL.md:1712:715|media-creative/remotion-to-hyperframes/SKILL.md:5307:1467|media-creative/remotion-upgrade/SKILL.md:2048:785|media-creative/reverse-any-video/SKILL.md:5394:1499|media-creative/seam-craft/SKILL.md:4957:1049|media-creative/seedance-2-5-image-to-video/SKILL.md:12117:1117|media-creative/seedance-2-5-reference-to-video/SKILL.md:17630:1419|media-creative/seedance-v2/SKILL.md:9044:1199|media-creative/slack-gif-creator/SKILL.md:7923:992|media-creative/slideshow/SKILL.md:5196:1032|media-creative/style-sampling/SKILL.md:4758:1784|media-creative/video-edit/SKILL.md:11233:1124|media-creative/video-extend/SKILL.md:9570:1098|media-creative/video-inpainting/SKILL.md:10164:1232|media-creative/video-outpainting/SKILL.md:8985:1236|media-creative/wan-2-7/SKILL.md:8411:1248|media-creative/wan-3-0-prime-reference-to-video/SKILL.md:15745:1166|micro-interactions/masked-reveal/SKILL.md:5251:1570|micro-interactions/micro-interactions-system/SKILL.md:3739:1092|performance/fixing-motion-performance/SKILL.md:5673:901|seo/fixing-metadata/SKILL.md:4501:1137|systems/baseline-ui/SKILL.md:3523:847|systems/ui-skills-root/SKILL.md:1492:990|testing/migrate-to-shoehorn/SKILL.md:2900:1001|testing/setup-pre-commit/SKILL.md:2363:1277|testing/tdd/SKILL.md:3736:856|testing/webapp-testing/SKILL.md:3987:1011|ui-ux/academy-guide/SKILL.md:7808:1206|ui-ux/brand-guidelines/SKILL.md:2306:1062|ui-ux/design-lab/SKILL.md:14741:734|ui-ux/improve-ui/SKILL.md:8053:1149|ui-ux/landing-page/SKILL.md:5377:966|ui-ux/pricing-page/SKILL.md:5960:1109|ui-ux/prototype/SKILL.md:3034:985|ui-ux/rams/SKILL.md:5164:540|ui-ux/theme-factory/SKILL.md:3194:941|workflow/agents-cli-claude/SKILL.md:5454:1633|workflow/agents-cli-langchain/SKILL.md:4068:1289|workflow/chief-of-staff/SKILL.md:4804:902|workflow/claude-handoff/SKILL.md:1442:867|workflow/google-agents-cli-adk-code/SKILL.md:4351:2067|workflow/google-agents-cli-eval/SKILL.md:11001:1879|workflow/google-agents-cli-observability/SKILL.md:12033:1758|workflow/google-agents-cli-publish/SKILL.md:11772:1456|workflow/grill-me/SKILL.md:232:857|workflow/grill-with-docs/SKILL.md:322:879|workflow/grilling/SKILL.md:2183:950|workflow/handoff/SKILL.md:958:889|workflow/loop-me/SKILL.md:2532:1099|workflow/research/SKILL.md:938:1045|workflow/retro/SKILL.md:4442:815|workflow/setup-matt-pocock-skills/SKILL.md:7599:1012|workflow/skill-creator/SKILL.md:9999:1289|workflow/triage/SKILL.md:6633:973|workflow/writing-for-agents/SKILL.md:10992:907",
   "skills": [
     {
       "id": "threejs",
@@ -273,16 +273,11 @@
         "react"
       ],
       "dependencies": [],
-      "relatedSkills": [
-        "improve-animations"
-      ],
+      "relatedSkills": [],
       "lastVerified": "2026-11-06",
       "summary": "Use when designing or implementing product-grade web motion like Stripe, Linear, Apple, and Vercel. Covers motion principles, easing/duration defaults, choreography patterns, scroll/hover interactions, performance, accessibility (reduced motion), and implementation guidance.",
       "contract": {
         "gss": 1,
-        "related": [
-          "improve-animations"
-        ],
         "frameworks": [
           "framer-motion",
           "tailwind",
@@ -397,86 +392,6 @@
       "tokenEstimate": 663
     },
     {
-      "id": "improve-animations",
-      "name": "Improve Animations",
-      "category": "animation-motion",
-      "description": "Expert motion design principles, fluid physics-based transitions, micro-interactions, and 60fps compositor optimization.",
-      "author": "emilkowalski",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [
-        "motion",
-        "animation",
-        "micro-interactions",
-        "framer-motion",
-        "performance"
-      ],
-      "keywords": [
-        "motion audit",
-        "animation review",
-        "easing",
-        "janky animation",
-        "animation plan"
-      ],
-      "frameworks": [
-        "react",
-        "nextjs",
-        "framer-motion",
-        "tailwind"
-      ],
-      "dependencies": [],
-      "relatedSkills": [
-        "frontend-design",
-        "improve-ui"
-      ],
-      "lastVerified": "2026-11-06",
-      "summary": "Expert motion design principles, fluid physics-based transitions, micro-interactions, and 60fps compositor optimization.",
-      "contract": {
-        "gss": 1,
-        "related": [
-          "frontend-design",
-          "improve-ui"
-        ],
-        "frameworks": [
-          "react",
-          "nextjs",
-          "framer-motion",
-          "tailwind"
-        ],
-        "lastVerified": "2026-11-06",
-        "summary": "Expert motion design principles, fluid physics-based transitions, micro-interactions, and 60fps compositor optimization.",
-        "domains": [
-          "web",
-          "design"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when auditing an app's animation and motion code to find the highest-impact fixes and write implementation plans.",
-          "Use when animations feel sluggish, janky or overdone and you want prioritized findings."
-        ],
-        "whenNotToUse": [
-          "Reviewing a single diff (that is a separate review skill)",
-          "Implementing the fixes directly: it only writes plans"
-        ],
-        "keywords": [
-          "motion audit",
-          "animation review",
-          "easing",
-          "janky animation",
-          "animation plan"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "animation-motion/improve-animations/SKILL.md",
-      "tokenEstimate": 2022
-    },
-    {
       "id": "motion-dev",
       "name": "Motion (motion.dev) Engine",
       "category": "animation-motion",
@@ -509,8 +424,7 @@
       "dependencies": [],
       "relatedSkills": [
         "micro-interactions-system",
-        "animation-systems",
-        "improve-animations"
+        "animation-systems"
       ],
       "lastVerified": "2026-11-09",
       "summary": "Production-grade animations, spring physics, layout transitions, and gesture feedback using Motion (formerly Framer Motion) at motion.dev.",
@@ -518,8 +432,7 @@
         "gss": 1,
         "related": [
           "micro-interactions-system",
-          "animation-systems",
-          "improve-animations"
+          "animation-systems"
         ],
         "frameworks": [
           "react",
@@ -1687,75 +1600,6 @@
       "tokenEstimate": 2900
     },
     {
-      "id": "appinsights-instrumentation",
-      "name": "appinsights-instrumentation",
-      "category": "cloud-infra",
-      "description": "Guidance for instrumenting webapps with Azure Application Insights. Provides telemetry patterns, SDK setup, and configuration references. WHEN: how to instrument app, App Insights SDK, telemetry patterns, what is App Insights, Application Insights guidance, instrumentation examples, APM best practices.",
-      "author": "Microsoft",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "application monitoring",
-        "observability",
-        "telemetry setup",
-        "auto-instrumentation"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "Guidance for instrumenting webapps with Azure Application Insights. Provides telemetry patterns, SDK setup, and configuration references.",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "microsoft/azure-skills",
-          "path": ".github/plugins/azure-skills/skills/appinsights-instrumentation/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "skill license file",
-          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/appinsights-instrumentation/LICENSE.txt",
-          "licenseCheckedAt": "2026-11-08",
-          "filesLeftAtSource": 1
-        },
-        "summary": "Guidance for instrumenting webapps with Azure Application Insights. Provides telemetry patterns, SDK setup, and configuration references.",
-        "whenToUse": [
-          "User asks how to instrument (guidance, patterns, examples)",
-          "User needs SDK setup instructions",
-          "azure-prepare invokes this skill during research phase",
-          "User wants to understand App Insights concepts"
-        ],
-        "domains": [
-          "cloud",
-          "software"
-        ],
-        "permissions": [
-          "shell"
-        ],
-        "derived": [
-          "domains",
-          "permissions",
-          "summary",
-          "whenToUse"
-        ],
-        "keywords": [
-          "application monitoring",
-          "observability",
-          "telemetry setup",
-          "auto-instrumentation"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "cloud-infra/appinsights-instrumentation/SKILL.md",
-      "tokenEstimate": 841
-    },
-    {
       "id": "azure-advisor-actionability",
       "name": "azure-advisor-actionability",
       "category": "cloud-infra",
@@ -2671,84 +2515,6 @@
       "format": "gss",
       "path": "cloud-infra/azure-kubernetes-app-deploy/SKILL.md",
       "tokenEstimate": 284
-    },
-    {
-      "id": "azure-kubernetes-automatic-readiness",
-      "name": "azure-kubernetes-automatic-readiness",
-      "category": "cloud-infra",
-      "description": "Assess Kubernetes workloads and cluster configuration for AKS Automatic compatibility. Identifies incompatibilities, generates fixes, and guides migration from AKS Standard to AKS Automatic. WHEN: migrate to AKS Automatic, check AKS Automatic readiness, validate manifests for Automatic, assess cluster for Automatic compatibility, fix deployment for Automatic compatibility, identify AKS Automatic migration blockers, is my cluster ready for AKS Automatic.",
-      "author": "Microsoft",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "deployment safeguards",
-        "pod security standards",
-        "admission webhooks",
-        "migration checklist"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "Assess Kubernetes workloads and cluster configuration for AKS Automatic compatibility. Identifies incompatibilities, generates fixes, and guides migration from AKS Standard to AKS Automatic.",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "microsoft/azure-skills",
-          "path": ".github/plugins/azure-skills/skills/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "declared in original SKILL.md",
-          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/azure-kubernetes/azure-kubernetes-automatic-readiness/SKILL.md",
-          "licenseCheckedAt": "2026-11-08",
-          "filesLeftAtSource": 1
-        },
-        "summary": "Assess Kubernetes workloads and cluster configuration for AKS Automatic compatibility. Identifies incompatibilities, generates fixes, and guides migration from AKS Standard to AKS Automatic.",
-        "whenToUse": [
-          "\"Can I migrate to AKS Automatic?\"",
-          "\"Check my cluster readiness for Automatic\"",
-          "\"Validate manifests against AKS Automatic constraints\"",
-          "\"Fix my deployment for Automatic compatibility\"",
-          "\"Identify AKS Automatic migration blockers\"",
-          "Any mention of AKS Automatic + (migration | readiness | compatibility | assessment | validation)"
-        ],
-        "verification": [
-          "Collect cluster/node-pool metadata through a host-discovered Azure MCP AKS capability (or az), then evaluate sanitized Kubernetes manifests locally against the bundled constraint spec",
-          "Resolve all incompatible findings — these are hard blockers",
-          "Apply all requiresChanges fixes — these will be denied at admission",
-          "Review autoFixed items — understand what AKS Automatic will mutate at runtime",
-          "Decide whether the target will opt into PSS Restricted or run Windows node pools; only then apply the conditionalSafeguards rules",
-          "Address cluster-level Day-0 config issues (see below)",
-          "workload health and service objectives remain stable on the target;",
-          "required data is synchronized and integrity checks pass;"
-        ],
-        "domains": [
-          "cloud",
-          "software"
-        ],
-        "derived": [
-          "domains",
-          "summary",
-          "verification",
-          "whenToUse"
-        ],
-        "keywords": [
-          "deployment safeguards",
-          "pod security standards",
-          "admission webhooks",
-          "migration checklist"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "cloud-infra/azure-kubernetes-automatic-readiness/SKILL.md",
-      "tokenEstimate": 4222
     },
     {
       "id": "azure-kubernetes",
@@ -3930,81 +3696,6 @@
       "tokenEstimate": 691
     },
     {
-      "id": "capacity",
-      "name": "capacity",
-      "category": "cloud-infra",
-      "description": "Discovers available Azure OpenAI model capacity across regions and projects. Analyzes quota limits, compares availability, and recommends optimal deployment locations based on capacity requirements. USE FOR: find capacity, check quota, where can I deploy, capacity discovery, best region for capacity, multi-project capacity search, quota analysis, model availability, region comparison, check TPM availability. DO NOT USE FOR: actual deployment (hand off to preset or customize after discovery), quota increase requests (direct user to Azure Portal), listing existing deployments.",
-      "author": "Microsoft",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "gpt deployment region",
-        "throughput availability",
-        "openai quota",
-        "model region finder"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "Discovers available Azure OpenAI model capacity across regions and projects. Analyzes quota limits, compares availability, and recommends optimal deployment locations based on capacity requirements.",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "microsoft/azure-skills",
-          "path": ".github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/capacity/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "declared in original SKILL.md",
-          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/capacity/SKILL.md",
-          "licenseCheckedAt": "2026-11-08"
-        },
-        "summary": "Discovers available Azure OpenAI model capacity across regions and projects. Analyzes quota limits, compares availability, and recommends optimal deployment locations based on capacity requirements.",
-        "whenToUse": [
-          "USE FOR: find capacity, check quota, where can I deploy, capacity discovery, best region for capacity, multi-project capacity search, quota analysis, model availability, region comparison, check TPM availability.",
-          "✅ User asks \"where can I deploy gpt-4o?\"",
-          "✅ User specifies a capacity target: \"find a region with 10K TPM for gpt-4o\"",
-          "✅ User wants to compare availability: \"which regions have gpt-4o available?\"",
-          "✅ User got a quota error and needs to find an alternative location",
-          "✅ User asks \"best region and project for deploying model X\""
-        ],
-        "whenNotToUse": [
-          "DO NOT USE FOR: actual deployment (hand off to preset or customize after discovery), quota increase requests (direct user to Azure Portal), listing existing deployments."
-        ],
-        "domains": [
-          "cloud",
-          "software",
-          "ai"
-        ],
-        "permissions": [
-          "shell"
-        ],
-        "derived": [
-          "domains",
-          "permissions",
-          "summary",
-          "whenNotToUse",
-          "whenToUse"
-        ],
-        "keywords": [
-          "gpt deployment region",
-          "throughput availability",
-          "openai quota",
-          "model region finder"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "cloud-infra/capacity/SKILL.md",
-      "tokenEstimate": 1568
-    },
-    {
       "id": "cost-analysis",
       "name": "cost-analysis",
       "category": "cloud-infra",
@@ -4285,154 +3976,6 @@
       "tokenEstimate": 337
     },
     {
-      "id": "customize",
-      "name": "customize",
-      "category": "cloud-infra",
-      "description": "Interactive guided deployment flow for Azure OpenAI models with full customization control. Step-by-step selection of model version, SKU (GlobalStandard/Standard/ProvisionedManaged), capacity, RAI policy (content filter), and advanced options (dynamic quota, priority processing, spillover). USE FOR: custom deployment, customize model deployment, choose version, select SKU, set capacity, configure content filter, RAI policy, deployment options, detailed deployment, advanced deployment, PTU deployment, provisioned throughput. DO NOT USE FOR: quick deployment to optimal region (use preset).",
-      "author": "Microsoft",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "azure openai deployment",
-        "model version pinning",
-        "deployment wizard"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "Interactive guided deployment flow for Azure OpenAI models with full customization control. Step-by-step selection of model version, SKU (GlobalStandard/Standard/ProvisionedManaged), capacity, RAI policy (content filter), and advanced options (dynamic quota, priority processing, spillover).",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "microsoft/azure-skills",
-          "path": ".github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/customize/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "declared in original SKILL.md",
-          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/customize/SKILL.md",
-          "licenseCheckedAt": "2026-11-08"
-        },
-        "summary": "Interactive guided deployment flow for Azure OpenAI models with full customization control. Step-by-step selection of model version, SKU (GlobalStandard/Standard/ProvisionedManaged), capacity, RAI policy (content filter), and advanced options (dynamic quota, priority processing, spillover).",
-        "whenToUse": [
-          "USE FOR: custom deployment, customize model deployment, choose version, select SKU, set capacity, configure content filter, RAI policy, deployment options, detailed deployment, advanced deployment, PTU deployment, provisioned throughput.",
-          "✅ Choose specific model version (not just latest)",
-          "✅ Select deployment SKU (GlobalStandard vs Standard vs PTU)",
-          "✅ Set exact capacity within available range",
-          "✅ Configure content filtering (RAI policy selection)",
-          "✅ Enable advanced features (dynamic quota, priority processing, spillover)"
-        ],
-        "whenNotToUse": [
-          "DO NOT USE FOR: quick deployment to optimal region (use preset)."
-        ],
-        "verification": [
-          "If not logged in: az login Set subscription if needed: ---"
-        ],
-        "domains": [
-          "cloud",
-          "software",
-          "ai"
-        ],
-        "derived": [
-          "domains",
-          "summary",
-          "verification",
-          "whenNotToUse",
-          "whenToUse"
-        ],
-        "keywords": [
-          "azure openai deployment",
-          "model version pinning",
-          "deployment wizard"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "cloud-infra/customize/SKILL.md",
-      "tokenEstimate": 2061
-    },
-    {
-      "id": "deploy-model",
-      "name": "deploy-model",
-      "category": "cloud-infra",
-      "description": "Unified Azure OpenAI model deployment skill with intelligent intent-based routing. Handles quick preset deployments, fully customized deployments (version/SKU/capacity/RAI policy), and capacity discovery across regions and projects. USE FOR: deploy model, deploy gpt, create deployment, model deployment, deploy openai model, set up model, provision model, find capacity, check model availability, where can I deploy, best region for model, capacity analysis. DO NOT USE FOR: listing existing deployments (use foundry_models_deployments_list MCP tool), deleting deployments, agent creation (use agent/create), project creation (use project/create).",
-      "author": "Microsoft",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "llm hosting",
-        "model rollout",
-        "foundry model deployment",
-        "out-of-band deployment"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "Unified Azure OpenAI model deployment skill with intelligent intent-based routing. Handles quick preset deployments, fully customized deployments (version/SKU/capacity/RAI policy), and capacity discovery across regions and projects.",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "microsoft/azure-skills",
-          "path": ".github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "declared in original SKILL.md",
-          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/SKILL.md",
-          "licenseCheckedAt": "2026-11-08"
-        },
-        "summary": "Unified Azure OpenAI model deployment skill with intelligent intent-based routing. Handles quick preset deployments, fully customized deployments (version/SKU/capacity/RAI policy), and capacity discovery across regions and projects.",
-        "whenToUse": [
-          "USE FOR: deploy model, deploy gpt, create deployment, model deployment, deploy openai model, set up model, provision model, find capacity, check model availability, where can I deploy, best region for model, capacity analysis."
-        ],
-        "whenNotToUse": [
-          "DO NOT USE FOR: listing existing deployments (use foundry_models_deployments_list MCP tool), deleting deployments, agent creation (use agent/create), project creation (use project/create)."
-        ],
-        "verification": [
-          "Model supports the SKU — query the model catalog to confirm the selected model+version supports the target SKU:",
-          "Subscription has available quota — check that the user's subscription has unallocated quota for the SKU+model combination:"
-        ],
-        "domains": [
-          "cloud",
-          "software",
-          "ai"
-        ],
-        "permissions": [
-          "shell"
-        ],
-        "derived": [
-          "domains",
-          "permissions",
-          "summary",
-          "verification",
-          "whenNotToUse",
-          "whenToUse"
-        ],
-        "keywords": [
-          "llm hosting",
-          "model rollout",
-          "foundry model deployment",
-          "out-of-band deployment"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "cloud-infra/deploy-model/SKILL.md",
-      "tokenEstimate": 1609
-    },
-    {
       "id": "deploy-to-vercel",
       "name": "deploy-to-vercel",
       "category": "cloud-infra",
@@ -4628,79 +4171,6 @@
       "tokenEstimate": 3815
     },
     {
-      "id": "entra-app-registration",
-      "name": "entra-app-registration",
-      "category": "cloud-infra",
-      "description": "Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration. USE FOR: create app registration, register Azure AD app, configure OAuth, set up authentication, add API permissions, generate service principal, MSAL example, console app auth, Entra ID setup, Azure AD authentication. DO NOT USE FOR: Key Vault secrets (use azure-keyvault-expiration-audit), general Azure resource security guidance.",
-      "author": "Microsoft",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "single sign-on",
-        "client secret",
-        "redirect uri",
-        "identity platform",
-        "login with microsoft"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration. USE FOR: create app registration, register Azure AD app, configure OAuth, set up authentication, add API permissions, generate service principal, MSAL example, console app auth, Entra ID setup, Azure AD…",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "microsoft/azure-skills",
-          "path": ".github/plugins/azure-skills/skills/entra-app-registration/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "declared in original SKILL.md",
-          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/entra-app-registration/SKILL.md",
-          "licenseCheckedAt": "2026-11-08",
-          "filesLeftAtSource": 1
-        },
-        "summary": "Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration. USE FOR: create app registration, register Azure AD app, configure OAuth, set up authentication, add API permissions, generate service principal, MSAL example, console app auth, Entra ID setup, Azure AD…",
-        "whenToUse": [
-          "USE FOR: create app registration, register Azure AD app, configure OAuth, set up authentication, add API permissions, generate service principal, MSAL example, console app auth, Entra ID setup, Azure AD authentication."
-        ],
-        "whenNotToUse": [
-          "DO NOT USE FOR: Key Vault secrets (use azure-keyvault-expiration-audit), general Azure resource security guidance."
-        ],
-        "verification": [
-          "Portal: Look for green checkmarks in \"Status\" column CLI: Look for consentType: \"AllPrincipals\" (admin consented)"
-        ],
-        "domains": [
-          "cloud",
-          "software",
-          "security"
-        ],
-        "derived": [
-          "domains",
-          "summary",
-          "verification",
-          "whenNotToUse",
-          "whenToUse"
-        ],
-        "keywords": [
-          "single sign-on",
-          "client secret",
-          "redirect uri",
-          "identity platform",
-          "login with microsoft"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "cloud-infra/entra-app-registration/SKILL.md",
-      "tokenEstimate": 1919
-    },
-    {
       "id": "finetuning",
       "name": "finetuning",
       "category": "cloud-infra",
@@ -4845,75 +4315,6 @@
       "tokenEstimate": 768
     },
     {
-      "id": "google-agents-cli-deploy",
-      "name": "google-agents-cli-deploy",
-      "category": "cloud-infra",
-      "description": "This skill should be used when the user wants to \"deploy an agent\", \"deploy my ADK agent\", \"set up CI/CD\", \"configure secrets\", \"troubleshoot a deployment\", or needs guidance on Agent Runtime, Cloud Run, or GKE deployment targets, or binding an agent to an Agent Gateway. Covers deployment workflows, service accounts, rollback, and production infrastructure. Applies to any framework agents-cli deploys (ADK, LangChain, ...). Part of the agents-cli skills suite. Do NOT use for agent API code patterns (ADK: use google-agents-cli-adk-code), evaluation (use google-agents-cli-eval), or project scaffolding (use google-agents-cli-scaffold).",
-      "author": "Google",
-      "license": "Apache-2.0",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "agent hosting",
-        "terraform",
-        "gke autopilot",
-        "workload identity federation",
-        "load test"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "This skill should be used when the user wants to \"deploy an agent\", \"deploy my ADK agent\", \"set up CI/CD\", \"configure secrets\", \"troubleshoot a deployment\", or needs guidance on Agent Runtime, Cloud Run, or GKE deployment targets, or binding an agent to an Agent Gateway. Covers deployment…",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "google/agents-cli",
-          "path": "skills/google-agents-cli-deploy/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "repository license",
-          "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
-        },
-        "summary": "This skill should be used when the user wants to \"deploy an agent\", \"deploy my ADK agent\", \"set up CI/CD\", \"configure secrets\", \"troubleshoot a deployment\", or needs guidance on Agent Runtime, Cloud Run, or GKE deployment targets, or binding an agent to an Agent Gateway. Covers deployment…",
-        "whenToUse": [
-          "This skill should be used when the user wants to \"deploy an agent\", \"deploy my ADK agent\", \"set up CI/CD\", \"configure secrets\", \"troubleshoot a deployment\", or needs guidance on Agent Runtime, Cloud Run, or GKE deployment targets, or bindin"
-        ],
-        "whenNotToUse": [
-          "Do NOT use for agent API code patterns (ADK: use google-agents-cli-adk-code), evaluation (use google-agents-cli-eval), or project scaffolding (use google-agents-cli-scaffold)."
-        ],
-        "domains": [
-          "cloud",
-          "software",
-          "ai",
-          "security"
-        ],
-        "derived": [
-          "domains",
-          "summary",
-          "whenNotToUse",
-          "whenToUse"
-        ],
-        "keywords": [
-          "agent hosting",
-          "terraform",
-          "gke autopilot",
-          "workload identity federation",
-          "load test"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "cloud-infra/google-agents-cli-deploy/SKILL.md",
-      "tokenEstimate": 3555
-    },
-    {
       "id": "microsoft-foundry",
       "name": "microsoft-foundry",
       "category": "cloud-infra",
@@ -4988,76 +4389,6 @@
       "format": "gss",
       "path": "cloud-infra/microsoft-foundry/SKILL.md",
       "tokenEstimate": 3591
-    },
-    {
-      "id": "preset",
-      "name": "preset",
-      "category": "cloud-infra",
-      "description": "Intelligently deploys Azure OpenAI models to optimal regions by analyzing capacity across all available regions. Automatically checks current region first and shows alternatives if needed. USE FOR: quick deployment, optimal region, best region, automatic region selection, fast setup, multi-region capacity check, high availability deployment, deploy to best location. DO NOT USE FOR: custom SKU selection (use customize), specific version selection (use customize), custom capacity configuration (use customize), PTU deployments (use customize).",
-      "author": "Microsoft",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "one-click deployment",
-        "quick model deploy",
-        "globalstandard sku",
-        "capacity fallback"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "Intelligently deploys Azure OpenAI models to optimal regions by analyzing capacity across all available regions. Automatically checks current region first and shows alternatives if needed.",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "microsoft/azure-skills",
-          "path": ".github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/preset/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "declared in original SKILL.md",
-          "licenseUrl": "https://github.com/microsoft/azure-skills/blob/main/.github/plugins/azure-skills/skills/microsoft-foundry/models/deploy-model/preset/SKILL.md",
-          "licenseCheckedAt": "2026-11-08"
-        },
-        "summary": "Intelligently deploys Azure OpenAI models to optimal regions by analyzing capacity across all available regions. Automatically checks current region first and shows alternatives if needed.",
-        "whenToUse": [
-          "USE FOR: quick deployment, optimal region, best region, automatic region selection, fast setup, multi-region capacity check, high availability deployment, deploy to best location."
-        ],
-        "whenNotToUse": [
-          "DO NOT USE FOR: custom SKU selection (use customize), specific version selection (use customize), custom capacity configuration (use customize), PTU deployments (use customize)."
-        ],
-        "verification": [
-          "Check if user is logged into Azure CLI: If not logged in: Verify subscription is correct: ---"
-        ],
-        "domains": [
-          "cloud",
-          "software",
-          "ai"
-        ],
-        "derived": [
-          "domains",
-          "summary",
-          "verification",
-          "whenNotToUse",
-          "whenToUse"
-        ],
-        "keywords": [
-          "one-click deployment",
-          "quick model deploy",
-          "globalstandard sku",
-          "capacity fallback"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "cloud-infra/preset/SKILL.md",
-      "tokenEstimate": 1071
     },
     {
       "id": "python-appservice-deploy",
@@ -5659,121 +4990,6 @@
       "tokenEstimate": 224
     },
     {
-      "id": "better-colors",
-      "name": "better-colors",
-      "category": "color",
-      "description": "Builds and checks color systems by generating palettes, naming semantic tokens, converting between formats and measuring contrast.",
-      "author": "ui-skills",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "color ramp",
-        "oklch",
-        "dark mode palette",
-        "color scale",
-        "gamut"
-      ],
-      "frameworks": [
-        "tailwind",
-        "css"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-06",
-      "summary": "Builds and checks color systems by generating palettes, naming semantic tokens, converting between formats and measuring contrast.",
-      "contract": {
-        "gss": 1,
-        "frameworks": [
-          "tailwind",
-          "css"
-        ],
-        "lastVerified": "2026-11-06",
-        "summary": "Builds and checks color systems by generating palettes, naming semantic tokens, converting between formats and measuring contrast.",
-        "domains": [
-          "design"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when generating color ramps, mapping steps to semantic token roles, converting color notation, or measuring the contrast of rendered color pairs."
-        ],
-        "whenNotToUse": [
-          "Deciding whether a pair must pass accessibility (better-accessibility) or styling surfaces, shadows and icon color (better-ui)"
-        ],
-        "keywords": [
-          "color ramp",
-          "oklch",
-          "dark mode palette",
-          "color scale",
-          "gamut"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "color/better-colors/SKILL.md",
-      "tokenEstimate": 1878
-    },
-    {
-      "id": "oklch-skill",
-      "name": "oklch-skill",
-      "category": "color",
-      "description": "OKLCH color space for web projects. Convert hex/rgb/hsl to oklch, generate palettes, check contrast, handle gamut boundaries, and theme with Tailwind v4. Triggers on oklch, color conversion, palette generation, contrast ratio, gamut, display p3, design tokens, hue drift, chroma, dark mode colors.",
-      "author": "ui-skills",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "perceptual color",
-        "apca",
-        "color ramp",
-        "wide gamut"
-      ],
-      "frameworks": [
-        "any",
-        "tailwind"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-06",
-      "summary": "OKLCH color space for web projects. Convert hex/rgb/hsl to oklch, generate palettes, check contrast, handle gamut boundaries, and theme with Tailwind v4.",
-      "contract": {
-        "gss": 1,
-        "frameworks": [
-          "any",
-          "tailwind"
-        ],
-        "lastVerified": "2026-11-06",
-        "summary": "OKLCH color space for web projects. Convert hex/rgb/hsl to oklch, generate palettes, check contrast, handle gamut boundaries, and theme with Tailwind v4.",
-        "domains": [
-          "design"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when converting colors to OKLCH, generating perceptually even palettes or dark mode colors, fixing contrast, or handling P3 gamut fallbacks in Tailwind v4."
-        ],
-        "keywords": [
-          "perceptual color",
-          "apca",
-          "color ramp",
-          "wide gamut"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "color/oklch-skill/SKILL.md",
-      "tokenEstimate": 1112
-    },
-    {
       "id": "company-logos",
       "name": "company-logos",
       "category": "components",
@@ -6039,59 +5255,6 @@
       "tokenEstimate": 3349
     },
     {
-      "id": "diagnosing-bugs",
-      "name": "diagnosing-bugs",
-      "category": "debugging",
-      "description": "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow.",
-      "author": "ui-skills",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "root cause",
-        "troubleshooting",
-        "regression hunt",
-        "bisect",
-        "reproduce bug"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-06",
-      "summary": "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow.",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-06",
-        "summary": "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow.",
-        "whenToUse": [
-          "Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow."
-        ],
-        "domains": [
-          "software"
-        ],
-        "derived": [
-          "domains",
-          "summary",
-          "whenToUse"
-        ],
-        "keywords": [
-          "root cause",
-          "troubleshooting",
-          "regression hunt",
-          "bisect",
-          "reproduce bug"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "debugging/diagnosing-bugs/SKILL.md",
-      "tokenEstimate": 2115
-    },
-    {
       "id": "create-design-md",
       "name": "create-design-md",
       "category": "design-systems",
@@ -6191,7 +5354,6 @@
       ],
       "dependencies": [],
       "relatedSkills": [
-        "migrate-to-a-design-system",
         "baseline-ui"
       ],
       "lastVerified": "2026-11-06",
@@ -6199,7 +5361,6 @@
       "contract": {
         "gss": 1,
         "related": [
-          "migrate-to-a-design-system",
           "baseline-ui"
         ],
         "frameworks": [
@@ -6236,84 +5397,6 @@
       "format": "gss",
       "path": "design-systems/design-system-boss/SKILL.md",
       "tokenEstimate": 946
-    },
-    {
-      "id": "migrate-to-a-design-system",
-      "name": "Migrate to a Design System",
-      "category": "design-systems",
-      "description": "Structured migration of legacy surfaces to design system tokens, primitives, and component architecture without visual regression.",
-      "author": "arla6ka",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [
-        "design-system",
-        "migration",
-        "refactoring",
-        "tokens",
-        "clean-code"
-      ],
-      "keywords": [
-        "hardcoded values",
-        "token adoption",
-        "legacy ui cleanup",
-        "style refactor",
-        "pixel diff"
-      ],
-      "frameworks": [
-        "react",
-        "nextjs",
-        "vue",
-        "svelte"
-      ],
-      "dependencies": [],
-      "relatedSkills": [
-        "design-system-boss",
-        "improve-ui"
-      ],
-      "lastVerified": "2026-11-06",
-      "summary": "Structured migration of legacy surfaces to design system tokens, primitives, and component architecture without visual regression.",
-      "contract": {
-        "gss": 1,
-        "related": [
-          "design-system-boss",
-          "improve-ui"
-        ],
-        "frameworks": [
-          "react",
-          "nextjs",
-          "vue",
-          "svelte"
-        ],
-        "lastVerified": "2026-11-06",
-        "summary": "Structured migration of legacy surfaces to design system tokens, primitives, and component architecture without visual regression.",
-        "domains": [
-          "design",
-          "web"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when replacing hardcoded styles and legacy components with an existing design system's tokens and primitives, without changing how screens look."
-        ],
-        "whenNotToUse": [
-          "Creating a new design system when none is settled yet (build-design-system)"
-        ],
-        "keywords": [
-          "hardcoded values",
-          "token adoption",
-          "legacy ui cleanup",
-          "style refactor",
-          "pixel diff"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "design-systems/migrate-to-a-design-system/SKILL.md",
-      "tokenEstimate": 2024
     },
     {
       "id": "docx",
@@ -6900,65 +5983,6 @@
       "format": "gss",
       "path": "frontend/react-native-skills/SKILL.md",
       "tokenEstimate": 1005
-    },
-    {
-      "id": "react-router-framework-mode",
-      "name": "react-router-framework-mode",
-      "category": "frontend",
-      "description": "Build full-stack React applications using React Router's framework mode. Use when configuring routes, working with loaders and actions, handling forms, handling navigation, pending/optimistic UI, error boundaries, or working with react-router.config.ts or other react router conventions.",
-      "author": "ui-skills",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "remix",
-        "file-based routing",
-        "ssr",
-        "data loader",
-        "form mutations"
-      ],
-      "frameworks": [
-        "react",
-        "react-router"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-06",
-      "summary": "Build full-stack React applications using React Router's framework mode. Use when configuring routes, working with loaders and actions, handling forms, handling navigation, pending/optimistic UI, error boundaries, or working with react-router.config.ts or other react router conventions.",
-      "contract": {
-        "gss": 1,
-        "frameworks": [
-          "react",
-          "react-router"
-        ],
-        "lastVerified": "2026-11-06",
-        "summary": "Build full-stack React applications using React Router's framework mode. Use when configuring routes, working with loaders and actions, handling forms, handling navigation, pending/optimistic UI, error boundaries, or working with react-router.config.ts or other react router conventions.",
-        "whenToUse": [
-          "Use when configuring routes, working with loaders and actions, handling forms, handling navigation, pending/optimistic UI, error boundaries, or working with react-router.config.ts or other react router conventions."
-        ],
-        "domains": [
-          "web",
-          "software"
-        ],
-        "derived": [
-          "domains",
-          "summary",
-          "whenToUse"
-        ],
-        "keywords": [
-          "remix",
-          "file-based routing",
-          "ssr",
-          "data loader",
-          "form mutations"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "frontend/react-router-framework-mode/SKILL.md",
-      "tokenEstimate": 1055
     },
     {
       "id": "tailwindcss",
@@ -8443,127 +7467,6 @@
       "tokenEstimate": 3579
     },
     {
-      "id": "canopy-part-title",
-      "name": "canopy-part-title",
-      "category": "media-creative",
-      "description": "Leaves sweep through the frame and part to reveal the headline. HyperFrames block, 1920×1080, 12s, 11 variables.",
-      "author": "heygen-com",
-      "license": "Apache-2.0",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "title card",
-        "text reveal",
-        "intro animation",
-        "motion graphics",
-        "nature title"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "Leaves sweep through the frame and part to reveal the headline. HyperFrames block, 1920×1080, 12s, 11 variables.",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "heygen-com/hyperframes",
-          "path": "registry/blocks/canopy-part-title/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "repository license",
-          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08",
-          "filesLeftAtSource": 2
-        },
-        "summary": "Leaves sweep through the frame and part to reveal the headline. HyperFrames block, 1920×1080, 12s, 11 variables.",
-        "domains": [
-          "media"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when a HyperFrames video needs a nature-themed title reveal where leaves sweep in and part to uncover the headline."
-        ],
-        "keywords": [
-          "title card",
-          "text reveal",
-          "intro animation",
-          "motion graphics",
-          "nature title"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "media-creative/canopy-part-title/SKILL.md",
-      "tokenEstimate": 961
-    },
-    {
-      "id": "captions-overlay",
-      "name": "captions-overlay",
-      "category": "media-creative",
-      "description": "Overlay doctrine for captions in HyperFrames videos — the caption MODEL (drop / rail / embed) and the rule that captions are an OVERLAY composited on top of the film, never a reserved bottom band you shift content up to avoid. Load when adding captions/subtitles to a talking-head or launch video, when deciding whether a phrase should be dropped, ride the verbatim rail, or be promoted to a scarce embedded climax, when laying out a composition that will carry captions (do NOT reserve a keep-out band), or when centering a composition on the true frame center under captions. Applies ON TOP of the `/hyperframes` skill's references/captions.md.",
-      "author": "heygen-com",
-      "license": "Apache-2.0",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "lower third",
-        "talking head video",
-        "caption styling",
-        "burned-in captions"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "Overlay doctrine for captions in HyperFrames videos — the caption MODEL (drop / rail / embed) and the rule that captions are an OVERLAY composited on top of the film, never a reserved bottom band you shift content up to avoid. Load when adding captions/subtitles to a talking-head or launch…",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "heygen-com/hyperframes",
-          "path": ".agents/skills/captions-overlay/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "repository license",
-          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
-        },
-        "summary": "Overlay doctrine for captions in HyperFrames videos — the caption MODEL (drop / rail / embed) and the rule that captions are an OVERLAY composited on top of the film, never a reserved bottom band you shift content up to avoid. Load when adding captions/subtitles to a talking-head or launch…",
-        "domains": [
-          "media"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when adding captions or subtitles to a HyperFrames talking-head or launch video and deciding which phrases to drop, show on the rail, or promote."
-        ],
-        "keywords": [
-          "lower third",
-          "talking head video",
-          "caption styling",
-          "burned-in captions"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "media-creative/captions-overlay/SKILL.md",
-      "tokenEstimate": 1258
-    },
-    {
       "id": "changelog-video",
       "name": "changelog-video",
       "category": "media-creative",
@@ -8639,68 +7542,6 @@
       "tokenEstimate": 3220
     },
     {
-      "id": "code-slice-hero",
-      "name": "code-slice-hero",
-      "category": "media-creative",
-      "description": "A tiled headline surface flips cell by cell under a sweeping depth field to reveal the rear headline. HyperFrames block, 1920×1080, 8s, 18 variables.",
-      "author": "heygen-com",
-      "license": "Apache-2.0",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "title card",
-        "text reveal",
-        "webgl",
-        "tile flip",
-        "motion graphics"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "A tiled headline surface flips cell by cell under a sweeping depth field to reveal the rear headline. HyperFrames block, 1920×1080, 8s, 18 variables.",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "heygen-com/hyperframes",
-          "path": "registry/blocks/code-slice-hero/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "repository license",
-          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08",
-          "filesLeftAtSource": 1
-        },
-        "summary": "A tiled headline surface flips cell by cell under a sweeping depth field to reveal the rear headline. HyperFrames block, 1920×1080, 8s, 18 variables.",
-        "domains": [
-          "media"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when a HyperFrames video needs a headline hero shot where a grid of tiles flips to reveal a second headline."
-        ],
-        "keywords": [
-          "title card",
-          "text reveal",
-          "webgl",
-          "tile flip",
-          "motion graphics"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "media-creative/code-slice-hero/SKILL.md",
-      "tokenEstimate": 1141
-    },
-    {
       "id": "controlnet-pose",
       "name": "controlnet-pose",
       "category": "media-creative",
@@ -8756,67 +7597,6 @@
       "format": "gss",
       "path": "media-creative/controlnet-pose/SKILL.md",
       "tokenEstimate": 2483
-    },
-    {
-      "id": "cuboid-carousel",
-      "name": "cuboid-carousel",
-      "category": "media-creative",
-      "description": "A chain of bevelled cuboids rides a travelling wave as a content carousel. HyperFrames block, 1920×1080, 6.666666666666667s, 40 variables.",
-      "author": "heygen-com",
-      "license": "Apache-2.0",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "3d carousel",
-        "card showcase",
-        "feature showcase",
-        "three.js",
-        "motion graphics"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "A chain of bevelled cuboids rides a travelling wave as a content carousel. HyperFrames block, 1920×1080, 6.666666666666667s, 40 variables.",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "heygen-com/hyperframes",
-          "path": "registry/blocks/cuboid-carousel/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "repository license",
-          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
-        },
-        "summary": "A chain of bevelled cuboids rides a travelling wave as a content carousel. HyperFrames block, 1920×1080, 6.666666666666667s, 40 variables.",
-        "domains": [
-          "media"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when a HyperFrames video needs a 3D carousel of cards riding on rotating cuboids, with a hero card hold."
-        ],
-        "keywords": [
-          "3d carousel",
-          "card showcase",
-          "feature showcase",
-          "three.js",
-          "motion graphics"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "media-creative/cuboid-carousel/SKILL.md",
-      "tokenEstimate": 1726
     },
     {
       "id": "cut-the-curve",
@@ -9207,130 +7987,6 @@
       "format": "gss",
       "path": "media-creative/flux-kontext/SKILL.md",
       "tokenEstimate": 1789
-    },
-    {
-      "id": "frost-sequence-camera-orbit",
-      "name": "frost-sequence-camera-orbit",
-      "category": "media-creative",
-      "description": "An orbiting camera follows an ice logo as it breaks apart, reforms into two text moments, and fades. HyperFrames block, 1920×1080, 22.5s, 216 variables.",
-      "author": "heygen-com",
-      "license": "Apache-2.0",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "logo reveal",
-        "ice effect",
-        "3d title sequence",
-        "particles",
-        "motion graphics"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "An orbiting camera follows an ice logo as it breaks apart, reforms into two text moments, and fades. HyperFrames block, 1920×1080, 22.5s, 216 variables.",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "heygen-com/hyperframes",
-          "path": "registry/blocks/frost-sequence-camera-orbit/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "repository license",
-          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08",
-          "filesLeftAtSource": 4
-        },
-        "summary": "An orbiting camera follows an ice logo as it breaks apart, reforms into two text moments, and fades. HyperFrames block, 1920×1080, 22.5s, 216 variables.",
-        "domains": [
-          "media"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when a HyperFrames video needs an ice-themed logo and text sequence with an orbiting camera, shatter and reform transitions."
-        ],
-        "keywords": [
-          "logo reveal",
-          "ice effect",
-          "3d title sequence",
-          "particles",
-          "motion graphics"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "media-creative/frost-sequence-camera-orbit/SKILL.md",
-      "tokenEstimate": 565
-    },
-    {
-      "id": "glass-shard-title",
-      "name": "glass-shard-title",
-      "category": "media-creative",
-      "description": "Glass shards fly in through fog and tile themselves into the headline. HyperFrames block, 1920×1080, 12.16s, 19 variables.",
-      "author": "heygen-com",
-      "license": "Apache-2.0",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "title card",
-        "text reveal",
-        "3d glass",
-        "shatter effect",
-        "motion graphics"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "Glass shards fly in through fog and tile themselves into the headline. HyperFrames block, 1920×1080, 12.16s, 19 variables.",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "heygen-com/hyperframes",
-          "path": "registry/blocks/glass-shard-title/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "repository license",
-          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08",
-          "filesLeftAtSource": 5
-        },
-        "summary": "Glass shards fly in through fog and tile themselves into the headline. HyperFrames block, 1920×1080, 12.16s, 19 variables.",
-        "domains": [
-          "media"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when a HyperFrames video needs a 3D title where glass shards fly in through fog and assemble into the headline."
-        ],
-        "keywords": [
-          "title card",
-          "text reveal",
-          "3d glass",
-          "shatter effect",
-          "motion graphics"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "media-creative/glass-shard-title/SKILL.md",
-      "tokenEstimate": 1293
     },
     {
       "id": "gpt-image-2",
@@ -10402,68 +9058,6 @@
       "tokenEstimate": 2063
     },
     {
-      "id": "orbit-card",
-      "name": "orbit-card",
-      "category": "media-creative",
-      "description": "A single feature card orbits a dot sphere on approved Blender camera motion. HyperFrames block, 1920×1080, 10s, 4 variables.",
-      "author": "heygen-com",
-      "license": "Apache-2.0",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "feature highlight",
-        "product feature video",
-        "3d card",
-        "three.js",
-        "motion graphics"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "A single feature card orbits a dot sphere on approved Blender camera motion. HyperFrames block, 1920×1080, 10s, 4 variables.",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "heygen-com/hyperframes",
-          "path": "registry/blocks/orbit-card/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "repository license",
-          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08",
-          "filesLeftAtSource": 2
-        },
-        "summary": "A single feature card orbits a dot sphere on approved Blender camera motion. HyperFrames block, 1920×1080, 10s, 4 variables.",
-        "domains": [
-          "media"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when a HyperFrames video needs a single feature card shown in 3D, orbiting a dot sphere before it exits."
-        ],
-        "keywords": [
-          "feature highlight",
-          "product feature video",
-          "3d card",
-          "three.js",
-          "motion graphics"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "media-creative/orbit-card/SKILL.md",
-      "tokenEstimate": 845
-    },
-    {
       "id": "oversized-cursor",
       "name": "oversized-cursor",
       "category": "media-creative",
@@ -10594,63 +9188,6 @@
       "format": "gss",
       "path": "media-creative/relight/SKILL.md",
       "tokenEstimate": 2299
-    },
-    {
-      "id": "remotion-best-practices",
-      "name": "remotion-best-practices",
-      "category": "media-creative",
-      "description": "Router for all Remotion skills",
-      "author": "ui-skills",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "react video",
-        "programmatic video",
-        "video in code",
-        "composition",
-        "motion graphics"
-      ],
-      "frameworks": [
-        "react",
-        "remotion"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-06",
-      "summary": "Router for all Remotion skills",
-      "contract": {
-        "gss": 1,
-        "frameworks": [
-          "react",
-          "remotion"
-        ],
-        "lastVerified": "2026-11-06",
-        "summary": "Router for all Remotion skills",
-        "domains": [
-          "media"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use first for any Remotion task, to route to the right guide for creating, editing, captioning, mapping or rendering a video."
-        ],
-        "keywords": [
-          "react video",
-          "programmatic video",
-          "video in code",
-          "composition",
-          "motion graphics"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "media-creative/remotion-best-practices/SKILL.md",
-      "tokenEstimate": 1064
     },
     {
       "id": "remotion-captions",
@@ -12344,68 +10881,6 @@
       "tokenEstimate": 3617
     },
     {
-      "id": "wireframe-portal-title",
-      "name": "wireframe-portal-title",
-      "category": "media-creative",
-      "description": "A wireframe portal bursts open, the title comes through, then its letters swap into a second phrase. HyperFrames block, 1920×1080, 8s, 9 variables.",
-      "author": "heygen-com",
-      "license": "Apache-2.0",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "title card",
-        "text reveal",
-        "3d text",
-        "intro animation",
-        "motion graphics"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "A wireframe portal bursts open, the title comes through, then its letters swap into a second phrase. HyperFrames block, 1920×1080, 8s, 9 variables.",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "heygen-com/hyperframes",
-          "path": "registry/blocks/wireframe-portal-title/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "repository license",
-          "licenseUrl": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08",
-          "filesLeftAtSource": 3
-        },
-        "summary": "A wireframe portal bursts open, the title comes through, then its letters swap into a second phrase. HyperFrames block, 1920×1080, 8s, 9 variables.",
-        "domains": [
-          "media"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when a HyperFrames video needs a 3D wireframe title that bursts through a portal and then morphs into a second phrase."
-        ],
-        "keywords": [
-          "title card",
-          "text reveal",
-          "3d text",
-          "intro animation",
-          "motion graphics"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "media-creative/wireframe-portal-title/SKILL.md",
-      "tokenEstimate": 1007
-    },
-    {
       "id": "masked-reveal",
       "name": "masked-reveal",
       "category": "micro-interactions",
@@ -12598,16 +11073,11 @@
         "framer-motion"
       ],
       "dependencies": [],
-      "relatedSkills": [
-        "improve-animations"
-      ],
+      "relatedSkills": [],
       "lastVerified": "2026-11-06",
       "summary": "Audit and fix animation performance issues including layout thrashing, compositor properties, scroll-linked motion, and blur effects. Use when animations stutter, transitions jank, or reviewing CSS/JS animation performance.",
       "contract": {
         "gss": 1,
-        "related": [
-          "improve-animations"
-        ],
         "frameworks": [
           "react",
           "nextjs",
@@ -12639,81 +11109,6 @@
       "format": "gss",
       "path": "performance/fixing-motion-performance/SKILL.md",
       "tokenEstimate": 1321
-    },
-    {
-      "id": "improve-react",
-      "name": "Improve React Performance",
-      "category": "react",
-      "description": "Deep React rendering optimization, eliminating re-renders, optimizing virtual DOM reconciliation, and bundle size reduction.",
-      "author": "millionco",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [
-        "performance",
-        "rendering",
-        "virtual-dom",
-        "optimization"
-      ],
-      "keywords": [
-        "react audit",
-        "react doctor",
-        "performance plan",
-        "code review"
-      ],
-      "frameworks": [
-        "react",
-        "nextjs",
-        "remix",
-        "vite"
-      ],
-      "dependencies": [],
-      "relatedSkills": [
-        "frontend-design",
-        "improve-shadcn"
-      ],
-      "lastVerified": "2026-11-06",
-      "summary": "Deep React rendering optimization, eliminating re-renders, optimizing virtual DOM reconciliation, and bundle size reduction.",
-      "contract": {
-        "gss": 1,
-        "related": [
-          "frontend-design",
-          "improve-shadcn"
-        ],
-        "frameworks": [
-          "react",
-          "nextjs",
-          "remix",
-          "vite"
-        ],
-        "lastVerified": "2026-11-06",
-        "summary": "Deep React rendering optimization, eliminating re-renders, optimizing virtual DOM reconciliation, and bundle size reduction.",
-        "domains": [
-          "web",
-          "software"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when auditing a React codebase for re-renders, effect bugs and bundle size, to produce prioritized plans another agent can execute."
-        ],
-        "whenNotToUse": [
-          "Fixing the code directly (react-doctor)"
-        ],
-        "keywords": [
-          "react audit",
-          "react doctor",
-          "performance plan",
-          "code review"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "react/improve-react/SKILL.md",
-      "tokenEstimate": 3016
     },
     {
       "id": "fixing-metadata",
@@ -12777,77 +11172,6 @@
       "format": "gss",
       "path": "seo/fixing-metadata/SKILL.md",
       "tokenEstimate": 1003
-    },
-    {
-      "id": "improve-shadcn",
-      "name": "Improve shadcn/ui Architecture",
-      "category": "shadcn-ui",
-      "description": "Best practices for installing, configuring, theming, and extending shadcn/ui and Radix UI primitives in modern web applications.",
-      "author": "ui-skills",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [
-        "radix-ui",
-        "tailwind",
-        "components",
-        "theming"
-      ],
-      "keywords": [
-        "component library audit",
-        "improvement plan",
-        "ui kit"
-      ],
-      "frameworks": [
-        "react",
-        "nextjs",
-        "vite"
-      ],
-      "dependencies": [],
-      "relatedSkills": [
-        "improve-ui",
-        "baseline-ui"
-      ],
-      "lastVerified": "2026-11-06",
-      "summary": "Best practices for installing, configuring, theming, and extending shadcn/ui and Radix UI primitives in modern web applications.",
-      "contract": {
-        "gss": 1,
-        "related": [
-          "improve-ui",
-          "baseline-ui"
-        ],
-        "frameworks": [
-          "react",
-          "nextjs",
-          "vite"
-        ],
-        "lastVerified": "2026-11-06",
-        "summary": "Best practices for installing, configuring, theming, and extending shadcn/ui and Radix UI primitives in modern web applications.",
-        "domains": [
-          "web",
-          "design"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when reviewing how a project installs, themes and extends shadcn/ui and Radix components, to write improvement plans for another agent to execute."
-        ],
-        "whenNotToUse": [
-          "Editing source code directly"
-        ],
-        "keywords": [
-          "component library audit",
-          "improvement plan",
-          "ui kit"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "shadcn-ui/improve-shadcn/SKILL.md",
-      "tokenEstimate": 3734
     },
     {
       "id": "baseline-ui",
@@ -13165,62 +11489,6 @@
       "tokenEstimate": 860
     },
     {
-      "id": "vue-testing-best-practices",
-      "name": "vue-testing-best-practices",
-      "category": "testing",
-      "description": "Use for Vue.js testing. Covers Vitest, Vue Test Utils, component testing, mocking, testing patterns, and Playwright for E2E testing.",
-      "author": "ui-skills",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "pinia testing",
-        "component tests",
-        "e2e tests"
-      ],
-      "frameworks": [
-        "vue",
-        "react",
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-06",
-      "summary": "Use for Vue.js testing. Covers Vitest, Vue Test Utils, component testing, mocking, testing patterns, and Playwright for E2E testing.",
-      "contract": {
-        "gss": 1,
-        "frameworks": [
-          "vue",
-          "react",
-          "any"
-        ],
-        "lastVerified": "2026-11-06",
-        "summary": "Use for Vue.js testing. Covers Vitest, Vue Test Utils, component testing, mocking, testing patterns, and Playwright for E2E testing.",
-        "whenToUse": [
-          "Use for Vue.js testing."
-        ],
-        "domains": [
-          "software"
-        ],
-        "derived": [
-          "domains",
-          "summary",
-          "whenToUse"
-        ],
-        "keywords": [
-          "pinia testing",
-          "component tests",
-          "e2e tests"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "testing/vue-testing-best-practices/SKILL.md",
-      "tokenEstimate": 466
-    },
-    {
       "id": "webapp-testing",
       "name": "webapp-testing",
       "category": "testing",
@@ -13277,117 +11545,6 @@
       "format": "gss",
       "path": "testing/webapp-testing/SKILL.md",
       "tokenEstimate": 894
-    },
-    {
-      "id": "better-typography",
-      "name": "better-typography",
-      "category": "typography",
-      "description": "Sets and reviews how text renders, from the type scale and spacing to font features, wrapping, truncation and punctuation.",
-      "author": "ui-skills",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "line height",
-        "font loading",
-        "text wrapping",
-        "fonts"
-      ],
-      "frameworks": [
-        "any",
-        "css",
-        "tailwind"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-06",
-      "summary": "Sets and reviews how text renders, from the type scale and spacing to font features, wrapping, truncation and punctuation.",
-      "contract": {
-        "gss": 1,
-        "frameworks": [
-          "any",
-          "css",
-          "tailwind"
-        ],
-        "lastVerified": "2026-11-06",
-        "summary": "Sets and reviews how text renders, from the type scale and spacing to font features, wrapping, truncation and punctuation.",
-        "domains": [
-          "design"
-        ],
-        "derived": [
-          "domains",
-          "summary"
-        ],
-        "whenToUse": [
-          "Use when setting or reviewing a type scale, line height, font loading, text wrapping, truncation or punctuation in a project's styles."
-        ],
-        "whenNotToUse": [
-          "Wording (better-writing), heading semantics (better-accessibility) or RTL layout (better-layout)"
-        ],
-        "keywords": [
-          "line height",
-          "font loading",
-          "text wrapping",
-          "fonts"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "typography/better-typography/SKILL.md",
-      "tokenEstimate": 3015
-    },
-    {
-      "id": "swiss-design",
-      "name": "swiss-design",
-      "category": "typography",
-      "description": "Apply a Swiss International Style design system using Tailwind CSS. Use when asked to style a webpage, clean up a UI, apply a design system, make something look great, or when the user references Swiss design, grotesque fonts, Helvetica, grid systems, modernist typography, or 1960s/1950s design aesthetics. Implements IBM Plex Sans typography, stone color palette, opacity-based hierarchy, generous whitespace, and structured grid layouts.",
-      "author": "ui-skills",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "minimalist design",
-        "international typographic style",
-        "tailwind styling",
-        "modernist layout"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-06",
-      "summary": "Apply a Swiss International Style design system using Tailwind CSS. Use when asked to style a webpage, clean up a UI, apply a design system, make something look great, or when the user references Swiss design, grotesque fonts, Helvetica, grid systems, modernist typography, or 1960s/1950s design…",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-06",
-        "summary": "Apply a Swiss International Style design system using Tailwind CSS. Use when asked to style a webpage, clean up a UI, apply a design system, make something look great, or when the user references Swiss design, grotesque fonts, Helvetica, grid systems, modernist typography, or 1960s/1950s design…",
-        "whenToUse": [
-          "Use when asked to style a webpage, clean up a UI, apply a design system, make something look great, or when the user references Swiss design, grotesque fonts, Helvetica, grid systems, modernist typography, or 1960s/1950s design aesthetics."
-        ],
-        "domains": [
-          "design"
-        ],
-        "derived": [
-          "domains",
-          "summary",
-          "whenToUse"
-        ],
-        "keywords": [
-          "minimalist design",
-          "international typographic style",
-          "tailwind styling",
-          "modernist layout"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "typography/swiss-design/SKILL.md",
-      "tokenEstimate": 3106
     },
     {
       "id": "academy-guide",
@@ -13926,80 +12083,6 @@
       "format": "gss",
       "path": "ui-ux/rams/SKILL.md",
       "tokenEstimate": 1115
-    },
-    {
-      "id": "taste-skill",
-      "name": "design-taste-frontend",
-      "category": "ui-ux",
-      "description": "tasteskill 2.5.1, the anti-slop frontend skill. Builds professional company websites at the level of figma.com and x.ai: plain copy in a voice of its own, one system, one section per screen, equal edges, real photographs and real product UI (licensed stand-in photographs when the client has none; a product render only when the brief asks for 3D), a hero entrance and one or two dealt moments on every page, shader effects and scenes only on tech, gaming and software pages, quiet micro-interactions, and a checker and finish gate that enforce it in a real browser. Use this whenever you build, design, redesign, restyle, polish or review a landing page, company, product, shop, cafe, hotel, studio, SaaS, AI, developer-tool or game site, as static HTML/CSS or inside an existing React, Next.js, Vue, Svelte, Astro or Tailwind project, or when the user says a page looks generic, templated or \"AI-made\".",
-      "author": "leonxlnx",
-      "license": "MIT",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "company homepage",
-        "brand website",
-        "hotel website",
-        "cafe website"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "tasteskill 2.5.1, the anti-slop frontend skill. Builds professional company websites at the level of figma.com and x.ai: plain copy in a voice of its own, one system, one section per screen, equal edges, real photographs and real product UI (licensed stand-in photographs when the client has…",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "leonxlnx/taste-skill",
-          "path": "skills/taste-skill/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "repository license",
-          "licenseUrl": "https://github.com/Leonxlnx/taste-skill/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08",
-          "filesLeftAtSource": 151
-        },
-        "summary": "tasteskill 2.5.1, the anti-slop frontend skill. Builds professional company websites at the level of figma.com and x.ai: plain copy in a voice of its own, one system, one section per screen, equal edges, real photographs and real product UI (licensed stand-in photographs when the client has…",
-        "whenToUse": [
-          "Use this whenever you build, design, redesign, restyle, polish or review a landing page, company, product, shop, cafe, hotel, studio, SaaS, AI, developer-tool or game site, as static HTML/CSS or inside an existing React, Next.js, Vue, Svelt"
-        ],
-        "verification": [
-          "First screen: says what is sold, for whom or where, with one hard fact [copy-headline,",
-          "One section per screen: every section 1 or 2 screens, its h2 first and top-aligned, no",
-          "Equal edges: every block on the .wrap lines or the grid's columns, nothing out to one side,",
-          "Every visual draws at 1440, 1024, 768 and 390; a refused effect shows its still fallback",
-          "No caption explains, apologises for or labels a picture; credits in one footer line",
-          "The right things for the kind: outside tech no effect ground, print or scene, only the",
-          "Motion: every button, link, linked card and linked photograph visibly answers the pointer,",
-          "Contacts as rule 9 [street-number, postcode, coordinates, company-number, phone-number];"
-        ],
-        "domains": [
-          "design",
-          "web",
-          "ai"
-        ],
-        "derived": [
-          "domains",
-          "summary",
-          "verification",
-          "whenToUse"
-        ],
-        "keywords": [
-          "company homepage",
-          "brand website",
-          "hotel website",
-          "cafe website"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "ui-ux/taste-skill/SKILL.md",
-      "tokenEstimate": 2722
     },
     {
       "id": "theme-factory",
@@ -14595,137 +12678,6 @@
       "format": "gss",
       "path": "workflow/google-agents-cli-publish/SKILL.md",
       "tokenEstimate": 2724
-    },
-    {
-      "id": "google-agents-cli-scaffold",
-      "name": "google-agents-cli-scaffold",
-      "category": "workflow",
-      "description": "This skill should be used when the user wants to \"create an agent project\", \"start a new ADK project\", \"build me a new agent\", \"add CI/CD to my project\", \"add deployment\", \"enhance my project\", or \"upgrade my project\". Part of the agents-cli skills suite. Covers `agents-cli scaffold create`, `scaffold enhance`, and `scaffold upgrade` commands, template options, deployment targets, and the prototype-first workflow. Do NOT use for writing agent code (ADK projects: use google-agents-cli-adk-code) or deployment operations (use google-agents-cli-deploy).",
-      "author": "Google",
-      "license": "Apache-2.0",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "project template",
-        "agent boilerplate",
-        "ci/cd setup",
-        "deployment setup",
-        "new agent project"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "This skill should be used when the user wants to \"create an agent project\", \"start a new ADK project\", \"build me a new agent\", \"add CI/CD to my project\", \"add deployment\", \"enhance my project\", or \"upgrade my project\". Part of the agents-cli skills suite.",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "google/agents-cli",
-          "path": "skills/google-agents-cli-scaffold/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "repository license",
-          "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
-        },
-        "summary": "This skill should be used when the user wants to \"create an agent project\", \"start a new ADK project\", \"build me a new agent\", \"add CI/CD to my project\", \"add deployment\", \"enhance my project\", or \"upgrade my project\". Part of the agents-cli skills suite.",
-        "whenToUse": [
-          "This skill should be used when the user wants to \"create an agent project\", \"start a new ADK project\", \"build me a new agent\", \"add CI/CD to my project\", \"add deployment\", \"enhance my project\", or \"upgrade my project\"."
-        ],
-        "whenNotToUse": [
-          "Do NOT use for writing agent code (ADK projects: use google-agents-cli-adk-code) or deployment operations (use google-agents-cli-deploy)."
-        ],
-        "domains": [
-          "software",
-          "ai",
-          "writing"
-        ],
-        "derived": [
-          "domains",
-          "summary",
-          "whenNotToUse",
-          "whenToUse"
-        ],
-        "keywords": [
-          "project template",
-          "agent boilerplate",
-          "ci/cd setup",
-          "deployment setup",
-          "new agent project"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "workflow/google-agents-cli-scaffold/SKILL.md",
-      "tokenEstimate": 3111
-    },
-    {
-      "id": "google-agents-cli-workflow",
-      "name": "google-agents-cli-workflow",
-      "category": "workflow",
-      "description": "This skill should be used when the user wants to \"develop an agent\", \"build an agent using ADK\", \"run the agent locally\", \"debug agent code\", \"test an agent\", \"deploy an agent\", \"publish an agent\", \"monitor an agent\", or needs the ADK (Agent Development Kit) development lifecycle and coding guidelines. Entrypoint for building ADK agents. Always active — provides the full workflow (scaffold, build, evaluate, deploy, publish, observe), code preservation rules, model selection guidance, and troubleshooting steps for ADK or any agent development.",
-      "author": "Google",
-      "license": "Apache-2.0",
-      "version": "1.0.0",
-      "tags": [],
-      "keywords": [
-        "agent lifecycle",
-        "gemini agent",
-        "agent engineering",
-        "google cloud agents",
-        "build and deploy agent"
-      ],
-      "frameworks": [
-        "any"
-      ],
-      "dependencies": [],
-      "relatedSkills": [],
-      "lastVerified": "2026-11-08",
-      "summary": "This skill should be used when the user wants to \"develop an agent\", \"build an agent using ADK\", \"run the agent locally\", \"debug agent code\", \"test an agent\", \"deploy an agent\", \"publish an agent\", \"monitor an agent\", or needs the ADK (Agent Development Kit) development lifecycle and coding…",
-      "contract": {
-        "gss": 1,
-        "lastVerified": "2026-11-08",
-        "source": {
-          "repo": "google/agents-cli",
-          "path": "skills/google-agents-cli-workflow/SKILL.md",
-          "licenseVerified": true,
-          "licenseStatus": "open",
-          "licenseEvidence": "repository license",
-          "licenseUrl": "https://github.com/google/agents-cli/blob/main/LICENSE",
-          "licenseCheckedAt": "2026-11-08"
-        },
-        "summary": "This skill should be used when the user wants to \"develop an agent\", \"build an agent using ADK\", \"run the agent locally\", \"debug agent code\", \"test an agent\", \"deploy an agent\", \"publish an agent\", \"monitor an agent\", or needs the ADK (Agent Development Kit) development lifecycle and coding…",
-        "whenToUse": [
-          "This skill should be used when the user wants to \"develop an agent\", \"build an agent using ADK\", \"run the agent locally\", \"debug agent code\", \"test an agent\", \"deploy an agent\", \"publish an agent\", \"monitor an agent\", or needs the ADK (Agen"
-        ],
-        "domains": [
-          "software",
-          "ai"
-        ],
-        "derived": [
-          "domains",
-          "summary",
-          "whenToUse"
-        ],
-        "keywords": [
-          "agent lifecycle",
-          "gemini agent",
-          "agent engineering",
-          "google cloud agents",
-          "build and deploy agent"
-        ],
-        "drafts": [
-          "keywords"
-        ]
-      },
-      "format": "gss",
-      "path": "workflow/google-agents-cli-workflow/SKILL.md",
-      "tokenEstimate": 3480
     },
     {
       "id": "grill-me",

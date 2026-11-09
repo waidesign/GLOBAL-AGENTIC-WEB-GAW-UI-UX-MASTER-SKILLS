@@ -180,16 +180,16 @@ gaw use "Build a responsive SaaS dashboard with a sidebar and data table"
 
 ## 📚 SKILLS LIBRARY
 
-GAW's official library has **235 skills** in `skills/`, across many fields:
+GAW's official library has **204 skills** in `skills/`, across many fields. Every one ships the files it refers to (`gaw skills lint` checks this):
 
 | Area | Skills | Examples |
 |---|---|---|
-| Media & creative | 67 | `ai-image-generation`, `ai-video-generation`, `ai-music`, `hyperframes`, `remotion-create` |
-| Cloud & infrastructure | 58 | `azure-deploy`, `aks-troubleshooting`, `cost-optimization`, `deploy-to-vercel`, `google-agents-cli-deploy` |
-| UI, frontend & design | 45 | `frontend-design`, `design-system-boss`, `fixing-accessibility`, `accessibility-baseline`, `react-best-practices` |
-| Agent workflows | 21 | `chief-of-staff`, `handoff`, `triage`, `grilling`, `skill-creator` |
+| Media & creative | 58 | `ai-image-generation`, `ai-video-generation`, `ai-music`, `hyperframes`, `remotion-create` |
+| Cloud & infrastructure | 50 | `azure-deploy`, `azure-prepare`, `aks-troubleshooting`, `cost-optimization`, `deploy-to-vercel` |
+| UI, frontend & design | 35 | `frontend-design`, `fixing-accessibility`, `accessibility-baseline`, `react-best-practices`, `motion-dev` |
+| Agent workflows | 19 | `chief-of-staff`, `handoff`, `triage`, `grilling`, `skill-creator` |
 | General | 17 | `claude-api`, `internal-comms`, `teach`, `canvas-design`, `discernment-nudge` |
-| Code quality, testing & debugging | 11 | `code-review`, `tdd`, `webapp-testing`, `diagnosing-bugs`, `setup-pre-commit` |
+| Code quality & testing | 9 | `code-review`, `tdd`, `webapp-testing`, `setup-pre-commit` |
 | Architecture & planning | 10 | `codebase-design`, `domain-modeling`, `to-spec`, `to-tickets`, `implement` |
 | Documents | 4 | `docx`, `pdf`, `pptx`, `xlsx` |
 | Databases | 2 | `supabase`, `supabase-postgres-best-practices` |

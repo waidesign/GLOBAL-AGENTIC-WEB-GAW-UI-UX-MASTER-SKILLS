@@ -1,8 +1,5 @@
 {
   "gss": 1,
-  "related": [
-    "improve-animations"
-  ],
   "frameworks": [
     "framer-motion",
     "tailwind",

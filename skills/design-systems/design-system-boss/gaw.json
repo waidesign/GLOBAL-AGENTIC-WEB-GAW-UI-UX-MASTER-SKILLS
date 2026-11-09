@@ -1,7 +1,6 @@
 {
   "gss": 1,
   "related": [
-    "migrate-to-a-design-system",
     "baseline-ui"
   ],
   "frameworks": [

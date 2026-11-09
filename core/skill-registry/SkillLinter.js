@@ -73,18 +73,21 @@ function lintBody(dir, body) {
   const warnings = [];
   const prose = proseOnly(body);
 
-  // Relative links must point to files that exist (web links and anchors are not checked)
+  // Relative links must point to files that exist. Not checked: web links, anchors,
+  // placeholders like (URL), and links inside `inline code` (examples for the user's project)
   const broken = new Set();
-  for (const m of prose.matchAll(/\[[^\]]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g)) {
+  for (const m of prose.replace(/`[^`\n]*`/g, '').matchAll(/\[[^\]]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g)) {
     const target = m[1].split('#')[0];
     if (!target || /^[a-z][a-z0-9+.-]*:/i.test(target) || target.startsWith('/')) continue;
+    if (!/[./]/.test(target)) continue;
     if (!fs.existsSync(path.resolve(dir, decodeURIComponent(target)))) broken.add(m[1]);
   }
   if (broken.size) warnings.push(`Broken link${broken.size > 1 ? 's' : ''} (file not found): ${[...broken].join(', ')}`);
 
   // Supporting files the instructions tell the agent to open or run
   const missing = new Set();
-  for (const m of prose.matchAll(/(?:^|[\s`'"(])(?:\.\/)?((?:references|scripts|assets)\/[\w./-]*\w\.[a-z0-9]+)/gim)) {
+  // (an HTML attribute value like src="assets/x.mp4" is an example for the user's project, not a skill file)
+  for (const m of prose.matchAll(/(?:^|[\s`(]|(?<!=)['"])(?:\.\/)?((?:references|scripts|assets)\/[\w./-]*\w\.[a-z0-9]+)/gim)) {
     if (!fs.existsSync(path.join(dir, m[1]))) missing.add(m[1]);
   }
   if (missing.size) warnings.push(`Mentions file${missing.size > 1 ? 's' : ''} that this skill doesn't include: ${[...missing].slice(0, 6).join(', ')}${missing.size > 6 ? ` (+${missing.size - 6} more)` : ''}`);

@@ -2,8 +2,7 @@
   "gss": 1,
   "related": [
     "micro-interactions-system",
-    "animation-systems",
-    "improve-animations"
+    "animation-systems"
   ],
   "frameworks": [
     "react",

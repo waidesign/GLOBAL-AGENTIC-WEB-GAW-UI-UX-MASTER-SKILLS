@@ -1,13 +1,13 @@
 {
   "description": "Held-out skill selection cases. NEVER tune the Skill Engine on these: they exist to check that improvements on the tuning set (skill-selection.json) also hold for tasks nobody tuned for. Add real user tasks here. Same format: `relevant` lists acceptable skills; an empty list means no skill should be suggested.",
   "cases": [
-    { "id": "ho-dark-mode-tokens", "domain": "ui", "task": "Add dark mode theming with design tokens to my React app", "relevant": ["design-system-boss", "migrate-to-a-design-system", "better-colors", "oklch-skill", "improve-shadcn", "tailwindcss", "theme-factory"] },
-    { "id": "ho-tactile-buttons", "domain": "ui", "task": "Make the hover and press states of my buttons feel tactile", "relevant": ["micro-interactions-system", "improve-animations", "animation-systems", "baseline-ui"] },
-    { "id": "ho-wcag-contrast", "domain": "ui", "task": "Audit my website for WCAG contrast problems", "relevant": ["fixing-accessibility", "web-design-guidelines", "rams", "better-colors"] },
+    { "id": "ho-dark-mode-tokens", "domain": "ui", "task": "Add dark mode theming with design tokens to my React app", "relevant": ["design-system-boss", "tailwindcss", "theme-factory"] },
+    { "id": "ho-tactile-buttons", "domain": "ui", "task": "Make the hover and press states of my buttons feel tactile", "relevant": ["micro-interactions-system", "animation-systems", "baseline-ui"] },
+    { "id": "ho-wcag-contrast", "domain": "ui", "task": "Audit my website for WCAG contrast problems", "relevant": ["fixing-accessibility", "web-design-guidelines", "rams"] },
     { "id": "ho-mobile-onboarding", "domain": "ui", "task": "Design a mobile onboarding screen in React Native", "relevant": ["react-native-skills", "design-mobile-apps"] },
 
     { "id": "ho-design-doc", "domain": "engineering", "task": "Write a technical design doc together with my team", "relevant": ["doc-coauthoring", "to-spec", "grill-with-docs"] },
-    { "id": "ho-vue-vitest", "domain": "engineering", "task": "Set up Vitest component tests for a Vue app", "relevant": ["vue-testing-best-practices", "tdd"] },
+    { "id": "ho-vue-vitest", "domain": "engineering", "task": "Set up Vitest component tests for a Vue app", "relevant": ["tdd"] },
     { "id": "ho-mcp-python", "domain": "engineering", "task": "Build a Model Context Protocol server in Python", "relevant": ["mcp-builder"] },
     { "id": "ho-supabase-indexes", "domain": "engineering", "task": "Optimize Postgres indexes for slow queries in Supabase", "relevant": ["supabase-postgres-best-practices", "supabase"] },
     { "id": "ho-agent-handoff", "domain": "engineering", "task": "Hand off this coding session to another agent", "relevant": ["handoff", "claude-handoff"] },
@@ -21,7 +21,7 @@
 
     { "id": "ho-text-to-image", "domain": "media", "task": "Generate an AI image from a text prompt", "relevant": ["ai-image-generation", "gpt-image-2", "nano-banana-2", "flux-2-klein", "flux-kontext"] },
     { "id": "ho-lipsync", "domain": "media", "task": "Lip-sync a video to a new voice track", "relevant": ["lipsync", "ai-avatar-video"] },
-    { "id": "ho-remotion-captions", "domain": "media", "task": "Create a Remotion video with animated captions", "relevant": ["remotion-captions", "remotion-create", "remotion-best-practices", "captions-overlay"] },
+    { "id": "ho-remotion-captions", "domain": "media", "task": "Create a Remotion video with animated captions", "relevant": ["remotion-captions", "remotion-create"] },
 
     { "id": "ho-none-protein", "domain": "biology", "task": "Analyze protein folding simulation results", "relevant": [] },
     { "id": "ho-none-lease", "domain": "legal", "task": "Draft a residential lease agreement", "relevant": [] },
